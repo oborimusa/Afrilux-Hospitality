@@ -12,7 +12,10 @@
       content="Urgent hiring: Housekeeping and Waitress positions at Pronto Restaurant & Lounge (Ilorin) and 4T Luxury Hotel (Osogbo). Apply today!"
     />
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -889,370 +892,317 @@
     </div>
 
     <!-- Add EmailJS SDK before your script -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
 
-<script>
-  // ========== JOB DATA ==========
-  const jobs = [
-    {
-      id: 1,
-      title: "Housekeeping Staff",
-      company: "Pronto Restaurant & Lounge",
-      location: "Basin, Ilorin",
-      salary: "₦50,000/month",
-      type: "Full-time",
-      qualification: "NCE / OND",
-      description: "Join our team at Pronto Restaurant & Lounge! We're looking for dedicated housekeeping staff to maintain cleanliness and order in our restaurant and lounge areas.",
-      responsibilities: [
-        "Clean and sanitize restaurant areas, restrooms, and lounge",
-        "Ensure all surfaces are dust-free and polished",
-        "Manage cleaning supplies inventory",
-        "Report maintenance issues promptly",
-        "Maintain high standards of hygiene",
-      ],
-    },
-    {
-      id: 2,
-      title: "Waitress",
-      company: "Pronto Restaurant & Lounge",
-      location: "Basin, Ilorin",
-      salary: "₦60,000/month",
-      type: "Full-time",
-      qualification: "OND / NCE",
-      description: "Pronto Restaurant & Lounge is seeking friendly and professional waitresses to serve drinks and food to guests with excellent customer service.",
-      responsibilities: [
-        "Take customer orders accurately",
-        "Serve food and beverages promptly",
-        "Ensure tables are clean and set properly",
-        "Process payments and handle cash",
-        "Provide excellent customer service",
-        "Assist with opening and closing duties",
-      ],
-    },
-    {
-      id: 3,
-      title: "Housekeeping Staff",
-      company: "4T Luxury Hotel",
-      location: "Osogbo, Osun State",
-      salary: "₦50,000/month",
-      type: "Full-time",
-      qualification: "OND / NCE",
-      description: "4T Luxury Hotel is hiring housekeeping staff to clean rooms and maintain the environment at the highest standards of luxury hospitality.",
-      responsibilities: [
-        "Clean and prepare guest rooms",
-        "Change linens and make beds",
-        "Replenish room supplies",
-        "Maintain public areas cleanliness",
-        "Follow hotel cleaning protocols",
-        "Report any maintenance issues",
-      ],
-    },
-    {
-      id: 4,
-      title: "Front Desk Officer",
-      company: "4T Luxury Hotel",
-      location: "Osogbo, Osun State",
-      salary: "₦65,000/month",
-      type: "Full-time",
-      qualification: "OND / NCE",
-      description: "4T Luxury Hotel is seeking a professional Front Desk Officer to welcome guests, handle check-ins/check-outs, and provide exceptional customer service.",
-      responsibilities: [
-        "Process guest check-ins and check-outs",
-        "Handle reservations and room assignments",
-        "Answer phone calls and respond to inquiries",
-        "Assist guests with requests and complaints",
-        "Maintain accurate records",
-        "Coordinate with housekeeping and other departments",
-      ],
-    },
-  ];
-
-  // ========== DOM ELEMENTS ==========
-  const jobsGrid = document.getElementById("jobsGrid");
-  const applyModal = document.getElementById("applyModal");
-  const modalClose = document.getElementById("modalClose");
-  const applicationForm = document.getElementById("applicationForm");
-
-  // ========== EMAILJS CONFIGURATION ==========
-const EMAILJS_PUBLIC_KEY = "lKbImtg2jppTlsKzi";
-const EMAILJS_SERVICE_ID = "service_efjs7ax";  // ✅ YOUR CORRECT SERVICE ID
-const EMAILJS_TEMPLATE_ID = "template_3klw9zn";  // Try this one first
-
-// Initialize EmailJS
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
-// ========== FORM SUBMISSION HANDLER ==========
-if (applicationForm) {
-  applicationForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const jobTitle = document.getElementById("applyJobTitle")?.value || "";
-    const company = document.getElementById("applyCompany")?.value || "";
-    const name = document.getElementById("applicantName")?.value || "";
-    const email = document.getElementById("applicantEmail")?.value || "";
-    const phone = document.getElementById("applicantPhone")?.value || "";
-    const qualification = document.getElementById("applicantQualification")?.value || "";
-    const experience = document.getElementById("applicantExperience")?.value || "";
-    const message = document.getElementById("applicantMessage")?.value || "";
-
-    if (!name || !email || !phone || !qualification) {
-      showNotification("Please fill in all required fields", "error");
-      return;
-    }
-
-    // Show loading
-    const submitBtn = applicationForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
-
-    try {
-      // Prepare template parameters
-      const templateParams = {
-        title: `${jobTitle} at ${company}`,
-        user_name: name,
-        user_email: email,
-        user_message: `📋 Job Application Details:
-        
-• Position: ${jobTitle}
-• Company: ${company}
-• Name: ${name}
-• Email: ${email}
-• Phone: ${phone}
-• Qualification: ${qualification}
-• Experience: ${experience}
-
-💬 Message:
-${message}
-
----
-Applied via Jobpitality Featured Jobs Page
-Date: ${new Date().toLocaleString()}`,
-      };
-
-      // Send email
-      const response = await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams
-      );
-
-      console.log("Email sent:", response);
-      showNotification(`✅ Application submitted for ${jobTitle}! We'll contact you at ${email} soon.`, "success");
-
-      // Reset and close
-      applicationForm.reset();
-      closeApplyModal();
-
-    } catch (error) {
-      console.error("Email error:", error);
-      showNotification("Error submitting application. Please call +234 803 966 1354 or email acquire@jobpitality.com", "error");
-    } finally {
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }
-  });
-}
-
-  // ========== HELPER FUNCTIONS ==========
-  function escapeHtml(str) {
-    if (!str) return "";
-    return str
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  function showNotification(message, type = "info") {
-    const existing = document.querySelector(".notification");
-    if (existing) existing.remove();
-
-    const notification = document.createElement("div");
-    notification.className = "notification";
-    const icon = type === "success" ? "check-circle" : type === "error" ? "exclamation-circle" : "info-circle";
-    notification.innerHTML = `<i class="fas fa-${icon}" style="color: #ff9e00; margin-right: 0.5rem;"></i> ${escapeHtml(message)}`;
-    document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 4000);
-  }
-
-  function openApplyModal(jobTitle, company) {
-    document.getElementById("applyJobTitle").value = jobTitle;
-    document.getElementById("applyCompany").value = company;
-    applyModal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeApplyModal() {
-    applyModal.classList.remove("active");
-    document.body.style.overflow = "auto";
-    applicationForm.reset();
-  }
-
-  // ========== RENDER JOBS ==========
-  function renderJobs() {
-    jobsGrid.innerHTML = jobs
-      .map(
-        (job) => `
-          <div class="job-card">
-            <div class="job-card-header">
-              <h3>${escapeHtml(job.title)}</h3>
-              <div class="job-company">
-                <i class="fas fa-building"></i> ${escapeHtml(job.company)}
-              </div>
-            </div>
-            <div class="job-card-body">
-              <div class="job-details">
-                <span class="detail-item"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(job.location)}</span>
-                <span class="detail-item"><i class="fas fa-money-bill-wave"></i> <span class="salary">${escapeHtml(job.salary)}</span></span>
-                <span class="detail-item"><i class="fas fa-briefcase"></i> ${escapeHtml(job.type)}</span>
-              </div>
-              
-              <div class="qualification-badge">
-                <i class="fas fa-graduation-cap"></i> Qualification: ${escapeHtml(job.qualification)}
-              </div>
-              
-              <p class="job-description">${escapeHtml(job.description)}</p>
-              
-              <div class="job-description" style="margin-top: 0.5rem;">
-                <strong><i class="fas fa-tasks"></i> Key Responsibilities:</strong>
-                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-                  ${job.responsibilities.map((res) => `<li style="margin-bottom: 0.25rem;">${escapeHtml(res)}</li>`).join("")}
-                </ul>
-              </div>
-              
-              <button class="apply-btn" onclick="openApplyModal('${job.title.replace(/'/g, "\\'")}', '${job.company.replace(/'/g, "\\'")}')">
-                <i class="fas fa-paper-plane"></i> Apply Now
-              </button>
-            </div>
-          </div>
-        `
-      )
-      .join("");
-  }
-
-  // ========== FORM SUBMISSION HANDLER (SINGLE VERSION) ==========
-  if (applicationForm) {
-    applicationForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const jobTitle = document.getElementById("applyJobTitle")?.value || "";
-      const company = document.getElementById("applyCompany")?.value || "";
-      const name = document.getElementById("applicantName")?.value || "";
-      const email = document.getElementById("applicantEmail")?.value || "";
-      const phone = document.getElementById("applicantPhone")?.value || "";
-      const qualification = document.getElementById("applicantQualification")?.value || "";
-      const experience = document.getElementById("applicantExperience")?.value || "";
-      const message = document.getElementById("applicantMessage")?.value || "";
-
-      if (!name || !email || !phone || !qualification) {
-        showNotification("Please fill in all required fields", "error");
-        return;
-      }
-
-      // Show loading
-      const submitBtn = applicationForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      submitBtn.disabled = true;
-
-      try {
-        // Prepare email data
-        const templateParams = {
-          title: `${jobTitle} at ${company}`,
-          user_name: name,
-          user_email: email,
-          user_message: `📋 Job Application Details:
-        
-• Position: ${jobTitle}
-• Company: ${company}
-• Name: ${name}
-• Email: ${email}
-• Phone: ${phone}
-• Qualification: ${qualification}
-• Experience: ${experience}
-
-💬 Message:
-${message}
-
----
-Applied via Jobpitality Featured Jobs Page
-Date: ${new Date().toLocaleString()}`,
-        };
-
-        // Send email via EmailJS
-        const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-        
-        console.log("Email sent:", response);
-        showNotification(`✅ Application submitted for ${jobTitle}! We'll contact you at ${email} soon.`, "success");
-        
-        // Reset and close
-        applicationForm.reset();
-        closeApplyModal();
-        
-      } catch (error) {
-        console.error("Email error:", error);
-        showNotification("Error submitting application. Please call +234 803 966 1354 or email acquire@jobpitality.com", "error");
-      } finally {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }
-    });
-  }
-
-  // ========== MOBILE MENU ==========
-  function initMobileMenu() {
-    const toggle = document.getElementById("mobileMenuToggle");
-    const nav = document.getElementById("mainNav");
-    const overlay = document.getElementById("mobileOverlay");
-
-    if (!toggle || !nav) return;
-
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      overlay.classList.toggle("active");
-      document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "auto";
-      const icon = toggle.querySelector("i");
-      if (icon) {
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
-      }
-    });
-
-    if (overlay) {
-      overlay.addEventListener("click", () => {
-        nav.classList.remove("active");
-        overlay.classList.remove("active");
-        document.body.style.overflow = "auto";
-        const icon = toggle.querySelector("i");
-        if (icon) {
-          icon.classList.add("fa-bars");
-          icon.classList.remove("fa-times");
+   <script>
+    // ========== JOB DATA ==========
+    const jobs = [
+        {
+            id: 1,
+            title: "Housekeeping Staff",
+            company: "Pronto Restaurant & Lounge",
+            location: "Basin, Ilorin",
+            salary: "₦50,000/month",
+            type: "Full-time",
+            qualification: "NCE / OND",
+            description: "Join our team at Pronto Restaurant & Lounge! We're looking for dedicated housekeeping staff to maintain cleanliness and order in our restaurant and lounge areas.",
+            responsibilities: [
+                "Clean and sanitize restaurant areas, restrooms, and lounge",
+                "Ensure all surfaces are dust-free and polished",
+                "Manage cleaning supplies inventory",
+                "Report maintenance issues promptly",
+                "Maintain high standards of hygiene"
+            ]
+        },
+        {
+            id: 2,
+            title: "Waitress",
+            company: "Pronto Restaurant & Lounge",
+            location: "Basin, Ilorin",
+            salary: "₦60,000/month",
+            type: "Full-time",
+            qualification: "OND / NCE",
+            description: "Pronto Restaurant & Lounge is seeking friendly and professional waitresses to serve drinks and food to guests with excellent customer service.",
+            responsibilities: [
+                "Take customer orders accurately",
+                "Serve food and beverages promptly",
+                "Ensure tables are clean and set properly",
+                "Process payments and handle cash",
+                "Provide excellent customer service",
+                "Assist with opening and closing duties"
+            ]
+        },
+        {
+            id: 3,
+            title: "Housekeeping Staff",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Osun State",
+            salary: "₦50,000/month",
+            type: "Full-time",
+            qualification: "OND / NCE",
+            description: "4T Luxury Hotel is hiring housekeeping staff to clean rooms and maintain the environment at the highest standards of luxury hospitality.",
+            responsibilities: [
+                "Clean and prepare guest rooms",
+                "Change linens and make beds",
+                "Replenish room supplies",
+                "Maintain public areas cleanliness",
+                "Follow hotel cleaning protocols",
+                "Report any maintenance issues"
+            ]
+        },
+        {
+            id: 4,
+            title: "Front Desk Officer",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Osun State",
+            salary: "₦65,000/month",
+            type: "Full-time",
+            qualification: "OND / NCE",
+            description: "4T Luxury Hotel is seeking a professional Front Desk Officer to welcome guests, handle check-ins/check-outs, and provide exceptional customer service.",
+            responsibilities: [
+                "Process guest check-ins and check-outs",
+                "Handle reservations and room assignments",
+                "Answer phone calls and respond to inquiries",
+                "Assist guests with requests and complaints",
+                "Maintain accurate records",
+                "Coordinate with housekeeping and other departments"
+            ]
         }
-      });
+    ];
+
+    // ========== DOM ELEMENTS ==========
+    const jobsGrid = document.getElementById("jobsGrid");
+    const applyModal = document.getElementById("applyModal");
+    const modalClose = document.getElementById("modalClose");
+    const applicationForm = document.getElementById("applicationForm");
+
+    // ========== EMAILJS CONFIGURATION ==========
+    const EMAILJS_PUBLIC_KEY = "lKbImtg2jppTlsKzi";
+    const EMAILJS_SERVICE_ID = "service_zami4ma";
+    const EMAILJS_TEMPLATE_ID = "contact_form";
+
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // ========== HELPER FUNCTIONS ==========
+    function escapeHtml(str) {
+        if (!str) return "";
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
     }
-  }
 
-  // ========== MODAL CLOSE HANDLERS ==========
-  if (applyModal) {
-    applyModal.addEventListener("click", (e) => {
-      if (e.target === applyModal) {
-        closeApplyModal();
-      }
+    function showNotification(message, type = "info") {
+        const existing = document.querySelector(".notification");
+        if (existing) existing.remove();
+
+        const notification = document.createElement("div");
+        notification.className = "notification";
+        const icon = type === "success" ? "check-circle" : type === "error" ? "exclamation-circle" : "info-circle";
+        notification.innerHTML = `<i class="fas fa-${icon}" style="color: #ff9e00; margin-right: 0.5rem;"></i> ${escapeHtml(message)}`;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 5000);
+    }
+
+    function openApplyModal(jobTitle, company) {
+        document.getElementById("applyJobTitle").value = jobTitle;
+        document.getElementById("applyCompany").value = company;
+        applyModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeApplyModal() {
+        applyModal.classList.remove("active");
+        document.body.style.overflow = "auto";
+        if (applicationForm) applicationForm.reset();
+    }
+
+    // ========== RENDER JOBS ==========
+    function renderJobs() {
+        if (!jobsGrid) return;
+        jobsGrid.innerHTML = jobs.map(job => `
+            <div class="job-card">
+                <div class="job-card-header">
+                    <h3>${escapeHtml(job.title)}</h3>
+                    <div class="job-company">
+                        <i class="fas fa-building"></i> ${escapeHtml(job.company)}
+                    </div>
+                </div>
+                <div class="job-card-body">
+                    <div class="job-details">
+                        <span class="detail-item"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(job.location)}</span>
+                        <span class="detail-item"><i class="fas fa-money-bill-wave"></i> <span class="salary">${escapeHtml(job.salary)}</span></span>
+                        <span class="detail-item"><i class="fas fa-briefcase"></i> ${escapeHtml(job.type)}</span>
+                    </div>
+
+                    <div class="qualification-badge">
+                        <i class="fas fa-graduation-cap"></i> Qualification: ${escapeHtml(job.qualification)}
+                    </div>
+
+                    <p class="job-description">${escapeHtml(job.description)}</p>
+
+                    <div class="job-description" style="margin-top: 0.5rem;">
+                        <strong><i class="fas fa-tasks"></i> Key Responsibilities:</strong>
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            ${job.responsibilities.map(res => `<li style="margin-bottom: 0.25rem;">${escapeHtml(res)}</li>`).join("")}
+                        </ul>
+                    </div>
+
+                    <button class="apply-btn" onclick="openApplyModal('${job.title.replace(/'/g, "\\'")}', '${job.company.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+            </div>
+        `).join("");
+    }
+
+    // ========== SIMPLIFIED FORM SUBMISSION HANDLER ==========
+    if (applicationForm) {
+        applicationForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const jobTitle = document.getElementById("applyJobTitle")?.value || "";
+            const company = document.getElementById("applyCompany")?.value || "";
+            const name = document.getElementById("applicantName")?.value || "";
+            const email = document.getElementById("applicantEmail")?.value || "";
+            const phone = document.getElementById("applicantPhone")?.value || "";
+            const qualification = document.getElementById("applicantQualification")?.value || "";
+            const experience = document.getElementById("applicantExperience")?.value || "";
+            const message = document.getElementById("applicantMessage")?.value || "";
+
+            // Validation
+            if (!name || !email || !phone || !qualification) {
+                showNotification("❌ Please fill in all required fields", "error");
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification("❌ Please enter a valid email address", "error");
+                return;
+            }
+
+            // Phone validation
+            if (phone.length < 10) {
+                showNotification("❌ Please enter a valid phone number", "error");
+                return;
+            }
+
+            // Show loading
+            const submitBtn = applicationForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                // Send test email first to verify connection
+                console.log("Testing EmailJS connection...");
+                
+                // Send the actual application
+                const response = await emailjs.send(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    {
+                        title: `Job Application: ${jobTitle} at ${company}`,
+                        name: name,
+                        email: email,
+                        job_title: jobTitle,
+                        company: company,
+                        from_name: name,
+                        from_email: email,
+                        phone: phone,
+                        qualification: qualification,
+                        experience: experience,
+                        message: message || "No additional message provided"
+                    }
+                );
+
+                console.log("✅ Email sent successfully:", response);
+                showNotification(`✅ Application submitted for ${jobTitle}! We'll contact you soon.`, "success");
+                
+                applicationForm.reset();
+                closeApplyModal();
+
+            } catch (error) {
+                console.error("❌ Email error:", error);
+                
+                // Show detailed error message
+                let errorMsg = "Error submitting application. ";
+                if (error.text) {
+                    errorMsg += "Template mismatch. Please check EmailJS template variables.";
+                } else {
+                    errorMsg += "Please call +234 803 966 1354 or email acquire@jobpitality.com";
+                }
+                showNotification(errorMsg, "error");
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // ========== MOBILE MENU ==========
+    function initMobileMenu() {
+        const toggle = document.getElementById("mobileMenuToggle");
+        const nav = document.getElementById("mainNav");
+        const overlay = document.getElementById("mobileOverlay");
+
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            overlay.classList.toggle("active");
+            document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "auto";
+            const icon = toggle.querySelector("i");
+            if (icon) {
+                icon.classList.toggle("fa-bars");
+                icon.classList.toggle("fa-times");
+            }
+        });
+
+        if (overlay) {
+            overlay.addEventListener("click", () => {
+                nav.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.style.overflow = "auto";
+                const icon = toggle.querySelector("i");
+                if (icon) {
+                    icon.classList.add("fa-bars");
+                    icon.classList.remove("fa-times");
+                }
+            });
+        }
+    }
+
+    // ========== MODAL CLOSE HANDLERS ==========
+    if (applyModal) {
+        applyModal.addEventListener("click", (e) => {
+            if (e.target === applyModal) {
+                closeApplyModal();
+            }
+        });
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener("click", closeApplyModal);
+    }
+
+    // ========== INITIALIZE ==========
+    document.addEventListener("DOMContentLoaded", () => {
+        renderJobs();
+        initMobileMenu();
+        console.log("✅ Jobpitality initialized");
+        console.log("📧 EmailJS Template ID:", EMAILJS_TEMPLATE_ID);
+        console.log("📧 Service ID:", EMAILJS_SERVICE_ID);
     });
-  }
-
-  if (modalClose) {
-    modalClose.addEventListener("click", closeApplyModal);
-  }
-
-  // ========== INITIALIZE ==========
-  document.addEventListener("DOMContentLoaded", () => {
-    renderJobs();
-    initMobileMenu();
-  });
-  
 </script>
   </body>
 </html>
