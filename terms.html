@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
     />
-    <title>AfriLux Hospitality | Precision Talent for Luxury Hospitality</title>
+    <title>Terms & Conditions | AfriLux Hospitality</title>
     <meta
       name="description"
-      content="AfriLux Hospitality connects elite talent with luxury hotels, resorts, and hospitality groups across Africa. Executive search, HR consulting, and operational management."
+      content="AfriLux Hospitality Terms & Conditions. Read the legal terms governing your use of our website and services."
     />
 
     <!-- Font Awesome -->
@@ -35,41 +35,30 @@
       }
 
       :root {
-        /* AfriLux Hospitality Color Palette */
         --color-primary: #0A1628;
-        --color-primary-dark: #050A14;
         --color-gold: #C9A84C;
         --color-gold-light: #E8C84A;
-        --color-gold-dark: #A8873A;
         --color-white: #FFFFFF;
         --color-charcoal: #2D2D2D;
         --color-gray-soft: #F4F2EE;
         --color-gray-200: #E8E5DF;
-        --color-gray-300: #D5D0C8;
         --color-gray-600: #8A8580;
         --color-gray-700: #5A5550;
         --color-success: #2A9D8F;
-        --color-emergency: #E63946;
-
         --font-serif: 'Playfair Display', Georgia, serif;
         --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-
-        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
         --radius-lg: 12px;
         --radius-md: 8px;
+        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       body {
         font-family: var(--font-sans);
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.7;
         color: var(--color-charcoal);
         background: var(--color-white);
         overflow-x: hidden;
@@ -98,27 +87,28 @@
       }
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
       h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        margin: 2rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-gold);
+      }
+      h3 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin: 1.25rem 0 0.5rem;
+        color: var(--color-primary);
       }
 
       @media (min-width: 768px) {
         h1 {
-          font-size: 3.5rem;
-        }
-        h2 {
           font-size: 2.8rem;
         }
-      }
-      @media (min-width: 1024px) {
-        h1 {
-          font-size: 4.5rem;
-        }
         h2 {
-          font-size: 3.2rem;
+          font-size: 2rem;
         }
       }
 
@@ -140,13 +130,13 @@
         border: none;
         font-family: var(--font-sans);
         min-height: 48px;
-        width: 100%;
         text-decoration: none;
+        width: 100%;
       }
       @media (min-width: 640px) {
         .btn {
           width: auto;
-          padding: 1rem 2.5rem;
+          padding: 1rem 2.25rem;
         }
       }
 
@@ -158,91 +148,6 @@
         background: var(--color-gold-light);
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
-      }
-
-      .btn-outline-gold {
-        background: transparent;
-        color: var(--color-gold);
-        border: 2px solid var(--color-gold);
-      }
-      .btn-outline-gold:hover {
-        background: var(--color-gold);
-        color: var(--color-primary);
-        transform: translateY(-2px);
-      }
-
-      .btn-outline-white {
-        background: transparent;
-        color: var(--color-white);
-        border: 2px solid var(--color-white);
-      }
-      .btn-outline-white:hover {
-        background: var(--color-white);
-        color: var(--color-primary);
-        transform: translateY(-2px);
-      }
-
-      .btn-block {
-        width: 100%;
-      }
-      .btn-large {
-        padding: 1.25rem 3rem;
-        font-size: 1.1rem;
-      }
-
-      /* ===== WHATSAPP ===== */
-      .whatsapp-desktop {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: #25d366;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-      }
-      .whatsapp-desktop:hover {
-        background: #128c7e;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      }
-      .whatsapp-desktop i {
-        font-size: 1.25rem;
-      }
-      @media (max-width: 768px) {
-        .whatsapp-desktop {
-          display: none;
-        }
-      }
-
-      .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25d366;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        transition: all 0.3s;
-        text-decoration: none;
-      }
-      .whatsapp-float:hover {
-        transform: scale(1.1);
-        background-color: #128c7e;
-      }
-      @media (min-width: 769px) {
-        .whatsapp-float {
-          display: none;
-        }
       }
 
       /* ===== HEADER ===== */
@@ -367,7 +272,7 @@
           padding: 80px 20px 30px;
           transition: right 0.3s ease;
           z-index: 1001;
-          box-shadow: var(--shadow-xl);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
           overflow-y: auto;
           gap: 1rem;
         }
@@ -451,7 +356,7 @@
         background: var(--color-white);
         min-width: 240px;
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-2xl);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         padding: 0.5rem 0;
         opacity: 0;
         visibility: hidden;
@@ -591,299 +496,92 @@
         display: block;
       }
 
-      /* ===== HERO ===== */
-      .hero {
-        padding: 3rem 0 4rem;
-        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
-        color: var(--color-white);
-        position: relative;
-        overflow: hidden;
-      }
-      .hero::after {
-        content: '✦';
-        position: absolute;
-        bottom: -50px;
-        right: -50px;
-        font-size: 300px;
-        color: rgba(201, 168, 76, 0.05);
-        pointer-events: none;
-      }
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .hero-badge {
-        background: rgba(201, 168, 76, 0.15);
-        color: var(--color-gold);
-        border: 1px solid rgba(201, 168, 76, 0.3);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        font-size: 0.85rem;
-        letter-spacing: 0.5px;
-        backdrop-filter: blur(4px);
-      }
-      .hero h1 {
-        color: var(--color-white);
-        margin-bottom: 1rem;
-      }
-      .hero h1 .gold {
-        color: var(--color-gold);
-      }
-      .hero-subtitle {
-        font-size: 1.15rem;
-        color: rgba(255, 255, 255, 0.85);
-        max-width: 700px;
-        margin: 0 auto 2rem;
-        line-height: 1.7;
-      }
-      .hero-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2.5rem;
-      }
-      @media (min-width: 640px) {
-        .hero-actions {
-          flex-direction: row;
-          gap: 1.5rem;
-        }
-      }
-      .hero-stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
-      }
-      @media (min-width: 640px) {
-        .hero-stats {
-          flex-direction: row;
-          justify-content: center;
-          gap: 3rem;
-        }
-      }
-      .stat-item {
-        text-align: center;
-      }
-      .stat-number {
-        font-family: var(--font-serif);
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--color-gold);
-        display: block;
-        line-height: 1;
-      }
-      .stat-label {
-        font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.7);
-        font-weight: 500;
-      }
-
-      /* ===== CLIENTS LOGO BAR ===== */
-      .clients-bar {
-        padding: 2rem 0;
-        background: var(--color-gray-soft);
-        border-top: 1px solid var(--color-gray-200);
-        border-bottom: 1px solid var(--color-gray-200);
-      }
-      .clients-bar-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem 2.5rem;
-      }
-      .clients-bar-label {
-        font-weight: 700;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--color-gray-600);
-      }
-      .client-logo-item {
-        font-family: var(--font-serif);
-        font-weight: 700;
-        color: var(--color-primary);
-        font-size: 0.9rem;
-        opacity: 0.7;
-        transition: opacity var(--transition-fast);
-        white-space: nowrap;
-      }
-      .client-logo-item:hover {
-        opacity: 1;
-      }
-      .client-logo-item .gold {
-        color: var(--color-gold);
-      }
-
-      /* ===== FEATURED SERVICES ===== */
-      .services-section {
-        padding: 4rem 0;
-        background: var(--color-white);
-      }
-      .services-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-      @media (min-width: 640px) {
-        .services-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        .services-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
-        }
-      }
-      .service-card {
-        text-align: center;
-        padding: 2rem 1.5rem;
-        border: 1px solid var(--color-gray-200);
-        border-radius: var(--radius-lg);
-        transition: all var(--transition-normal);
-        background: var(--color-white);
-      }
-      .service-card:hover {
-        transform: translateY(-6px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--color-gold);
-      }
-      .service-icon {
-        font-size: 2.5rem;
-        color: var(--color-gold);
-        margin-bottom: 1rem;
-      }
-      .service-card h3 {
-        font-family: var(--font-serif);
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
-        color: var(--color-primary);
-      }
-      .service-card p {
-        color: var(--color-gray-600);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      /* ===== CASE STUDIES PREVIEW ===== */
-      .case-preview {
-        padding: 4rem 0;
-        background: var(--color-gray-soft);
-      }
-      .case-preview-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-      @media (min-width: 640px) {
-        .case-preview-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        .case-preview-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-        }
-      }
-      .case-card {
-        background: var(--color-white);
-        border-radius: var(--radius-lg);
-        padding: 1.5rem;
-        border: 1px solid var(--color-gray-200);
-        transition: all var(--transition-normal);
-      }
-      .case-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--color-gold);
-      }
-      .case-card .case-tag {
-        display: inline-block;
-        background: rgba(201, 168, 76, 0.1);
-        color: var(--color-gold-dark);
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        padding: 0.2rem 0.8rem;
-        border-radius: 50px;
-        margin-bottom: 0.75rem;
-        letter-spacing: 0.5px;
-      }
-      .case-card h3 {
-        font-family: var(--font-serif);
-        font-size: 1.1rem;
-        margin-bottom: 0.25rem;
-      }
-      .case-card .case-location {
-        font-size: 0.85rem;
-        color: var(--color-gray-600);
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .case-card p {
-        color: var(--color-gray-700);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-      }
-      .case-card .case-result {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--color-success);
-        font-weight: 700;
-        font-size: 0.85rem;
-      }
-
-      /* ===== CTA BANNER ===== */
-      .cta-banner {
-        padding: 4rem 0;
+      /* ===== LEGAL CONTENT ===== */
+      .legal-hero {
+        padding: 3rem 0 2rem;
         background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
         color: var(--color-white);
         text-align: center;
-        border-top: 3px solid var(--color-gold);
         border-bottom: 3px solid var(--color-gold);
       }
-      .cta-banner h2 {
+      .legal-hero h1 {
         color: var(--color-white);
         margin-bottom: 0.5rem;
       }
-      .cta-banner .lead {
+      .legal-hero .lead {
         color: rgba(255, 255, 255, 0.85);
-        max-width: 700px;
-        margin: 0 auto 2rem;
         font-size: 1.05rem;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
       }
-      .cta-banner .btn-group {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
+
+      .legal-content {
+        padding: 3rem 0 4rem;
+        background: var(--color-white);
       }
-      @media (min-width: 640px) {
-        .cta-banner .btn-group {
-          flex-direction: row;
-          gap: 1.5rem;
+      .legal-content .legal-body {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: 2rem 1.5rem;
+        border: 1px solid var(--color-gray-200);
+        box-shadow: var(--shadow-md);
+      }
+      @media (min-width: 768px) {
+        .legal-content .legal-body {
+          padding: 2.5rem 3rem;
         }
+      }
+      .legal-content .legal-body p {
+        color: var(--color-gray-700);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+      .legal-content .legal-body ul {
+        margin: 0.5rem 0 1.25rem 1.5rem;
+        list-style: none;
+      }
+      .legal-content .legal-body ul li {
+        padding: 0.3rem 0;
+        color: var(--color-gray-700);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      .legal-content .legal-body ul li i {
+        color: var(--color-gold);
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        min-width: 16px;
+      }
+      .legal-content .legal-body .last-updated {
+        background: var(--color-gray-soft);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        color: var(--color-gray-600);
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--color-gray-200);
+      }
+      .legal-content .legal-body .highlight-box {
+        background: rgba(201, 168, 76, 0.05);
+        border-left: 4px solid var(--color-gold);
+        padding: 1.25rem 1.5rem;
+        border-radius: var(--radius-md);
+        margin: 1.25rem 0;
+      }
+      .legal-content .legal-body .highlight-box p {
+        margin-bottom: 0;
+      }
+
+      .back-to-top {
+        text-align: center;
+        margin-top: 2rem;
       }
 
       /* ===== FOOTER ===== */
@@ -960,6 +658,7 @@
         justify-content: center;
         gap: 1.5rem;
         margin-top: 0.5rem;
+        flex-wrap: wrap;
       }
       .footer-bottom-links a {
         color: rgba(255, 255, 255, 0.4);
@@ -969,33 +668,84 @@
         color: var(--color-gold);
       }
 
+      .whatsapp-desktop {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #25d366;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .whatsapp-desktop:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+      .whatsapp-desktop i {
+        font-size: 1.25rem;
+      }
+      @media (max-width: 768px) {
+        .whatsapp-desktop {
+          display: none;
+        }
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128c7e;
+      }
+      @media (min-width: 769px) {
+        .whatsapp-float {
+          display: none;
+        }
+      }
+
       /* ===== RESPONSIVE ===== */
       @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.2rem;
+        .legal-hero h1 {
+          font-size: 2rem;
         }
-        .hero-subtitle {
-          font-size: 1rem;
+        .legal-content .legal-body {
+          padding: 1.25rem;
         }
-        .stat-number {
-          font-size: 1.6rem;
-        }
-        .clients-bar-content {
-          gap: 1rem 1.5rem;
-        }
-        .client-logo-item {
-          font-size: 0.75rem;
+        .legal-content .legal-body h2 {
+          font-size: 1.3rem;
         }
       }
       @media (max-width: 480px) {
-        .hero h1 {
-          font-size: 1.8rem;
+        .legal-hero h1 {
+          font-size: 1.6rem;
         }
         .logo .brand-name {
           font-size: 1.3rem;
         }
-        .service-card {
-          padding: 1.5rem 1rem;
+        .legal-content .legal-body {
+          padding: 1rem;
+        }
+        .legal-content .legal-body ul {
+          margin-left: 0;
         }
       }
     </style>
@@ -1026,33 +776,17 @@
             </button>
             <ul class="nav-menu">
               <li class="nav-item">
-                <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
               </li>
-
               <li class="nav-item">
-                <a href="/services/index.html" class="nav-link"><i class="fas fa-info-circle"></i> Services</a>
+                <a href="/services/" class="nav-link"><i class="fas fa-crosshairs"></i> Services</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle">
-                  <i class="fas fa-crosshairs"></i> Services
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-                <div >
-                  <a href="/services/index.html" class="dropdown-item"><i class="fas fa-search"></i> Services</a> -->
-                  <!-- <a href="/services/hotel-leadership/" class="dropdown-item"><i class="fas fa-hotel"></i> Hotel Leadership</a>
-                  <a href="/services/culinary-leadership/" class="dropdown-item"><i class="fas fa-utensils"></i> Culinary Leadership</a>
-                  <a href="/services/operational-management/" class="dropdown-item"><i class="fas fa-building"></i> Operational Management</a>
-                  <div class="dropdown-divider"></div>
-                  <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-gold); font-weight: 700;"><i class="fas fa-shield-alt"></i> 72-Hour Guarantee</a> -->
-                <!-- </div>
-              </li> -->
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle">
                   <i class="fas fa-building"></i> Employers
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <!-- <a href="/employers/our-process/" class="dropdown-item"><i class="fas fa-play-circle"></i> Our Process</a> -->
                   <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
                   <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
                   <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
@@ -1098,147 +832,215 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="legal-hero">
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-crown"></i> Nigeria's Premier Hospitality Talent Partner
+        <h1>Terms &amp; <span class="text-gold">Conditions</span></h1>
+        <p class="lead">Legal terms governing your use of our website and services.</p>
+      </div>
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <section class="legal-content">
+      <div class="container">
+        <div class="legal-body">
+
+          <div class="last-updated">
+            <i class="fas fa-clock"></i> <strong>Last Updated:</strong> <span id="currentDate"></span>
           </div>
-          <h1>Precision Talent for <span class="gold">Africa's Luxury</span> Hospitality</h1>
-          <p class="hero-subtitle">
-            AfriLux Hospitality connects elite professionals with luxury hotels, resorts,
-            and hospitality groups across Africa. Executive search, HR consulting,
-            and operational management – delivered with precision.
+
+          <p>
+            Welcome to AfriLux Hospitality. By accessing or using our website,
+            services, and platform (collectively, the "Services"), you agree to
+            comply with and be bound by the following Terms and Conditions.
+            Please read these terms carefully before using our Services.
           </p>
-          <div class="hero-actions">
-            <a href="/contact/" class="btn btn-gold btn-large">
-              <i class="fas fa-handshake"></i> Partner With Us
+
+          <p>
+            If you do not agree with any part of these terms, you must not use
+            our Services. By using our Services, you accept these terms in full.
+          </p>
+
+          <h2>1. Definitions</h2>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>"AfriLux Hospitality"</strong> refers to AfriLux Hospitality and its affiliates.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>"Services"</strong> refers to our job board, executive search, HR consulting, and operational management services.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>"User"</strong> refers to any individual or entity using our Services.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>"Employer"</strong> refers to any User posting job opportunities or searching for talent.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>"Candidate"</strong> refers to any User applying for jobs or submitting a profile.</li>
+          </ul>
+
+          <h2>2. Acceptance of Terms</h2>
+          <p>
+            By using our Services, you confirm that you have read, understood,
+            and agree to these Terms and Conditions. If you are using our Services
+            on behalf of a company or organisation, you represent that you have
+            the authority to bind that entity to these terms.
+          </p>
+
+          <h2>3. Eligibility</h2>
+          <p>
+            You must be at least 18 years old to use our Services. By using our
+            Services, you represent and warrant that you are at least 18 years of
+            age and have the legal capacity to enter into these terms.
+          </p>
+
+          <div class="highlight-box">
+            <p><strong>Important:</strong> You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+          </div>
+
+          <h2>4. User Accounts</h2>
+          <p>
+            To access certain features, you may be required to create an account.
+            You agree to provide accurate, current, and complete information and
+            to update it as necessary. You are solely responsible for maintaining
+            the security of your account and password.
+          </p>
+
+          <h2>5. Job Postings &amp; Applications</h2>
+
+          <h3>5.1 For Employers</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> You are responsible for the accuracy and legality of all job postings</li>
+            <li><i class="fas fa-check-circle"></i> You agree not to post discriminatory, misleading, or fraudulent job advertisements</li>
+            <li><i class="fas fa-check-circle"></i> You agree to respond to applications in a timely and professional manner</li>
+            <li><i class="fas fa-check-circle"></i> You agree to pay any applicable fees for job postings or services rendered</li>
+          </ul>
+
+          <h3>5.2 For Candidates</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> You are responsible for the accuracy and truthfulness of all information you provide</li>
+            <li><i class="fas fa-check-circle"></i> You agree not to submit fraudulent or misleading applications</li>
+            <li><i class="fas fa-check-circle"></i> You acknowledge that we do not guarantee employment or specific outcomes</li>
+            <li><i class="fas fa-check-circle"></i> You agree to respect the confidentiality of any employer information you receive</li>
+          </ul>
+
+          <h2>6. Payment Terms</h2>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>Job Postings:</strong> Fees are due upon submission and are non-refundable unless otherwise stated</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Executive Search:</strong> A 50% deposit is required before the search begins, with the remaining 50% due upon successful placement</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Operational Management:</strong> Fees are invoiced monthly and due within 15 days</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Late Payments:</strong> We reserve the right to charge interest on overdue payments at 1.5% per month</li>
+          </ul>
+
+          <h2>7. Refund Policy</h2>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>Job Postings:</strong> Non-refundable once posted</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Executive Search:</strong> 90-day guarantee – if the placement doesn't work out, we will replace the candidate at no additional cost</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Operational Management:</strong> Pro-rata refunds for unused months with 30 days' notice</li>
+          </ul>
+
+          <h2>8. Intellectual Property</h2>
+          <p>
+            All content on our website, including text, graphics, logos, and
+            software, is the property of AfriLux Hospitality or its licensors and
+            is protected by copyright, trademark, and other intellectual property laws.
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> You may not reproduce, distribute, or create derivative works from our content without our express written consent</li>
+            <li><i class="fas fa-check-circle"></i> You retain ownership of content you submit (e.g., job postings, CVs) but grant us a license to use it to provide our Services</li>
+          </ul>
+
+          <h2>9. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by law, AfriLux Hospitality shall not
+            be liable for any direct, indirect, incidental, consequential, or
+            punitive damages arising from:
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Your use of our Services</li>
+            <li><i class="fas fa-check-circle"></i> Any inaccuracies in job postings or candidate profiles</li>
+            <li><i class="fas fa-check-circle"></i> Any employment decisions or outcomes</li>
+            <li><i class="fas fa-check-circle"></i> Any third-party conduct or content</li>
+          </ul>
+          <p>
+            Our total liability for any claim arising from these terms shall not
+            exceed the total amount paid by you to us in the 12 months preceding
+            the claim.
+          </p>
+
+          <div class="highlight-box">
+            <p><strong>Disclaimer:</strong> We do not guarantee that our Services will be uninterrupted, error-free, or secure. We provide our Services "as is" without warranties of any kind.</p>
+          </div>
+
+          <h2>10. Indemnification</h2>
+          <p>
+            You agree to indemnify, defend, and hold harmless AfriLux Hospitality
+            and its affiliates, officers, directors, employees, and agents from
+            and against any and all claims, liabilities, damages, losses, and
+            expenses arising from:
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Your use of our Services</li>
+            <li><i class="fas fa-check-circle"></i> Your violation of these terms</li>
+            <li><i class="fas fa-check-circle"></i> Your violation of any applicable laws or regulations</li>
+            <li><i class="fas fa-check-circle"></i> Your infringement of any third-party rights</li>
+          </ul>
+
+          <h2>11. Termination</h2>
+          <p>
+            We reserve the right to suspend or terminate your access to our
+            Services at any time, with or without notice, for any reason,
+            including but not limited to:
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Violation of these terms</li>
+            <li><i class="fas fa-check-circle"></i> Fraudulent or illegal activity</li>
+            <li><i class="fas fa-check-circle"></i> Non-payment of fees</li>
+            <li><i class="fas fa-check-circle"></i> Upon request, we will delete your account and personal data (subject to legal retention requirements)</li>
+          </ul>
+
+          <h2>12. Third-Party Links</h2>
+          <p>
+            Our website may contain links to third-party websites. We are not
+            responsible for the content, privacy practices, or availability of
+            these external sites. Any access to third-party sites is at your own
+            risk.
+          </p>
+
+          <h2>13. Governing Law &amp; Dispute Resolution</h2>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>Governing Law:</strong> These terms are governed by the laws of the Federal Republic of Nigeria</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Jurisdiction:</strong> Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Nigeria</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Alternative Dispute Resolution:</strong> We encourage resolution through mediation or arbitration before litigation</li>
+          </ul>
+
+          <h2>14. Changes to These Terms</h2>
+          <p>
+            We may update these Terms and Conditions from time to time. Any
+            changes will be posted on this page with an updated "Last Updated"
+            date. We encourage you to review these terms periodically.
+          </p>
+
+          <h2>15. Severability</h2>
+          <p>
+            If any provision of these terms is found to be invalid or unenforceable,
+            the remaining provisions shall remain in full force and effect.
+          </p>
+
+          <h2>16. Entire Agreement</h2>
+          <p>
+            These terms constitute the entire agreement between you and AfriLux
+            Hospitality regarding your use of our Services and supersede all
+            prior agreements and understandings.
+          </p>
+
+          <h2>17. Contact Us</h2>
+          <p>
+            If you have any questions, concerns, or requests regarding these
+            Terms and Conditions, please contact us:
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>Email:</strong> <a href="mailto:acquire@afriluxhospitality.com" style="color: var(--color-gold);">acquire@afriluxhospitality.com</a></li>
+            <li><i class="fas fa-check-circle"></i> <strong>Phone:</strong> <a href="tel:+2348039661354" style="color: var(--color-gold);">+234 803 966 1354</a></li>
+            <li><i class="fas fa-check-circle"></i> <strong>Address:</strong> Ilorin, Kwara, Nigeria</li>
+          </ul>
+
+          <div class="back-to-top">
+            <a href="#" class="btn btn-gold">
+              <i class="fas fa-arrow-up"></i> Back to Top
             </a>
-            <a href="/candidates/job-board/" class="btn btn-outline-white btn-large">
-              <i class="fas fa-briefcase"></i> Browse Opportunities
-            </a>
           </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">5+</span>
-              <span class="stat-label">Active Partners</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">4</span>
-              <span class="stat-label">Cities Served</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">94%</span>
-              <span class="stat-label">Retention Rate</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">100+</span>
-              <span class="stat-label">Placements Made</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===== CLIENTS BAR ===== -->
-    <section class="clients-bar">
-      <div class="container">
-        <div class="clients-bar-content">
-          <span class="clients-bar-label"><i class="fas fa-hotel"></i> Trusted By</span>
-          <span class="client-logo-item">Calmcity <span class="gold">Hotel</span></span>
-          <span class="client-logo-item">Princess <span class="gold">Hotel</span></span>
-          <span class="client-logo-item">Pronto <span class="gold">Restaurant</span></span>
-          <span class="client-logo-item">Golden <span class="gold">Sands</span></span>
-          <span class="client-logo-item">4T <span class="gold">Luxury Hotel</span></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
-    <section class="services-section">
-      <div class="container">
-        <h2 style="text-align: center;">Our <span class="text-gold">Services</span></h2>
-        <p style="text-align: center; color: var(--color-gray-600); max-width: 700px; margin: 0 auto 1rem;">
-          Precision talent solutions for every hospitality need.
-        </p>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-search"></i></div>
-            <h3>Executive Search</h3>
-            <p>Discreet, surgical placement of General Managers, Directors, and C-suite leaders for luxury properties.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-hotel"></i></div>
-            <h3>Hotel Leadership</h3>
-            <p>Specialized placement for Heads of Departments, F&B Directors, Revenue Managers, and Operations leaders.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-building"></i></div>
-            <h3>Operational Management</h3>
-            <p>Full operational oversight – we run the property, manage teams, and drive revenue growth.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-            <h3>HR Consulting</h3>
-            <p>Strategic HR advisory, recruitment workflow design, and talent pipeline development for hospitality groups.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CASE STUDIES PREVIEW ===== -->
-    <section class="case-preview">
-      <div class="container">
-        <h2 style="text-align: center;">Featured <span class="text-gold">Client Stories</span></h2>
-        <p style="text-align: center; color: var(--color-gray-600); max-width: 700px; margin: 0 auto 1rem;">
-          Real results from real partnerships.
-        </p>
-        <div class="case-preview-grid">
-          <div class="case-card">
-            <span class="case-tag">Executive Management</span>
-            <h3>4T Luxury Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Osogbo, Osun State</div>
-            <p>Full operational management, SOP implementation, and revenue optimization resulting in 35% growth.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 35% revenue growth</span>
-          </div>
-          <div class="case-card">
-            <span class="case-tag">Talent Placement</span>
-            <h3>Calmcity Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</div>
-            <p>Sourced and placed key operational staff, stabilizing front-office and housekeeping teams during peak season.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 100% retention</span>
-          </div>
-          <div class="case-card">
-            <span class="case-tag">HR Consulting</span>
-            <h3>Princess Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</div>
-            <p>Redesigned recruitment workflows, implemented performance systems, and built a sustainable talent pipeline.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 40% faster hiring</span>
-          </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="/case-studies/" class="btn btn-gold">
-            <i class="fas fa-chart-line"></i> View All Case Studies
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA BANNER ===== -->
-    <section class="cta-banner">
-      <div class="container">
-        <h2>Ready to build your <span class="text-gold">elite team</span>?</h2>
-        <p class="lead">
-          Whether you need a single critical hire or full operational management,
-          AfriLux Hospitality delivers precision talent for luxury hospitality.
-        </p>
-        <div class="btn-group">
-          <a href="/contact/" class="btn btn-gold btn-large">
-            <i class="fas fa-handshake"></i> Partner With Us
-          </a>
-          <a href="tel:+2348039661354" class="btn btn-outline-white btn-large">
-            <i class="fas fa-phone"></i> Call +234 803 966 1354
-          </a>
         </div>
       </div>
     </section>
@@ -1259,9 +1061,10 @@
           <div class="footer-column">
             <h3>For Candidates</h3>
             <ul class="footer-links">
-              <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
+              <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Job Board</a></li>
               <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
               <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+              <li><a href="/candidates/confidentiality/"><i class="fas fa-chevron-right"></i> Confidential Process</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -1287,11 +1090,11 @@
           <p>&copy; <span id="currentYear"></span> AfriLux Hospitality. All rights reserved.</p>
           <div class="footer-bottom-links">
             <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Service</a>
+            <a href="/terms.html" style="color: var(--color-gold); font-weight: 700;">Terms of Service</a>
           </div>
         </div>
         <a
-          href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%27m%20interested%20in%20your%20services"
+          href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20have%20a%20question%20about%20terms"
           target="_blank"
           class="whatsapp-desktop"
           rel="noopener noreferrer"
@@ -1304,7 +1107,7 @@
     </footer>
 
     <a
-      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20assistance"
+      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20have%20a%20question"
       class="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
@@ -1318,7 +1121,14 @@
         // Current year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Mobile Menu ---
+        // Current date for last updated
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+
+        // ============================================================
+        // MOBILE MENU
+        // ============================================================
         const mobileToggle = document.getElementById('mobileMenuToggle');
         const mainNav = document.getElementById('mainNav');
         const overlay = document.getElementById('mobileOverlay');

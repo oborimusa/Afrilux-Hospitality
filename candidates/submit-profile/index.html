@@ -1,214 +1,390 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Your Profile | Jobpitality Nigeria - Hospitality Talent Database</title>
-    <meta name="description" content="Submit your hospitality profile to Jobpitality Nigeria's exclusive talent database. Connect with premium hotel, restaurant, and hospitality opportunities across Nigeria.">
-    
-    <!-- Font Awesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
+    <title>Submit Profile | AfriLux Hospitality – Join Our Talent Network</title>
+    <meta
+      name="description"
+      content="Submit your profile to AfriLux Hospitality and get matched with elite luxury hospitality roles across Nigeria and Africa."
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-    /* ===== CSS RESET & BASE ===== */
-    * {
+      /* ===== RESET & VARIABLES ===== */
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
-    
-    :root {
-        /* Jobpitality Color Palette */
-        --color-primary: #0d1b2a;      /* Deep Navy */
-        --color-primary-dark: #070d13;
-        --color-accent: #ff9e00;       /* Vibrant Orange */
-        --color-accent-dark: #cc7e00;
-        --color-success: #2a9d8f;      /* Teal */
-        --color-success-dark: #21867a;
-        --color-emergency: #e63946;    /* Crimson */
-        --color-emergency-dark: #c1121f;
-        --color-gray-900: #1b263b;
-        --color-gray-800: #415a77;
-        --color-gray-700: #778da9;
-        --color-gray-600: #a0aec0;
-        --color-gray-300: #e2e8f0;
-        --color-gray-200: #edf2f7;
-        --color-gray-100: #f7fafc;
-        --color-white: #ffffff;
-        
-        /* Typography */
+      }
+
+      :root {
+        --color-primary: #0A1628;
+        --color-primary-dark: #050A14;
+        --color-gold: #C9A84C;
+        --color-gold-light: #E8C84A;
+        --color-gold-dark: #A8873A;
+        --color-white: #FFFFFF;
+        --color-charcoal: #2D2D2D;
+        --color-gray-soft: #F4F2EE;
+        --color-gray-200: #E8E5DF;
+        --color-gray-300: #D5D0C8;
+        --color-gray-600: #8A8580;
+        --color-gray-700: #5A5550;
+        --color-success: #2A9D8F;
+        --color-emergency: #E63946;
+
+        --font-serif: 'Playfair Display', Georgia, serif;
         --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-        
-        /* Spacing */
-        --space-xs: 0.5rem;
-        --space-sm: 1rem;
-        --space-md: 1.5rem;
-        --space-lg: 2rem;
-        --space-xl: 3rem;
-        --space-2xl: 4rem;
-        --space-3xl: 6rem;
-        
-        /* Border Radius */
-        --radius-sm: 4px;
-        --radius-md: 8px;
-        --radius-lg: 12px;
-        --radius-xl: 16px;
-        --radius-2xl: 20px;
-        
-        /* Shadows */
+
         --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
         --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        
-        /* Transitions */
+
         --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
         --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-        scroll-padding-top: 100px;
-    }
-    
-    body {
+        --radius-lg: 12px;
+        --radius-md: 8px;
+      }
+
+      body {
         font-family: var(--font-sans);
         font-weight: 400;
         line-height: 1.6;
-        color: var(--color-gray-800);
+        color: var(--color-charcoal);
         background: var(--color-white);
         overflow-x: hidden;
-    }
-    
-    .container {
-        width: 100%;
+      }
+
+      .container {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 0 var(--space-md);
-    }
-    
-    /* ===== HEADER & NAVIGATION ===== */
-    .site-header {
-        background: var(--color-white);
+        padding: 0 16px;
+      }
+      @media (min-width: 640px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-serif);
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--color-primary);
+        letter-spacing: -0.02em;
+      }
+
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+      @media (min-width: 768px) {
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+      }
+      @media (min-width: 1024px) {
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 3.2rem; }
+      }
+
+      .text-gold {
+        color: var(--color-gold);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border-radius: 50px;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        border: none;
+        font-family: var(--font-sans);
+        min-height: 48px;
+        width: 100%;
+        text-decoration: none;
+      }
+      @media (min-width: 640px) {
+        .btn {
+          width: auto;
+          padding: 1rem 2.5rem;
+        }
+      }
+
+      .btn-gold {
+        background: var(--color-gold);
+        color: var(--color-primary);
+      }
+      .btn-gold:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
+      }
+
+      .btn-outline-gold {
+        background: transparent;
+        color: var(--color-gold);
+        border: 2px solid var(--color-gold);
+      }
+      .btn-outline-gold:hover {
+        background: var(--color-gold);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-white {
+        background: transparent;
+        color: var(--color-white);
+        border: 2px solid var(--color-white);
+      }
+      .btn-outline-white:hover {
+        background: var(--color-white);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .btn-block { width: 100%; }
+      .btn-large { padding: 1.25rem 3rem; font-size: 1.1rem; }
+      .btn-sm { padding: 0.5rem 1.25rem; font-size: 0.85rem; min-height: 40px; }
+
+      /* ===== WHATSAPP ===== */
+      .whatsapp-desktop {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #25d366;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .whatsapp-desktop:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+      .whatsapp-desktop i { font-size: 1.25rem; }
+      @media (max-width: 768px) { .whatsapp-desktop { display: none; } }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128c7e;
+      }
+      @media (min-width: 769px) { .whatsapp-float { display: none; } }
+
+      /* ===== HEADER (consistent) ===== */
+      .site-header {
+        background: var(--color-white);
+        box-shadow: var(--shadow-md);
         position: sticky;
         top: 0;
         z-index: 1000;
-        padding: var(--space-sm) 0;
-        border-bottom: 3px solid var(--color-accent);
-    }
-    
-    .header-container {
+        padding: 0.75rem 0;
+        border-bottom: 2px solid var(--color-gold);
+      }
+      .header-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: var(--space-lg);
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-    
-    .logo a {
+        gap: 1rem;
+      }
+      .logo a {
         text-decoration: none;
-        color: var(--color-dark);
-        display: flex;
-        flex-direction: column;
         line-height: 1.2;
-    }
-    
-    .logo h1 {
-        font-size: 2.1rem;
-        margin-bottom: 0;
-        font-weight: 900;
-        color: var(--color-primary);
-        letter-spacing: -1px;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-    
-    .logo h1 .brand-name {
-        background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    
-    .logo-tagline {
-        font-size: 0.7rem;
-        color: var(--color-emergency);
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
+        display: inline-block;
+      }
+      .logo .brand-name {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
         font-weight: 800;
-        margin-top: 2px;
-    }
-    
-    /* MAIN NAVIGATION */
-    .main-nav {
+        color: var(--color-primary);
+        letter-spacing: -0.5px;
+      }
+      .logo .brand-name .gold { color: var(--color-gold); }
+      .logo-tagline {
+        display: none;
+        font-size: 0.65rem;
+        color: var(--color-gray-600);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-top: -2px;
+      }
+      @media (min-width: 768px) {
+        .logo .brand-name { font-size: 2rem; }
+        .logo-tagline { display: block; }
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        background: var(--color-gold);
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
-        gap: var(--space-xs);
-    }
-    
-    .nav-menu {
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-toggle i { font-size: 1.5rem; color: var(--color-primary); }
+      .mobile-menu-toggle.active {
+        background: var(--color-primary);
+      }
+      .mobile-menu-toggle.active i { color: var(--color-gold); }
+      @media (min-width: 1024px) { .mobile-menu-toggle { display: none; } }
+
+      .mobile-close-btn {
+        display: none;
+        background: var(--color-primary);
+        color: var(--color-gold);
+        border: 2px solid var(--color-gold);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      @media (max-width: 1023px) { .mobile-close-btn { display: block; } }
+      .mobile-close-btn:hover {
+        background: var(--color-gold);
+        color: var(--color-primary);
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: 1023px) {
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 85%;
+          max-width: 400px;
+          height: 100vh;
+          background: var(--color-white);
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: 80px 20px 30px;
+          transition: right 0.3s ease;
+          z-index: 1001;
+          box-shadow: var(--shadow-xl);
+          overflow-y: auto;
+          gap: 1rem;
+        }
+        .main-nav.active { right: 0; }
+      }
+
+      .nav-menu {
         display: flex;
         list-style: none;
-        gap: var(--space-md);
+        gap: 0;
         margin: 0;
         padding: 0;
-    }
-    
-    .nav-item {
+      }
+      @media (max-width: 1023px) {
+        .nav-menu {
+          flex-direction: column;
+          width: 100%;
+          gap: 0.5rem;
+        }
+      }
+
+      .nav-item {
         position: relative;
-    }
-    
-    .nav-link {
+      }
+      @media (max-width: 1023px) { .nav-item { width: 100%; } }
+
+      .nav-link {
         text-decoration: none;
-        color: var(--color-gray-800);
+        color: var(--color-gray-700);
         font-weight: 600;
-        font-size: 0.85rem;
-        padding: 0.5rem 0.05rem;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
         transition: all var(--transition-fast);
-        position: relative;
-    }
-    
-    .nav-link:hover {
-        color: var(--color-accent);
-    }
-    
-    .nav-link.active {
-        color: var(--color-accent);
+        border-radius: var(--radius-md);
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .nav-link {
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--color-gray-200);
+          width: 100%;
+          font-size: 1rem;
+          white-space: normal;
+        }
+      }
+      .nav-link:hover { color: var(--color-gold); }
+      .nav-link.active {
+        color: var(--color-gold);
         font-weight: 700;
-    }
-    
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -3px;
-        left: 0.75rem;
-        right: 0.75rem;
-        height: 3px;
-        background: var(--color-accent);
-        border-radius: 3px 3px 0 0;
-    }
-    
-    /* DROPDOWN MENUS */
-    .dropdown {
-        position: relative;
-    }
-    
-    .dropdown-menu {
+      }
+
+      .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+      .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform var(--transition-fast);
+      }
+      .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
+
+      .dropdown-menu {
         position: absolute;
         top: 100%;
         left: 0;
@@ -216,1617 +392,1148 @@
         min-width: 240px;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-2xl);
-        padding: var(--space-sm) 0;
+        padding: 0.5rem 0;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(15px);
+        transform: translateY(10px);
         transition: all var(--transition-normal);
         z-index: 1000;
         border: 1px solid var(--color-gray-200);
-    }
-    
-    .dropdown:hover .dropdown-menu {
+      }
+      .dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(5px);
-    }
-    
-    .dropdown-item {
+      }
+
+      @media (max-width: 1023px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          border-left: 2px solid var(--color-gold);
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+          padding: 0.5rem 0 0.5rem 1rem;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          display: none;
+          background: var(--color-gray-soft);
+          width: calc(100% - 1rem);
+        }
+        .dropdown.active .dropdown-menu { display: block; }
+        .dropdown-toggle i { transition: transform 0.3s ease; }
+        .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
+      }
+
+      .dropdown-item {
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        padding: 0.875rem var(--space-lg);
+        padding: 0.75rem 1.25rem;
         text-decoration: none;
-        color: var(--color-gray-800);
+        color: var(--color-gray-700);
         font-size: 0.9rem;
         font-weight: 500;
         transition: all var(--transition-fast);
-    }
-    
-    .dropdown-item:hover {
-        background: var(--color-gray-100);
-        color: var(--color-accent);
-        padding-left: calc(var(--space-lg) + 0.75rem);
-    }
-    
-    .dropdown-divider {
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .dropdown-item {
+          padding: 0.75rem;
+          white-space: normal;
+          border-bottom: 1px solid var(--color-gray-200);
+        }
+      }
+      .dropdown-item:hover {
+        background: var(--color-gray-soft);
+        color: var(--color-gold);
+        padding-left: 1.75rem;
+      }
+      .dropdown-divider {
         height: 1px;
         background: var(--color-gray-200);
-        margin: var(--space-xs) 0;
-    }
-    
-    /* NAV CTA BUTTONS */
-    .nav-cta-group {
+        margin: 0.5rem 0;
+      }
+
+      .nav-cta-group {
         display: flex;
         align-items: center;
-        gap: var(--space-sm);
-    }
-    
-    .nav-cta {
-        background: var(--color-primary);
-        color: var(--color-white) !important;
+        gap: 0.75rem;
+      }
+      @media (max-width: 1023px) {
+        .nav-cta-group {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+          gap: 0.75rem;
+        }
+      }
+
+      .nav-cta {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
         padding: 0.6rem 1.2rem !important;
-        border-radius: var(--radius-lg);
+        border-radius: 50px;
         font-weight: 700 !important;
-        transition: all var(--transition-fast);
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         border: none;
         cursor: pointer;
         white-space: nowrap;
+        font-family: var(--font-sans);
       }
-    
-    .nav-cta:hover {
-        background: var(--color-primary-dark);
+      @media (max-width: 1023px) {
+        .nav-cta {
+          width: 100%;
+          padding: 0.75rem !important;
+          font-size: 1rem;
+        }
+      }
+      .nav-cta:hover {
+        background: var(--color-gold-light);
         transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .nav-cta-emergency {
-        background: var(--color-emergency);
-    }
-    
-    .nav-cta-emergency:hover {
-        background: var(--color-emergency-dark);
-    }
-    
-    /* MOBILE MENU */
-    .mobile-menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: var(--color-dark);
-        cursor: pointer;
-        padding: var(--space-xs);
-        z-index: 1001;
-    }
-    
-    .mobile-overlay {
+        box-shadow: var(--shadow-md);
+      }
+      .nav-cta-outline {
+        background: transparent;
+        color: var(--color-gold) !important;
+        border: 2px solid var(--color-gold);
+      }
+      .nav-cta-outline:hover {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
+      }
+
+      .mobile-overlay {
         display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(13, 27, 42, 0.9);
+        background: rgba(10, 22, 40, 0.8);
         z-index: 999;
-    }
-    
-    /* ===== TYPOGRAPHY ===== */
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 800;
-        line-height: 1.1;
-        color: var(--color-gray-900);
-        letter-spacing: -0.025em;
-    }
-    
-    h1 { 
-        font-size: 3.5rem; 
-        font-weight: 900; 
-        line-height: 1;
-    }
-    
-    h2 { 
-        font-size: 2.5rem; 
-        margin-bottom: var(--space-lg);
-    }
-    
-    h3 { 
-        font-size: 1.75rem; 
-        margin-bottom: var(--space-md);
-    }
-    
-    h4 { 
-        font-size: 1.25rem; 
-        margin-bottom: var(--space-sm);
-    }
-    
-    .text-gradient {
-        background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        display: inline-block;
-    }
-    
-    p {
-        margin-bottom: var(--space-md);
-        font-size: 1.125rem;
-        line-height: 1.7;
-    }
-    
-    .lead {
-        font-size: 1.25rem;
-        line-height: 1.6;
-        color: var(--color-gray-700);
-        font-weight: 400;
-    }
-    
-    .text-center {
-        text-align: center;
-    }
-    
-    .highlight {
-        color: var(--color-accent);
-        font-weight: 800;
-    }
-    
-    /* ===== BUTTONS ===== */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        padding: 1rem 2.25rem;
-        font-weight: 700;
-        font-size: 1rem;
-        text-align: center;
-        text-decoration: none;
-        border-radius: var(--radius-lg);
-        transition: all var(--transition-normal);
-        cursor: pointer;
-        border: none;
-        font-family: var(--font-sans);
-        letter-spacing: 0.01em;
-    }
-    
-    .btn-primary {
-        background: var(--color-accent);
-        color: var(--color-primary);
-    }
-    
-    .btn-primary:hover {
-        background: var(--color-accent-dark);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-xl);
-    }
-    
-    .btn-secondary {
-        background: var(--color-primary);
-        color: var(--color-white);
-    }
-    
-    .btn-secondary:hover {
-        background: var(--color-primary-dark);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-xl);
-    }
-    
-    .btn-outline {
-        background: transparent;
-        color: var(--color-primary);
-        border: 2px solid var(--color-primary);
-    }
-    
-    .btn-outline:hover {
-        background: var(--color-primary);
-        color: var(--color-white);
-        transform: translateY(-3px);
-    }
-    
-    .btn-emergency {
-        background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
-        color: var(--color-white);
-        font-weight: 800;
-    }
-    
-    .btn-emergency:hover {
-        background: var(--color-emergency-dark);
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
-    }
-    
-    .btn-success {
-        background: var(--color-success);
-        color: var(--color-white);
-    }
-    
-    .btn-success:hover {
-        background: var(--color-success-dark);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-xl);
-    }
-    
-    .btn-large {
-        padding: 1.25rem 3.5rem;
-        font-size: 1.125rem;
-        font-weight: 800;
-    }
-    
-    .btn-block {
-        width: 100%;
-    }
-    
-    /* ===== PROFILE HERO SECTION ===== */
-    .profile-hero {
-        padding: var(--space-3xl) var(--space-md);
-        background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+        backdrop-filter: blur(4px);
+      }
+      .mobile-overlay.active { display: block; }
+
+      /* ===== SUBMIT PROFILE HERO ===== */
+      .submit-hero {
+        padding: 3rem 0 4rem;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
         color: var(--color-white);
         position: relative;
         overflow: hidden;
-    }
-    
-    .profile-hero::before {
-        content: '';
+        text-align: center;
+      }
+      .submit-hero::after {
+        content: '✦';
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 40%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800');
-        background-size: cover;
-        background-position: center;
-        z-index: 1;
-    }
-    
-    .profile-hero-content {
+        bottom: -50px;
+        right: -50px;
+        font-size: 300px;
+        color: rgba(201, 168, 76, 0.04);
+        pointer-events: none;
+      }
+      .submit-hero-content {
         position: relative;
         z-index: 2;
-        max-width: 800px;
-    }
-    
-    .profile-hero-badge {
-        background: linear-gradient(90deg, var(--color-accent), #ff6b00);
-        color: var(--color-primary);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .hero-badge {
+        background: rgba(201, 168, 76, 0.15);
+        color: var(--color-gold);
+        border: 1px solid rgba(201, 168, 76, 0.3);
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
-        padding: 0.75rem 2rem;
+        gap: 0.5rem;
+        padding: 0.5rem 1.5rem;
         border-radius: 50px;
-        font-weight: 900;
-        margin-bottom: var(--space-lg);
-        font-size: 1rem;
-        letter-spacing: 0.5px;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .profile-hero h1 {
-        color: var(--color-white);
-        margin-bottom: var(--space-md);
-    }
-    
-    .profile-hero .lead {
-        color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .profile-hero-benefits {
-        display: flex;
-        gap: var(--space-xl);
-        margin-top: var(--space-xl);
-        flex-wrap: wrap;
-    }
-    
-    .profile-benefit {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-sm);
-        flex: 1;
-        min-width: 200px;
-    }
-    
-    .benefit-icon {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--color-accent);
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
-        flex-shrink: 0;
-    }
-    
-    .benefit-content h4 {
-        color: var(--color-white);
-        margin-bottom: var(--space-xs);
-    }
-    
-    .benefit-content p {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.95rem;
-        margin-bottom: 0;
-    }
-    
-    /* ===== PROFILE FORM SECTION ===== */
-    .profile-form-section {
-        padding: var(--space-3xl) var(--space-md);
-        background: var(--color-gray-100);
-    }
-    
-    .form-container {
-        background: var(--color-white);
-        border-radius: var(--radius-2xl);
-        overflow: hidden;
-        box-shadow: var(--shadow-2xl);
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    
-    .form-header {
-        background: linear-gradient(135deg, var(--color-primary), #1b263b);
-        color: var(--color-white);
-        padding: var(--space-xl) var(--space-2xl);
-        text-align: center;
-    }
-    
-    .form-header h2 {
-        color: var(--color-white);
-        margin-bottom: var(--space-sm);
-    }
-    
-    .form-body {
-        padding: var(--space-2xl);
-    }
-    
-    .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-xl);
-    }
-    
-    .form-group {
-        margin-bottom: var(--space-lg);
-    }
-    
-    .form-group.full-width {
-        grid-column: 1 / -1;
-    }
-    
-    label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: var(--space-sm);
-        color: var(--color-gray-900);
-    }
-    
-    .required::after {
-        content: ' *';
-        color: var(--color-emergency);
-    }
-    
-    input, select, textarea {
-        width: 100%;
-        padding: 1rem 1.25rem;
-        font-size: 1rem;
-        font-family: var(--font-sans);
-        border: 2px solid var(--color-gray-300);
-        border-radius: var(--radius-lg);
-        background: var(--color-white);
-        transition: all var(--transition-fast);
-        color: var(--color-gray-900);
-    }
-    
-    input:focus, select:focus, textarea:focus {
-        outline: none;
-        border-color: var(--color-accent);
-        box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.2);
-    }
-    
-    textarea {
-        min-height: 150px;
-        resize: vertical;
-    }
-    
-    .input-hint {
-        font-size: 0.85rem;
-        color: var(--color-gray-600);
-        margin-top: var(--space-xs);
-    }
-    
-    .checkbox-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-md);
-        margin-top: var(--space-sm);
-    }
-    
-    .checkbox-item {
-        display: flex;
-        align-items: center;
-        gap: var(--space-xs);
-    }
-    
-    .checkbox-item input {
-        width: auto;
-    }
-    
-    .salary-input {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        gap: var(--space-md);
-        align-items: center;
-    }
-    
-    .salary-input span {
-        text-align: center;
-        color: var(--color-gray-600);
-        font-weight: 600;
-    }
-    
-    .naira-input {
-        position: relative;
-    }
-    
-    .naira-input::before {
-        content: '₦';
-        position: absolute;
-        left: 1.25rem;
-        top: 50%;
-        transform: translateY(-50%);
         font-weight: 700;
-        color: var(--color-gray-700);
-        z-index: 1;
-    }
-    
-    .naira-input input {
-        padding-left: 2.5rem;
-    }
-    
-    .file-upload {
-        border: 2px dashed var(--color-gray-300);
-        border-radius: var(--radius-lg);
-        padding: var(--space-xl);
-        text-align: center;
-        cursor: pointer;
-        transition: all var(--transition-fast);
-    }
-    
-    .file-upload:hover {
-        border-color: var(--color-accent);
-        background: var(--color-gray-100);
-    }
-    
-    .file-upload i {
-        font-size: 3rem;
-        color: var(--color-gray-400);
-        margin-bottom: var(--space-sm);
-    }
-    
-    .file-upload p {
-        margin-bottom: var(--space-sm);
-    }
-    
-    .file-upload input {
-        display: none;
-    }
-    
-    .file-name {
-        font-size: 0.9rem;
-        color: var(--color-success);
-        margin-top: var(--space-sm);
-        display: none;
-    }
-    
-    .form-actions {
-        display: flex;
-        gap: var(--space-lg);
-        justify-content: center;
-        margin-top: var(--space-2xl);
-        padding-top: var(--space-xl);
-        border-top: 1px solid var(--color-gray-200);
-    }
-    
-    /* ===== PRIVACY SECTION ===== */
-    .privacy-section {
-        padding: var(--space-3xl) var(--space-md);
-        background: var(--color-gray-100);
-    }
-    
-    .privacy-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--space-xl);
-        margin-top: var(--space-2xl);
-    }
-    
-    .privacy-card {
+        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(4px);
+      }
+      .submit-hero h1 {
+        color: var(--color-white);
+        margin-bottom: 1rem;
+      }
+      .submit-hero h1 .gold { color: var(--color-gold); }
+      .submit-hero .lead {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 0;
+        line-height: 1.7;
+      }
+
+      /* ===== BENEFITS ===== */
+      .benefits-section {
+        padding: 4rem 0;
         background: var(--color-white);
-        border-radius: var(--radius-xl);
-        padding: var(--space-xl);
+        border-bottom: 1px solid var(--color-gray-200);
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .section-header h2 { margin-bottom: 0.5rem; }
+      .section-header p {
+        color: var(--color-gray-600);
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      @media (min-width: 640px) {
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .benefits-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+        }
+      }
+      .benefit-card {
+        text-align: center;
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-lg);
         border: 1px solid var(--color-gray-200);
         transition: all var(--transition-normal);
-        text-align: center;
-    }
-    
-    .privacy-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--color-success);
-    }
-    
-    .privacy-icon {
-        width: 80px;
-        height: 80px;
-        background: var(--color-gray-100);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto var(--space-md);
-        font-size: 2rem;
-        color: var(--color-success);
-    }
-    
-    /* ===== PROCESS SECTION ===== */
-    .process-section {
-        padding: var(--space-3xl) var(--space-md);
-    }
-    
-    .process-timeline {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin-top: var(--space-2xl);
-        flex-wrap: wrap;
-    }
-    
-    .process-timeline::before {
-        content: '';
-        position: absolute;
-        top: 40px;
-        left: 10%;
-        right: 10%;
-        height: 4px;
-        background: var(--color-gray-300);
-        z-index: 1;
-    }
-    
-    .process-step {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        flex: 1;
-        min-width: 200px;
-        margin-bottom: var(--space-xl);
-    }
-    
-    .process-step-circle {
-        width: 80px;
-        height: 80px;
         background: var(--color-white);
-        border: 4px solid var(--color-gray-300);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: var(--color-gray-600);
-        margin: 0 auto var(--space-md);
-        transition: all var(--transition-normal);
-    }
-    
-    .process-step.active .process-step-circle {
-        border-color: var(--color-accent);
-        background: var(--color-accent);
-        color: var(--color-primary);
-    }
-    
-    .process-step h4 {
-        margin-bottom: var(--space-xs);
-    }
-    
-    /* ===== CTA SECTION ===== */
-    .cta-section {
-        padding: var(--space-3xl) var(--space-md);
-        background: linear-gradient(135deg, var(--color-primary), #1b263b);
-        color: var(--color-white);
-        text-align: center;
-    }
-    
-    .cta-container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .cta-container h2 {
-        color: var(--color-white);
-        margin-bottom: var(--space-md);
-    }
-    
-    .cta-container .lead {
-        color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .cta-features {
-        display: flex;
-        justify-content: center;
-        gap: var(--space-2xl);
-        margin: var(--space-xl) 0;
-        flex-wrap: wrap;
-    }
-    
-    .cta-feature {
-        text-align: center;
-        flex: 1;
-        min-width: 150px;
-    }
-    
-    .cta-icon {
+      }
+      .benefit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-gold);
+      }
+      .benefit-card .benefit-icon {
         font-size: 2.5rem;
-        color: var(--color-accent);
-        margin-bottom: var(--space-sm);
-    }
-    
-    .cta-feature h4 {
-        color: var(--color-white);
-        margin-bottom: var(--space-xs);
-    }
-    
-    /* ===== FOOTER ===== */
-    .site-footer {
+        color: var(--color-gold);
+        margin-bottom: 0.75rem;
+      }
+      .benefit-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .benefit-card p {
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* ===== FORM SECTION ===== */
+      .form-section {
+        padding: 4rem 0;
+        background: var(--color-gray-soft);
+      }
+      .form-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: 2rem 1.5rem;
+        border: 1px solid var(--color-gray-200);
+        box-shadow: var(--shadow-md);
+      }
+      @media (min-width: 768px) {
+        .form-wrapper {
+          padding: 2.5rem;
+        }
+      }
+      .form-wrapper h2 {
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .form-wrapper .form-subtitle {
+        text-align: center;
+        color: var(--color-gray-600);
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        color: var(--color-primary);
+      }
+      .form-group label .required {
+        color: var(--color-emergency);
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 2px solid var(--color-gray-200);
+        border-radius: var(--radius-md);
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        background: var(--color-white);
+        transition: border-color var(--transition-fast);
+        color: var(--color-charcoal);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      @media (min-width: 640px) {
+        .form-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .form-group .helper-text {
+        font-size: 0.8rem;
+        color: var(--color-gray-600);
+        margin-top: 0.3rem;
+      }
+
+      /* File Upload */
+      .file-upload-wrapper {
+        position: relative;
+        border: 2px dashed var(--color-gray-200);
+        border-radius: var(--radius-md);
+        padding: 2rem 1rem;
+        text-align: center;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        background: var(--color-gray-soft);
+      }
+      .file-upload-wrapper:hover {
+        border-color: var(--color-gold);
+        background: var(--color-white);
+      }
+      .file-upload-wrapper .upload-icon {
+        font-size: 3rem;
+        color: var(--color-gold);
+        margin-bottom: 0.5rem;
+      }
+      .file-upload-wrapper p {
+        color: var(--color-gray-600);
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+      }
+      .file-upload-wrapper .file-types {
+        color: var(--color-gray-600);
+        font-size: 0.8rem;
+      }
+      .file-upload-wrapper input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .file-upload-wrapper .file-name {
+        margin-top: 0.5rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        display: none;
+      }
+
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .form-success .success-icon {
+        font-size: 4rem;
+        color: var(--color-success);
+        margin-bottom: 1rem;
+      }
+      .form-success h3 {
+        font-family: var(--font-serif);
+        color: var(--color-success);
+        margin-bottom: 0.5rem;
+      }
+      .form-success p {
+        color: var(--color-gray-600);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* ===== CONFIDENTIALITY ===== */
+      .confidentiality-section {
+        padding: 4rem 0;
         background: var(--color-primary);
         color: var(--color-white);
-        padding: var(--space-3xl) var(--space-md) var(--space-xl);
-    }
-    
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--space-2xl);
-        margin-bottom: var(--space-2xl);
-    }
-    
-    .footer-column h3 {
+        text-align: center;
+        border-top: 3px solid var(--color-gold);
+        border-bottom: 3px solid var(--color-gold);
+      }
+      .confidentiality-section h2 {
         color: var(--color-white);
-        font-size: 1.2rem;
-        margin-bottom: var(--space-lg);
-    }
-    
-    .footer-links {
+        margin-bottom: 0.5rem;
+      }
+      .confidentiality-section .lead {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.05rem;
+      }
+      .confidentiality-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      @media (min-width: 640px) {
+        .confidentiality-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+      .confidentiality-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.25rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .confidentiality-item .conf-icon {
+        color: var(--color-gold);
+        font-size: 1.5rem;
+        min-width: 30px;
+        margin-top: 0.1rem;
+      }
+      .confidentiality-item .conf-text h3 {
+        color: var(--color-white);
+        font-size: 1rem;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+      .confidentiality-item .conf-text p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* ===== CTA ===== */
+      .submit-cta {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+        color: var(--color-white);
+        text-align: center;
+        border-top: 3px solid var(--color-gold);
+        border-bottom: 3px solid var(--color-gold);
+      }
+      .submit-cta h2 {
+        color: var(--color-white);
+        margin-bottom: 0.5rem;
+      }
+      .submit-cta .lead {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        font-size: 1.05rem;
+      }
+      .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (min-width: 640px) {
+        .cta-buttons { flex-direction: row; gap: 1.5rem; }
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--color-primary);
+        color: var(--color-white);
+        padding: 3rem 0 1.5rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      @media (min-width: 640px) {
+        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+      }
+      .footer-column h3 {
+        font-family: var(--font-serif);
+        color: var(--color-white);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .footer-links {
         list-style: none;
-    }
-    
-    .footer-links li {
-        margin-bottom: var(--space-sm);
-    }
-    
-    .footer-links a {
+      }
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+      .footer-links a {
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
-        transition: color var(--transition-fast);
+        transition: color 0.3s;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 0.95rem;
-    }
-    
-    .footer-links a:hover {
-        color: var(--color-accent);
-    }
-    
-    .footer-contact {
+        font-size: 0.9rem;
+      }
+      .footer-links a:hover { color: var(--color-gold); }
+      .footer-contact {
         color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .footer-contact p {
-        margin-bottom: var(--space-sm);
+        font-size: 0.9rem;
+      }
+      .footer-contact p {
+        margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
         gap: 0.75rem;
-    }
-    
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: var(--space-xl);
+      }
+      .footer-bottom {
         text-align: center;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-    }
-    
-    .footer-bottom-links {
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
+      .footer-bottom-links {
         display: flex;
         justify-content: center;
-        gap: var(--space-lg);
-        margin: var(--space-md) 0;
-        flex-wrap: wrap;
-    }
-    
-    .footer-bottom-links a {
-        color: rgba(255, 255, 255, 0.7);
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+      }
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.4);
         text-decoration: none;
-    }
-    
-    .footer-bottom-links a:hover {
-        color: var(--color-accent);
-        text-decoration: underline;
-    }
-    
-    /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 1024px) {
-        .form-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.25rem; }
-    }
-    
-    @media (max-width: 768px) {
-        /* Mobile Navigation */
-        .header-container {
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-        }
-        
-        .logo-tagline {
-            font-size: 0.65rem;
-        }
-        
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100vh;
-            background: var(--color-white);
-            flex-direction: column;
-            padding: var(--space-3xl) var(--space-xl) var(--space-xl);
-            transition: left 0.3s ease;
-            overflow-y: auto;
-            z-index: 1000;
-        }
-        
-        .main-nav.active {
-            left: 0;
-        }
-        
-        .nav-menu {
-            flex-direction: column;
-            width: 100%;
-            gap: 0;
-        }
-        
-        .nav-item {
-            width: 100%;
-        }
-        
-        .nav-link {
-            padding: 1.125rem 0;
-            border-bottom: 1px solid var(--color-gray-200);
-            width: 100%;
-            font-size: 1.1rem;
-        }
-        
-        .nav-link.active::after {
-            display: none;
-        }
-        
-        .dropdown-menu {
-            position: static;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-            box-shadow: none;
-            border: none;
-            padding-left: var(--space-md);
-            display: none;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-md);
-            margin-top: var(--space-xs);
-        }
-        
-        .dropdown.active .dropdown-menu {
-            display: block;
-        }
-        
-        .nav-cta-group {
-            flex-direction: column;
-            width: 100%;
-            margin-top: var(--space-xl);
-        }
-        
-        .nav-cta {
-            width: 100%;
-            justify-content: center;
-            padding: 1.25rem 1.75rem !important;
-            font-size: 1.1rem;
-        }
-        
-        .mobile-menu-toggle {
-            display: block;
-        }
-        
-        .mobile-overlay.active {
-            display: block;
-        }
-        
-        /* Mobile Content */
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        
-        .profile-hero::before {
-            width: 100%;
-            opacity: 0.2;
-        }
-        
-        .profile-hero-benefits {
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-        
-        .process-timeline {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .process-timeline::before {
-            display: none;
-        }
-        
-        .form-actions {
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-        
-        .salary-input {
-            grid-template-columns: 1fr;
-            gap: var(--space-sm);
-        }
-        
-        .salary-input span {
-            display: none;
-        }
-        
-        .cta-features {
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .form-body {
-            padding: var(--space-xl) var(--space-lg);
-        }
-        
-        .privacy-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .footer-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-</head> 
-<body> 
-    <!-- SITE HEADER --> 
-     <header class="site-header"> 
-        <div class="container"> 
-            <div class="header-container"> 
-                <div class="logo"> 
-                    <a href="/" aria-label="Jobpitality Home"> 
-                        <h1><i class="fas fa-bolt"></i> 
-                            <span class="brand-name">JOBPITALITY</span>
-                        </h1> <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span> 
-                    </a> </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="main-nav" id="mainNav">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">
-                            <i class="fas fa-home"></i> Home
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a href="/services/" class="nav-link dropdown-toggle">
-                            <i class="fas fa-crosshairs"></i>Hunting
-                            <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="/services/executive-search/" class="dropdown-item">
-                                <i class="fas fa-search"></i> Executive Search
-                            </a>
-                            <a href="/services/hotel-leadership/" class="dropdown-item">
-                                <i class="fas fa-hotel"></i> Hotel Leadership
-                            </a>
-                            <a href="/services/culinary-leadership/" class="dropdown-item">
-                                <i class="fas fa-utensils"></i> Culinary Leadership
-                            </a>
-                            <a href="/services/management-teams/" class="dropdown-item">
-                                <i class="fas fa-users"></i> Management Teams
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
-                                <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
-                            </a>
-                        </div>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                            <a href="/employers/index.html" class="nav-link dropdown-toggle">
-                                <i class="fas fa-building"></i> <span>Employers</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/employers/our-process/index.html" class="dropdown-item">
-                                    <i class="fas fa-play-circle"></i> Our Process
-                                </a>
-                                <a href="/employers/post-job/index.html" class="dropdown-item">
-                                    <i class="fas fa-plus-circle"></i> Post a Job
-                                </a>
-                                <a href="/employers/search-talent/index.html" class="dropdown-item">
-                                    <i class="fas fa-search"></i> Search Talent
-                                </a>
-                                <a href="/employers/pricing/index.html" class="dropdown-item">
-                                    <i class="fas fa-tag"></i> Pricing
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/employers/start-search/index.html" class="dropdown-item">
-                                    <i class="fas fa-rocket"></i> Start a Search
-                                </a>
-                            </div>
-                        </li>
-                    
-                   <li class="nav-item dropdown">
-                            <a href="/candidates/index.html" class="nav-link dropdown-toggle">
-                                <i class="fas fa-user-tie"></i> <span>Candidates</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <!-- <a href="/candidates/jobs/index.html" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Browse Jobs
-                                </a> -->
-                                <a href="/candidates/job-board/index.html" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Job Board
-                                </a>
-                                <a href="/candidates/submit-profile/index.html" class="dropdown-item">
-                                    <i class="fas fa-file-upload"></i> Submit Profile
-                                </a>
-                                <a href="/candidates/career-strategy/index.html" class="dropdown-item">
-                                    <i class="fas fa-graduation-cap"></i> Career Strategy
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/candidates/confidentiality/index.html" class="dropdown-item">
-                                    <i class="fas fa-user-secret"></i> Confidential Process
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                <a href="/our-team/index.html" class="nav-link dropdown-toggle">
-                  <i class="fas fa-user-tie"></i> <span>Our Team</span>
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-                <div class="dropdown-menu">
-                  <a href="/about/index.html" class="dropdown-item">
-                    <i class="fas fa-briefcase"></i> About
-                  </a>
-                </div>
-              </li>
+      }
+      .footer-bottom-links a:hover { color: var(--color-gold); }
 
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .submit-hero h1 { font-size: 2.5rem; }
+        .submit-hero .lead { font-size: 1rem; }
+        .form-wrapper { padding: 1.5rem; }
+        .confidentiality-item { flex-direction: column; align-items: center; text-align: center; }
+      }
+      @media (max-width: 480px) {
+        .submit-hero h1 { font-size: 2rem; }
+        .logo .brand-name { font-size: 1.3rem; }
+        .benefit-card { padding: 1.5rem 1rem; }
+        .form-row { grid-template-columns: 1fr; }
+        .file-upload-wrapper { padding: 1.5rem 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-container">
+          <div class="logo">
+            <a href="/" aria-label="AfriLux Hospitality Home">
+              <span class="brand-name">Afri<span class="gold">Lux</span></span>
+              <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
+            </a>
+          </div>
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Menu"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+              <i class="fas fa-times"></i> Close
+            </button>
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/services/" class="nav-link"><i class="fas fa-crosshairs"></i> Services</a>
+              </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle">
-                  <i class="fas fa-user-tie"></i> <span>Reach Out</span>
+                  <i class="fas fa-building"></i> Employers
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <a
-                    href="/candidates/contact/index.html"
-                    class="dropdown-item"
-                  >
-                    <i class="fas fa-info-circle"></i> Contact
-                  </a>
+                  <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
+                  <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
+                  <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active">
+                  <i class="fas fa-user-tie"></i> Candidates
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/candidates/job-board/" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
+                  <a href="/candidates/submit-profile/" class="dropdown-item" style="color: var(--color-gold); font-weight: 700;"><i class="fas fa-file-upload"></i> Submit Profile</a>
+                  <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a href="/case-studies/" class="nav-link"><i class="fas fa-chart-line"></i> Case Studies</a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+              </li>
             </ul>
-
-                    
-                    <!-- <li class="nav-item dropdown">
-                        <a href="/industries/" class="nav-link dropdown-toggle">
-                            <i class="fas fa-industry"></i> Industries
-                            <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="/industries/luxury-hotels/" class="dropdown-item">
-                                <i class="fas fa-crown"></i> Luxury Hotels
-                            </a>
-                            <a href="/industries/fine-dining/" class="dropdown-item">
-                                <i class="fas fa-utensil-spoon"></i> Fine Dining
-                            </a>
-                            <a href="/industries/resorts-spas/" class="dropdown-item">
-                                <i class="fas fa-spa"></i> Resorts & Spas
-                            </a>
-                            <a href="/industries/quick-service/" class="dropdown-item">
-                                <i class="fas fa-running"></i> Quick Service
-                            </a>
-                        </div>
-                    </li>
-                     -->
-                    <!-- <li class="nav-item">
-                        <a href="/insights/" class="nav-link">
-                            <i class="fas fa-chart-line"></i> Insights
-                        </a>
-                    </li> -->
-                </ul>
-                
-                <div class="nav-cta-group">
-                    <a href="/emergency-hiring/" class="nav-cta nav-cta-emergency">
-                        <i class="fas fa-bullhorn"></i> Emergency Hiring
-                    </a>
-                    <a href="/employers/contact/" class="nav-cta">
-                        <i class="fas fa-headset"></i> Hire Talent
-                    </a>
-                </div>
-            </nav>
+            <div class="nav-cta-group">
+              <a href="tel:+2348039661354" class="nav-cta">
+                <i class="fas fa-phone"></i> +234 803 966 1354
+              </a>
+              <a href="/contact/" class="nav-cta nav-cta-outline">
+                <i class="fas fa-handshake"></i> Partner With Us
+              </a>
+            </div>
+          </nav>
+          <div class="mobile-overlay" id="mobileOverlay"></div>
         </div>
-    </div>
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-</header>
+      </div>
+    </header>
 
-<!-- PROFILE HERO SECTION -->
-<section class="profile-hero">
-    <div class="container">
-        <div class="profile-hero-content">
-            <div class="profile-hero-badge">
-                <i class="fas fa-bolt"></i>
-                <span>EXCLUSIVE TALENT DATABASE</span>
-            </div>
-            
-            <h1>Get in Our <span class="highlight">Ruthless Talent</span> Database</h1>
-            <p class="lead">Join Nigeria's most exclusive hospitality talent community. When premium hotels, restaurants, and resorts need exceptional talent, they come to us first.</p>
-            
-            <div class="profile-hero-benefits">
-                <div class="profile-benefit">
-                    <div class="benefit-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h4>Priority Visibility</h4>
-                        <p>Get first consideration for elite opportunities before they're publicly advertised.</p>
-                    </div>
-                </div>
-                
-                <div class="profile-benefit">
-                    <div class="benefit-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h4>Direct Connections</h4>
-                        <p>We negotiate directly with hiring managers, bypassing HR bottlenecks.</p>
-                    </div>
-                </div>
-                
-                <div class="profile-benefit">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h4>Discreet & Secure</h4>
-                        <p>Your profile is confidential until you give us permission to share it.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== HERO ===== -->
+    <section class="submit-hero">
+      <div class="container">
+        <div class="submit-hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-file-upload"></i> SUBMIT YOUR PROFILE
+          </div>
+          <h1>Join Africa's <span class="gold">elite hospitality</span> talent network.</h1>
+          <p class="lead">
+            Submit your profile and let AfriLux Hospitality match you with
+            exclusive opportunities at luxury hotels, resorts, and restaurants
+            across Nigeria and Africa.
+          </p>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- PROFILE FORM SECTION -->
-<section class="profile-form-section">
-    <div class="container">
-        <div class="form-container">
-            <div class="form-header">
-                <h2>Submit Your Profile</h2>
-                <p class="lead">Complete this form to join our exclusive talent database. Fields marked with * are required.</p>
-            </div>
-            
-            <div class="form-body">
-                <form id="profileForm" action="/submit-profile" method="POST">
-                    <div class="form-grid">
-                        <!-- Personal Information -->
-                        <div class="form-group">
-                            <label for="fullName" class="required">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="required">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="required">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+234 800 000 0000">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="location" class="required">Current Location</label>
-                            <select id="location" name="location" required>
-                                <option value="">Select Location</option>
-                                <option value="Lagos">Lagos</option>
-                                <option value="Abuja">Abuja</option>
-                                <option value="Port Harcourt">Port Harcourt</option>
-                                <option value="Kano">Kano</option>
-                                <option value="Ibadan">Ibadan</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <div class="input-hint">We prioritize candidates willing to relocate</div>
-                        </div>
-                        
-                        <!-- Professional Information -->
-                        <div class="form-group full-width">
-                            <label for="currentRole" class="required">Current/Most Recent Role</label>
-                            <input type="text" id="currentRole" name="currentRole" required placeholder="e.g., Executive Chef, Hotel General Manager">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="yearsExperience" class="required">Years of Experience</label>
-                            <select id="yearsExperience" name="yearsExperience" required>
-                                <option value="">Select Range</option>
-                                <option value="0-2">0-2 years</option>
-                                <option value="3-5">3-5 years</option>
-                                <option value="6-10">6-10 years</option>
-                                <option value="11-15">11-15 years</option>
-                                <option value="15+">15+ years</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="specialization" class="required">Specialization</label>
-                            <select id="specialization" name="specialization" required>
-                                <option value="">Select Area</option>
-                                <option value="Hotel Management">Hotel Management</option>
-                                <option value="Food & Beverage">Food & Beverage</option>
-                                <option value="Culinary">Culinary</option>
-                                <option value="Front Office">Front Office</option>
-                                <option value="Sales & Marketing">Sales & Marketing</option>
-                                <option value="Finance">Finance</option>
-                                <option value="Human Resources">Human Resources</option>
-                                <option value="Operations">Operations</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Salary Expectations -->
-                        <div class="form-group full-width">
-                            <label for="salaryExpectation">Current/Expected Salary (Monthly)</label>
-                            <div class="salary-input">
-                                <div class="naira-input">
-                                    <input type="number" id="salaryMin" name="salaryMin" placeholder="Minimum">
-                                </div>
-                                <span>to</span>
-                                <div class="naira-input">
-                                    <input type="number" id="salaryMax" name="salaryMax" placeholder="Maximum">
-                                </div>
-                            </div>
-                            <div class="input-hint">Leave blank if open to negotiation</div>
-                        </div>
-                        
-                        <!-- Availability -->
-                        <div class="form-group">
-                            <label for="availability" class="required">Availability</label>
-                            <select id="availability" name="availability" required>
-                                <option value="">Select Status</option>
-                                <option value="Immediately">Immediately Available</option>
-                                <option value="2 Weeks">2 Weeks Notice</option>
-                                <option value="1 Month">1 Month Notice</option>
-                                <option value="3 Months">3 Months Notice</option>
-                                <option value="Passive">Passive (Not actively looking)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Willing to Relocate?</label>
-                            <div class="checkbox-group">
-                                <div class="checkbox-item">
-                                    <input type="radio" id="relocateYes" name="relocate" value="Yes">
-                                    <label for="relocateYes">Yes, anywhere</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="radio" id="relocateSelective" name="relocate" value="Selective">
-                                    <label for="relocateSelective">Selective cities</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="radio" id="relocateNo" name="relocate" value="No">
-                                    <label for="relocateNo">No</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Career Preferences -->
-                        <div class="form-group full-width">
-                            <label>Preferred Work Environments</label>
-                            <div class="checkbox-group">
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefLuxury" name="prefLuxury" value="Luxury Hotels">
-                                    <label for="prefLuxury">Luxury Hotels</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefBoutique" name="prefBoutique" value="Boutique Hotels">
-                                    <label for="prefBoutique">Boutique Hotels</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefResorts" name="prefResorts" value="Resorts">
-                                    <label for="prefResorts">Resorts</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefFineDining" name="prefFineDining" value="Fine Dining">
-                                    <label for="prefFineDining">Fine Dining</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefCasual" name="prefCasual" value="Casual Dining">
-                                    <label for="prefCasual">Casual Dining</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="prefCorporate" name="prefCorporate" value="Corporate">
-                                    <label for="prefCorporate">Corporate Chains</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Resume Upload -->
-                        <div class="form-group full-width">
-                            <label for="resume" class="required">Resume/CV Upload</label>
-                            <div class="file-upload" id="resumeUpload">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p><strong>Click to upload your resume</strong></p>
-                                <p>PDF, DOC, DOCX (Max: 5MB)</p>
-                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                                <div class="file-name" id="fileName"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Additional Information -->
-                        <div class="form-group full-width">
-                            <label for="additionalInfo">Additional Information</label>
-                            <textarea id="additionalInfo" name="additionalInfo" placeholder="Briefly describe your career achievements, notable projects, awards, or anything else we should know..."></textarea>
-                            <div class="input-hint">Keep it concise but impactful (max 300 words)</div>
-                        </div>
-                        
-                        <!-- How did you hear about us -->
-                        <div class="form-group">
-                            <label for="referralSource">How did you hear about us?</label>
-                            <select id="referralSource" name="referralSource">
-                                <option value="">Select Option</option>
-                                <option value="LinkedIn">LinkedIn</option>
-                                <option value="Referral">Referral</option>
-                                <option value="Google Search">Google Search</option>
-                                <option value="Industry Event">Industry Event</option>
-                                <option value="Social Media">Social Media</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Consent -->
-                        <div class="form-group full-width">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="consent" name="consent" required>
-                                <label for="consent" class="required">I agree to Jobpitality's Privacy Policy and consent to being contacted about relevant opportunities. I understand my information will be kept confidential.</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-large">
-                            <i class="fas fa-bolt"></i> Submit to Talent Database
-                        </button>
-                        <button type="reset" class="btn btn-outline">
-                            <i class="fas fa-redo"></i> Reset Form
-                        </button>
-                    </div>
-                </form>
-            </div>
+    <!-- ===== BENEFITS ===== -->
+    <section class="benefits-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Submit Your <span class="text-gold">Profile</span>?</h2>
+          <p>Get access to opportunities that aren't advertised elsewhere.</p>
         </div>
-    </div>
-</section>
-
-<!-- PRIVACY & SECURITY SECTION -->
-<section class="privacy-section">
-    <div class="container">
-        <h2 class="text-center">Your Privacy is Our Priority</h2>
-        <p class="lead text-center">We handle your information with the utmost care and discretion.</p>
-        
-        <div class="privacy-grid">
-            <div class="privacy-card">
-                <div class="privacy-icon">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h3>Strict Confidentiality</h3>
-                <p>Your profile is never shared without your explicit permission. We contact you first before presenting your candidacy.</p>
-            </div>
-            
-            <div class="privacy-card">
-                <div class="privacy-icon">
-                    <i class="fas fa-eye-slash"></i>
-                </div>
-                <h3>Blind Submissions</h3>
-                <p>When we present you to clients, we initially share anonymized profiles to prevent bias and ensure fair consideration.</p>
-            </div>
-            
-            <div class="privacy-card">
-                <div class="privacy-icon">
-                    <i class="fas fa-bell-slash"></i>
-                </div>
-                <h3>No Spam Policy</h3>
-                <p>We only contact you about highly relevant opportunities. No mass emails, no irrelevant job alerts.</p>
-            </div>
-            
-            <div class="privacy-card">
-                <div class="privacy-icon">
-                    <i class="fas fa-trash-alt"></i>
-                </div>
-                <h3>Right to Delete</h3>
-                <p>You can request removal from our database at any time. We'll delete all your information within 72 hours.</p>
-            </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Exclusive Access</h3>
+            <p>Be the first to hear about unadvertised roles at luxury properties before they hit the job boards.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-user-tie"></i></div>
+            <h3>Personalised Matching</h3>
+            <p>We match your skills, experience, and career goals to roles that fit – no more irrelevant job alerts.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Discreet &amp; Confidential</h3>
+            <p>Your job search remains private. We protect your identity until you're ready to move forward.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Career Guidance</h3>
+            <p>Get advice from industry experts on CV writing, interview preparation, and career progression.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+            <h3>Direct Employer Access</h3>
+            <p>We connect you directly with hiring managers at Nigeria's top hospitality brands.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="fas fa-crown"></i></div>
+            <h3>Premium Opportunities</h3>
+            <p>Access roles at 5-star hotels, luxury resorts, and high-end restaurants that only work with trusted partners.</p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- PROCESS SECTION -->
-<section class="process-section">
-    <div class="container">
-        <h2 class="text-center">What Happens After You Submit?</h2>
-        <p class="lead text-center">Our streamlined process ensures you get maximum value from being in our database.</p>
-        
-        <div class="process-timeline">
-            <div class="process-step active">
-                <div class="process-step-circle">
-                    <i class="fas fa-clipboard-check"></i>
-                </div>
-                <h4>Profile Review</h4>
-                <p>Our talent specialists review your submission within 48 hours.</p>
+    <!-- ===== FORM SECTION ===== -->
+    <section id="submit-form" class="form-section">
+      <div class="container">
+        <div class="form-wrapper">
+          <h2>Submit Your <span class="text-gold">Profile</span></h2>
+          <p class="form-subtitle">Fill in your details and upload your CV. We'll be in touch within 48 hours.</p>
+
+          <form id="submitProfileForm" novalidate>
+            <!-- Personal Details -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" placeholder="e.g. John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="you@example.com" required />
+              </div>
             </div>
-            
-            <div class="process-step">
-                <div class="process-step-circle">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <h4>Initial Screening</h4>
-                <p>We schedule a brief call to understand your career goals and preferences.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" placeholder="+234 800 000 0000" required />
+              </div>
+              <div class="form-group">
+                <label for="location">Current Location <span class="required">*</span></label>
+                <input type="text" id="location" placeholder="e.g. Lagos, Nigeria" required />
+              </div>
             </div>
-            
-            <div class="process-step">
-                <div class="process-step-circle">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h4>Database Activation</h4>
-                <p>Your profile is activated and becomes searchable for our recruitment team.</p>
+
+            <!-- Professional Details -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="experience">Years of Experience <span class="required">*</span></label>
+                <select id="experience" required>
+                  <option value="">Select experience</option>
+                  <option value="0-1">0-1 year</option>
+                  <option value="1-3">1-3 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="5-10">5-10 years</option>
+                  <option value="10-15">10-15 years</option>
+                  <option value="15+">15+ years</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="roleType">Role Type <span class="required">*</span></label>
+                <select id="roleType" required>
+                  <option value="">Select role type</option>
+                  <option value="executive">Executive / C-Suite</option>
+                  <option value="management">Management</option>
+                  <option value="supervisory">Supervisory</option>
+                  <option value="specialist">Specialist</option>
+                  <option value="entry">Entry Level</option>
+                </select>
+              </div>
             </div>
-            
-            <div class="process-step">
-                <div class="process-step-circle">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h4>Opportunity Matching</h4>
-                <p>We contact you only when we find a strong match with our clients' needs.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="industry">Preferred Industry <span class="required">*</span></label>
+                <select id="industry" required>
+                  <option value="">Select industry</option>
+                  <option value="hotel">Hotels &amp; Resorts</option>
+                  <option value="restaurant">Restaurants</option>
+                  <option value="catering">Events &amp; Catering</option>
+                  <option value="travel">Travel &amp; Tourism</option>
+                  <option value="culinary">Culinary</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="jobPreference">Job Preference <span class="required">*</span></label>
+                <select id="jobPreference" required>
+                  <option value="">Select preference</option>
+                  <option value="full-time">Full-time</option>
+                  <option value="part-time">Part-time</option>
+                  <option value="remote">Remote</option>
+                  <option value="contract">Contract</option>
+                  <option value="internship">Internship</option>
+                </select>
+              </div>
             </div>
+
+            <div class="form-group">
+              <label for="skills">Key Skills &amp; Strengths <span class="required">*</span></label>
+              <textarea id="skills" rows="3" placeholder="e.g. Leadership, Revenue Management, Fine Dining, Team Building, Guest Service Excellence" required></textarea>
+              <div class="helper-text">List your top 5-10 skills</div>
+            </div>
+
+            <div class="form-group">
+              <label for="bio">Professional Summary <span class="required">*</span></label>
+              <textarea id="bio" rows="4" placeholder="Tell us about yourself, your career highlights, and what you're looking for..." required></textarea>
+            </div>
+
+            <!-- File Upload -->
+            <div class="form-group">
+              <label>Upload CV / Resume <span class="required">*</span></label>
+              <div class="file-upload-wrapper" id="fileUploadWrapper">
+                <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <p><strong>Click or drag to upload</strong></p>
+                <div class="file-types">PDF, DOC, DOCX (Max 5MB)</div>
+                <input type="file" id="cvUpload" accept=".pdf,.doc,.docx" required />
+                <div class="file-name" id="fileName"></div>
+              </div>
+              <div class="helper-text">Upload your CV so we can review your full experience</div>
+            </div>
+
+            <!-- GDPR / Consent -->
+            <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <input type="checkbox" id="consent" style="width: auto; margin-top: 0.3rem; min-width: 18px; height: 18px;" required />
+              <label for="consent" style="font-weight: 400; font-size: 0.9rem; color: var(--color-gray-700);">
+                I consent to AfriLux Hospitality storing my personal data and contacting me about relevant job opportunities.
+                <span class="required">*</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-block btn-large">
+              <i class="fas fa-paper-plane"></i> Submit Profile
+            </button>
+
+            <p style="font-size: 0.8rem; color: var(--color-gray-600); margin-top: 1rem; text-align: center;">
+              <i class="fas fa-lock"></i> Your information is secure and confidential. We'll review your profile within 48 hours.
+            </p>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Profile Submitted Successfully!</h3>
+            <p>
+              Thank you for submitting your profile to AfriLux Hospitality.
+              Our team will review your details and get back to you within 48 hours
+              with relevant opportunities.
+            </p>
+            <button class="btn btn-gold" onclick="resetForm()" style="margin-top: 1.5rem;">
+              <i class="fas fa-redo"></i> Submit Another Profile
+            </button>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- CTA SECTION -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-container">
-            <h2>Ready to Take the Next Step?</h2>
-            <p class="lead">Join hundreds of elite hospitality professionals who trust Jobpitality with their career advancement.</p>
-            
-            <div class="cta-features">
-                <div class="cta-feature">
-                    <div class="cta-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4>Higher Salaries</h4>
-                    <p>Average 15-30% increase through our negotiation</p>
-                </div>
-                
-                <div class="cta-feature">
-                    <div class="cta-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h4>Faster Placement</h4>
-                    <p>Average 45 days from introduction to offer</p>
-                </div>
-                
-                <div class="cta-feature">
-                    <div class="cta-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h4>Premium Employers</h4>
-                    <p>Exclusive access to Nigeria's top hospitality brands</p>
-                </div>
+    <!-- ===== CONFIDENTIALITY ===== -->
+    <section class="confidentiality-section">
+      <div class="container">
+        <h2>Your Privacy is <span style="color: var(--color-gold);">Our Priority</span></h2>
+        <p class="lead">We handle your data with the same discretion you expect from a luxury partner.</p>
+        <div class="confidentiality-grid">
+          <div class="confidentiality-item">
+            <div class="conf-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="conf-text">
+              <h3>GDPR Compliant</h3>
+              <p>Your data is stored securely and never shared without your explicit consent.</p>
             </div>
-            
-            <a href="#profileForm" class="btn btn-emergency btn-large">
-                <i class="fas fa-bolt"></i> Submit Your Profile Now
-            </a>
+          </div>
+          <div class="confidentiality-item">
+            <div class="conf-icon"><i class="fas fa-user-secret"></i></div>
+            <div class="conf-text">
+              <h3>Discreet Search</h3>
+              <p>We only share your profile with employers when you give us the green light.</p>
+            </div>
+          </div>
+          <div class="confidentiality-item">
+            <div class="conf-icon"><i class="fas fa-file-contract"></i></div>
+            <div class="conf-text">
+              <h3>NDA Protected</h3>
+              <p>All our client engagements are covered by strict non-disclosure agreements.</p>
+            </div>
+          </div>
+          <div class="confidentiality-item">
+            <div class="conf-icon"><i class="fas fa-trash-alt"></i></div>
+            <div class="conf-text">
+              <h3>Right to Erasure</h3>
+              <p>You can request to have your profile deleted at any time – no questions asked.</p>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="container">
+    <!-- ===== CTA ===== -->
+    <section class="submit-cta">
+      <div class="container">
+        <h2>Already have a <span style="color: var(--color-gold);">profile</span>?</h2>
+        <p class="lead">
+          Browse our job board for current opportunities or contact us directly
+          to discuss your career ambitions.
+        </p>
+        <div class="cta-buttons">
+          <a href="/candidates/job-board/" class="btn btn-gold btn-large">
+            <i class="fas fa-briefcase"></i> Browse Jobs
+          </a>
+          <a href="/contact/" class="btn btn-outline-white btn-large">
+            <i class="fas fa-envelope"></i> Talk to a Recruiter
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
         <div class="footer-grid">
-            <div class="footer-column">
-                <h3>Jobpitality</h3>
-                <ul class="footer-links">
-                    <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="/methodology/"><i class="fas fa-chevron-right"></i> Our Methodology</a></li>
-                    <li><a href="/guarantee/"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
-                    <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                </ul>
+          <div class="footer-column">
+            <h3>Afri<span style="color: var(--color-gold);">Lux</span> Hospitality</h3>
+            <p>Precision talent for luxury hospitality. Executive search, operational management, and HR consulting across Africa.</p>
+            <div class="footer-contact" style="margin-top: 1rem;">
+              <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
+              <p><i class="fas fa-envelope"></i> acquire@afriluxhospitality.com</p>
+              <p><i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja • Lagos</p>
             </div>
-            
-            <div class="footer-column">
-                <h3>For Employers</h3>
-                <ul class="footer-links">
-                    <li><a href="/employers/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
-                    <li><a href="/employers/process/"><i class="fas fa-chevron-right"></i> Our Process</a></li>
-                    <li><a href="/employers/roi/"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
-                    <li><a href="/employers/emergency/"><i class="fas fa-chevron-right"></i> Emergency Hiring</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>For Candidates</h3>
-                <ul class="footer-links">
-                    <li><a href="/candidates/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
-                    <li><a href="/candidates/faq/"><i class="fas fa-chevron-right"></i> Candidate FAQ</a></li>
-                    <li><a href="/candidates/preparation/"><i class="fas fa-chevron-right"></i> Interview Prep</a></li>
-                    <li><a href="/candidates/salary-guide/"><i class="fas fa-chevron-right"></i> Salary Guide</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Info</h3>
-                <div class="footer-contact">
-                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
-                    <p><i class="fas fa-phone"></i> +234 (0) 800 000 0000</p>
-                    <p><i class="fas fa-envelope"></i> talent@jobpitality.ng</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
+          </div>
+          <div class="footer-column">
+            <h3>For Candidates</h3>
+            <ul class="footer-links">
+              <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Job Board</a></li>
+              <li><a href="/candidates/submit-profile/" style="color: var(--color-gold); font-weight: 700;"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+              <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+              <li><a href="/candidates/confidentiality/"><i class="fas fa-chevron-right"></i> Confidential Process</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>For Employers</h3>
+            <ul class="footer-links">
+              <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+              <li><a href="/employers/search-talent/"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
+              <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+              <li><a href="/employers/start-search/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul class="footer-links">
+              <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
+              <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+              <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+              <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+            </ul>
+          </div>
         </div>
-        
         <div class="footer-bottom">
-            <div class="footer-bottom-links">
-                <a href="/privacy/">Privacy Policy</a>
-                <a href="/terms/">Terms of Service</a>
-                <a href="/cookies/">Cookie Policy</a>
-            </div>
-            <p>&copy; 2023 Jobpitality Nigeria. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+          <p>&copy; <span id="currentYear"></span> AfriLux Hospitality. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+          </div>
         </div>
-    </div>
-</footer>
+        <a
+          href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20want%20to%20submit%20my%20profile"
+          target="_blank"
+          class="whatsapp-desktop"
+          rel="noopener noreferrer"
+          style="margin-top: 1.5rem;"
+        >
+          <i class="fab fa-whatsapp"></i>
+          <span>Chat with us on WhatsApp</span>
+        </a>
+      </div>
+    </footer>
 
-<script>
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mainNav = document.getElementById('mainNav');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-    
-    mobileMenuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-    });
-    
-    mobileOverlay.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown > .nav-link');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const parent = dropdown.parentElement;
-                parent.classList.toggle('active');
-                
-                // Close other dropdowns
-                document.querySelectorAll('.dropdown').forEach(other => {
-                    if (other !== parent) {
-                        other.classList.remove('active');
-                    }
-                });
-            }
-        });
-    });
-    
-    // File Upload Display
-    const resumeUpload = document.getElementById('resumeUpload');
-    const fileInput = document.getElementById('resume');
-    const fileName = document.getElementById('fileName');
-    
-    resumeUpload.addEventListener('click', () => {
-        fileInput.click();
-    });
-    
-    fileInput.addEventListener('change', () => {
-        if (fileInput.files.length > 0) {
-            fileName.textContent = fileInput.files[0].name;
-            fileName.style.display = 'block';
-            resumeUpload.style.borderColor = 'var(--color-success)';
+    <a
+      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20assistance%20submitting%20my%20profile"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ============================================================
+        // MOBILE MENU
+        // ============================================================
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const overlay = document.getElementById('mobileOverlay');
+        const closeBtn = document.getElementById('mobileCloseBtn');
+
+        function toggleMenu(force) {
+          const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
+          mainNav.classList.toggle('active', active);
+          overlay.classList.toggle('active', active);
+          document.body.style.overflow = active ? 'hidden' : 'auto';
+          mobileToggle.classList.toggle('active', active);
+          mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
         }
-    });
-    
-    // Form Validation and Submission
-    const profileForm = document.getElementById('profileForm');
-    
-    profileForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Basic validation
-        const requiredFields = profileForm.querySelectorAll('[required]');
-        let valid = true;
-        
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                field.style.borderColor = 'var(--color-emergency)';
-                valid = false;
+
+        mobileToggle?.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
+        overlay?.addEventListener('click', () => toggleMenu(false));
+        closeBtn?.addEventListener('click', () => toggleMenu(false));
+
+        document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1024 && mainNav.classList.contains('active')) toggleMenu(false);
+          });
+        });
+
+        // --- Dropdowns (mobile) ---
+        document.querySelectorAll('.dropdown-toggle').forEach(t => {
+          t.addEventListener('click', function(e) {
+            if (window.innerWidth <= 1024) {
+              e.preventDefault();
+              const d = this.closest('.dropdown');
+              const active = d.classList.contains('active');
+              document.querySelectorAll('.dropdown').forEach(el => el.classList.remove('active'));
+              if (!active) d.classList.add('active');
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+          }
+        });
+
+        // ============================================================
+        // FILE UPLOAD HANDLER
+        // ============================================================
+        const fileInput = document.getElementById('cvUpload');
+        const fileNameDisplay = document.getElementById('fileName');
+        const fileWrapper = document.getElementById('fileUploadWrapper');
+
+        if (fileInput) {
+          fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+              const file = this.files[0];
+              fileNameDisplay.textContent = file.name + ' (' + (file.size / 1024 / 1024).toFixed(2) + ' MB)';
+              fileNameDisplay.style.display = 'block';
+              fileWrapper.style.borderColor = 'var(--color-gold)';
+              fileWrapper.style.background = 'var(--color-white)';
             } else {
-                field.style.borderColor = '';
+              fileNameDisplay.style.display = 'none';
+              fileWrapper.style.borderColor = '';
+              fileWrapper.style.background = '';
             }
-        });
-        
-        if (valid) {
-            // In a real application, you would submit to a server here
-            // For demo purposes, we'll show a success message
-            alert('Thank you! Your profile has been submitted successfully. Our talent team will review it within 48 hours.');
-            profileForm.reset();
-            fileName.style.display = 'none';
-            resumeUpload.style.borderColor = '';
-        } else {
-            alert('Please fill in all required fields.');
+          });
         }
-    });
-    
-    // Reset form styles on input
-    const inputs = profileForm.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            input.style.borderColor = '';
-        });
-    });
-    
-    // Smooth scroll for CTA button
-    document.querySelector('a[href="#profileForm"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('profileForm').scrollIntoView({ 
-            behavior: 'smooth' 
-        });
-    });
-</script>
-</body> 
+
+        // ============================================================
+        // FORM HANDLING
+        // ============================================================
+        const form = document.getElementById('submitProfileForm');
+        const successDiv = document.getElementById('formSuccess');
+
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simple validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let valid = true;
+            requiredFields.forEach(field => {
+              if (field.type === 'checkbox') {
+                if (!field.checked) {
+                  field.style.outline = '2px solid #E63946';
+                  valid = false;
+                } else {
+                  field.style.outline = '';
+                }
+              } else if (!field.value.trim()) {
+                field.style.borderColor = '#E63946';
+                valid = false;
+              } else {
+                field.style.borderColor = '';
+              }
+            });
+
+            // Special check for file input (which is required but may have a file)
+            if (fileInput && !fileInput.files.length) {
+              fileWrapper.style.borderColor = '#E63946';
+              valid = false;
+            } else if (fileInput) {
+              fileWrapper.style.borderColor = '';
+            }
+
+            if (!valid) {
+              alert('Please fill in all required fields and upload your CV.');
+              return;
+            }
+
+            // Simulate submission
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            setTimeout(() => {
+              form.style.display = 'none';
+              successDiv.style.display = 'block';
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Profile';
+            }, 1500);
+          });
+        }
+
+        // Reset function for "Submit Another Profile" button
+        window.resetForm = function() {
+          const form = document.getElementById('submitProfileForm');
+          const successDiv = document.getElementById('formSuccess');
+          form.style.display = 'block';
+          successDiv.style.display = 'none';
+          form.reset();
+          // Reset file upload display
+          const fileNameDisplay = document.getElementById('fileName');
+          if (fileNameDisplay) {
+            fileNameDisplay.style.display = 'none';
+          }
+          const fileWrapper = document.getElementById('fileUploadWrapper');
+          if (fileWrapper) {
+            fileWrapper.style.borderColor = '';
+            fileWrapper.style.background = '';
+          }
+          window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+        };
+      });
+    </script>
+  </body>
 </html>

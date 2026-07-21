@@ -1,2408 +1,1994 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Elite Hospitality Talent | Jobpitality Talent Database</title>
-    <meta name="description" content="Search Jobpitality's database of 2,500+ pre-vetted elite hospitality professionals. Find General Managers, Executive Chefs, F&B Directors and more.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Search Elite Hospitality Talent | Jobpitality Talent Database">
-    <meta property="og:description" content="Access Nigeria's largest database of pre-vetted hospitality professionals. Find and connect with elite talent.">
-    <meta property="og:image" content="https://jobpitality.com/img/search-talent-og.jpg">
-    <meta property="og:url" content="https://jobpitality.com/employers/search-talent/">
-    <meta property="og:type" content="website">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://jobpitality.com/employers/search-talent/">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
+    <title>Search Talent | AfriLux Hospitality – Find Elite Hospitality Professionals</title>
+    <meta
+      name="description"
+      content="Search and connect with elite hospitality talent across Nigeria and Africa. Find executive, culinary, and operational professionals for your luxury property."
+    />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- COMPLETE INLINE CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* ===== CSS RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            /* Jobpitality Color Palette */
-            --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
-            --color-primary-dark: #070d13;
-            --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
-            --color-accent-dark: #cc7e00;
-            --color-emergency: #e63946;     /* Urgent Crimson */
-            --color-emergency-dark: #c1121f;
-            --color-success: #2a9d8f;       /* Teal (Success, Trust) */
-            --color-success-dark: #21867a;
-            --color-dark: #0d1b2a;
-            --color-gray-900: #1b263b;
-            --color-gray-800: #415a77;
-            --color-gray-700: #778da9;
-            --color-gray-600: #a0aec0;
-            --color-gray-300: #e2e8f0;
-            --color-gray-200: #edf2f7;
-            --color-gray-100: #f7fafc;
-            --color-white: #ffffff;
-            
-            /* Typography */
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            
-            /* SPACING */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-            
-            /* BORDER RADIUS */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            --radius-2xl: 20px;
-            
-            /* SHADOWS */
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            
-            /* TRANSITIONS */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-        
-        body {
-            font-family: var(--font-sans);
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--color-dark);
-            background: var(--color-white);
-            overflow-x: hidden;
-        }
-        
+      /* ===== RESET & VARIABLES ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-primary: #0A1628;
+        --color-primary-dark: #050A14;
+        --color-gold: #C9A84C;
+        --color-gold-light: #E8C84A;
+        --color-gold-dark: #A8873A;
+        --color-white: #FFFFFF;
+        --color-charcoal: #2D2D2D;
+        --color-gray-soft: #F4F2EE;
+        --color-gray-200: #E8E5DF;
+        --color-gray-300: #D5D0C8;
+        --color-gray-600: #8A8580;
+        --color-gray-700: #5A5550;
+        --color-success: #2A9D8F;
+        --color-emergency: #E63946;
+
+        --font-serif: 'Playfair Display', Georgia, serif;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+
+        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        --radius-lg: 12px;
+        --radius-md: 8px;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--color-charcoal);
+        background: var(--color-white);
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      @media (min-width: 640px) {
         .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
+          padding: 0 24px;
         }
-        
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--color-gray-900);
-            letter-spacing: -0.025em;
-        }
-        
-        h1 { 
-            font-size: 4rem; 
-            font-weight: 900; 
-            line-height: 1;
-        }
-        
-        h2 { 
-            font-size: 3rem; 
-            margin-bottom: var(--space-lg);
-        }
-        
-        h3 { 
-            font-size: 2rem; 
-            margin-bottom: var(--space-md);
-        }
-        
-        h4 { 
-            font-size: 1.5rem; 
-            margin-bottom: var(--space-sm);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        
-        p {
-            margin-bottom: var(--space-md);
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--color-gray-800);
-        }
-        
-        .lead {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            color: var(--color-gray-700);
-            font-weight: 400;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        /* ===== BUTTONS ===== */
+      }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-serif);
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--color-primary);
+        letter-spacing: -0.02em;
+      }
+
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+      @media (min-width: 768px) {
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+      }
+      @media (min-width: 1024px) {
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 3.2rem; }
+      }
+
+      .text-gold {
+        color: var(--color-gold);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border-radius: 50px;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        border: none;
+        font-family: var(--font-sans);
+        min-height: 48px;
+        width: 100%;
+        text-decoration: none;
+      }
+      @media (min-width: 640px) {
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1rem 2.25rem;
-            font-weight: 700;
-            font-size: 1rem;
-            text-align: center;
-            text-decoration: none;
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-normal);
-            cursor: pointer;
-            border: none;
-            font-family: var(--font-sans);
-            letter-spacing: 0.01em;
-        }
-        
-        .btn-primary {
-            background: var(--color-accent);
-            color: var(--color-primary);
-        }
-        
-        .btn-primary:hover {
-            background: var(--color-accent-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .btn-secondary {
-            background: var(--color-primary);
-            color: var(--color-white);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--color-primary);
-            color: var(--color-white);
-            transform: translateY(-3px);
-        }
-        
-        .btn-emergency {
-            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
-            color: var(--color-white);
-            font-weight: 800;
-        }
-        
-        .btn-emergency:hover {
-            background: var(--color-emergency-dark);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
-        }
-        
-        .btn-success {
-            background: var(--color-success);
-            color: var(--color-white);
-        }
-        
-        .btn-success:hover {
-            background: var(--color-success-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .btn-large {
-            padding: 1.25rem 3.5rem;
-            font-size: 1.125rem;
-            font-weight: 800;
-        }
-        
-        .btn-block {
-            width: 100%;
-        }
-        
-        /* ===== TALENT SEARCH SPECIFIC STYLES ===== */
-        /* HERO SECTION */
-        .search-talent-hero {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
-            color: var(--color-white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .search-talent-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1200');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-        
-        .search-talent-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-        
-        .search-talent-badge {
-            background: linear-gradient(90deg, var(--color-accent), #ff6b00);
-            color: var(--color-primary);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 900;
-            margin-bottom: var(--space-lg);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .search-talent-hero h1 {
-            color: var(--color-white);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .search-talent-hero .lead {
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin-bottom: var(--space-xl);
-        }
-        
-        /* SEARCH FILTERS SECTION */
-        .search-filters-section {
-            padding: var(--space-2xl) var(--space-md);
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* MAIN SEARCH BAR */
-        .main-search-bar {
-            position: relative;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .main-search-bar input {
-            width: 100%;
-            padding: 1.25rem 1.5rem 1.25rem 3.5rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            transition: all var(--transition-fast);
-            background: var(--color-white);
-        }
-        
-        .main-search-bar input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
-        }
-        
-        .main-search-bar i {
-            position: absolute;
-            left: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-gray-600);
-            font-size: 1.25rem;
-        }
-        
-        /* ADVANCED FILTERS */
-        .advanced-filters {
-            background: var(--color-gray-100);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            margin-top: var(--space-lg);
-        }
-        
-        .filter-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-md);
-            cursor: pointer;
-        }
-        
-        .filter-header h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0;
-            color: var(--color-gray-800);
-        }
-        
-        .filter-toggle {
-            background: none;
-            border: none;
-            color: var(--color-accent);
-            font-size: 1.25rem;
-            cursor: pointer;
-            transition: transform var(--transition-fast);
-        }
-        
-        .filter-toggle.rotated {
-            transform: rotate(180deg);
-        }
-        
-        .filter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height var(--transition-slow);
-        }
-        
-        .filter-grid.expanded {
-            max-height: 500px;
-        }
-        
-        .filter-group {
-            margin-bottom: 0;
-        }
-        
-        .filter-group label {
-            display: block;
-            margin-bottom: var(--space-sm);
-            font-weight: 600;
-            color: var(--color-gray-800);
-            font-size: 0.95rem;
-        }
-        
-        .filter-select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            transition: all var(--transition-fast);
-            background: var(--color-white);
-        }
-        
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 2px rgba(255, 158, 0, 0.1);
-        }
-        
-        .filter-actions {
-            display: flex;
-            gap: var(--space-md);
-            justify-content: space-between;
-            margin-top: var(--space-lg);
-            padding-top: var(--space-lg);
-            border-top: 1px solid var(--color-gray-300);
-        }
-        
-        /* QUICK FILTER CHIPS */
-        .quick-filters {
-            display: flex;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-            margin: var(--space-lg) 0;
-        }
-        
-        .filter-chip {
-            padding: 0.5rem 1.25rem;
-            background: var(--color-white);
-            border: 2px solid var(--color-gray-300);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--color-gray-700);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .filter-chip:hover,
-        .filter-chip.active {
-            background: var(--color-accent);
-            color: var(--color-primary);
-            border-color: var(--color-accent);
-        }
-        
-        /* TALENT RESULTS SECTION */
-        .talent-results-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-xl);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-        
-        .results-count {
-            font-weight: 600;
-            color: var(--color-gray-700);
-        }
-        
-        .results-count span {
-            color: var(--color-accent);
-            font-weight: 800;
-        }
-        
-        .sort-options {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .sort-options label {
-            font-weight: 600;
-            color: var(--color-gray-700);
-            font-size: 0.95rem;
-        }
-        
-        .sort-select {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            background: var(--color-white);
-            min-width: 200px;
-        }
-        
-        /* TALENT GRID */
-        .talent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-xl) 0;
-        }
-        
-        .talent-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
-            position: relative;
-        }
-        
-        .talent-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--color-accent);
-        }
-        
-        .talent-card.featured {
-            border: 2px solid var(--color-accent);
-            background: linear-gradient(to bottom right, var(--color-white), rgba(255, 158, 0, 0.05));
-        }
-        
-        .talent-badge {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background: var(--color-emergency);
-            color: var(--color-white);
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        
-        .talent-header {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .talent-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--color-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            font-weight: 800;
-            font-size: 1.75rem;
-            flex-shrink: 0;
-        }
-        
-        .talent-info h3 {
-            margin-bottom: var(--space-xs);
-            color: var(--color-primary);
-        }
-        
-        .talent-title {
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            font-size: 1.1rem;
-        }
-        
-        .talent-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-gray-700);
-            font-size: 0.9rem;
-        }
-        
-        .talent-location i {
-            color: var(--color-accent);
-        }
-        
-        .talent-meta {
-            display: flex;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-            flex-wrap: wrap;
-        }
-        
-        .talent-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-gray-700);
-            font-size: 0.9rem;
-        }
-        
-        .talent-meta-item i {
-            color: var(--color-accent);
-        }
-        
-        .talent-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: var(--space-md) 0;
-        }
-        
-        .skill-tag {
-            padding: 0.25rem 0.75rem;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-sm);
-            font-size: 0.8rem;
-            color: var(--color-gray-700);
-            font-weight: 500;
-        }
-        
-        .talent-description {
-            color: var(--color-gray-700);
-            margin: var(--space-md) 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* TALENT DETAILS MODAL */
-        .talent-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 27, 42, 0.9);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-md);
-            overflow-y: auto;
-        }
-        
-        .talent-modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .modal-content {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--color-gray-600);
-            cursor: pointer;
-            padding: var(--space-xs);
-            z-index: 2;
-        }
-        
-        .modal-close:hover {
-            color: var(--color-emergency);
-        }
-        
-        .talent-details-header {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-xl);
-            margin-bottom: var(--space-xl);
-            padding-bottom: var(--space-xl);
-            border-bottom: 2px solid var(--color-gray-200);
-        }
-        
-        .modal-avatar {
-            width: 120px;
-            height: 120px;
-            background: var(--color-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            font-weight: 800;
-            font-size: 2.5rem;
-            flex-shrink: 0;
-        }
-        
-        .modal-talent-info h2 {
-            margin-bottom: var(--space-xs);
-            color: var(--color-primary);
-        }
-        
-        .modal-talent-title {
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            font-size: 1.25rem;
-        }
-        
-        .modal-talent-location {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--color-gray-700);
-            margin-bottom: var(--space-md);
-        }
-        
-        .modal-talent-location i {
-            color: var(--color-accent);
-        }
-        
-        .modal-talent-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-xl) 0;
-            padding: var(--space-xl);
-            background: var(--color-gray-100);
-            border-radius: var(--radius-lg);
-        }
-        
-        .modal-meta-item h4 {
-            color: var(--color-gray-700);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .modal-meta-item p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 0;
-        }
-        
-        .modal-section {
-            margin-bottom: var(--space-xl);
-        }
-        
-        .modal-section h3 {
-            color: var(--color-primary);
-            margin-bottom: var(--space-md);
-            padding-bottom: var(--space-sm);
-            border-bottom: 2px solid var(--color-gray-200);
-        }
-        
-        .modal-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: var(--space-md);
-        }
-        
-        .modal-skill-tag {
-            padding: 0.5rem 1rem;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-md);
-            font-size: 0.9rem;
-            color: var(--color-gray-700);
-            font-weight: 500;
-        }
-        
-        .modal-actions {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
-            padding-top: var(--space-xl);
-            border-top: 2px solid var(--color-gray-200);
-        }
-        
-        /* EMPLOYER ACCESS SECTION */
-        .employer-access-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
-        .access-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
-        }
-        
-        .access-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
-            text-align: center;
-        }
-        
-        .access-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--color-accent);
-        }
-        
-        .access-icon {
-            font-size: 2.5rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-md);
-            background: var(--color-gray-100);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto var(--space-md);
-        }
-        
-        .access-card h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .access-features {
-            list-style: none;
-            margin: var(--space-md) 0;
-            text-align: left;
-        }
-        
-        .access-features li {
-            padding: 0.5rem 0;
-            color: var(--color-gray-700);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .access-features li i {
-            color: var(--color-success);
-        }
-        
-        /* PAGINATION */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-xl);
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--color-gray-300);
-        }
-        
-        .page-link {
-            padding: 0.5rem 1rem;
-            background: var(--color-white);
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            color: var(--color-gray-700);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-        }
-        
-        .page-link:hover {
-            background: var(--color-gray-100);
-            border-color: var(--color-accent);
-            color: var(--color-accent);
-        }
-        
-        .page-link.active {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: var(--color-primary);
-        }
-        
-        .page-link.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .page-link.disabled:hover {
-            background: var(--color-white);
-            border-color: var(--color-gray-300);
-            color: var(--color-gray-700);
-        }
-        
-        /* ===== COMMON COMPONENTS ===== */
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .section-header h2 {
-            margin-bottom: var(--space-md);
-        }
-        
-        .section-header p {
-            color: var(--color-gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-        
-        /* ===== HEADER & NAVIGATION ===== */
-        .site-header {
-            background: var(--color-white);
-            box-shadow: var(--shadow-lg);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: var(--space-sm) 0;
-            border-bottom: 3px solid var(--color-accent);
-        }
-        
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-lg);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo a {
-            text-decoration: none;
-            color: var(--color-dark);
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-        
-        .logo h1 {
-            font-size: 2.1rem;
-            margin-bottom: 0;
-            font-weight: 900;
-            color: var(--color-primary);
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .logo h1 .brand-name {
-            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .logo-tagline {
-            font-size: 0.7rem;
-            color: var(--color-emergency);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 800;
-            margin-top: 2px;
-        }
-        
-        /* MAIN NAVIGATION */
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: var(--space-md);
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-item {
-            position: relative;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--color-gray-800);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.5rem 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all var(--transition-fast);
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            color: var(--color-accent);
-        }
-        
-        .nav-link.active {
-            color: var(--color-accent);
-            font-weight: 700;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0.75rem;
-            right: 0.75rem;
-            height: 3px;
-            background: var(--color-accent);
-            border-radius: 3px 3px 0 0;
-        }
-        
-        /* DROPDOWN MENUS */
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--color-white);
-            min-width: 240px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-2xl);
-            padding: var(--space-sm) 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: all var(--transition-normal);
-            z-index: 1000;
-            border: 1px solid var(--color-gray-200);
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(5px);
-        }
-        
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem var(--space-lg);
-            text-decoration: none;
-            color: var(--color-gray-800);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all var(--transition-fast);
-        }
-        
-        .dropdown-item:hover {
-            background: var(--color-gray-100);
-            color: var(--color-accent);
-            padding-left: calc(var(--space-lg) + 0.75rem);
-        }
-        
-        .dropdown-divider {
-            height: 1px;
-            background: var(--color-gray-200);
-            margin: var(--space-xs) 0;
-        }
-        
-        /* NAV CTA BUTTONS */
-        .nav-cta-group {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-    .nav-cta {
+          width: auto;
+          padding: 1rem 2.5rem;
+        }
+      }
+
+      .btn-gold {
+        background: var(--color-gold);
+        color: var(--color-primary);
+      }
+      .btn-gold:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .btn-outline-gold {
+        background: transparent;
+        color: var(--color-gold);
+        border: 2px solid var(--color-gold);
+      }
+      .btn-outline-gold:hover {
+        background: var(--color-gold);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-white {
+        background: transparent;
+        color: var(--color-white);
+        border: 2px solid var(--color-white);
+      }
+      .btn-outline-white:hover {
+        background: var(--color-white);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .btn-block { width: 100%; }
+      .btn-large { padding: 1.25rem 3rem; font-size: 1.1rem; }
+      .btn-sm { padding: 0.5rem 1.25rem; font-size: 0.85rem; min-height: 40px; }
+
+      /* ===== WHATSAPP ===== */
+      .whatsapp-desktop {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #25d366;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .whatsapp-desktop:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+      .whatsapp-desktop i { font-size: 1.25rem; }
+      @media (max-width: 768px) { .whatsapp-desktop { display: none; } }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128c7e;
+      }
+      @media (min-width: 769px) { .whatsapp-float { display: none; } }
+
+      /* ===== HEADER ===== */
+      .site-header {
+        background: var(--color-white);
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 0.75rem 0;
+        border-bottom: 2px solid var(--color-gold);
+      }
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .logo a {
+        text-decoration: none;
+        line-height: 1.2;
+        display: inline-block;
+      }
+      .logo .brand-name {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        letter-spacing: -0.5px;
+      }
+      .logo .brand-name .gold { color: var(--color-gold); }
+      .logo-tagline {
+        display: none;
+        font-size: 0.65rem;
+        color: var(--color-gray-600);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-top: -2px;
+      }
+      @media (min-width: 768px) {
+        .logo .brand-name { font-size: 2rem; }
+        .logo-tagline { display: block; }
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        background: var(--color-gold);
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-toggle i { font-size: 1.5rem; color: var(--color-primary); }
+      .mobile-menu-toggle.active {
         background: var(--color-primary);
-        color: var(--color-white) !important;
-        padding: 0.6rem 1.2rem !important;
-        border-radius: var(--radius-lg);
-        font-weight: 700 !important;
+      }
+      .mobile-menu-toggle.active i { color: var(--color-gold); }
+      @media (min-width: 1024px) { .mobile-menu-toggle { display: none; } }
+
+      .mobile-close-btn {
+        display: none;
+        background: var(--color-primary);
+        color: var(--color-gold);
+        border: 2px solid var(--color-gold);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      @media (max-width: 1023px) { .mobile-close-btn { display: block; } }
+      .mobile-close-btn:hover {
+        background: var(--color-gold);
+        color: var(--color-primary);
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: 1023px) {
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 85%;
+          max-width: 400px;
+          height: 100vh;
+          background: var(--color-white);
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: 80px 20px 30px;
+          transition: right 0.3s ease;
+          z-index: 1001;
+          box-shadow: var(--shadow-xl);
+          overflow-y: auto;
+          gap: 1rem;
+        }
+        .main-nav.active { right: 0; }
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+      }
+      @media (max-width: 1023px) {
+        .nav-menu {
+          flex-direction: column;
+          width: 100%;
+          gap: 0.5rem;
+        }
+      }
+
+      .nav-item {
+        position: relative;
+      }
+      @media (max-width: 1023px) { .nav-item { width: 100%; } }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--color-gray-700);
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         transition: all var(--transition-fast);
+        border-radius: var(--radius-md);
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .nav-link {
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--color-gray-200);
+          width: 100%;
+          font-size: 1rem;
+          white-space: normal;
+        }
+      }
+      .nav-link:hover { color: var(--color-gold); }
+      .nav-link.active {
+        color: var(--color-gold);
+        font-weight: 700;
+      }
+
+      .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+      .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform var(--transition-fast);
+      }
+      .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--color-white);
+        min-width: 240px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-2xl);
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all var(--transition-normal);
+        z-index: 1000;
+        border: 1px solid var(--color-gray-200);
+      }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+      }
+
+      @media (max-width: 1023px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          border-left: 2px solid var(--color-gold);
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+          padding: 0.5rem 0 0.5rem 1rem;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          display: none;
+          background: var(--color-gray-soft);
+          width: calc(100% - 1rem);
+        }
+        .dropdown.active .dropdown-menu { display: block; }
+        .dropdown-toggle i { transition: transform 0.3s ease; }
+        .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
+        text-decoration: none;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .dropdown-item {
+          padding: 0.75rem;
+          white-space: normal;
+          border-bottom: 1px solid var(--color-gray-200);
+        }
+      }
+      .dropdown-item:hover {
+        background: var(--color-gray-soft);
+        color: var(--color-gold);
+        padding-left: 1.75rem;
+      }
+      .dropdown-divider {
+        height: 1px;
+        background: var(--color-gray-200);
+        margin: 0.5rem 0;
+      }
+
+      .nav-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      @media (max-width: 1023px) {
+        .nav-cta-group {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+          gap: 0.75rem;
+        }
+      }
+
+      .nav-cta {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
+        padding: 0.6rem 1.2rem !important;
+        border-radius: 50px;
+        font-weight: 700 !important;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         border: none;
         cursor: pointer;
         white-space: nowrap;
+        font-family: var(--font-sans);
       }
-        
-        .nav-cta:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+      @media (max-width: 1023px) {
+        .nav-cta {
+          width: 100%;
+          padding: 0.75rem !important;
+          font-size: 1rem;
         }
-        
-        .nav-cta-emergency {
-            background: var(--color-emergency);
-        }
-        
-        .nav-cta-emergency:hover {
-            background: var(--color-emergency-dark);
-        }
-        
-        /* MOBILE MENU */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--color-dark);
-            cursor: pointer;
-            padding: var(--space-xs);
-            z-index: 1001;
-        }
-        
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 27, 42, 0.9);
-            z-index: 999;
-        }
-        
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background: var(--color-primary);
-            color: var(--color-white);
-            padding: var(--space-3xl) var(--space-md) var(--space-xl);
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .footer-column h3 {
-            color: var(--color-white);
-            font-size: 1.2rem;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .footer-links {
-            list        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .footer-links a:hover {
-            color: var(--color-accent);
-            transform: translateX(5px);
-        }
-        
-        .footer-links a i {
-            font-size: 0.9rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: var(--space-xl);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-        
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1024px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
-            h3 { font-size: 1.75rem; }
-            
-            .talent-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            html {
-                scroll-padding-top: 80px;
-            }
-            
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.5rem; }
-            
-            .lead {
-                font-size: 1.25rem;
-            }
-            
-            .btn-large {
-                padding: 1rem 2.5rem;
-                font-size: 1rem;
-            }
-            
-            /* HEADER RESPONSIVE */
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .main-nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 400px;
-                height: 100vh;
-                background: var(--color-white);
-                padding: var(--space-2xl) var(--space-xl);
-                box-shadow: var(--shadow-2xl);
-                transition: right var(--transition-slow);
-                z-index: 1000;
-                flex-direction: column;
-                align-items: flex-start;
-                overflow-y: auto;
-            }
-            
-            .main-nav.active {
-                right: 0;
-            }
-            
-            .mobile-overlay.active {
-                display: block;
-                animation: fadeIn 0.3s ease;
-            }
-            
-            .nav-menu {
-                flex-direction: column;
-                width: 100%;
-                margin-top: var(--space-xl);
-            }
-            
-            .nav-item {
-                width: 100%;
-            }
-            
-            .nav-link {
-                padding: var(--space-md) 0;
-                font-size: 1rem;
-                justify-content: space-between;
-                border-bottom: 1px solid var(--color-gray-200);
-                width: 100%;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                padding: 0;
-                margin-left: var(--space-lg);
-                margin-top: var(--space-sm);
-                border: none;
-                display: none;
-            }
-            
-            .dropdown.active .dropdown-menu {
-                display: block;
-            }
-            
-            .nav-cta-group {
-                flex-direction: column;
-                width: 100%;
-                margin-top: var(--space-xl);
-            }
-            
-            .nav-cta {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-            
-            /* SEARCH RESPONSIVE */
-            .search-talent-hero::before {
-                width: 100%;
-                opacity: 0.3;
-            }
-            
-            .filter-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-actions {
-                flex-direction: column;
-            }
-            
-            .results-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .sort-options {
-                width: 100%;
-                justify-content: space-between;
-            }
-            
-            .talent-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .talent-card {
-                padding: var(--space-lg);
-            }
-            
-            .talent-details-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .modal-avatar {
-                margin: 0 auto;
-            }
-            
-            .modal-talent-meta {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-actions {
-                flex-direction: column;
-            }
-            
-            .access-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            
-            .container {
-                padding: 0 var(--space-sm);
-            }
-            
-            .search-talent-hero {
-                padding: var(--space-xl) var(--space-sm);
-            }
-            
-            .search-filters-section,
-            .talent-results-section,
-            .employer-access-section {
-                padding: var(--space-xl) var(--space-sm);
-            }
-            
-            .talent-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .talent-avatar {
-                margin: 0 auto;
-            }
-            
-            .modal-content {
-                padding: var(--space-xl) var(--space-lg);
-            }
-        }
-        
-        /* ===== UTILITY CLASSES ===== */
-        .hidden {
-            display: none !important;
-        }
-        
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        .text-success {
-            color: var(--color-success);
-        }
-        
-        .text-emergency {
-            color: var(--color-emergency);
-        }
-        
-        .text-accent {
-            color: var(--color-accent);
-        }
-        
-        .bg-gray-100 {
-            background: var(--color-gray-100);
-        }
-        
-        .bg-primary {
-            background: var(--color-primary);
-        }
-        
-        .bg-accent {
-            background: var(--color-accent);
-        }
-        
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* ===== LOADING STATES ===== */
-        .loading {
-            position: relative;
-            pointer-events: none;
-        }
-        
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--color-white);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* ===== ACCESS RESTRICTION ===== */
-        .access-restricted {
-            background: var(--color-gray-100);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            text-align: center;
-            margin: var(--space-2xl) 0;
-        }
-        
-        .access-restricted-icon {
-            font-size: 3rem;
-            color: var(--color-emergency);
-            margin-bottom: var(--space-lg);
-        }
-        
-        /* ===== PROGRESS BAR ===== */
-        .search-progress {
-            height: 4px;
-            background: var(--color-gray-200);
-            border-radius: 2px;
-            margin: var(--space-md) 0;
-            overflow: hidden;
-        }
-        
-        .search-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-accent), var(--color-success));
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        
-        /* ===== SCROLL TO TOP ===== */
-        .scroll-to-top {
-            position: fixed;
-            bottom: var(--space-lg);
-            right: var(--space-lg);
-            background: var(--color-accent);
-            color: var(--color-primary);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.25rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all var(--transition-normal);
-            z-index: 999;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .scroll-to-top:hover {
-            background: var(--color-accent-dark);
-            transform: translateY(-5px);
-        }
-        
-        /* ===== PRINT STYLES ===== */
-        @media print {
-            .site-header,
-            .site-footer,
-            .search-filters-section,
-            .modal-actions,
-            .btn {
-                display: none !important;
-            }
-            
-            body {
-                font-size: 12pt;
-                background: white !important;
-                color: black !important;
-            }
-            
-            .talent-card {
-                break-inside: avoid;
-                border: 1px solid #000;
-                box-shadow: none !important;
-            }
-            
-            a {
-                color: #000 !important;
-                text-decoration: underline;
-            }
-        }
-    </style>
-</head>
-<body>
-  <!-- SITE HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-container">
-                <div class="logo">
-                    <a href="/" aria-label="Jobpitality Home">
-                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
-                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
-                    </a>
-                </div>
-                
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <nav class="main-nav" id="mainNav">
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">
-                                <i class="fas fa-home"></i> Home
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/services/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-crosshairs"></i>Hunting
-                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/services/executive-search/" class="dropdown-item">
-                                    <i class="fas fa-search"></i> Executive Search
-                                </a>
-                                <a href="/services/hotel-leadership/" class="dropdown-item">
-                                    <i class="fas fa-hotel"></i> Hotel Leadership
-                                </a>
-                                <a href="/services/culinary-leadership/" class="dropdown-item">
-                                    <i class="fas fa-utensils"></i> Culinary Leadership
-                                </a>
-                                <a href="/services/management-teams/" class="dropdown-item">
-                                    <i class="fas fa-users"></i> Management Teams
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
-                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
-                                </a>
-                            </div>
-                        </li>
-                        
-                      <li class="nav-item dropdown">
-                            <a href="/employers/index.html" class="nav-link dropdown-toggle">
-                                <i class="fas fa-building"></i> <span>Employers</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/employers/our-process/index.html" class="dropdown-item">
-                                    <i class="fas fa-play-circle"></i> Our Process
-                                </a>
-                                <a href="/employers/post-job/index.html" class="dropdown-item">
-                                    <i class="fas fa-plus-circle"></i> Post a Job
-                                </a>
-                                <a href="/employers/search-talent/index.html" class="dropdown-item">
-                                    <i class="fas fa-search"></i> Search Talent
-                                </a>
-                                <a href="/employers/pricing/index.html" class="dropdown-item">
-                                    <i class="fas fa-tag"></i> Pricing
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/employers/start-search/index.html" class="dropdown-item">
-                                    <i class="fas fa-rocket"></i> Start a Search
-                                </a>
-                            </div>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/candidates/index.html" class="nav-link dropdown-toggle">
-                                <i class="fas fa-user-tie"></i> <span>Candidates</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <!-- <a href="/candidates/jobs/index.html" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Browse Jobs
-                                </a> -->
-                                <a href="/candidates/job-board/index.html" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Job Board
-                                </a>
-                                <a href="/candidates/submit-profile/index.html" class="dropdown-item">
-                                    <i class="fas fa-file-upload"></i> Submit Profile
-                                </a>
-                                <a href="/candidates/career-strategy/index.html" class="dropdown-item">
-                                    <i class="fas fa-graduation-cap"></i> Career Strategy
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/candidates/confidentiality/index.html" class="dropdown-item">
-                                    <i class="fas fa-user-secret"></i> Confidential Process
-                                </a>
-                            </div>
-                        </li>
+      }
+      .nav-cta:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .nav-cta-outline {
+        background: transparent;
+        color: var(--color-gold) !important;
+        border: 2px solid var(--color-gold);
+      }
+      .nav-cta-outline:hover {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
+      }
 
-                        
-                        <!-- <li class="nav-item">
-                            <a href="/case-studies/" class="nav-link">
-                                <i class="fas fa-chart-line"></i> Results
-                            </a>
-                        </li> -->
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/insights/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-lightbulb"></i> Insights
-                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/insights/blog/" class="dropdown-item">
-                                    <i class="fas fa-blog"></i> Blog
-                                </a>
-                            </div>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a href="/about/" class="nav-link">
-                                <i class="fas fa-info-circle"></i> About
-                            </a>
-                        </li>
-                    </ul>
-                  <div class="nav-cta-group">
-                    <a href="/auth/login/" class="nav-cta">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Employer Login
-                    </a>
-                    <a href="/employers/urgent-hiring/" class="nav-cta nav-cta-emergency">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        Urgent Hiring
-                    </a>
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 22, 40, 0.8);
+        z-index: 999;
+        backdrop-filter: blur(4px);
+      }
+      .mobile-overlay.active { display: block; }
+
+      /* ===== SEARCH TALENT HERO ===== */
+      .search-hero {
+        padding: 3rem 0 4rem;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+        color: var(--color-white);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .search-hero::after {
+        content: '✦';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        font-size: 300px;
+        color: rgba(201, 168, 76, 0.04);
+        pointer-events: none;
+      }
+      .search-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .hero-badge {
+        background: rgba(201, 168, 76, 0.15);
+        color: var(--color-gold);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(4px);
+      }
+      .search-hero h1 {
+        color: var(--color-white);
+        margin-bottom: 1rem;
+      }
+      .search-hero h1 .gold { color: var(--color-gold); }
+      .search-hero .lead {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 0;
+        line-height: 1.7;
+      }
+
+      /* ===== SEARCH & FILTER ===== */
+      .search-section {
+        padding: 2rem 0;
+        background: var(--color-white);
+        border-bottom: 1px solid var(--color-gray-200);
+      }
+      .search-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      @media (min-width: 768px) {
+        .search-container {
+          flex-direction: row;
+          gap: 1rem;
+        }
+      }
+      .search-box {
+        flex: 1;
+        position: relative;
+      }
+      .search-box i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--color-gray-600);
+      }
+      .search-box input {
+        width: 100%;
+        padding: 0.85rem 1rem 0.85rem 2.75rem;
+        border: 2px solid var(--color-gray-200);
+        border-radius: 50px;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        background: var(--color-white);
+        transition: border-color var(--transition-fast);
+      }
+      .search-box input:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+      }
+      .search-box input::placeholder {
+        color: var(--color-gray-600);
+      }
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      @media (min-width: 768px) {
+        .filter-group {
+          flex-direction: row;
+          gap: 0.75rem;
+          align-items: center;
+        }
+      }
+      .filter-group select {
+        padding: 0.85rem 1.5rem 0.85rem 1rem;
+        border: 2px solid var(--color-gray-200);
+        border-radius: 50px;
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        background: var(--color-white);
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238A8580' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 2.5rem;
+        min-width: 150px;
+        transition: border-color var(--transition-fast);
+      }
+      .filter-group select:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+      }
+      .filter-group select option {
+        padding: 0.5rem;
+      }
+      .search-btn {
+        padding: 0.85rem 2rem;
+        background: var(--color-gold);
+        color: var(--color-primary);
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        transition: all var(--transition-normal);
+        white-space: nowrap;
+        min-height: 52px;
+        width: 100%;
+      }
+      @media (min-width: 768px) {
+        .search-btn {
+          width: auto;
+          min-width: 140px;
+        }
+      }
+      .search-btn:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .results-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.75rem 0;
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--color-gray-200);
+        margin-top: 0.5rem;
+      }
+      .results-info .count {
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+
+      /* ===== TALENT LISTINGS ===== */
+      .talent-listings {
+        padding: 3rem 0 4rem;
+        background: var(--color-gray-soft);
+      }
+      .talent-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      @media (min-width: 768px) {
+        .talent-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+      }
+
+      .talent-card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem 1.5rem;
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+      }
+      .talent-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--color-gold);
+      }
+      .talent-card .talent-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .talent-card .talent-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--color-gray-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gold);
+        border: 2px solid var(--color-gray-200);
+        flex-shrink: 0;
+      }
+      .talent-card .talent-name {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: 0.1rem;
+      }
+      .talent-card .talent-role {
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .talent-card .talent-badge {
+        margin-left: auto;
+        padding: 0.2rem 0.75rem;
+        background: rgba(201, 168, 76, 0.1);
+        color: var(--color-gold-dark);
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        white-space: nowrap;
+        align-self: flex-start;
+      }
+      .talent-card .talent-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 1rem;
+        margin: 0.5rem 0 0.75rem;
+        padding: 0.75rem 0;
+        border-top: 1px solid var(--color-gray-200);
+        border-bottom: 1px solid var(--color-gray-200);
+      }
+      .talent-card .talent-detail {
+        font-size: 0.85rem;
+        color: var(--color-gray-700);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .talent-card .talent-detail i {
+        color: var(--color-gold);
+        font-size: 0.75rem;
+        min-width: 16px;
+      }
+      .talent-card .talent-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .talent-card .talent-skill {
+        padding: 0.2rem 0.7rem;
+        background: var(--color-gray-soft);
+        border-radius: 50px;
+        font-size: 0.7rem;
+        color: var(--color-gray-700);
+        border: 1px solid var(--color-gray-200);
+      }
+      .talent-card .talent-footer {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: auto;
+        flex-wrap: wrap;
+      }
+      .talent-card .talent-footer .btn {
+        flex: 1;
+        min-width: 100px;
+      }
+
+      .talent-card .talent-availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-success);
+        margin-top: 0.25rem;
+      }
+      .talent-card .talent-availability i {
+        font-size: 0.6rem;
+      }
+
+      /* ===== LOADING & EMPTY STATES ===== */
+      .talent-loading {
+        text-align: center;
+        padding: 3rem 0;
+        grid-column: 1 / -1;
+      }
+      .talent-loading .spinner {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--color-gray-200);
+        border-radius: 50%;
+        border-top-color: var(--color-gold);
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .talent-empty {
+        text-align: center;
+        padding: 3rem 0;
+        grid-column: 1 / -1;
+      }
+      .talent-empty .empty-icon {
+        font-size: 4rem;
+        color: var(--color-gray-300);
+        margin-bottom: 1rem;
+      }
+      .talent-empty h3 {
+        font-family: var(--font-serif);
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+      }
+      .talent-empty p {
+        color: var(--color-gray-600);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      /* ===== PAGINATION ===== */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .pagination button {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--color-gray-200);
+        border-radius: var(--radius-md);
+        background: var(--color-white);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--color-gray-700);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        min-width: 44px;
+      }
+      .pagination button:hover {
+        border-color: var(--color-gold);
+        color: var(--color-gold);
+      }
+      .pagination button.active {
+        background: var(--color-gold);
+        border-color: var(--color-gold);
+        color: var(--color-primary);
+      }
+      .pagination button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      /* ===== ACCESS MODAL ===== */
+      .access-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 22, 40, 0.85);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        backdrop-filter: blur(8px);
+      }
+      .access-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+      .access-modal-content {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: 2rem 1.5rem;
+        max-width: 500px;
+        width: 100%;
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        .access-modal-content {
+          padding: 2.5rem;
+        }
+      }
+      .access-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--color-gray-600);
+        cursor: pointer;
+        transition: color var(--transition-fast);
+      }
+      .access-modal-close:hover {
+        color: var(--color-primary);
+      }
+      .access-modal-content .modal-icon {
+        text-align: center;
+        font-size: 3rem;
+        color: var(--color-gold);
+        margin-bottom: 0.75rem;
+      }
+      .access-modal-content h3 {
+        text-align: center;
+        font-family: var(--font-serif);
+        margin-bottom: 0.5rem;
+      }
+      .access-modal-content p {
+        text-align: center;
+        color: var(--color-gray-600);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+      .access-modal-content .form-group {
+        margin-bottom: 1rem;
+      }
+      .access-modal-content .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        color: var(--color-primary);
+      }
+      .access-modal-content .form-group input,
+      .access-modal-content .form-group textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--color-gray-200);
+        border-radius: var(--radius-md);
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        transition: border-color var(--transition-fast);
+      }
+      .access-modal-content .form-group input:focus,
+      .access-modal-content .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+      }
+      .access-modal-content .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .access-modal-content .btn {
+        width: 100%;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      /* ===== CTA ===== */
+      .search-cta {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+        color: var(--color-white);
+        text-align: center;
+        border-top: 3px solid var(--color-gold);
+        border-bottom: 3px solid var(--color-gold);
+      }
+      .search-cta h2 {
+        color: var(--color-white);
+        margin-bottom: 0.5rem;
+      }
+      .search-cta .lead {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        font-size: 1.05rem;
+      }
+      .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (min-width: 640px) {
+        .cta-buttons { flex-direction: row; gap: 1.5rem; }
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--color-primary);
+        color: var(--color-white);
+        padding: 3rem 0 1.5rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      @media (min-width: 640px) {
+        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+      }
+      .footer-column h3 {
+        font-family: var(--font-serif);
+        color: var(--color-white);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .footer-links a:hover { color: var(--color-gold); }
+      .footer-contact {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+      .footer-contact p {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
+      .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+      }
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+      }
+      .footer-bottom-links a:hover { color: var(--color-gold); }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .search-hero h1 { font-size: 2.5rem; }
+        .search-hero .lead { font-size: 1rem; }
+        .talent-card { padding: 1.25rem; }
+        .talent-card .talent-details { grid-template-columns: 1fr; }
+        .talent-card .talent-footer .btn { flex: 1 1 100%; }
+      }
+      @media (max-width: 480px) {
+        .search-hero h1 { font-size: 2rem; }
+        .logo .brand-name { font-size: 1.3rem; }
+        .filter-group select { width: 100%; }
+        .search-btn { width: 100%; }
+        .talent-card .talent-header { flex-wrap: wrap; }
+        .talent-card .talent-badge { margin-left: 0; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-container">
+          <div class="logo">
+            <a href="/" aria-label="AfriLux Hospitality Home">
+              <span class="brand-name">Afri<span class="gold">Lux</span></span>
+              <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
+            </a>
+          </div>
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Menu"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+              <i class="fas fa-times"></i> Close
+            </button>
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/services/" class="nav-link"><i class="fas fa-crosshairs"></i> Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active">
+                  <i class="fas fa-building"></i> Employers
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
+                  <a href="/employers/search-talent/" class="dropdown-item" style="color: var(--color-gold); font-weight: 700;"><i class="fas fa-search"></i> Search Talent</a>
+                  <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
                 </div>
-            </nav>
-            
-            <div class="mobile-overlay" id="mobileOverlay"></div>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                  <i class="fas fa-user-tie"></i> Candidates
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/candidates/job-board/" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
+                  <a href="/candidates/submit-profile/" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
+                  <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a href="/case-studies/" class="nav-link"><i class="fas fa-chart-line"></i> Case Studies</a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+              </li>
+            </ul>
+            <div class="nav-cta-group">
+              <a href="tel:+2348039661354" class="nav-cta">
+                <i class="fas fa-phone"></i> +234 803 966 1354
+              </a>
+              <a href="/contact/" class="nav-cta nav-cta-outline">
+                <i class="fas fa-handshake"></i> Partner With Us
+              </a>
+            </div>
+          </nav>
+          <div class="mobile-overlay" id="mobileOverlay"></div>
         </div>
+      </div>
     </header>
 
-    <main>
-        <!-- SEARCH TALENT HERO -->
-        <section class="search-talent-hero">
-            <div class="container">
-                <div class="search-talent-hero-content">
-                    <div class="search-talent-badge">
-                        <i class="fas fa-star"></i>
-                        ACCESS 2,500+ PRE-VETTED PROFESSIONALS
-                    </div>
-                    
-                    <h1>Find Elite Hospitality <span class="text-gradient">Talent</span> That Drives Excellence</h1>
-                    
-                    <p class="lead">
-                        Search Nigeria's largest database of pre-vetted hospitality professionals. 
-                        Every candidate is hand-screened for expertise, experience, and cultural fit.
-                    </p>
-                    
-                    <div class="quick-filters">
-                        <button class="filter-chip active" data-filter="all">All Talent</button>
-                        <button class="filter-chip" data-filter="general-manager">General Managers</button>
-                        <button class="filter-chip" data-filter="executive-chef">Executive Chefs</button>
-                        <button class="filter-chip" data-filter="fandb-director">F&B Directors</button>
-                        <button class="filter-chip" data-filter="hotel-manager">Hotel Managers</button>
-                        <button class="filter-chip" data-filter="urgent">Urgent Hire (24h)</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEARCH FILTERS SECTION -->
-        <section class="search-filters-section">
-            <div class="container search-container">
-                <!-- Main Search -->
-                <div class="main-search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="mainSearch" placeholder="Search by job title, skills, location, or keywords..." aria-label="Search talent database">
-                </div>
-                
-                <!-- Advanced Filters -->
-                <div class="advanced-filters">
-                    <div class="filter-header" id="filterHeader">
-                        <h3><i class="fas fa-sliders-h"></i> Advanced Filters</h3>
-                        <button class="filter-toggle" id="filterToggle" aria-label="Toggle filters">
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="filter-grid" id="filterGrid">
-                        <div class="filter-group">
-                            <label for="jobTitle"><i class="fas fa-briefcase"></i> Job Title</label>
-                            <select id="jobTitle" class="filter-select">
-                                <option value="">Any Job Title</option>
-                                <option value="general-manager">General Manager</option>
-                                <option value="executive-chef">Executive Chef</option>
-                                <option value="fandb-director">F&B Director</option>
-                                <option value="hotel-manager">Hotel Manager</option>
-                                <option value="front-office-manager">Front Office Manager</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
-                            <select id="location" class="filter-select">
-                                <option value="">Any Location</option>
-                                <option value="lagos">Lagos</option>
-                                <option value="abuja">Abuja</option>
-                                <option value="port-harcourt">Port Harcourt</option>
-                                <option value="ibadan">Ibadan</option>
-                                <option value="remote">Remote / Anywhere</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="experience"><i class="fas fa-chart-line"></i> Experience</label>
-                            <select id="experience" class="filter-select">
-                                <option value="">Any Experience</option>
-                                <option value="entry">Entry Level (0-2 years)</option>
-                                <option value="mid">Mid Level (3-5 years)</option>
-                                <option value="senior">Senior (6-10 years)</option>
-                                <option value="executive">Executive (10+ years)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="salary"><i class="fas fa-money-bill-wave"></i> Salary Range</label>
-                            <select id="salary" class="filter-select">
-                                <option value="">Any Salary</option>
-                                <option value="2-4">₦2M - ₦4M/year</option>
-                                <option value="4-8">₦4M - ₦8M/year</option>
-                                <option value="8-15">₦8M - ₦15M/year</option>
-                                <option value="15+">₦15M+/year</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="availability"><i class="fas fa-clock"></i> Availability</label>
-                            <select id="availability" class="filter-select">
-                                <option value="">Any Availability</option>
-                                <option value="immediate">Immediate (0-2 weeks)</option>
-                                <option value="1month">1 Month Notice</option>
-                                <option value="2months">2 Months Notice</option>
-                                <option value="3months">3+ Months Notice</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="education"><i class="fas fa-graduation-cap"></i> Education</label>
-                            <select id="education" class="filter-select">
-                                <option value="">Any Education</option>
-                                <option value="bachelors">Bachelor's Degree</option>
-                                <option value="masters">Master's Degree</option>
-                                <option value="certification">Professional Certification</option>
-                                <option value="diploma">Diploma</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-actions">
-                        <button class="btn btn-outline" id="resetFilters">
-                            <i class="fas fa-redo"></i>
-                            Reset Filters
-                        </button>
-                        <button class="btn btn-primary" id="applyFilters">
-                            <i class="fas fa-filter"></i>
-                            Apply Filters
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TALENT RESULTS SECTION -->
-        <section class="talent-results-section">
-            <div class="container">
-                <div class="results-header">
-                    <div>
-                        <h2>Available Talent</h2>
-                        <p class="results-count">Showing <span id="resultsCount">24</span> of 2,500+ pre-vetted professionals</p>
-                    </div>
-                    
-                    <div class="sort-options">
-                        <label for="sortBy">Sort by:</label>
-                        <select id="sortBy" class="sort-select">
-                            <option value="relevance">Relevance</option>
-                            <option value="experience">Experience (High to Low)</option>
-                            <option value="salary">Salary Expectations</option>
-                            <option value="availability">Availability</option>
-                            <option value="newest">Newest First</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <!-- Search Progress -->
-                <div class="search-progress">
-                    <div class="search-progress-bar" id="searchProgress"></div>
-                </div>
-                
-                <!-- Talent Grid -->
-                <div class="talent-grid" id="talentGrid">
-                    <!-- Talent cards will be loaded here dynamically -->
-                    <!-- Sample cards shown for demonstration -->
-                    <div class="talent-card featured">
-                        <div class="talent-badge">
-                            <i class="fas fa-bolt"></i> URGENT HIRE
-                        </div>
-                        
-                        <div class="talent-header">
-                            <div class="talent-avatar">
-                                AJ
-                            </div>
-                            <div class="talent-info">
-                                <h3>Aisha Johnson</h3>
-                                <div class="talent-title">General Manager</div>
-                                <div class="talent-location">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Lagos, Nigeria
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="talent-meta">
-                            <div class="talent-meta-item">
-                                <i class="fas fa-briefcase"></i>
-                                12+ years experience
-                            </div>
-                            <div class="talent-meta-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                ₦12-15M/year
-                            </div>
-                            <div class="talent-meta-item">
-                                <i class="fas fa-clock"></i>
-                                2 weeks notice
-                            </div>
-                        </div>
-                        
-                        <div class="talent-skills">
-                            <span class="skill-tag">Luxury Hotels</span>
-                            <span class="skill-tag">Revenue Management</span>
-                            <span class="skill-tag">Team Leadership</span>
-                            <span class="skill-tag">Operations</span>
-                        </div>
-                        
-                        <p class="talent-description">
-                            Seasoned GM with proven track record in 5-star hotel operations. 
-                            Specialized in turnaround strategies and luxury service delivery.
-                        </p>
-                        
-                        <button class="btn btn-primary btn-block view-talent-btn" data-talent-id="1">
-                            <i class="fas fa-eye"></i>
-                            View Full Profile
-                        </button>
-                    </div>
-                    
-                    <!-- More talent cards would be here -->
-                </div>
-                
-                <!-- Pagination -->
-                <div class="pagination">
-                    <a href="#" class="page-link disabled">
-                        <i class="fas fa-chevron-left"></i>
-                    </a>
-                    <a href="#" class="page-link active">1</a>
-                    <a href="#" class="page-link">2</a>
-                    <a href="#" class="page-link">3</a>
-                    <span class="page-link">...</span>
-                    <a href="#" class="page-link">12</a>
-                    <a href="#" class="page-link">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- EMPLOYER ACCESS SECTION -->
-        <section class="employer-access-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Unlock Complete Access to Elite Talent</h2>
-                    <p>Choose the plan that fits your hiring needs</p>
-                </div>
-                
-                <div class="access-grid">
-                    <div class="access-card">
-                        <div class="access-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Basic Search Access</h3>
-                        <p>Free for registered employers</p>
-                        
-                        <ul class="access-features">
-                            <li><i class="fas fa-check"></i> View limited profiles</li>
-                            <li><i class="fas fa-check"></i> Basic search filters</li>
-                            <li><i class="fas fa-check"></i> Save candidates</li>
-                            <li><i class="fas fa-times"></i> <s>Contact candidates</s></li>
-                            <li><i class="fas fa-times"></i> <s>Full profile access</s></li>
-                        </ul>
-                        
-                        <a href="/auth/register/" class="btn btn-outline btn-block">
-                            <i class="fas fa-user-plus"></i>
-                            Register Free
-                        </a>
-                    </div>
-                    
-                    <div class="access-card">
-                        <div class="access-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>Premium Employer</h3>
-                        <p>₦150,000/month</p>
-                        
-                        <ul class="access-features">
-                            <li><i class="fas fa-check"></i> Full profile access</li>
-                            <li><i class="fas fa-check"></i> Direct candidate contact</li>
-                            <li><i class="fas fa-check"></i> Advanced search filters</li>
-                            <li><i class="fas fa-check"></i> Priority support</li>
-                            <li><i class="fas fa-check"></i> Talent matching alerts</li>
-                        </ul>
-                        
-                        <a href="/employers/pricing/" class="btn btn-primary btn-block">
-                            <i class="fas fa-rocket"></i>
-                            Upgrade Now
-                        </a>
-                    </div>
-                    
-                    <div class="access-card">
-                        <div class="access-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h3>Enterprise Recruitment</h3>
-                        <p>Custom pricing</p>
-                        
-                        <ul class="access-features">
-                            <li><i class="fas fa-check"></i> Dedicated recruiter</li>
-                            <li><i class="fas fa-check"></i> Bulk hiring solutions</li>
-                            <li><i class="fas fa-check"></i> Executive search</li>
-                            <li><i class="fas fa-check"></i> Custom screening</li>
-                            <li><i class="fas fa-check"></i> HR consulting</li>
-                        </ul>
-                        
-                        <a href="/employers/recruitment-solutions/" class="btn btn-secondary btn-block">
-                            <i class="fas fa-headset"></i>
-                            Contact Sales
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="text-center" style="margin-top: var(--space-2xl);">
-                    <a href="/employers/urgent-hiring/" class="btn btn-emergency btn-large">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        NEED TO HIRE URGENTLY? GET IMMEDIATE ACCESS
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- TALENT DETAILS MODAL -->
-    <div class="talent-modal" id="talentModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="talent-details-header">
-                <div class="modal-avatar">
-                    AJ
-                </div>
-                <div class="modal-talent-info">
-                    <h2>Aisha Johnson</h2>
-                    <div class="modal-talent-title">General Manager</div>
-                    <div class="modal-talent-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Lagos, Nigeria
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-talent-meta">
-                <div class="modal-meta-item">
-                    <h4>Experience</h4>
-                    <p>12+ years</p>
-                </div>
-                <div class="modal-meta-item">
-                    <h4>Salary Expectation</h4>
-                    <p>₦12-15M/year</p>
-                </div>
-                <div class="modal-meta-item">
-                    <h4>Availability</h4>
-                    <p class="text-emergency">2 weeks notice</p>
-                </div>
-                <div class="modal-meta-item">
-                    <h4>Education</h4>
-                    <p>MBA, Hospitality Management</p>
-                </div>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Professional Summary</h3>
-                <p>
-                    Accomplished General Manager with 12+ years of experience in luxury hotel operations. 
-                    Proven track record of driving revenue growth, improving guest satisfaction scores, 
-                    and leading high-performing teams. Specialized in turnaround strategies for underperforming 
-                    properties and launching new luxury hotel brands.
-                </p>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Key Skills & Expertise</h3>
-                <div class="modal-skills">
-                    <span class="modal-skill-tag">Luxury Hotel Operations</span>
-                    <span class="modal-skill-tag">Revenue Management</span>
-                    <span class="modal-skill-tag">Team Leadership</span>
-                    <span class="modal-skill-tag">Strategic Planning</span>
-                    <span class="modal-skill-tag">Guest Experience</span>
-                    <span class="modal-skill-tag">Budget Management</span>
-                    <span class="modal-skill-tag">Food & Beverage</span>
-                    <span class="modal-skill-tag">Hospitality Marketing</span>
-                </div>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Career History</h3>
-                <p><strong>General Manager</strong> | The Luxury Collection, Lagos | 2018-Present</p>
-                <p><strong>Hotel Manager</strong> | InterContinental, Abuja | 2015-2018</p>
-                <p><strong>Front Office Director</strong> | Sheraton, Lagos | 2012-2015</p>
-            </div>
-            
-            <div class="modal-actions">
-                <button class="btn btn-outline" id="saveTalent">
-                    <i class="fas fa-bookmark"></i>
-                    Save Profile
-                </button>
-                <button class="btn btn-primary" id="contactTalent">
-                    <i class="fas fa-envelope"></i>
-                    Request Contact
-                </button>
-                <button class="btn btn-emergency">
-                    <i class="fas fa-bolt"></i>
-                    Urgent Interview Request
-                </button>
-            </div>
+    <!-- ===== HERO ===== -->
+    <section class="search-hero">
+      <div class="container">
+        <div class="search-hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-search"></i> SEARCH TALENT
+          </div>
+          <h1>Find <span class="gold">elite hospitality</span> professionals.</h1>
+          <p class="lead">
+            Browse and connect with Nigeria's most talented hospitality professionals.
+            From executive leadership to culinary stars – find the perfect match
+            for your luxury property.
+          </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== SEARCH & FILTER ===== -->
+    <section class="search-section">
+      <div class="container">
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name, role, skills, or location..."
+              aria-label="Search candidates"
+            />
+          </div>
+          <div class="filter-group">
+            <select id="filterRole">
+              <option value="all">All Roles</option>
+              <option value="executive">Executive / C-Suite</option>
+              <option value="management">Management</option>
+              <option value="culinary">Culinary</option>
+              <option value="operations">Operations</option>
+              <option value="fandb">Food &amp; Beverage</option>
+              <option value="front-office">Front Office</option>
+            </select>
+            <select id="filterLocation">
+              <option value="all">All Locations</option>
+              <option value="lagos">Lagos</option>
+              <option value="abuja">Abuja</option>
+              <option value="ilorin">Ilorin</option>
+              <option value="osogbo">Osogbo</option>
+              <option value="port-harcourt">Port Harcourt</option>
+              <option value="remote">Remote</option>
+            </select>
+            <select id="filterAvailability">
+              <option value="all">All Availability</option>
+              <option value="immediate">Immediate</option>
+              <option value="2-weeks">2 Weeks</option>
+              <option value="1-month">1 Month</option>
+              <option value="open">Open to Offers</option>
+            </select>
+            <button class="search-btn" id="searchButton">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+        <div class="results-info">
+          <span>Showing <span class="count" id="visibleCount">0</span> of <span class="count" id="totalCount">0</span> candidates</span>
+          <button class="btn btn-outline-gold btn-sm" id="clearFiltersBtn" style="display: none;">
+            <i class="fas fa-times"></i> Clear Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TALENT LISTINGS ===== -->
+    <section class="talent-listings">
+      <div class="container">
+        <div class="talent-loading" id="talentLoading">
+          <div class="spinner"></div>
+          <p style="margin-top: 1rem; color: var(--color-gray-600);">Loading talent profiles...</p>
+        </div>
+        <div class="talent-grid" id="talentGrid" style="display: none;"></div>
+        <div class="pagination" id="pagination" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ===== ACCESS MODAL ===== -->
+    <div class="access-modal" id="accessModal" role="dialog" aria-label="Request Access to Candidate">
+      <div class="access-modal-content">
+        <button class="access-modal-close" id="modalClose" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+        <h3>Request Access to <span id="modalCandidateName" class="text-gold">Candidate</span></h3>
+        <p>Please provide your details and we'll connect you with this candidate.</p>
+        <form id="accessRequestForm" novalidate>
+          <div class="form-group">
+            <label for="modalCompany">Company Name <span class="required" style="color: var(--color-emergency);">*</span></label>
+            <input type="text" id="modalCompany" placeholder="e.g. 4T Luxury Hotel" required />
+          </div>
+          <div class="form-group">
+            <label for="modalEmail">Work Email <span class="required" style="color: var(--color-emergency);">*</span></label>
+            <input type="email" id="modalEmail" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="modalMessage">Message</label>
+            <textarea id="modalMessage" placeholder="Tell us about the role you're hiring for..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold">
+            <i class="fas fa-paper-plane"></i> Request Access
+          </button>
+          <p style="font-size: 0.75rem; color: var(--color-gray-600); text-align: center; margin-top: 0.75rem;">
+            <i class="fas fa-lock"></i> Your request is confidential. We'll connect you directly.
+          </p>
+        </form>
+        <div class="form-success" id="modalSuccess" style="display: none; text-align: center; padding: 1rem 0;">
+          <div style="font-size: 3rem; color: var(--color-success); margin-bottom: 0.5rem;">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3 style="font-family: var(--font-serif); color: var(--color-success);">Request Sent!</h3>
+          <p style="color: var(--color-gray-600);">We'll connect you with this candidate shortly.</p>
+          <button class="btn btn-gold btn-sm" onclick="closeAccessModal()" style="margin-top: 1rem;">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Jobpitality</h3>
-                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--space-md);">
-                        Nigeria's premier platform connecting elite hospitality talent with leading employers.
-                    </p>
-                    <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg);">
-                        <a href="#" style="color: var(--color-white); font-size: 1.25rem;">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" style="color: var(--color-white); font-size: 1.25rem;">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" style="color: var(--color-white); font-size: 1.25rem;">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>For Employers</h3>
-                    <ul class="footer-links">
-                        <li><a href="/employers/search-talent/"><i class="fas fa-search"></i> Search Talent</a></li>
-                        <li><a href="/employers/recruitment-solutions/"><i class="fas fa-bullseye"></i> Recruitment Solutions</a></li>
-                        <li><a href="/employers/pricing/"><i class="fas fa-tag"></i> Pricing</a></li>
-                        <li><a href="/employers/urgent-hiring/"><i class="fas fa-exclamation-triangle"></i> Urgent Hiring</a></li>
-                        <li><a href="/employers/success-stories/"><i class="fas fa-trophy"></i> Success Stories</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>For Job Seekers</h3>
-                    <ul class="footer-links">
-                        <li><a href="/job-seekers/browse-jobs/"><i class="fas fa-briefcase"></i> Browse Jobs</a></li>
-                        <li><a href="/job-seekers/register/"><i class="fas fa-user-plus"></i> Register Profile</a></li>
-                        <li><a href="/job-seekers/career-advice/"><i class="fas fa-graduation-cap"></i> Career Advice</a></li>
-                        <li><a href="/job-seekers/success-stories/"><i class="fas fa-star"></i> Success Stories</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="/about/"><i class="fas fa-info-circle"></i> About Us</a></li>
-                        <li><a href="/blog/"><i class="fas fa-blog"></i> Blog</a></li>
-                        <li><a href="/contact/"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                        <li><a href="/privacy/"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                        <li><a href="/terms/"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2024 Jobpitality. All rights reserved. | Elite Hospitality Recruitment Platform</p>
-                <p style="margin-top: var(--space-sm); font-size: 0.8rem;">
-                    <i class="fas fa-map-marker-alt"></i> Lagos, Nigeria | 
-                    <i class="fas fa-phone"></i> +234 800 123 4567 | 
-                    <i class="fas fa-envelope"></i> info@jobpitality.com
-                </p>
-            </div>
+    <!-- ===== CTA ===== -->
+    <section class="search-cta">
+      <div class="container">
+        <h2>Can't find the <span style="color: var(--color-gold);">perfect candidate</span>?</h2>
+        <p class="lead">
+          Let our expert team handle the search for you. We deliver pre-vetted,
+          elite candidates that match your exact requirements.
+        </p>
+        <div class="cta-buttons">
+          <a href="/employers/start-search/" class="btn btn-gold btn-large">
+            <i class="fas fa-rocket"></i> Start a Search
+          </a>
+          <a href="/contact/" class="btn btn-outline-white btn-large">
+            <i class="fas fa-envelope"></i> Talk to a Recruiter
+          </a>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>Afri<span style="color: var(--color-gold);">Lux</span> Hospitality</h3>
+            <p>Precision talent for luxury hospitality. Executive search, operational management, and HR consulting across Africa.</p>
+            <div class="footer-contact" style="margin-top: 1rem;">
+              <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
+              <p><i class="fas fa-envelope"></i> acquire@afriluxhospitality.com</p>
+              <p><i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja • Lagos</p>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>For Candidates</h3>
+            <ul class="footer-links">
+              <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Job Board</a></li>
+              <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+              <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+              <li><a href="/candidates/confidentiality/"><i class="fas fa-chevron-right"></i> Confidential Process</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>For Employers</h3>
+            <ul class="footer-links">
+              <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+              <li><a href="/employers/search-talent/" style="color: var(--color-gold); font-weight: 700;"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
+              <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+              <li><a href="/employers/start-search/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul class="footer-links">
+              <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
+              <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+              <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+              <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="currentYear"></span> AfriLux Hospitality. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+          </div>
+        </div>
+        <a
+          href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20want%20to%20search%20for%20talent"
+          target="_blank"
+          class="whatsapp-desktop"
+          rel="noopener noreferrer"
+          style="margin-top: 1.5rem;"
+        >
+          <i class="fab fa-whatsapp"></i>
+          <span>Chat with us on WhatsApp</span>
+        </a>
+      </div>
     </footer>
 
-    <!-- SCROLL TO TOP -->
-    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
+    <a
+      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20help%20finding%20talent"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- INLINE JAVASCRIPT -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
+      document.addEventListener('DOMContentLoaded', function() {
+        // Current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-        });
+        // ============================================================
+        // TALENT DATA (demo – replace with Firestore/API)
+        // ============================================================
+        const demoTalent = [
+          {
+            id: '1',
+            name: 'Oluwaseun Adebayo',
+            initials: 'OA',
+            role: 'General Manager',
+            category: 'executive',
+            location: 'Lagos, Nigeria',
+            experience: '12 years',
+            availability: 'Immediate',
+            skills: ['Leadership', 'Revenue Management', 'Operations', 'Strategic Planning'],
+            bio: 'Proven leader with 12+ years in luxury hotel management. Transformed underperforming properties into market leaders.',
+            preferredRole: 'Executive / C-Suite',
+            icon: '🏨'
+          },
+          {
+            id: '2',
+            name: 'Chidi Okonkwo',
+            initials: 'CO',
+            role: 'Executive Chef',
+            category: 'culinary',
+            location: 'Abuja, Nigeria',
+            experience: '10 years',
+            availability: '2 Weeks',
+            skills: ['Fine Dining', 'Menu Development', 'Team Leadership', 'Kitchen Operations'],
+            bio: 'Michelin-starred experience. Passionate about creating exceptional dining experiences.',
+            preferredRole: 'Culinary',
+            icon: '👨‍🍳'
+          },
+          {
+            id: '3',
+            name: 'Ngozi Eze',
+            initials: 'NE',
+            role: 'Director of Operations',
+            category: 'operations',
+            location: 'Ilorin, Kwara',
+            experience: '15 years',
+            availability: 'Open to Offers',
+            skills: ['Operations Management', 'Process Improvement', 'Team Building', 'Strategic Planning'],
+            bio: 'Results-driven operations leader with a track record of turning around luxury properties.',
+            preferredRole: 'Operations',
+            icon: '🏢'
+          },
+          {
+            id: '4',
+            name: 'Tunde Bello',
+            initials: 'TB',
+            role: 'Pastry Chef',
+            category: 'culinary',
+            location: 'Osogbo, Osun',
+            experience: '6 years',
+            availability: 'Immediate',
+            skills: ['Baking', 'Pastry', 'Artisan Bread', 'Chocolate Work'],
+            bio: 'Creative pastry chef with a passion for innovative desserts and high-quality baked goods.',
+            preferredRole: 'Culinary',
+            icon: '🥐'
+          },
+          {
+            id: '5',
+            name: 'Amina Mohammed',
+            initials: 'AM',
+            role: 'F&B Manager',
+            category: 'fandb',
+            location: 'Abuja, Nigeria',
+            experience: '8 years',
+            availability: '1 Month',
+            skills: ['Food & Beverage', 'Team Leadership', 'Menu Strategy', 'Cost Control'],
+            bio: 'Dynamic F&B leader with experience in luxury hotels and high-end restaurants.',
+            preferredRole: 'Food & Beverage',
+            icon: '🍽️'
+          },
+          {
+            id: '6',
+            name: 'Femi Ogunleye',
+            initials: 'FO',
+            role: 'Revenue Manager',
+            category: 'executive',
+            location: 'Remote',
+            experience: '7 years',
+            availability: 'Immediate',
+            skills: ['Revenue Management', 'Analytics', 'Strategy', 'Market Analysis'],
+            bio: 'Data-driven revenue manager who consistently delivers 20%+ revenue growth.',
+            preferredRole: 'Executive / C-Suite',
+            icon: '📊'
+          },
+          {
+            id: '7',
+            name: 'Zainab Ibrahim',
+            initials: 'ZI',
+            role: 'Front Office Manager',
+            category: 'front-office',
+            location: 'Lagos, Nigeria',
+            experience: '5 years',
+            availability: '2 Weeks',
+            skills: ['Guest Service', 'Reception', 'Team Management', 'PMS Systems'],
+            bio: 'Highly organized front office professional with a passion for guest experience excellence.',
+            preferredRole: 'Front Office',
+            icon: '🏨'
+          },
+          {
+            id: '8',
+            name: 'David Okafor',
+            initials: 'DO',
+            role: 'Sous Chef',
+            category: 'culinary',
+            location: 'Ilorin, Kwara',
+            experience: '4 years',
+            availability: 'Open to Offers',
+            skills: ['Cooking', 'Team Supervision', 'Menu Planning', 'Kitchen Safety'],
+            bio: 'Talented sous chef ready to step up to leadership. Passionate about high-quality cuisine.',
+            preferredRole: 'Culinary',
+            icon: '👨‍🍳'
+          },
+          {
+            id: '9',
+            name: 'Grace Okonkwo',
+            initials: 'GO',
+            role: 'Event Coordinator',
+            category: 'operations',
+            location: 'Port Harcourt, Nigeria',
+            experience: '3 years',
+            availability: 'Immediate',
+            skills: ['Event Planning', 'Coordination', 'Client Management', 'Logistics'],
+            bio: 'Creative and organized event coordinator with experience in high-end corporate events and weddings.',
+            preferredRole: 'Operations',
+            icon: '🎉'
+          },
+          {
+            id: '10',
+            name: 'Ibrahim Musa',
+            initials: 'IM',
+            role: 'HR Director',
+            category: 'executive',
+            location: 'Lagos, Nigeria',
+            experience: '14 years',
+            availability: '1 Month',
+            skills: ['HR Strategy', 'Talent Acquisition', 'Employee Relations', 'Organizational Development'],
+            bio: 'Strategic HR leader with deep experience in hospitality talent management and culture building.',
+            preferredRole: 'Executive / C-Suite',
+            icon: '👔'
+          },
+          {
+            id: '11',
+            name: 'Chioma Nwosu',
+            initials: 'CN',
+            role: 'Restaurant Manager',
+            category: 'fandb',
+            location: 'Abuja, Nigeria',
+            experience: '6 years',
+            availability: 'Open to Offers',
+            skills: ['Restaurant Operations', 'Guest Service', 'Team Leadership', 'Inventory Management'],
+            bio: 'Dynamic restaurant manager who consistently delivers exceptional dining experiences.',
+            preferredRole: 'Food & Beverage',
+            icon: '🍽️'
+          },
+          {
+            id: '12',
+            name: 'Emeka Okafor',
+            initials: 'EO',
+            role: 'Maintenance Manager',
+            category: 'operations',
+            location: 'Lagos, Nigeria',
+            experience: '10 years',
+            availability: 'Immediate',
+            skills: ['Facilities Management', 'HVAC', 'Preventive Maintenance', 'Team Supervision'],
+            bio: 'Experienced maintenance manager with a track record of reducing downtime and costs.',
+            preferredRole: 'Operations',
+            icon: '🔧'
+          }
+        ];
 
-        mobileOverlay.addEventListener('click', () => {
-            mainNav.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        // ============================================================
+        // STATE
+        // ============================================================
+        let allTalent = [...demoTalent];
+        let currentTalent = [...allTalent];
+        let currentPage = 1;
+        const perPage = 6;
 
-        // Dropdown Toggle for Mobile
-        document.querySelectorAll('.dropdown > .nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const dropdown = link.parentElement;
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-
-        // Advanced Filters Toggle
-        const filterToggle = document.getElementById('filterToggle');
-        const filterGrid = document.getElementById('filterGrid');
-        const filterHeader = document.getElementById('filterHeader');
-
-        filterHeader.addEventListener('click', () => {
-            filterGrid.classList.toggle('expanded');
-            filterToggle.classList.toggle('rotated');
-        });
-
-        // Quick Filter Chips
-        document.querySelectorAll('.filter-chip').forEach(chip => {
-            chip.addEventListener('click', function() {
-                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                // Implement filter logic here
-                updateSearchProgress();
-            });
-        });
-
-        // Talent Modal
-        const talentModal = document.getElementById('talentModal');
+        // ============================================================
+        // DOM REFS
+        // ============================================================
+        const talentGrid = document.getElementById('talentGrid');
+        const talentLoading = document.getElementById('talentLoading');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const filterRole = document.getElementById('filterRole');
+        const filterLocation = document.getElementById('filterLocation');
+        const filterAvailability = document.getElementById('filterAvailability');
+        const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+        const visibleCountSpan = document.getElementById('visibleCount');
+        const totalCountSpan = document.getElementById('totalCount');
+        const paginationContainer = document.getElementById('pagination');
+        const modal = document.getElementById('accessModal');
         const modalClose = document.getElementById('modalClose');
-        const viewTalentBtns = document.querySelectorAll('.view-talent-btn');
+        const modalCandidateName = document.getElementById('modalCandidateName');
+        const accessForm = document.getElementById('accessRequestForm');
+        const modalSuccess = document.getElementById('modalSuccess');
 
-        viewTalentBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                talentModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+        // ============================================================
+        // RENDER TALENT
+        // ============================================================
+        function renderTalent() {
+          const start = (currentPage - 1) * perPage;
+          const end = start + perPage;
+          const pageTalent = currentTalent.slice(start, end);
+
+          if (pageTalent.length === 0) {
+            talentGrid.innerHTML = `
+              <div class="talent-empty">
+                <div class="empty-icon"><i class="fas fa-search"></i></div>
+                <h3>No candidates found</h3>
+                <p>Try adjusting your search filters or clear them to see all talent.</p>
+              </div>
+            `;
+          } else {
+            talentGrid.innerHTML = pageTalent.map(c => {
+              // Determine availability colour
+              let availColor = '';
+              let availIcon = 'fa-clock';
+              if (c.availability === 'Immediate') {
+                availColor = 'var(--color-success)';
+                availIcon = 'fa-check-circle';
+              } else if (c.availability === 'Open to Offers') {
+                availColor = 'var(--color-gold)';
+                availIcon = 'fa-hourglass-half';
+              } else {
+                availColor = 'var(--color-gray-600)';
+                availIcon = 'fa-clock';
+              }
+
+              return `
+                <div class="talent-card" data-id="${c.id}">
+                  <div class="talent-header">
+                    <div class="talent-avatar">${c.initials}</div>
+                    <div>
+                      <div class="talent-name">${c.name}</div>
+                      <div class="talent-role">${c.role} <span style="font-size:0.8rem;color:var(--color-gray-600);">• ${c.experience} exp</span></div>
+                      <div class="talent-availability" style="color: ${availColor};">
+                        <i class="fas ${availIcon}"></i> ${c.availability}
+                      </div>
+                    </div>
+                    <span class="talent-badge">${c.preferredRole}</span>
+                  </div>
+
+                  <div class="talent-details">
+                    <div class="talent-detail"><i class="fas fa-map-marker-alt"></i> ${c.location}</div>
+                    <div class="talent-detail"><i class="fas fa-briefcase"></i> ${c.experience}</div>
+                    <div class="talent-detail" style="grid-column: 1 / -1;"><i class="fas fa-quote-left" style="font-size:0.7rem;"></i> ${c.bio}</div>
+                  </div>
+
+                  <div class="talent-skills">
+                    ${c.skills.map(s => `<span class="talent-skill">${s}</span>`).join('')}
+                  </div>
+
+                  <div class="talent-footer">
+                    <button class="btn btn-gold btn-sm request-access-btn" data-id="${c.id}" data-name="${c.name}">
+                      <i class="fas fa-user-plus"></i> Request Access
+                    </button>
+                    <button class="btn btn-outline-gold btn-sm view-profile-btn" data-id="${c.id}">
+                      <i class="fas fa-eye"></i> View Profile
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('');
+
+            // Add event listeners for request access buttons
+            document.querySelectorAll('.request-access-btn').forEach(btn => {
+              btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const name = this.dataset.name;
+                openAccessModal(name);
+              });
             });
-        });
 
-        modalClose.addEventListener('click', () => {
-            talentModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Close modal on outside click
-        talentModal.addEventListener('click', (e) => {
-            if (e.target === talentModal) {
-                talentModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Filter Actions
-        const resetFiltersBtn = document.getElementById('resetFilters');
-        const applyFiltersBtn = document.getElementById('applyFilters');
-
-        resetFiltersBtn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-select').forEach(select => {
-                select.value = '';
+            // View profile buttons
+            document.querySelectorAll('.view-profile-btn').forEach(btn => {
+              btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const id = this.dataset.id;
+                const candidate = allTalent.find(c => c.id === id);
+                if (candidate) {
+                  openAccessModal(candidate.name);
+                }
+              });
             });
-            document.querySelectorAll('.filter-chip').forEach(chip => {
-                chip.classList.remove('active');
+
+            // Make card clickable
+            document.querySelectorAll('.talent-card').forEach(card => {
+              card.addEventListener('click', function() {
+                const id = this.dataset.id;
+                const candidate = allTalent.find(c => c.id === id);
+                if (candidate) {
+                  openAccessModal(candidate.name);
+                }
+              });
             });
-            document.querySelector('.filter-chip[data-filter="all"]').classList.add('active');
-            updateSearchProgress();
-        });
+          }
 
-        applyFiltersBtn.addEventListener('click', () => {
-            // Implement filter application logic
-            updateSearchProgress();
-            // Show loading state
-            applyFiltersBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Applying...';
-            applyFiltersBtn.disabled = true;
-            
-            setTimeout(() => {
-                applyFiltersBtn.innerHTML = '<i class="fas fa-filter"></i> Apply Filters';
-                applyFiltersBtn.disabled = false;
-            }, 1000);
-        });
+          // Update counts
+          visibleCountSpan.textContent = pageTalent.length;
+          totalCountSpan.textContent = currentTalent.length;
 
-        // Search Functionality
-        const mainSearch = document.getElementById('mainSearch');
-        let searchTimeout;
-
-        mainSearch.addEventListener('input', (e) => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                // Implement search logic
-                console.log('Searching for:', e.target.value);
-                updateSearchProgress();
-            }, 500);
-        });
-
-        // Sort Functionality
-        const sortBy = document.getElementById('sortBy');
-        sortBy.addEventListener('change', () => {
-            // Implement sort logic
-            updateSearchProgress();
-        });
-
-        // Update Search Progress Bar
-        function updateSearchProgress() {
-            const progressBar = document.getElementById('searchProgress');
-            progressBar.style.width = '0%';
-            
-            setTimeout(() => {
-                progressBar.style.width = '100%';
-            }, 100);
-            
-            setTimeout(() => {
-                progressBar.style.width = '0%';
-            }, 1000);
+          // Render pagination
+          renderPagination();
         }
 
-        // Scroll to Top
-        const scrollToTop = document.getElementById('scrollToTop');
+        // ============================================================
+        // PAGINATION
+        // ============================================================
+        function renderPagination() {
+          const totalPages = Math.ceil(currentTalent.length / perPage);
+          if (totalPages <= 1) {
+            paginationContainer.style.display = 'none';
+            return;
+          }
+          paginationContainer.style.display = 'flex';
+          paginationContainer.innerHTML = '';
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
+          // Previous
+          const prevBtn = document.createElement('button');
+          prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+          prevBtn.disabled = currentPage === 1;
+          prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+              currentPage--;
+              renderTalent();
+              scrollToTalent();
             }
-        });
+          });
+          paginationContainer.appendChild(prevBtn);
 
-        scrollToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Contact Talent Button
-        const contactTalentBtn = document.getElementById('contactTalent');
-        const saveTalentBtn = document.getElementById('saveTalent');
-
-        contactTalentBtn.addEventListener('click', () => {
-            // Check if user is logged in
-            const isLoggedIn = false; // Replace with actual auth check
-            
-            if (!isLoggedIn) {
-                window.location.href = '/auth/login/?redirect=/employers/search-talent/';
-                return;
-            }
-            
-            // Check if user has premium access
-            const hasPremiumAccess = false; // Replace with actual check
-            
-            if (!hasPremiumAccess) {
-                if (confirm('This feature requires premium access. Upgrade now?')) {
-                    window.location.href = '/employers/pricing/';
-                }
-                return;
-            }
-            
-            // Implement contact logic
-            contactTalentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            contactTalentBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Contact request sent successfully! The candidate will respond within 24 hours.');
-                contactTalentBtn.innerHTML = '<i class="fas fa-envelope"></i> Request Contact';
-                contactTalentBtn.disabled = false;
-            }, 1500);
-        });
-
-        saveTalentBtn.addEventListener('click', () => {
-            saveTalentBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
-            saveTalentBtn.disabled = true;
-            setTimeout(() => {
-                saveTalentBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save Profile';
-                saveTalentBtn.disabled = false;
-            }, 2000);
-        });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set initial search progress
-            updateSearchProgress();
-            
-            // Add smooth transitions to talent cards
-            document.querySelectorAll('.talent-card').forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.classList.add('animate-fade-in-up');
+          // Page numbers
+          for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.textContent = i;
+            if (i === currentPage) pageBtn.classList.add('active');
+            pageBtn.addEventListener('click', () => {
+              currentPage = i;
+              renderTalent();
+              scrollToTalent();
             });
+            paginationContainer.appendChild(pageBtn);
+          }
+
+          // Next
+          const nextBtn = document.createElement('button');
+          nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+          nextBtn.disabled = currentPage === totalPages;
+          nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+              currentPage++;
+              renderTalent();
+              scrollToTalent();
+            }
+          });
+          paginationContainer.appendChild(nextBtn);
+        }
+
+        function scrollToTalent() {
+          const section = document.querySelector('.talent-listings');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+
+        // ============================================================
+        // FILTER & SEARCH
+        // ============================================================
+        function applyFilters() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          const role = filterRole.value;
+          const location = filterLocation.value;
+          const availability = filterAvailability.value;
+
+          let filtered = allTalent.filter(c => {
+            // Search
+            if (searchTerm) {
+              const searchable = `${c.name} ${c.role} ${c.location} ${c.skills.join(' ')} ${c.bio}`.toLowerCase();
+              if (!searchable.includes(searchTerm)) return false;
+            }
+
+            // Role
+            if (role !== 'all' && c.category !== role) return false;
+
+            // Location
+            if (location !== 'all') {
+              const locLower = c.location.toLowerCase();
+              if (location === 'lagos' && !locLower.includes('lagos')) return false;
+              if (location === 'abuja' && !locLower.includes('abuja')) return false;
+              if (location === 'ilorin' && !locLower.includes('ilorin')) return false;
+              if (location === 'osogbo' && !locLower.includes('osogbo')) return false;
+              if (location === 'port-harcourt' && !locLower.includes('port harcourt')) return false;
+              if (location === 'remote' && c.location.toLowerCase() !== 'remote') return false;
+            }
+
+            // Availability
+            if (availability !== 'all' && c.availability !== availability) return false;
+
+            return true;
+          });
+
+          currentTalent = filtered;
+          currentPage = 1;
+          renderTalent();
+
+          // Show/hide clear filters
+          const hasFilters = searchTerm || role !== 'all' || location !== 'all' || availability !== 'all';
+          clearFiltersBtn.style.display = hasFilters ? 'inline-flex' : 'none';
+        }
+
+        function clearFilters() {
+          searchInput.value = '';
+          filterRole.value = 'all';
+          filterLocation.value = 'all';
+          filterAvailability.value = 'all';
+          currentTalent = [...allTalent];
+          currentPage = 1;
+          renderTalent();
+          clearFiltersBtn.style.display = 'none';
+        }
+
+        // ============================================================
+        // ACCESS MODAL
+        // ============================================================
+        function openAccessModal(name) {
+          modalCandidateName.textContent = name || 'Candidate';
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Reset modal state
+          accessForm.style.display = 'block';
+          modalSuccess.style.display = 'none';
+          accessForm.reset();
+        }
+
+        function closeAccessModal() {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+
+        // Expose to global scope
+        window.closeAccessModal = closeAccessModal;
+
+        // ============================================================
+        // LOAD TALENT
+        // ============================================================
+        function loadTalent() {
+          setTimeout(() => {
+            talentLoading.style.display = 'none';
+            talentGrid.style.display = 'grid';
+            renderTalent();
+          }, 600);
+        }
+
+        // ============================================================
+        // EVENT LISTENERS
+        // ============================================================
+        searchButton.addEventListener('click', applyFilters);
+        searchInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') applyFilters();
+        });
+        filterRole.addEventListener('change', applyFilters);
+        filterLocation.addEventListener('change', applyFilters);
+        filterAvailability.addEventListener('change', applyFilters);
+        clearFiltersBtn.addEventListener('click', clearFilters);
+
+        // Modal close
+        modalClose.addEventListener('click', closeAccessModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeAccessModal();
         });
 
-        // Pagination
-        document.querySelectorAll('.page-link:not(.disabled)').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (this.textContent.includes('chevron')) {
-                    return;
-                }
-                document.querySelectorAll('.page-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                // Implement pagination logic
-            });
+        // Access form submission
+        accessForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const company = document.getElementById('modalCompany').value.trim();
+          const email = document.getElementById('modalEmail').value.trim();
+
+          if (!company || !email) {
+            alert('Please fill in your company name and email.');
+            return;
+          }
+
+          const submitBtn = this.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+          setTimeout(() => {
+            accessForm.style.display = 'none';
+            modalSuccess.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Request Access';
+          }, 1200);
         });
+
+        // ============================================================
+        // MOBILE MENU
+        // ============================================================
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const overlay = document.getElementById('mobileOverlay');
+        const closeBtn = document.getElementById('mobileCloseBtn');
+
+        function toggleMenu(force) {
+          const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
+          mainNav.classList.toggle('active', active);
+          overlay.classList.toggle('active', active);
+          document.body.style.overflow = active ? 'hidden' : 'auto';
+          mobileToggle.classList.toggle('active', active);
+          mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+          const icon = mobileToggle.querySelector('i');
+          if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
+        }
+
+        mobileToggle?.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
+        overlay?.addEventListener('click', () => toggleMenu(false));
+        closeBtn?.addEventListener('click', () => toggleMenu(false));
+
+        document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1024 && mainNav.classList.contains('active')) toggleMenu(false);
+          });
+        });
+
+        // --- Dropdowns (mobile) ---
+        document.querySelectorAll('.dropdown-toggle').forEach(t => {
+          t.addEventListener('click', function(e) {
+            if (window.innerWidth <= 1024) {
+              e.preventDefault();
+              const d = this.closest('.dropdown');
+              const active = d.classList.contains('active');
+              document.querySelectorAll('.dropdown').forEach(el => el.classList.remove('active'));
+              if (!active) d.classList.add('active');
+            }
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+          }
+        });
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        loadTalent();
+      });
     </script>
-</body>
+  </body>
 </html>
