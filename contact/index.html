@@ -1016,118 +1016,74 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="contact-section">
-      <div class="container">
-        <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <h3>Send us a message</h3>
+        <p class="form-subtitle">We'll get back to you within 24 hours.</p>
 
-          <!-- Contact Info -->
-          <div class="contact-info">
-            <h2>Reach out to <span class="text-gold">AfriLux</span></h2>
-            <p>
-              Have a question? Need to discuss a specific talent requirement?
-              We're just a message or call away. Our team responds within 24 hours.
-            </p>
+        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <!-- Hidden field required by Netlify -->
+          <input type="hidden" name="form-name" value="contact" />
 
-            <div class="contact-details">
-              <div class="contact-detail">
-                <div class="icon"><i class="fas fa-phone"></i></div>
-                <div class="detail-content">
-                  <h3>Phone</h3>
-                  <p><a href="tel:+2348039661354">+234 803 966 1354</a></p>
-                </div>
-              </div>
-              <div class="contact-detail">
-                <div class="icon"><i class="fas fa-envelope"></i></div>
-                <div class="detail-content">
-                  <h3>Email</h3>
-                  <p><a href="mailto:acquire@afriluxhospitality.com">acquire@afriluxhospitality.com</a></p>
-                </div>
-              </div>
-              <div class="contact-detail">
-                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="detail-content">
-                  <h3>Locations</h3>
-                  <p>Ilorin • Osogbo • Abuja • Lagos</p>
-                </div>
-              </div>
-              <div class="contact-detail">
-                <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                <div class="detail-content">
-                  <h3>WhatsApp</h3>
-                  <p><a href="https://wa.me/2348039661354" target="_blank">+234 803 966 1354</a></p>
-                </div>
-              </div>
+          <!-- Honeypot field for spam protection -->
+          <p style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="required">*</span></label>
+              <input type="text" id="fullName" name="name" placeholder="John Doe" required />
             </div>
-
-            <div class="contact-social">
-              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
             </div>
           </div>
 
-          <!-- Contact Form -->
-          <div class="contact-form-wrapper">
-            <h3>Send us a message</h3>
-            <p class="form-subtitle">We'll get back to you within 24 hours.</p>
-
-            <form id="contactForm" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="fullName">Full Name <span class="required">*</span></label>
-                  <input type="text" id="fullName" placeholder="John Doe" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address <span class="required">*</span></label>
-                  <input type="email" id="email" placeholder="you@example.com" required />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="+234 800 000 0000" />
-              </div>
-
-              <div class="form-group">
-                <label for="interest">I'm interested in <span class="required">*</span></label>
-                <select id="interest" required>
-                  <option value="">Select a service</option>
-                  <option value="executive-search">Executive Search</option>
-                  <option value="hotel-leadership">Hotel Leadership</option>
-                  <option value="culinary-leadership">Culinary Leadership</option>
-                  <option value="operational-management">Operational Management</option>
-                  <option value="hr-consulting">HR Consulting</option>
-                  <option value="post-job">Posting a Job</option>
-                  <option value="other">Other / I'm not sure</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" placeholder="Tell us about your talent needs..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-gold btn-block btn-large">
-                <i class="fas fa-paper-plane"></i> Send Message
-              </button>
-
-              <p style="font-size: 0.8rem; color: var(--color-gray-600); margin-top: 1rem; text-align: center;">
-                <i class="fas fa-lock"></i> Your information is secure and confidential.
-              </p>
-            </form>
-
-            <!-- Success Message -->
-            <div class="form-success" id="formSuccess">
-              <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-              <h3>Message sent!</h3>
-              <p>Thank you for reaching out. We'll respond within 24 hours.</p>
-              <button class="btn btn-outline-gold" onclick="resetForm()" style="margin-top: 1.5rem;">
-                <i class="fas fa-redo"></i> Send Another
-              </button>
-            </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+234 800 000 0000" />
           </div>
+
+          <div class="form-group">
+            <label for="interest">I'm interested in <span class="required">*</span></label>
+            <select id="interest" name="interest" required>
+              <option value="">Select a service</option>
+              <option value="executive-search">Executive Search</option>
+              <option value="hotel-leadership">Hotel Leadership</option>
+              <option value="culinary-leadership">Culinary Leadership</option>
+              <option value="operational-management">Operational Management</option>
+              <option value="hr-consulting">HR Consulting</option>
+              <option value="post-job">Posting a Job</option>
+              <option value="other">Other / I'm not sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell us about your talent needs..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block btn-large">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+
+          <p style="font-size: 0.8rem; color: var(--color-gray-600); margin-top: 1rem; text-align: center;">
+            <i class="fas fa-lock"></i> Your information is secure and confidential.
+          </p>
+        </form>
+
+        <!-- Success Message -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>Message sent!</h3>
+          <p>Thank you for reaching out. We'll respond within 24 hours.</p>
+          <button class="btn btn-outline-gold" onclick="resetForm()" style="margin-top: 1.5rem;">
+            <i class="fas fa-redo"></i> Send Another
+          </button>
+        </div>
+      </div>
 
         </div>
       </div>
@@ -1237,101 +1193,101 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+  // Current year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Mobile Menu ---
-        const mobileToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        const overlay = document.getElementById('mobileOverlay');
-        const closeBtn = document.getElementById('mobileCloseBtn');
+  // --- Mobile Menu ---
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+  const overlay = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('mobileCloseBtn');
 
-        function toggleMenu(force) {
-          const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
-          mainNav.classList.toggle('active', active);
-          overlay.classList.toggle('active', active);
-          document.body.style.overflow = active ? 'hidden' : 'auto';
-          mobileToggle.classList.toggle('active', active);
-          mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
-          const icon = mobileToggle.querySelector('i');
-          if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
-        }
+  function toggleMenu(force) {
+    const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
+    mainNav.classList.toggle('active', active);
+    overlay.classList.toggle('active', active);
+    document.body.style.overflow = active ? 'hidden' : 'auto';
+    mobileToggle.classList.toggle('active', active);
+    mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+    const icon = mobileToggle.querySelector('i');
+    if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
+  }
 
-        mobileToggle?.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
-        overlay?.addEventListener('click', () => toggleMenu(false));
-        closeBtn?.addEventListener('click', () => toggleMenu(false));
+  mobileToggle?.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
+  overlay?.addEventListener('click', () => toggleMenu(false));
+  closeBtn?.addEventListener('click', () => toggleMenu(false));
 
-        document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
-          link.addEventListener('click', function() {
-            if (window.innerWidth <= 1024 && mainNav.classList.contains('active')) toggleMenu(false);
-          });
-        });
+  document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 1024 && mainNav.classList.contains('active')) toggleMenu(false);
+    });
+  });
 
-        // --- Dropdowns (mobile) ---
-        document.querySelectorAll('.dropdown-toggle').forEach(t => {
-          t.addEventListener('click', function(e) {
-            if (window.innerWidth <= 1024) {
-              e.preventDefault();
-              const d = this.closest('.dropdown');
-              const active = d.classList.contains('active');
-              document.querySelectorAll('.dropdown').forEach(el => el.classList.remove('active'));
-              if (!active) d.classList.add('active');
-            }
-          });
-        });
-        document.addEventListener('click', function(e) {
-          if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-          }
-        });
+  // --- Dropdowns (mobile) ---
+  document.querySelectorAll('.dropdown-toggle').forEach(t => {
+    t.addEventListener('click', function(e) {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        const d = this.closest('.dropdown');
+        const active = d.classList.contains('active');
+        document.querySelectorAll('.dropdown').forEach(el => el.classList.remove('active'));
+        if (!active) d.classList.add('active');
+      }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    }
+  });
 
-        // --- Contact Form Submission ---
-        const form = document.getElementById('contactForm');
-        const successDiv = document.getElementById('formSuccess');
+  // --- Contact Form Submission ---
+  const form = document.getElementById('contactForm');
+  const successDiv = document.getElementById('formSuccess');
 
-        if (form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
+  if (form) {
+    // Check if the form was successfully submitted (Netlify adds a query parameter)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      form.style.display = 'none';
+      successDiv.style.display = 'block';
+    }
 
-            // Simple validation
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const interest = document.getElementById('interest').value;
-            const message = document.getElementById('message').value.trim();
+    // Handle form submission (this prevents double submission)
+    form.addEventListener('submit', function(e) {
+      // Netlify handles the actual submission
+      // We just show a loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    });
+  }
 
-            if (!name || !email || !interest || !message) {
-              alert('Please fill in all required fields.');
-              return;
-            }
-
-            // Simulate sending (replace with actual API call)
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-            setTimeout(() => {
-              // Hide form, show success
-              form.style.display = 'none';
-              successDiv.style.display = 'block';
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-
-              // Reset form after success (in case they click "Send Another")
-              form.reset();
-            }, 1500);
-          });
-        }
-
-        // Reset function for "Send Another" button
-        window.resetForm = function() {
-          const form = document.getElementById('contactForm');
-          const successDiv = document.getElementById('formSuccess');
-          form.style.display = 'block';
-          successDiv.style.display = 'none';
-          form.reset();
-          window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
-        };
-      });
+  // Reset function for "Send Another" button
+  window.resetForm = function() {
+    const form = document.getElementById('contactForm');
+    const successDiv = document.getElementById('formSuccess');
+    
+    // Clear the success URL parameter
+    const url = new URL(window.location.href);
+    url.searchParams.delete('success');
+    window.history.replaceState({}, document.title, url.pathname);
+    
+    form.style.display = 'block';
+    successDiv.style.display = 'none';
+    form.reset();
+    
+    // Reset the submit button
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    }
+    
+    window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+  };
+});
     </script>
   </body>
 </html>
+
