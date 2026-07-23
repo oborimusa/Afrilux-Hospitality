@@ -1267,1203 +1267,544 @@
     </style>
   </head>
   <body>
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-      <div class="container">
-        <div class="header-container">
-          <div class="logo">
-            <a href="/" aria-label="AfriLux Hospitality Home">
-              <span class="brand-name">Afri<span class="gold">Lux</span></span>
-              <div class="logo-tagline">
-                Precision Talent for Luxury Hospitality
-              </div>
-            </a>
-          </div>
-          <button
-            class="mobile-menu-toggle"
-            id="mobileMenuToggle"
-            aria-label="Menu"
-            aria-expanded="false"
-          >
-            <i class="fas fa-bars"></i>
-          </button>
-          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-            <button class="mobile-close-btn" id="mobileCloseBtn">
-              <i class="fas fa-times"></i> Close
-            </button>
-            <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="/" class="nav-link"
-                  ><i class="fas fa-home"></i> Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/services/" class="nav-link"
-                  ><i class="fas fa-crosshairs"></i> Services</a
-                >
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle active">
-                  <i class="fas fa-building"></i> Employers
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-                <div class="dropdown-menu">
-                  <a href="/employers/post-job/" class="dropdown-item"
-                    ><i class="fas fa-plus-circle"></i> Post a Job</a
-                  >
-                  <a
-                    href="/employers/search-talent/"
-                    class="dropdown-item"
-                    style="color: var(--color-gold); font-weight: 700"
-                    ><i class="fas fa-search"></i> Search Talent</a
-                  >
-                  <a href="/employers/pricing/" class="dropdown-item"
-                    ><i class="fas fa-tag"></i> Pricing</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a href="/employers/start-search/" class="dropdown-item"
-                    ><i class="fas fa-rocket"></i> Start a Search</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle">
-                  <i class="fas fa-user-tie"></i> Candidates
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-                <div class="dropdown-menu">
-                  <a href="/candidates/job-board/" class="dropdown-item"
-                    ><i class="fas fa-briefcase"></i> Job Board</a
-                  >
-                  <a href="/candidates/submit-profile/" class="dropdown-item"
-                    ><i class="fas fa-file-upload"></i> Submit Profile</a
-                  >
-                  <a href="/candidates/career-strategy/" class="dropdown-item"
-                    ><i class="fas fa-graduation-cap"></i> Career Strategy</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a href="/candidates/confidentiality/" class="dropdown-item"
-                    ><i class="fas fa-user-secret"></i> Confidential Process</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="/about/" class="nav-link"
-                  ><i class="fas fa-info-circle"></i> About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/case-studies/" class="nav-link"
-                  ><i class="fas fa-chart-line"></i> Case Studies</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/contact/" class="nav-link"
-                  ><i class="fas fa-envelope"></i> Contact</a
-                >
-              </li>
-            </ul>
-            <div class="nav-cta-group">
-              <a href="tel:+2348039661354" class="nav-cta">
-                <i class="fas fa-phone"></i> +234 803 966 1354
-              </a>
-              <a href="/contact/" class="nav-cta nav-cta-outline">
-                <i class="fas fa-handshake"></i> Partner With Us
-              </a>
-            </div>
-          </nav>
-          <div class="mobile-overlay" id="mobileOverlay"></div>
+   <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-container">
+        <div class="logo">
+          <a href="/" aria-label="AfriLux Hospitality Home" style="text-decoration:none;">
+            <span class="brand-name">Afri<span class="gold">Lux</span></span>
+            <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
+          </a>
         </div>
-      </div>
-    </header>
-
-    <!-- ===== HERO ===== -->
-    <section class="search-hero">
-      <div class="container">
-        <div class="search-hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-search"></i> SEARCH TALENT
-          </div>
-          <h1>
-            Find <span class="gold">elite hospitality</span> professionals.
-          </h1>
-          <p class="lead">
-            Browse and connect with Nigeria's most talented hospitality
-            professionals. From executive leadership to culinary stars – find
-            the perfect match for your luxury property.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SEARCH & FILTER ===== -->
-    <section class="search-section">
-      <div class="container">
-        <div class="search-container">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search by name, role, skills, or location..."
-              aria-label="Search candidates"
-            />
-          </div>
-          <div class="filter-group">
-            <select id="filterRole">
-              <option value="all">All Roles</option>
-              <option value="executive">Executive / C-Suite</option>
-              <option value="management">Management</option>
-              <option value="culinary">Culinary</option>
-              <option value="operations">Operations</option>
-              <option value="fandb">Food &amp; Beverage</option>
-              <option value="front-office">Front Office</option>
-            </select>
-            <select id="filterLocation">
-              <option value="all">All Locations</option>
-              <option value="lagos">Lagos</option>
-              <option value="abuja">Abuja</option>
-              <option value="ilorin">Ilorin</option>
-              <option value="osogbo">Osogbo</option>
-              <option value="port-harcourt">Port Harcourt</option>
-              <option value="remote">Remote</option>
-            </select>
-            <select id="filterAvailability">
-              <option value="all">All Availability</option>
-              <option value="immediate">Immediate</option>
-              <option value="2-weeks">2 Weeks</option>
-              <option value="1-month">1 Month</option>
-              <option value="open">Open to Offers</option>
-            </select>
-            <button class="search-btn" id="searchButton">
-              <i class="fas fa-search"></i> Search
-            </button>
-          </div>
-        </div>
-        <div class="results-info">
-          <span
-            >Showing <span class="count" id="visibleCount">0</span> of
-            <span class="count" id="totalCount">0</span> candidates</span
-          >
-          <button
-            class="btn btn-outline-gold btn-sm"
-            id="clearFiltersBtn"
-            style="display: none"
-          >
-            <i class="fas fa-times"></i> Clear Filters
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== TALENT LISTINGS ===== -->
-    <section class="talent-listings">
-      <div class="container">
-        <div class="talent-loading" id="talentLoading">
-          <div class="spinner"></div>
-          <p style="margin-top: 1rem; color: var(--color-gray-600)">
-            Loading talent profiles...
-          </p>
-        </div>
-        <div class="talent-grid" id="talentGrid" style="display: none"></div>
-        <div class="pagination" id="pagination" style="display: none"></div>
-      </div>
-    </section>
-
-    <!-- ===== ACCESS MODAL ===== -->
-    <div
-      class="access-modal"
-      id="accessModal"
-      role="dialog"
-      aria-label="Request Access to Candidate"
-    >
-      <div class="access-modal-content">
-        <button
-          class="access-modal-close"
-          id="modalClose"
-          aria-label="Close modal"
-        >
-          <i class="fas fa-times"></i>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
         </button>
-        <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
-        <h3>
-          Request Access to
-          <span id="modalCandidateName" class="text-gold">Candidate</span>
-        </h3>
-        <p>
-          Please provide your details and we'll connect you with this candidate.
-        </p>
-        <form
-          id="accessRequestForm"
-          name="talent-request"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="talent-request" />
-          <input
-            type="hidden"
-            name="_redirect"
-            value="https://afriluxhospitality.netlify.app/employers/search-talent/?success=true"
-          />
-
-          <!-- Honeypot for spam -->
-          <p style="display: none">
-            <label
-              >Don't fill this out if you're human: <input name="bot-field"
-            /></label>
-          </p>
-
-          <div class="form-group">
-            <label for="modalCandidateName"
-              >Candidate Name
-              <span class="required" style="color: var(--color-emergency)"
-                >*</span
-              ></label
-            >
-            <input
-              type="text"
-              id="modalCandidateName"
-              name="candidateName"
-              placeholder="e.g. John Doe"
-              required
-            />
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+          <button class="mobile-close-btn" id="mobileCloseBtn"><i class="fas fa-times"></i> Close</button>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a href="/services/" class="nav-link"><i class="fas fa-crosshairs"></i> Services</a></li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle active"><i class="fas fa-building"></i> Employers <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-menu">
+                <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
+                <a href="/employers/search-talent/" class="dropdown-item" style="color:var(--color-gold);font-weight:700;"><i class="fas fa-search"></i> Search Talent</a>
+                <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
+                <div class="dropdown-divider"></div>
+                <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user-tie"></i> Candidates <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-menu">
+                <a href="/candidates/job-board/" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
+                <a href="/candidates/submit-profile/" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
+                <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
+                <div class="dropdown-divider"></div>
+                <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
+              </div>
+            </li>
+            <li class="nav-item"><a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li class="nav-item"><a href="/case-studies/" class="nav-link"><i class="fas fa-chart-line"></i> Case Studies</a></li>
+            <li class="nav-item"><a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+          <div class="nav-cta-group">
+            <a href="tel:+2348039661354" class="nav-cta"><i class="fas fa-phone"></i> +234 803 966 1354</a>
+            <a href="/contact/" class="nav-cta nav-cta-outline"><i class="fas fa-handshake"></i> Partner With Us</a>
           </div>
-
-          <div class="form-group">
-            <label for="modalCompany"
-              >Company Name
-              <span class="required" style="color: var(--color-emergency)"
-                >*</span
-              ></label
-            >
-            <input
-              type="text"
-              id="modalCompany"
-              name="companyName"
-              placeholder="e.g. 4T Luxury Hotel"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="modalEmail"
-              >Work Email
-              <span class="required" style="color: var(--color-emergency)"
-                >*</span
-              ></label
-            >
-            <input
-              type="email"
-              id="modalEmail"
-              name="email"
-              placeholder="you@company.com"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="modalPhone">Phone Number</label>
-            <input
-              type="tel"
-              id="modalPhone"
-              name="phone"
-              placeholder="+234 800 000 0000"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="modalMessage">Message</label>
-            <textarea
-              id="modalMessage"
-              name="message"
-              placeholder="Tell us about the role you're hiring for..."
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-gold">
-            <i class="fas fa-paper-plane"></i> Request Access
-          </button>
-
-          <p
-            style="
-              font-size: 0.75rem;
-              color: var(--color-gray-600);
-              text-align: center;
-              margin-top: 0.75rem;
-            "
-          >
-            <i class="fas fa-lock"></i> Your request is confidential. We'll
-            connect you directly.
-          </p>
-        </form>
-        <div
-          class="form-success"
-          id="modalSuccess"
-          style="display: none; text-align: center; padding: 1rem 0"
-        >
-          <div
-            style="
-              font-size: 3rem;
-              color: var(--color-success);
-              margin-bottom: 0.5rem;
-            "
-          >
-            <i class="fas fa-check-circle"></i>
-          </div>
-          <h3
-            style="font-family: var(--font-serif); color: var(--color-success)"
-          >
-            Request Sent!
-          </h3>
-          <p style="color: var(--color-gray-600)">
-            We'll connect you with this candidate shortly.
-          </p>
-          <button
-            class="btn btn-gold btn-sm"
-            onclick="closeAccessModal()"
-            style="margin-top: 1rem"
-          >
-            <i class="fas fa-times"></i> Close
-          </button>
-        </div>
+        </nav>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
       </div>
     </div>
+  </header>
 
-    <!-- ===== CTA ===== -->
-    <section class="search-cta">
-      <div class="container">
-        <h2>
-          Can't find the
-          <span style="color: var(--color-gold)">perfect candidate</span>?
-        </h2>
-        <p class="lead">
-          Let our expert team handle the search for you. We deliver pre-vetted,
-          elite candidates that match your exact requirements.
-        </p>
-        <div class="cta-buttons">
-          <a href="/employers/start-search/" class="btn btn-gold btn-large">
-            <i class="fas fa-rocket"></i> Start a Search
-          </a>
-          <a href="/contact/" class="btn btn-outline-white btn-large">
-            <i class="fas fa-envelope"></i> Talk to a Recruiter
-          </a>
+  <!-- ===== HERO ===== -->
+  <section class="search-hero">
+    <div class="container">
+      <div class="search-hero-content">
+        <div class="hero-badge"><i class="fas fa-search"></i> SEARCH TALENT</div>
+        <h1>Find <span class="gold">elite hospitality</span> professionals.</h1>
+        <p class="lead">Browse and connect with Nigeria's most talented hospitality professionals. From executive leadership to culinary stars – find the perfect match for your luxury property.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH & FILTER ===== -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search by name, role, skills, or location..." aria-label="Search candidates" />
+        </div>
+        <div class="filter-group">
+          <select id="filterRole"><option value="all">All Roles</option><option value="executive">Executive / C-Suite</option><option value="management">Management</option><option value="culinary">Culinary</option><option value="operations">Operations</option><option value="fandb">Food &amp; Beverage</option><option value="front-office">Front Office</option></select>
+          <select id="filterLocation"><option value="all">All Locations</option><option value="lagos">Lagos</option><option value="abuja">Abuja</option><option value="ilorin">Ilorin</option><option value="osogbo">Osogbo</option><option value="port-harcourt">Port Harcourt</option><option value="remote">Remote</option></select>
+          <select id="filterAvailability"><option value="all">All Availability</option><option value="immediate">Immediate</option><option value="2-weeks">2 Weeks</option><option value="1-month">1 Month</option><option value="open">Open to Offers</option></select>
+          <button class="search-btn" id="searchButton"><i class="fas fa-search"></i> Search</button>
         </div>
       </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-column">
-            <h3>
-              Afri<span style="color: var(--color-gold)">Lux</span> Hospitality
-            </h3>
-            <p>
-              Precision talent for luxury hospitality. Executive search,
-              operational management, and HR consulting across Africa.
-            </p>
-            <div class="footer-contact" style="margin-top: 1rem">
-              <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
-              <p>
-                <i class="fas fa-envelope"></i> acquire@afriluxhospitality.com
-              </p>
-              <p>
-                <i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja •
-                Lagos
-              </p>
-            </div>
-          </div>
-          <div class="footer-column">
-            <h3>For Candidates</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/candidates/job-board/"
-                  ><i class="fas fa-chevron-right"></i> Job Board</a
-                >
-              </li>
-              <li>
-                <a href="/candidates/submit-profile/"
-                  ><i class="fas fa-chevron-right"></i> Submit Profile</a
-                >
-              </li>
-              <li>
-                <a href="/candidates/career-strategy/"
-                  ><i class="fas fa-chevron-right"></i> Career Strategy</a
-                >
-              </li>
-              <li>
-                <a href="/candidates/confidentiality/"
-                  ><i class="fas fa-chevron-right"></i> Confidential Process</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>For Employers</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/employers/post-job/"
-                  ><i class="fas fa-chevron-right"></i> Post a Job</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/employers/search-talent/"
-                  style="color: var(--color-gold); font-weight: 700"
-                  ><i class="fas fa-chevron-right"></i> Search Talent</a
-                >
-              </li>
-              <li>
-                <a href="/employers/pricing/"
-                  ><i class="fas fa-chevron-right"></i> Pricing</a
-                >
-              </li>
-              <li>
-                <a href="/employers/start-search/"
-                  ><i class="fas fa-chevron-right"></i> Start a Search</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Company</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/about/"
-                  ><i class="fas fa-chevron-right"></i> About Us</a
-                >
-              </li>
-              <li>
-                <a href="/case-studies/"
-                  ><i class="fas fa-chevron-right"></i> Case Studies</a
-                >
-              </li>
-              <li>
-                <a href="/contact/"
-                  ><i class="fas fa-chevron-right"></i> Contact Us</a
-                >
-              </li>
-              <li>
-                <a href="/blog/"
-                  ><i class="fas fa-chevron-right"></i> Insights Blog</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            &copy; <span id="currentYear"></span> AfriLux Hospitality. All
-            rights reserved.
-          </p>
-          <div class="footer-bottom-links">
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Service</a>
-          </div>
-        </div>
-        <a
-          href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20want%20to%20search%20for%20talent"
-          target="_blank"
-          class="whatsapp-desktop"
-          rel="noopener noreferrer"
-          style="margin-top: 1.5rem"
-        >
-          <i class="fab fa-whatsapp"></i>
-          <span>Chat with us on WhatsApp</span>
-        </a>
+      <div class="results-info">
+        <span>Showing <span class="count" id="visibleCount">0</span> of <span class="count" id="totalCount">0</span> candidates</span>
+        <button class="btn btn-outline-gold btn-sm" id="clearFiltersBtn" style="display:none;"><i class="fas fa-times"></i> Clear Filters</button>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <a
-      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20help%20finding%20talent"
-      class="whatsapp-float"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
+  <!-- ===== TALENT LISTINGS ===== -->
+  <section class="talent-listings">
+    <div class="container">
+      <div class="talent-loading" id="talentLoading"><div class="spinner"></div><p style="margin-top:1rem;color:var(--color-gray-600);">Loading talent profiles...</p></div>
+      <div class="talent-grid" id="talentGrid" style="display:none;"></div>
+      <div class="pagination" id="pagination" style="display:none;"></div>
+    </div>
+  </section>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // ============================================================
-        // 1. CURRENT YEAR
-        // ============================================================
-        const yearSpan = document.getElementById("currentYear");
-        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  <!-- ===== ACCESS MODAL ===== -->
+  <div class="access-modal" id="accessModal" role="dialog" aria-label="Request Access to Candidate">
+    <div class="access-modal-content">
+      <button class="access-modal-close" id="modalClose" aria-label="Close modal"><i class="fas fa-times"></i></button>
+      <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+      <h3>Request Access to <span id="modalCandidateName" class="text-gold">Candidate</span></h3>
+      <p>Please provide your details and we'll connect you with this candidate.</p>
 
-        // ============================================================
-        // 2. DEMO TALENT DATA
-        // ============================================================
-        const demoTalent = [
-          {
-            id: "1",
-            name: "Oluwaseun Adebayo",
-            initials: "OA",
-            role: "General Manager",
-            category: "executive",
-            location: "Lagos, Nigeria",
-            experience: "12 years",
-            availability: "Immediate",
-            skills: [
-              "Leadership",
-              "Revenue Management",
-              "Operations",
-              "Strategic Planning",
-            ],
-            bio: "Proven leader with 12+ years in luxury hotel management.",
-            preferredRole: "Executive / C-Suite",
-            icon: "🏨",
-          },
-          {
-            id: "2",
-            name: "Chidi Okonkwo",
-            initials: "CO",
-            role: "Executive Chef",
-            category: "culinary",
-            location: "Abuja, Nigeria",
-            experience: "10 years",
-            availability: "2 Weeks",
-            skills: [
-              "Fine Dining",
-              "Menu Development",
-              "Team Leadership",
-              "Kitchen Operations",
-            ],
-            bio: "Michelin-starred experience.",
-            preferredRole: "Culinary",
-            icon: "👨‍🍳",
-          },
-          {
-            id: "3",
-            name: "Ngozi Eze",
-            initials: "NE",
-            role: "Director of Operations",
-            category: "operations",
-            location: "Ilorin, Kwara",
-            experience: "15 years",
-            availability: "Open to Offers",
-            skills: [
-              "Operations Management",
-              "Process Improvement",
-              "Team Building",
-              "Strategic Planning",
-            ],
-            bio: "Results-driven operations leader.",
-            preferredRole: "Operations",
-            icon: "🏢",
-          },
-          {
-            id: "4",
-            name: "Tunde Bello",
-            initials: "TB",
-            role: "Pastry Chef",
-            category: "culinary",
-            location: "Osogbo, Osun",
-            experience: "6 years",
-            availability: "Immediate",
-            skills: ["Baking", "Pastry", "Artisan Bread", "Chocolate Work"],
-            bio: "Creative pastry chef.",
-            preferredRole: "Culinary",
-            icon: "🥐",
-          },
-          {
-            id: "5",
-            name: "Amina Mohammed",
-            initials: "AM",
-            role: "F&B Manager",
-            category: "fandb",
-            location: "Abuja, Nigeria",
-            experience: "8 years",
-            availability: "1 Month",
-            skills: [
-              "Food & Beverage",
-              "Team Leadership",
-              "Menu Strategy",
-              "Cost Control",
-            ],
-            bio: "Dynamic F&B leader.",
-            preferredRole: "Food & Beverage",
-            icon: "🍽️",
-          },
-          {
-            id: "6",
-            name: "Femi Ogunleye",
-            initials: "FO",
-            role: "Revenue Manager",
-            category: "executive",
-            location: "Remote",
-            experience: "7 years",
-            availability: "Immediate",
-            skills: [
-              "Revenue Management",
-              "Analytics",
-              "Strategy",
-              "Market Analysis",
-            ],
-            bio: "Data-driven revenue manager.",
-            preferredRole: "Executive / C-Suite",
-            icon: "📊",
-          },
-          {
-            id: "7",
-            name: "Zainab Ibrahim",
-            initials: "ZI",
-            role: "Front Office Manager",
-            category: "front-office",
-            location: "Lagos, Nigeria",
-            experience: "5 years",
-            availability: "2 Weeks",
-            skills: [
-              "Guest Service",
-              "Reception",
-              "Team Management",
-              "PMS Systems",
-            ],
-            bio: "Highly organized front office professional.",
-            preferredRole: "Front Office",
-            icon: "🏨",
-          },
-          {
-            id: "8",
-            name: "David Okafor",
-            initials: "DO",
-            role: "Sous Chef",
-            category: "culinary",
-            location: "Ilorin, Kwara",
-            experience: "4 years",
-            availability: "Open to Offers",
-            skills: [
-              "Cooking",
-              "Team Supervision",
-              "Menu Planning",
-              "Kitchen Safety",
-            ],
-            bio: "Talented sous chef.",
-            preferredRole: "Culinary",
-            icon: "👨‍🍳",
-          },
-          {
-            id: "9",
-            name: "Grace Okonkwo",
-            initials: "GO",
-            role: "Event Coordinator",
-            category: "operations",
-            location: "Port Harcourt, Nigeria",
-            experience: "3 years",
-            availability: "Immediate",
-            skills: [
-              "Event Planning",
-              "Coordination",
-              "Client Management",
-              "Logistics",
-            ],
-            bio: "Creative and organized event coordinator.",
-            preferredRole: "Operations",
-            icon: "🎉",
-          },
-          {
-            id: "10",
-            name: "Ibrahim Musa",
-            initials: "IM",
-            role: "HR Director",
-            category: "executive",
-            location: "Lagos, Nigeria",
-            experience: "14 years",
-            availability: "1 Month",
-            skills: [
-              "HR Strategy",
-              "Talent Acquisition",
-              "Employee Relations",
-              "Organizational Development",
-            ],
-            bio: "Strategic HR leader.",
-            preferredRole: "Executive / C-Suite",
-            icon: "👔",
-          },
-          {
-            id: "11",
-            name: "Chioma Nwosu",
-            initials: "CN",
-            role: "Restaurant Manager",
-            category: "fandb",
-            location: "Abuja, Nigeria",
-            experience: "6 years",
-            availability: "Open to Offers",
-            skills: [
-              "Restaurant Operations",
-              "Guest Service",
-              "Team Leadership",
-              "Inventory Management",
-            ],
-            bio: "Dynamic restaurant manager.",
-            preferredRole: "Food & Beverage",
-            icon: "🍽️",
-          },
-          {
-            id: "12",
-            name: "Emeka Okafor",
-            initials: "EO",
-            role: "Maintenance Manager",
-            category: "operations",
-            location: "Lagos, Nigeria",
-            experience: "10 years",
-            availability: "Immediate",
-            skills: [
-              "Facilities Management",
-              "HVAC",
-              "Preventive Maintenance",
-              "Team Supervision",
-            ],
-            bio: "Experienced maintenance manager.",
-            preferredRole: "Operations",
-            icon: "🔧",
-          },
-        ];
+      <!-- ===== NETLIFY FORM – CORRECT ===== -->
+      <form id="accessRequestForm" name="talent-request" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="talent-request" />
+        <input type="hidden" name="_redirect" value="https://afriluxhospitality.netlify.app/employers/search-talent/?success=true" />
 
-        // ============================================================
-        // 3. STATE
-        // ============================================================
-        let allTalent = [...demoTalent];
-        let currentTalent = [...allTalent];
-        let currentPage = 1;
-        const perPage = 6;
-
-        // ============================================================
-        // 4. DOM REFS
-        // ============================================================
-        const $ = (id) => document.getElementById(id);
-        const qs = (sel, ctx = document) => ctx.querySelector(sel);
-        const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-
-        const talentGrid = $("talentGrid");
-        const talentLoading = $("talentLoading");
-        const searchInput = $("searchInput");
-        const searchButton = $("searchButton");
-        const filterRole = $("filterRole");
-        const filterLocation = $("filterLocation");
-        const filterAvailability = $("filterAvailability");
-        const clearFiltersBtn = $("clearFiltersBtn");
-        const visibleCountSpan = $("visibleCount");
-        const totalCountSpan = $("totalCount");
-        const paginationContainer = $("pagination");
-        const modal = $("accessModal");
-        const modalClose = $("modalClose");
-        const modalCandidateName = $("modalCandidateName");
-        const accessForm = $("accessRequestForm");
-        const modalSuccess = $("modalSuccess");
-
-        // ============================================================
-        // 5. RENDER TALENT
-        // ============================================================
-        function renderTalent() {
-          const start = (currentPage - 1) * perPage;
-          const end = start + perPage;
-          const pageTalent = currentTalent.slice(start, end);
-
-          if (!talentGrid) return;
-
-          if (pageTalent.length === 0) {
-            talentGrid.innerHTML = `
-        <div class="talent-empty">
-          <div class="empty-icon"><i class="fas fa-search"></i></div>
-          <h3>No candidates found</h3>
-          <p>Try adjusting your search filters or clear them to see all talent.</p>
+        <div class="form-group">
+          <label for="modalCandidateNameField">Candidate Name <span style="color:var(--color-emergency);">*</span></label>
+          <input type="text" id="modalCandidateNameField" name="candidateName" placeholder="e.g. John Doe" required />
         </div>
-      `;
-          } else {
-            talentGrid.innerHTML = pageTalent
-              .map((c) => {
-                let availColor = "";
-                let availIcon = "fa-clock";
-                if (c.availability === "Immediate") {
-                  availColor = "var(--color-success)";
-                  availIcon = "fa-check-circle";
-                } else if (c.availability === "Open to Offers") {
-                  availColor = "var(--color-gold)";
-                  availIcon = "fa-hourglass-half";
-                } else {
-                  availColor = "var(--color-gray-600)";
-                  availIcon = "fa-clock";
-                }
+        <div class="form-group">
+          <label for="modalCompany">Company Name <span style="color:var(--color-emergency);">*</span></label>
+          <input type="text" id="modalCompany" name="companyName" placeholder="e.g. 4T Luxury Hotel" required />
+        </div>
+        <div class="form-group">
+          <label for="modalEmail">Work Email <span style="color:var(--color-emergency);">*</span></label>
+          <input type="email" id="modalEmail" name="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="modalPhone">Phone Number</label>
+          <input type="tel" id="modalPhone" name="phone" placeholder="+234 800 000 0000" />
+        </div>
+        <div class="form-group">
+          <label for="modalMessage">Message</label>
+          <textarea id="modalMessage" name="message" placeholder="Tell us about the role you're hiring for..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold"><i class="fas fa-paper-plane"></i> Request Access</button>
+        <p style="font-size:0.75rem;color:var(--color-gray-600);text-align:center;margin-top:0.75rem;"><i class="fas fa-lock"></i> Your request is confidential. We'll connect you directly.</p>
+      </form>
 
-                return `
-          <div class="talent-card" data-id="${c.id}">
-            <div class="talent-header">
-              <div class="talent-avatar">${c.initials}</div>
-              <div>
-                <div class="talent-name">${c.name}</div>
-                <div class="talent-role">${c.role} <span style="font-size:0.8rem;color:var(--color-gray-600);">• ${c.experience} exp</span></div>
-                <div class="talent-availability" style="color: ${availColor};">
-                  <i class="fas ${availIcon}"></i> ${c.availability}
+      <!-- Success message (hidden by default) -->
+      <div class="form-success" id="modalSuccess" style="display:none;">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Request Sent!</h3>
+        <p style="color:var(--color-gray-600);">We'll connect you with this candidate shortly.</p>
+        <button class="btn btn-gold btn-sm" onclick="closeAccessModal()" style="margin-top:1rem;"><i class="fas fa-times"></i> Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="search-cta">
+    <div class="container">
+      <h2>Can't find the <span style="color:var(--color-gold);">perfect candidate</span>?</h2>
+      <p class="lead">Let our expert team handle the search for you. We deliver pre-vetted, elite candidates that match your exact requirements.</p>
+      <div class="cta-buttons" style="display:flex;flex-direction:column;gap:1rem;justify-content:center;align-items:center;">
+        <a href="/employers/start-search/" class="btn btn-gold btn-large"><i class="fas fa-rocket"></i> Start a Search</a>
+        <a href="/contact/" class="btn btn-outline-white btn-large"><i class="fas fa-envelope"></i> Talk to a Recruiter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Afri<span style="color:var(--color-gold);">Lux</span> Hospitality</h3>
+          <p>Precision talent for luxury hospitality. Executive search, operational management, and HR consulting across Africa.</p>
+          <div class="footer-contact" style="margin-top:1rem;">
+            <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
+            <p><i class="fas fa-envelope"></i> acquire@afriluxhospitality.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja • Lagos</p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>For Candidates</h3>
+          <ul class="footer-links">
+            <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Job Board</a></li>
+            <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+            <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+            <li><a href="/candidates/confidentiality/"><i class="fas fa-chevron-right"></i> Confidential Process</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>For Employers</h3>
+          <ul class="footer-links">
+            <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+            <li><a href="/employers/search-talent/" style="color:var(--color-gold);font-weight:700;"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
+            <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+            <li><a href="/employers/start-search/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+            <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+            <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> AfriLux Hospitality. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <a href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20want%20to%20search%20for%20talent" target="_blank" class="whatsapp-desktop" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat with us on WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20help%20finding%20talent" class="whatsapp-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // Current year
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // Demo talent data (12 candidates)
+      const demoTalent = [
+        { id: '1', name: 'Oluwaseun Adebayo', initials: 'OA', role: 'General Manager', category: 'executive', location: 'Lagos, Nigeria', experience: '12 years', availability: 'Immediate', skills: ['Leadership', 'Revenue Management', 'Operations', 'Strategic Planning'], bio: 'Proven leader with 12+ years in luxury hotel management.', preferredRole: 'Executive / C-Suite' },
+        { id: '2', name: 'Chidi Okonkwo', initials: 'CO', role: 'Executive Chef', category: 'culinary', location: 'Abuja, Nigeria', experience: '10 years', availability: '2 Weeks', skills: ['Fine Dining', 'Menu Development', 'Team Leadership', 'Kitchen Operations'], bio: 'Michelin-starred experience.', preferredRole: 'Culinary' },
+        { id: '3', name: 'Ngozi Eze', initials: 'NE', role: 'Director of Operations', category: 'operations', location: 'Ilorin, Kwara', experience: '15 years', availability: 'Open to Offers', skills: ['Operations Management', 'Process Improvement', 'Team Building', 'Strategic Planning'], bio: 'Results-driven operations leader.', preferredRole: 'Operations' },
+        { id: '4', name: 'Tunde Bello', initials: 'TB', role: 'Pastry Chef', category: 'culinary', location: 'Osogbo, Osun', experience: '6 years', availability: 'Immediate', skills: ['Baking', 'Pastry', 'Artisan Bread', 'Chocolate Work'], bio: 'Creative pastry chef.', preferredRole: 'Culinary' },
+        { id: '5', name: 'Amina Mohammed', initials: 'AM', role: 'F&B Manager', category: 'fandb', location: 'Abuja, Nigeria', experience: '8 years', availability: '1 Month', skills: ['Food & Beverage', 'Team Leadership', 'Menu Strategy', 'Cost Control'], bio: 'Dynamic F&B leader.', preferredRole: 'Food & Beverage' },
+        { id: '6', name: 'Femi Ogunleye', initials: 'FO', role: 'Revenue Manager', category: 'executive', location: 'Remote', experience: '7 years', availability: 'Immediate', skills: ['Revenue Management', 'Analytics', 'Strategy', 'Market Analysis'], bio: 'Data-driven revenue manager.', preferredRole: 'Executive / C-Suite' },
+        { id: '7', name: 'Zainab Ibrahim', initials: 'ZI', role: 'Front Office Manager', category: 'front-office', location: 'Lagos, Nigeria', experience: '5 years', availability: '2 Weeks', skills: ['Guest Service', 'Reception', 'Team Management', 'PMS Systems'], bio: 'Highly organized front office professional.', preferredRole: 'Front Office' },
+        { id: '8', name: 'David Okafor', initials: 'DO', role: 'Sous Chef', category: 'culinary', location: 'Ilorin, Kwara', experience: '4 years', availability: 'Open to Offers', skills: ['Cooking', 'Team Supervision', 'Menu Planning', 'Kitchen Safety'], bio: 'Talented sous chef.', preferredRole: 'Culinary' },
+        { id: '9', name: 'Grace Okonkwo', initials: 'GO', role: 'Event Coordinator', category: 'operations', location: 'Port Harcourt, Nigeria', experience: '3 years', availability: 'Immediate', skills: ['Event Planning', 'Coordination', 'Client Management', 'Logistics'], bio: 'Creative and organized event coordinator.', preferredRole: 'Operations' },
+        { id: '10', name: 'Ibrahim Musa', initials: 'IM', role: 'HR Director', category: 'executive', location: 'Lagos, Nigeria', experience: '14 years', availability: '1 Month', skills: ['HR Strategy', 'Talent Acquisition', 'Employee Relations', 'Organizational Development'], bio: 'Strategic HR leader.', preferredRole: 'Executive / C-Suite' },
+        { id: '11', name: 'Chioma Nwosu', initials: 'CN', role: 'Restaurant Manager', category: 'fandb', location: 'Abuja, Nigeria', experience: '6 years', availability: 'Open to Offers', skills: ['Restaurant Operations', 'Guest Service', 'Team Leadership', 'Inventory Management'], bio: 'Dynamic restaurant manager.', preferredRole: 'Food & Beverage' },
+        { id: '12', name: 'Emeka Okafor', initials: 'EO', role: 'Maintenance Manager', category: 'operations', location: 'Lagos, Nigeria', experience: '10 years', availability: 'Immediate', skills: ['Facilities Management', 'HVAC', 'Preventive Maintenance', 'Team Supervision'], bio: 'Experienced maintenance manager.', preferredRole: 'Operations' }
+      ];
+
+      let allTalent = [...demoTalent];
+      let currentTalent = [...allTalent];
+      let currentPage = 1;
+      const perPage = 6;
+
+      // DOM refs
+      const $ = id => document.getElementById(id);
+      const talentGrid = $('talentGrid');
+      const talentLoading = $('talentLoading');
+      const searchInput = $('searchInput');
+      const searchButton = $('searchButton');
+      const filterRole = $('filterRole');
+      const filterLocation = $('filterLocation');
+      const filterAvailability = $('filterAvailability');
+      const clearFiltersBtn = $('clearFiltersBtn');
+      const visibleCountSpan = $('visibleCount');
+      const totalCountSpan = $('totalCount');
+      const paginationContainer = $('pagination');
+      const modal = $('accessModal');
+      const modalClose = $('modalClose');
+      const modalCandidateName = $('modalCandidateName');
+      const accessForm = $('accessRequestForm');
+      const modalSuccess = $('modalSuccess');
+
+      // RENDER
+      function renderTalent() {
+        const start = (currentPage - 1) * perPage;
+        const end = start + perPage;
+        const pageTalent = currentTalent.slice(start, end);
+
+        if (!talentGrid) return;
+        if (pageTalent.length === 0) {
+          talentGrid.innerHTML = `<div class="talent-empty"><div class="empty-icon"><i class="fas fa-search"></i></div><h3>No candidates found</h3><p>Try adjusting your search filters or clear them to see all talent.</p></div>`;
+        } else {
+          talentGrid.innerHTML = pageTalent.map(c => {
+            let availColor = '';
+            let availIcon = 'fa-clock';
+            if (c.availability === 'Immediate') { availColor = 'var(--color-success)'; availIcon = 'fa-check-circle'; }
+            else if (c.availability === 'Open to Offers') { availColor = 'var(--color-gold)'; availIcon = 'fa-hourglass-half'; }
+            else { availColor = 'var(--color-gray-600)'; availIcon = 'fa-clock'; }
+            return `
+              <div class="talent-card" data-id="${c.id}">
+                <div class="talent-header">
+                  <div class="talent-avatar">${c.initials}</div>
+                  <div>
+                    <div class="talent-name">${c.name}</div>
+                    <div class="talent-role">${c.role} <span style="font-size:0.8rem;color:var(--color-gray-600);">• ${c.experience} exp</span></div>
+                    <div class="talent-availability" style="color:${availColor};"><i class="fas ${availIcon}"></i> ${c.availability}</div>
+                  </div>
+                  <span class="talent-badge">${c.preferredRole}</span>
+                </div>
+                <div class="talent-details">
+                  <div class="talent-detail"><i class="fas fa-map-marker-alt"></i> ${c.location}</div>
+                  <div class="talent-detail"><i class="fas fa-briefcase"></i> ${c.experience}</div>
+                  <div class="talent-detail" style="grid-column:1/-1;"><i class="fas fa-quote-left"></i> ${c.bio}</div>
+                </div>
+                <div class="talent-skills">${c.skills.map(s => `<span class="talent-skill">${s}</span>`).join('')}</div>
+                <div class="talent-footer">
+                  <button class="btn btn-gold btn-sm request-access-btn" data-id="${c.id}" data-name="${c.name}"><i class="fas fa-user-plus"></i> Request Access</button>
+                  <button class="btn btn-outline-gold btn-sm view-profile-btn" data-id="${c.id}"><i class="fas fa-eye"></i> View Profile</button>
                 </div>
               </div>
-              <span class="talent-badge">${c.preferredRole}</span>
-            </div>
-
-            <div class="talent-details">
-              <div class="talent-detail"><i class="fas fa-map-marker-alt"></i> ${c.location}</div>
-              <div class="talent-detail"><i class="fas fa-briefcase"></i> ${c.experience}</div>
-              <div class="talent-detail" style="grid-column: 1 / -1;"><i class="fas fa-quote-left" style="font-size:0.7rem;"></i> ${c.bio}</div>
-            </div>
-
-            <div class="talent-skills">
-              ${c.skills.map((s) => `<span class="talent-skill">${s}</span>`).join("")}
-            </div>
-
-            <div class="talent-footer">
-              <button class="btn btn-gold btn-sm request-access-btn" data-id="${c.id}" data-name="${c.name}">
-                <i class="fas fa-user-plus"></i> Request Access
-              </button>
-              <button class="btn btn-outline-gold btn-sm view-profile-btn" data-id="${c.id}">
-                <i class="fas fa-eye"></i> View Profile
-              </button>
-            </div>
-          </div>
-        `;
-              })
-              .join("");
-          }
-
-          // Update counts
-          if (visibleCountSpan)
-            visibleCountSpan.textContent = pageTalent.length;
-          if (totalCountSpan) totalCountSpan.textContent = currentTalent.length;
-
-          renderPagination();
+            `;
+          }).join('');
         }
 
-        // ============================================================
-        // 6. PAGINATION
-        // ============================================================
-        function renderPagination() {
-          if (!paginationContainer) return;
-          const totalPages = Math.ceil(currentTalent.length / perPage);
-          if (totalPages <= 1) {
-            paginationContainer.style.display = "none";
+        if (visibleCountSpan) visibleCountSpan.textContent = pageTalent.length;
+        if (totalCountSpan) totalCountSpan.textContent = currentTalent.length;
+        renderPagination();
+      }
+
+      // PAGINATION
+      function renderPagination() {
+        if (!paginationContainer) return;
+        const totalPages = Math.ceil(currentTalent.length / perPage);
+        if (totalPages <= 1) { paginationContainer.style.display = 'none'; return; }
+        paginationContainer.style.display = 'flex';
+        paginationContainer.innerHTML = '';
+
+        const prev = document.createElement('button');
+        prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prev.disabled = currentPage === 1;
+        prev.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderTalent(); scrollToTalent(); } });
+        paginationContainer.appendChild(prev);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          if (i === currentPage) btn.classList.add('active');
+          btn.addEventListener('click', () => { currentPage = i; renderTalent(); scrollToTalent(); });
+          paginationContainer.appendChild(btn);
+        }
+
+        const next = document.createElement('button');
+        next.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        next.disabled = currentPage === totalPages;
+        next.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; renderTalent(); scrollToTalent(); } });
+        paginationContainer.appendChild(next);
+      }
+
+      function scrollToTalent() {
+        const section = document.querySelector('.talent-listings');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // FILTERS
+      function applyFilters() {
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const role = filterRole ? filterRole.value : 'all';
+        const location = filterLocation ? filterLocation.value : 'all';
+        const availability = filterAvailability ? filterAvailability.value : 'all';
+
+        const filtered = allTalent.filter(c => {
+          if (searchTerm) {
+            const searchable = `${c.name} ${c.role} ${c.location} ${c.skills.join(' ')} ${c.bio}`.toLowerCase();
+            if (!searchable.includes(searchTerm)) return false;
+          }
+          if (role !== 'all' && c.category !== role) return false;
+          if (location !== 'all') {
+            const locLower = c.location.toLowerCase();
+            if (location === 'lagos' && !locLower.includes('lagos')) return false;
+            if (location === 'abuja' && !locLower.includes('abuja')) return false;
+            if (location === 'ilorin' && !locLower.includes('ilorin')) return false;
+            if (location === 'osogbo' && !locLower.includes('osogbo')) return false;
+            if (location === 'port-harcourt' && !locLower.includes('port harcourt')) return false;
+            if (location === 'remote' && c.location.toLowerCase() !== 'remote') return false;
+          }
+          if (availability !== 'all' && c.availability !== availability) return false;
+          return true;
+        });
+
+        currentTalent = filtered;
+        currentPage = 1;
+        renderTalent();
+
+        const hasFilters = searchTerm || role !== 'all' || location !== 'all' || availability !== 'all';
+        if (clearFiltersBtn) clearFiltersBtn.style.display = hasFilters ? 'inline-flex' : 'none';
+      }
+
+      function clearFilters() {
+        if (searchInput) searchInput.value = '';
+        if (filterRole) filterRole.value = 'all';
+        if (filterLocation) filterLocation.value = 'all';
+        if (filterAvailability) filterAvailability.value = 'all';
+        currentTalent = [...allTalent];
+        currentPage = 1;
+        renderTalent();
+        if (clearFiltersBtn) clearFiltersBtn.style.display = 'none';
+      }
+
+      // MODAL
+      function openAccessModal(name) {
+        if (modalCandidateName) modalCandidateName.textContent = name || 'Candidate';
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        if (accessForm) accessForm.style.display = 'block';
+        if (modalSuccess) modalSuccess.style.display = 'none';
+        if (accessForm) accessForm.reset();
+        // Also set the candidate name field to the candidate's name (pre-fill)
+        const candidateNameField = document.getElementById('modalCandidateNameField');
+        if (candidateNameField && name) candidateNameField.value = name;
+      }
+
+      function closeAccessModal() {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+
+      if (modalClose) modalClose.addEventListener('click', closeAccessModal);
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) closeAccessModal();
+        });
+      }
+
+      // FORM SUBMISSION – NO preventDefault, let Netlify handle it
+      if (accessForm) {
+        // Check success parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+          if (accessForm) accessForm.style.display = 'none';
+          if (modalSuccess) modalSuccess.style.display = 'block';
+        }
+
+        // Just show loading state – Netlify does the rest
+        accessForm.addEventListener('submit', function() {
+          const submitBtn = this.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          }
+        });
+      }
+
+      // Expose modal functions globally
+      window.closeAccessModal = closeAccessModal;
+      window.openAccessModal = openAccessModal;
+
+      // EVENT DELEGATION for talent cards
+      if (talentGrid) {
+        talentGrid.addEventListener('click', function(e) {
+          const requestBtn = e.target.closest('.request-access-btn');
+          if (requestBtn) {
+            e.stopPropagation();
+            openAccessModal(requestBtn.dataset.name);
             return;
           }
-          paginationContainer.style.display = "flex";
-          paginationContainer.innerHTML = "";
-
-          const prevBtn = document.createElement("button");
-          prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-          prevBtn.disabled = currentPage === 1;
-          prevBtn.addEventListener("click", () => {
-            if (currentPage > 1) {
-              currentPage--;
-              renderTalent();
-              scrollToTalent();
-            }
-          });
-          paginationContainer.appendChild(prevBtn);
-
-          for (let i = 1; i <= totalPages; i++) {
-            const pageBtn = document.createElement("button");
-            pageBtn.textContent = i;
-            if (i === currentPage) pageBtn.classList.add("active");
-            pageBtn.addEventListener("click", () => {
-              currentPage = i;
-              renderTalent();
-              scrollToTalent();
-            });
-            paginationContainer.appendChild(pageBtn);
+          const viewBtn = e.target.closest('.view-profile-btn');
+          if (viewBtn) {
+            e.stopPropagation();
+            const candidate = allTalent.find(c => c.id === viewBtn.dataset.id);
+            if (candidate) openAccessModal(candidate.name);
+            return;
           }
-
-          const nextBtn = document.createElement("button");
-          nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-          nextBtn.disabled = currentPage === totalPages;
-          nextBtn.addEventListener("click", () => {
-            if (currentPage < totalPages) {
-              currentPage++;
-              renderTalent();
-              scrollToTalent();
-            }
-          });
-          paginationContainer.appendChild(nextBtn);
-        }
-
-        function scrollToTalent() {
-          const section = document.querySelector(".talent-listings");
-          if (section) {
-            section.scrollIntoView({ behavior: "smooth", block: "start" });
+          const card = e.target.closest('.talent-card');
+          if (card) {
+            const candidate = allTalent.find(c => c.id === card.dataset.id);
+            if (candidate) openAccessModal(candidate.name);
           }
-        }
+        });
+      }
 
-        // ============================================================
-        // 7. FILTER & SEARCH
-        // ============================================================
-        function applyFilters() {
-          const searchTerm = searchInput
-            ? searchInput.value.toLowerCase().trim()
-            : "";
-          const role = filterRole ? filterRole.value : "all";
-          const location = filterLocation ? filterLocation.value : "all";
-          const availability = filterAvailability
-            ? filterAvailability.value
-            : "all";
-
-          const filtered = allTalent.filter((c) => {
-            // Search
-            if (searchTerm) {
-              const searchable =
-                `${c.name} ${c.role} ${c.location} ${c.skills.join(" ")} ${c.bio}`.toLowerCase();
-              if (!searchable.includes(searchTerm)) return false;
-            }
-            // Role
-            if (role !== "all" && c.category !== role) return false;
-            // Location
-            if (location !== "all") {
-              const locLower = c.location.toLowerCase();
-              if (location === "lagos" && !locLower.includes("lagos"))
-                return false;
-              if (location === "abuja" && !locLower.includes("abuja"))
-                return false;
-              if (location === "ilorin" && !locLower.includes("ilorin"))
-                return false;
-              if (location === "osogbo" && !locLower.includes("osogbo"))
-                return false;
-              if (
-                location === "port-harcourt" &&
-                !locLower.includes("port harcourt")
-              )
-                return false;
-              if (
-                location === "remote" &&
-                c.location.toLowerCase() !== "remote"
-              )
-                return false;
-            }
-            // Availability
-            if (availability !== "all" && c.availability !== availability)
-              return false;
-            return true;
-          });
-
-          currentTalent = filtered;
-          currentPage = 1;
+      // LOAD
+      function loadTalent() {
+        setTimeout(() => {
+          if (talentLoading) talentLoading.style.display = 'none';
+          if (talentGrid) talentGrid.style.display = 'grid';
           renderTalent();
+        }, 600);
+      }
 
-          const hasFilters =
-            searchTerm ||
-            role !== "all" ||
-            location !== "all" ||
-            availability !== "all";
-          if (clearFiltersBtn)
-            clearFiltersBtn.style.display = hasFilters ? "inline-flex" : "none";
-        }
+      // EVENT LISTENERS
+      if (searchButton) searchButton.addEventListener('click', applyFilters);
+      if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') applyFilters();
+        });
+      }
+      if (filterRole) filterRole.addEventListener('change', applyFilters);
+      if (filterLocation) filterLocation.addEventListener('change', applyFilters);
+      if (filterAvailability) filterAvailability.addEventListener('change', applyFilters);
+      if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', clearFilters);
 
-        function clearFilters() {
-          if (searchInput) searchInput.value = "";
-          if (filterRole) filterRole.value = "all";
-          if (filterLocation) filterLocation.value = "all";
-          if (filterAvailability) filterAvailability.value = "all";
-          currentTalent = [...allTalent];
-          currentPage = 1;
-          renderTalent();
-          if (clearFiltersBtn) clearFiltersBtn.style.display = "none";
-        }
+      // MOBILE MENU
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const mainNav = document.getElementById('mainNav');
+      const overlay = document.getElementById('mobileOverlay');
+      const closeBtn = document.getElementById('mobileCloseBtn');
 
-        // ============================================================
-        // 8. ACCESS MODAL (Netlify Forms – NO preventDefault)
-        // ============================================================
-        function openAccessModal(name) {
-          if (modalCandidateName)
-            modalCandidateName.textContent = name || "Candidate";
-          if (modal) {
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
+      function toggleMenu(force) {
+        if (!mainNav || !overlay || !mobileToggle) return;
+        const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
+        mainNav.classList.toggle('active', active);
+        overlay.classList.toggle('active', active);
+        document.body.style.overflow = active ? 'hidden' : 'auto';
+        mobileToggle.classList.toggle('active', active);
+        mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
+      }
+
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          toggleMenu();
+        });
+      }
+      if (overlay) overlay.addEventListener('click', function() { toggleMenu(false); });
+      if (closeBtn) closeBtn.addEventListener('click', function() { toggleMenu(false); });
+
+      // Close mobile menu on link click
+      document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 1024 && mainNav && mainNav.classList.contains('active')) {
+            toggleMenu(false);
           }
-          if (accessForm) accessForm.style.display = "block";
-          if (modalSuccess) modalSuccess.style.display = "none";
-          if (accessForm) accessForm.reset();
-        }
+        });
+      });
 
-        function closeAccessModal() {
-          if (modal) {
-            modal.classList.remove("active");
-            document.body.style.overflow = "auto";
-          }
-        }
-
-        // Modal close listeners
-        if (modalClose) modalClose.addEventListener("click", closeAccessModal);
-        if (modal) {
-          modal.addEventListener("click", function (e) {
-            if (e.target === modal) closeAccessModal();
-          });
-        }
-
-        // ============================================================
-        // 9. ACCESS FORM – NETLIFY (NO preventDefault)
-        // ============================================================
-        if (accessForm) {
-          // Check for success parameter (Netlify redirects with ?success=true)
-          const urlParams = new URLSearchParams(window.location.search);
-          if (urlParams.get("success") === "true") {
-            if (accessForm) accessForm.style.display = "none";
-            if (modalSuccess) modalSuccess.style.display = "block";
-          }
-
-          // Handle submission – show loading state only
-          // ✅ NO preventDefault() – Netlify handles the submission
-          accessForm.addEventListener("submit", function () {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            if (submitBtn) {
-              submitBtn.disabled = true;
-              submitBtn.innerHTML =
-                '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            }
-            // Netlify handles the actual form submission
-          });
-        }
-
-        // Expose modal functions globally (for inline onclick)
-        window.closeAccessModal = closeAccessModal;
-        window.openAccessModal = openAccessModal;
-
-        // ============================================================
-        // 10. EVENT DELEGATION FOR TALENT CARDS (Handles all clicks)
-        // ============================================================
-        if (talentGrid) {
-          talentGrid.addEventListener("click", function (e) {
-            // Request Access button
-            const requestBtn = e.target.closest(".request-access-btn");
-            if (requestBtn) {
-              e.stopPropagation();
-              const name = requestBtn.dataset.name;
-              openAccessModal(name);
-              return;
-            }
-
-            // View Profile button
-            const viewBtn = e.target.closest(".view-profile-btn");
-            if (viewBtn) {
-              e.stopPropagation();
-              const id = viewBtn.dataset.id;
-              const candidate = allTalent.find((c) => c.id === id);
-              if (candidate) openAccessModal(candidate.name);
-              return;
-            }
-
-            // Click on card itself
-            const card = e.target.closest(".talent-card");
-            if (card) {
-              const id = card.dataset.id;
-              const candidate = allTalent.find((c) => c.id === id);
-              if (candidate) openAccessModal(candidate.name);
-            }
-          });
-        }
-
-        // ============================================================
-        // 11. LOAD TALENT
-        // ============================================================
-        function loadTalent() {
-          setTimeout(() => {
-            if (talentLoading) talentLoading.style.display = "none";
-            if (talentGrid) talentGrid.style.display = "grid";
-            renderTalent();
-          }, 600);
-        }
-
-        // ============================================================
-        // 12. EVENT LISTENERS (Search, Filters)
-        // ============================================================
-        if (searchButton) searchButton.addEventListener("click", applyFilters);
-        if (searchInput) {
-          searchInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") applyFilters();
-          });
-        }
-        if (filterRole) filterRole.addEventListener("change", applyFilters);
-        if (filterLocation)
-          filterLocation.addEventListener("change", applyFilters);
-        if (filterAvailability)
-          filterAvailability.addEventListener("change", applyFilters);
-        if (clearFiltersBtn)
-          clearFiltersBtn.addEventListener("click", clearFilters);
-
-        // ============================================================
-        // 13. MOBILE MENU
-        // ============================================================
-        const mobileToggle = document.getElementById("mobileMenuToggle");
-        const mainNav = document.getElementById("mainNav");
-        const overlay = document.getElementById("mobileOverlay");
-        const closeBtn = document.getElementById("mobileCloseBtn");
-
-        function toggleMenu(force) {
-          if (!mainNav || !overlay || !mobileToggle) return;
-          const active =
-            typeof force === "boolean"
-              ? force
-              : !mainNav.classList.contains("active");
-          mainNav.classList.toggle("active", active);
-          overlay.classList.toggle("active", active);
-          document.body.style.overflow = active ? "hidden" : "auto";
-          mobileToggle.classList.toggle("active", active);
-          mobileToggle.setAttribute("aria-expanded", active ? "true" : "false");
-          const icon = mobileToggle.querySelector("i");
-          if (icon) icon.className = active ? "fas fa-times" : "fas fa-bars";
-        }
-
-        if (mobileToggle) {
-          mobileToggle.addEventListener("click", (e) => {
+      // Mobile dropdown toggles
+      document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          if (window.innerWidth <= 1024) {
             e.preventDefault();
-            toggleMenu();
-          });
-        }
-        if (overlay) overlay.addEventListener("click", () => toggleMenu(false));
-        if (closeBtn)
-          closeBtn.addEventListener("click", () => toggleMenu(false));
-
-        // Close mobile menu on nav link click
-        document
-          .querySelectorAll(".nav-link:not(.dropdown-toggle), .dropdown-item")
-          .forEach((link) => {
-            link.addEventListener("click", function () {
-              if (
-                window.innerWidth <= 1024 &&
-                mainNav &&
-                mainNav.classList.contains("active")
-              ) {
-                toggleMenu(false);
-              }
-            });
-          });
-
-        // ============================================================
-        // 14. DROPDOWNS (Mobile)
-        // ============================================================
-        document.querySelectorAll(".dropdown-toggle").forEach((t) => {
-          t.addEventListener("click", function (e) {
-            if (window.innerWidth <= 1024) {
-              e.preventDefault();
-              const d = this.closest(".dropdown");
-              if (!d) return;
-              const active = d.classList.contains("active");
-              document
-                .querySelectorAll(".dropdown")
-                .forEach((el) => el.classList.remove("active"));
-              if (!active) d.classList.add("active");
-            }
-          });
-        });
-        document.addEventListener("click", function (e) {
-          if (window.innerWidth <= 1024 && !e.target.closest(".dropdown")) {
-            document
-              .querySelectorAll(".dropdown")
-              .forEach((d) => d.classList.remove("active"));
+            const dropdown = this.closest('.dropdown');
+            if (!dropdown) return;
+            const active = dropdown.classList.contains('active');
+            document.querySelectorAll('.dropdown').forEach(function(d) { d.classList.remove('active'); });
+            if (!active) dropdown.classList.add('active');
           }
         });
+      });
 
-        // ============================================================
-        // 15. INIT
-        // ============================================================
-        loadTalent();
-      }); // End DOMContentLoaded
-    </script>
-  </body>
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown').forEach(function(d) { d.classList.remove('active'); });
+        }
+      });
+
+      // INIT
+      loadTalent();
+    });
+  </script>
+</body>
 </html>
