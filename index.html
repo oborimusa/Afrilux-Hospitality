@@ -35,7 +35,6 @@
       }
 
       :root {
-        /* HospitalityRecruit Color Palette */
         --color-primary: #0A1628;
         --color-primary-dark: #050A14;
         --color-gold: #C9A84C;
@@ -690,41 +689,95 @@
         font-weight: 500;
       }
 
-      /* ===== CLIENTS LOGO BAR ===== */
-      .clients-bar {
-        padding: 2rem 0;
+      /* ===== CLIENTS SLIDER ===== */
+      .clients-slider {
+        padding: 2.5rem 0;
         background: var(--color-gray-soft);
         border-top: 1px solid var(--color-gray-200);
         border-bottom: 1px solid var(--color-gray-200);
+        overflow: hidden;
+        position: relative;
       }
-      .clients-bar-content {
+      .clients-slider::before,
+      .clients-slider::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .clients-slider::before {
+        left: 0;
+        background: linear-gradient(to right, var(--color-gray-soft), transparent);
+      }
+      .clients-slider::after {
+        right: 0;
+        background: linear-gradient(to left, var(--color-gray-soft), transparent);
+      }
+
+      .clients-track {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        gap: 1.5rem 2.5rem;
+        gap: 4rem;
+        animation: scrollClients 20s linear infinite;
+        width: max-content;
       }
-      .clients-bar-label {
-        font-weight: 700;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--color-gray-600);
+
+      .clients-track:hover {
+        animation-play-state: paused;
       }
-      .client-logo-item {
+
+      .clients-track .client-item {
         font-family: var(--font-serif);
         font-weight: 700;
         color: var(--color-primary);
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        white-space: nowrap;
         opacity: 0.7;
         transition: opacity var(--transition-fast);
-        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
-      .client-logo-item:hover {
+      .clients-track .client-item:hover {
         opacity: 1;
       }
-      .client-logo-item .gold {
+      .clients-track .client-item .gold {
         color: var(--color-gold);
+      }
+      .clients-track .client-item .dot {
+        color: var(--color-gold);
+        font-size: 0.4rem;
+        opacity: 0.5;
+      }
+      .clients-track .client-item i {
+        color: var(--color-gold);
+        font-size: 0.9rem;
+      }
+
+      @keyframes scrollClients {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 768px) {
+        .clients-track {
+          gap: 2.5rem;
+        }
+        .clients-track .client-item {
+          font-size: 0.9rem;
+        }
+        .clients-slider::before,
+        .clients-slider::after {
+          width: 40px;
+        }
       }
 
       /* ===== FEATURED SERVICES ===== */
@@ -980,12 +1033,6 @@
         .stat-number {
           font-size: 1.6rem;
         }
-        .clients-bar-content {
-          gap: 1rem 1.5rem;
-        }
-        .client-logo-item {
-          font-size: 0.75rem;
-        }
       }
       @media (max-width: 480px) {
         .hero h1 {
@@ -1039,7 +1086,6 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <!-- <a href="/employers/our-process/" class="dropdown-item"><i class="fas fa-play-circle"></i> Our Process</a> -->
                   <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
                   <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
                   <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
@@ -1063,9 +1109,6 @@
               <li class="nav-item">
                 <a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="/case-studies/" class="nav-link"><i class="fas fa-chart-line"></i> Case Studies</a>
-              </li> -->
               <li class="nav-item">
                 <a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
               </li>
@@ -1091,11 +1134,12 @@
           <div class="hero-badge">
             <i class="fas fa-crown"></i> Nigeria's Premier Hospitality Talent Partner
           </div>
-          <h1>Precision Talent for <span class="gold">Africa's Luxury</span> Hospitality</h1>
+          <h1>We Find the Right People for <span class="gold">Africa's Best Hotels</span> &amp; Resorts</h1>
           <p class="hero-subtitle">
-            HospitalityRecruit connects elite professionals with luxury hotels, resorts,
-            and hospitality groups across Africa. Executive search, HR consulting,
-            and operational management – delivered with precision.
+            HospitalityRecruit connects top professionals with luxury hotels, resorts, 
+            and hospitality companies across Africa. Whether you need a top 
+            executive, HR advice, or someone to run your operations, 
+            we do it carefully and accurately.
           </p>
           <div class="hero-actions">
             <a href="/contact/" class="btn btn-gold btn-large">
@@ -1127,17 +1171,26 @@
       </div>
     </section>
 
-    <!-- ===== CLIENTS BAR ===== -->
-    <section class="clients-bar">
-      <div class="container">
-        <div class="clients-bar-content">
-          <span class="clients-bar-label"><i class="fas fa-hotel"></i> Trusted By</span>
-          <span class="client-logo-item">Calmcity <span class="gold">Hotel</span></span>
-          <span class="client-logo-item">Princess <span class="gold">Hotel</span></span>
-          <span class="client-logo-item">Pronto <span class="gold">Restaurant</span></span>
-          <span class="client-logo-item">Golden <span class="gold">Sands</span></span>
-          <span class="client-logo-item">4T <span class="gold">Luxury Hotel</span></span>
-        </div>
+    <!-- ===== CLIENTS SLIDER (AUTO-SCROLLING) ===== -->
+    <section class="clients-slider">
+      <div class="clients-track" id="clientsTrack">
+        <!-- First set -->
+        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
+        <!-- Second set for seamless loop -->
+        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
+        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
       </div>
     </section>
 
@@ -1165,8 +1218,7 @@
               Every role is different, so we take the time to understand 
               exactly what each one needs and find someone who fits 
               perfectly.
-
-</p>
+            </p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-building"></i></div>
@@ -1232,7 +1284,7 @@
         <h2>Ready to build your <span class="text-gold">elite team</span>?</h2>
         <p class="lead">
           Whether you need a single critical hire or full operational management,
-          AfriLux Hospitality delivers precision talent for luxury hospitality.
+          HospitalityRecruit delivers precision talent for luxury hospitality.
         </p>
         <div class="btn-group">
           <a href="/contact/" class="btn btn-gold btn-large">
@@ -1306,7 +1358,7 @@
     </footer>
 
     <a
-      href="https://wa.me/2348039661354?text=Hello%20AfriLux%20Hospitality%2C%20I%20need%20assistance"
+      href="https://wa.me/2348039661354?text=Hello%20HospitalityRecruit%2C%20I%20need%20assistance"
       class="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
