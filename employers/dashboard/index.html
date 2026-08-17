@@ -74,7 +74,7 @@
     .btn-block { width:100%; }
     .btn-sm { padding:0.5rem 1.25rem; font-size:0.85rem; min-height:40px; }
 
-    /* ===== HEADER (Simplified for Dashboard) ===== */
+    /* ===== HEADER ===== */
     .site-header {
       background:var(--color-white); box-shadow:var(--shadow-md);
       position:sticky; top:0; z-index:1000; padding:0.75rem 0;
@@ -163,7 +163,7 @@
     }
     .form-error i { margin-right:0.5rem; }
 
-    /* ===== JOB LIST (My Jobs) ===== */
+    /* ===== JOB LIST ===== */
     .job-list-card {
       background:var(--color-white);
       border-radius:var(--radius-lg);
@@ -221,7 +221,7 @@
           </a>
         </div>
         <div class="header-actions">
-          <div class="user-badge" id="userBadge"><i class="fas fa-user"></i> <span id="userName">Loading...</span></div>
+          <div class="user-badge"><i class="fas fa-user"></i> <span id="userName">Loading...</span></div>
           <button class="btn btn-outline-gold btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
         </div>
       </div>
@@ -249,7 +249,7 @@
           <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Please correct the errors below.</span></div>
 
           <form id="postJobForm">
-            <!-- Employer Details (Auto-filled) -->
+            <!-- Employer Details -->
             <div class="form-row">
               <div class="form-group">
                 <label for="companyName">Company Name <span class="required">*</span></label>
@@ -368,7 +368,7 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER (Simplified) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer style="background:var(--color-primary);color:var(--color-white);padding:2rem 0;text-align:center;border-top:2px solid var(--color-gold);">
     <div class="container">
       <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;">
@@ -387,32 +387,40 @@
     document.addEventListener('DOMContentLoaded', function() {
 
       // ============================================================
-      // 1. FIREBASE CONFIG (REPLACE WITH YOUR OWN)
+      // 1. FIREBASE CONFIG (REPLACE WITH YOUR ACTUAL CONFIG)
       // ============================================================
       const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT.firebaseapp.com",
-        projectId: "YOUR_PROJECT",
-        storageBucket: "YOUR_PROJECT.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
+        apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+        authDomain: "jobpitality-1cfb2.firebaseapp.com",
+        projectId: "jobpitality-1cfb2",
+        storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+        messagingSenderId: "185191165097",
+        appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+        measurementId: "G-SF5LWDZDKF"
       };
 
+      // ============================================================
+      // 2. INITIALIZE FIREBASE (ONCE)
+      // ============================================================
+      let auth = null;
+      let db = null;
+
       try {
-        if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        // Check if Firebase is already initialized
+        if (!firebase.apps.length) {
           firebase.initializeApp(firebaseConfig);
+          console.log('✅ Firebase initialized successfully!');
         } else {
-          console.warn("Firebase not configured – using demo mode.");
+          console.log('ℹ️ Firebase already initialized.');
         }
+        auth = firebase.auth();
+        db = firebase.firestore();
       } catch (e) {
-        console.warn("Firebase init error:", e);
+        console.warn('⚠️ Firebase init error:', e);
       }
 
-      const auth = firebase.auth ? firebase.auth() : null;
-      const db = firebase.firestore ? firebase.firestore() : null;
-
       // ============================================================
-      // 2. DOM REFS
+      // 3. DOM REFS
       // ============================================================
       const form = document.getElementById('postJobForm');
       const formError = document.getElementById('formError');
@@ -426,7 +434,7 @@
       let currentUser = null;
 
       // ============================================================
-      // 3. AUTH STATE
+      // 4. AUTH STATE
       // ============================================================
       if (auth) {
         auth.onAuthStateChanged(async function(user) {
@@ -435,13 +443,15 @@
             userNameSpan.textContent = user.displayName || user.email || 'Employer';
             // Load the user's company profile
             try {
-              const doc = await db.collection('employers').doc(user.uid).get();
-              if (doc.exists) {
-                const data = doc.data();
-                document.getElementById('companyName').value = data.companyName || '';
-                document.getElementById('companyEmail').value = data.contactEmail || user.email || '';
-                document.getElementById('contactName').value = data.contactPerson || '';
-                document.getElementById('contactPhone').value = data.contactPhone || '';
+              if (db) {
+                const doc = await db.collection('employers').doc(user.uid).get();
+                if (doc.exists) {
+                  const data = doc.data();
+                  document.getElementById('companyName').value = data.companyName || '';
+                  document.getElementById('companyEmail').value = data.contactEmail || user.email || '';
+                  document.getElementById('contactName').value = data.contactPerson || '';
+                  document.getElementById('contactPhone').value = data.contactPhone || '';
+                }
               }
             } catch (e) { console.log('Error loading employer profile:', e); }
             // Load the user's jobs
@@ -454,7 +464,7 @@
       }
 
       // ============================================================
-      // 4. LOGOUT
+      // 5. LOGOUT
       // ============================================================
       if (logoutBtn && auth) {
         logoutBtn.addEventListener('click', function() {
@@ -465,10 +475,15 @@
       }
 
       // ============================================================
-      // 5. LOAD MY JOBS
+      // 6. LOAD MY JOBS
       // ============================================================
       async function loadMyJobs(uid) {
-        if (!db) return;
+        if (!db) {
+          // Demo mode fallback
+          emptyState.style.display = 'block';
+          jobList.style.display = 'none';
+          return;
+        }
         try {
           const snapshot = await db.collection('jobs')
             .where('employerId', '==', uid)
@@ -510,11 +525,13 @@
 
         } catch (e) {
           console.error('Error loading jobs:', e);
+          emptyState.style.display = 'block';
+          jobList.style.display = 'none';
         }
       }
 
       // ============================================================
-      // 6. POST JOB FORM (Netlify-like, but uses Firestore)
+      // 7. POST JOB FORM
       // ============================================================
       if (form) {
         form.addEventListener('submit', async function(e) {
@@ -527,6 +544,12 @@
           // Check if user is logged in
           if (!currentUser) {
             showError('You must be logged in to post a job.');
+            return;
+          }
+
+          // Check if Firebase is available
+          if (!db) {
+            showError('Firebase is not available. Please check your configuration.');
             return;
           }
 
@@ -562,8 +585,6 @@
           submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
           try {
-            if (!db) { throw new Error('Firestore not available'); }
-
             await db.collection('jobs').add({
               ...jobData,
               employerId: currentUser.uid,
@@ -590,7 +611,7 @@
       }
 
       // ============================================================
-      // 7. HELPERS
+      // 8. HELPERS
       // ============================================================
       function showError(msg) {
         errorMessage.textContent = msg;
@@ -603,7 +624,7 @@
         successDiv.style.display = 'none';
         form.reset();
         // Clear auto-filled employer fields if needed
-        if (currentUser) {
+        if (currentUser && db) {
           db.collection('employers').doc(currentUser.uid).get().then(doc => {
             if (doc.exists) {
               const data = doc.data();
@@ -618,7 +639,7 @@
       };
 
       // ============================================================
-      // 8. CURRENT YEAR
+      // 9. CURRENT YEAR
       // ============================================================
       document.getElementById('currentYear').textContent = new Date().getFullYear();
 
