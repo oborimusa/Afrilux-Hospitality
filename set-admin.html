@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Admin</title>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <h1>Set Admin Claim</h1>
+  <p id="status">Loading...</p>
+
+  <script>
+    // ============================================================
+    // 1. YOUR FIREBASE CONFIG (PASTE YOURS HERE)
+    // ============================================================
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const statusDiv = document.getElementById('status');
+
+    // ============================================================
+    // 2. WAIT FOR USER TO LOG IN
+    // ============================================================
+    auth.onAuthStateChanged(async function(user) {
+      if (!user) {
+        statusDiv.innerHTML = 'Please sign in with your admin account.';
+        // Show login button
+        const loginBtn = document.createElement('button');
+        loginBtn.textContent = 'Sign in with Google';
+        loginBtn.onclick = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        document.body.appendChild(loginBtn);
+        return;
+      }
+
+      statusDiv.innerHTML = `Signed in as: ${user.email}`;
+
+      // Check if already admin
+      const token = await user.getIdTokenResult();
+      if (token.claims.admin) {
+        statusDiv.innerHTML = '✅ You are already an admin!';
+        return;
+      }
+
+      // ============================================================
+      // 3. SET ADMIN CLAIM VIA FIRESTORE (Cloud Function trigger)
+      // ============================================================
+      statusDiv.innerHTML = 'Setting admin claim...';
+
+      try {
+        // Option A: If you have a Cloud Function, call it
+        // const result = await fetch('/setAdmin');
+        // const data = await result.json();
+
+        // Option B: Use Firestore to trigger a function (if you have one)
+        // await db.collection('adminRequests').add({
+        //   uid: user.uid,
+        //   email: user.email,
+        //   timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        // });
+
+        // Option C: Since we can't call a function directly, we'll set a Firestore document
+        // that you can manually mark as admin (or we'll just tell you the UID)
+        statusDiv.innerHTML = `
+          <p>✅ Admin claim ready to set!</p>
+          <p>Your UID is: <strong>${user.uid}</strong></p>
+          <p>Your email is: <strong>${user.email}</strong></p>
+          <p>Please go to the Firebase Console → Authentication → Users.</p>
+          <p>Find your user (${user.email}) and add the custom claim.</p>
+          <p>Custom claim to add: <code>{"admin": true}</code></p>
+        `;
+
+        // Show the three-dot menu instructions again
+        statusDiv.innerHTML += `
+          <hr />
+          <h3>Instructions:</h3>
+          <ol>
+            <li>Go to Firebase Console → Authentication → Users</li>
+            <li>Find the user with email: <strong>${user.email}</strong></li>
+            <li>Click the three dots (⋮) at the end of the row</li>
+            <li>Select "Set custom claims" (if visible)</li>
+            <li>OR click on the User UID to open the details panel</li>
+            <li>Add the custom claim: <code>{"admin": true}</code></li>
+            <li>Save and sign out/back in</li>
+          </ol>
+        `;
+
+      } catch (error) {
+        console.error('Error:', error);
+        statusDiv.innerHTML = `❌ Error: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html>
