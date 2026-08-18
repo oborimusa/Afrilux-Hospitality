@@ -1,181 +1,420 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Employer Login | HospitalityRecruit</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family:'Inter',sans-serif;
-      background:linear-gradient(135deg, #0A1628 0%, #0F2844 100%);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:1.5rem;
-    }
-    .login-card {
-      background:#fff;
-      border-radius:16px;
-      padding:2.5rem 2rem;
-      max-width:440px;
-      width:100%;
-      box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
-      border-top:4px solid #C9A84C;
-    }
-    .login-header { text-align:center; margin-bottom:2rem; }
-    .login-header .brand { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:800; color:#0A1628; text-decoration:none; }
-    .login-header .brand .gold { color:#C9A84C; }
-    .login-header h1 { font-size:1.5rem; color:#0A1628; margin-top:0.5rem; }
-    .login-header p { color:#8A8580; font-size:0.95rem; }
-    .form-group { margin-bottom:1.25rem; }
-    .form-group label { display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:#0A1628; }
-    .form-group input {
-      width:100%; padding:0.85rem 1rem;
-      border:2px solid #E8E5DF; border-radius:8px;
-      font-size:1rem; transition:border-color 0.2s;
-    }
-    .form-group input:focus { outline:none; border-color:#C9A84C; box-shadow:0 0 0 3px rgba(201,168,76,0.1); }
-    .form-group .input-icon { position:relative; }
-    .form-group .input-icon i { position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:#8A8580; }
-    .form-group .input-icon input { padding-left:2.75rem; }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
-      width:100%; padding:0.85rem 1.5rem;
-      background:#C9A84C; color:#0A1628;
-      border:none; border-radius:50px;
-      font-weight:700; font-size:1rem;
-      cursor:pointer; transition:all 0.2s;
-    }
-    .btn:hover { background:#E8C84A; transform:translateY(-2px); box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); }
-    .btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
-    .form-error {
-      display:none; text-align:center; padding:0.75rem 1rem;
-      background:rgba(230,57,70,0.08); border-radius:8px;
-      border:1px solid #E63946; color:#E63946;
-      margin-bottom:1rem; font-size:0.9rem;
-    }
-    .form-options {
-      display:flex; align-items:center; justify-content:space-between;
-      margin:1rem 0 1.5rem; flex-wrap:wrap; gap:0.5rem;
-    }
-    .form-options a { color:#C9A84C; text-decoration:none; font-size:0.85rem; font-weight:600; }
-    .form-options a:hover { text-decoration:underline; }
-    .divider { display:flex; align-items:center; gap:1rem; margin:1.5rem 0; color:#8A8580; font-size:0.85rem; }
-    .divider::before, .divider::after { content:''; flex:1; height:1px; background:#E8E5DF; }
-    .login-footer { text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #E8E5DF; }
-    .login-footer p { color:#8A8580; font-size:0.9rem; }
-    .login-footer a { color:#C9A84C; text-decoration:none; font-weight:600; }
-    .login-footer a:hover { text-decoration:underline; }
-  </style>
-</head>
-<body>
-  <div class="login-card">
-    <div class="login-header">
-      <a href="/" class="brand">Hospitality<span class="gold">Recruit</span></a>
-      <h1>Employer Login</h1>
-      <p>Sign in to post jobs and manage your listings</p>
-    </div>
-    <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Invalid email or password.</span></div>
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <div class="input-icon">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="email" placeholder="you@company.com" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <div class="input-icon">
-          <i class="fas fa-lock"></i>
-          <input type="password" id="password" placeholder="Enter your password" required />
-        </div>
-      </div>
-      <div class="form-options">
-        <label><input type="checkbox" id="rememberMe" /> Remember me</label>
-        <a href="#" id="forgotPassword">Forgot password?</a>
-      </div>
-      <button type="submit" class="btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
-    </form>
-    <div class="divider">or</div>
-    <div class="login-footer">
-      <p>Don't have an account? <a href="/employers/register/">Create one now</a></p>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const firebaseConfig = {
-        apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
-        authDomain: "jobpitality-1cfb2.firebaseapp.com",
-        projectId: "jobpitality-1cfb2",
-        storageBucket: "jobpitality-1cfb2.firebasestorage.app",
-        messagingSenderId: "185191165097",
-        appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
-      };
-
-      let auth = null;
-      try {
-        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-        auth = firebase.auth();
-        console.log('✅ Firebase initialized');
-      } catch (e) { console.warn('⚠️ Firebase init error:', e); }
-
-      const form = document.getElementById('loginForm');
-      const emailInput = document.getElementById('email');
-      const passwordInput = document.getElementById('password');
-      const loginBtn = document.getElementById('loginBtn');
-      const formError = document.getElementById('formError');
-      const errorMessage = document.getElementById('errorMessage');
-
-      if (auth) {
-        auth.onAuthStateChanged(function(user) {
-          if (user) window.location.href = '/employers/dashboard/';
-        });
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employer Login | HospitalityRecruit</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #0a1628 0%, #0f2844 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      .login-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        max-width: 440px;
+        width: 100%;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-top: 4px solid #c9a84c;
+      }
+      .login-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .login-header .brand {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #0a1628;
+        text-decoration: none;
+      }
+      .login-header .brand .gold {
+        color: #c9a84c;
+      }
+      .login-header h1 {
+        font-size: 1.5rem;
+        color: #0a1628;
+        margin-top: 0.5rem;
+      }
+      .login-header p {
+        color: #8a8580;
+        font-size: 0.95rem;
+      }
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        color: #0a1628;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 2px solid #e8e5df;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.2s;
+      }
+      .form-group input:focus {
+        outline: none;
+        border-color: #c9a84c;
+        box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+      }
+      .form-group .input-icon {
+        position: relative;
+      }
+      .form-group .input-icon i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8a8580;
+      }
+      .form-group .input-icon input {
+        padding-left: 2.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+        background: #c9a84c;
+        color: #0a1628;
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn:hover {
+        background: #e8c84a;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .form-error {
+        display: none;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        background: rgba(230, 57, 70, 0.08);
+        border-radius: 8px;
+        border: 1px solid #e63946;
+        color: #e63946;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+      .form-options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0 1.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .form-options a {
+        color: #c9a84c;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .form-options a:hover {
+        text-decoration: underline;
+      }
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        color: #8a8580;
+        font-size: 0.85rem;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #e8e5df;
+      }
+      .login-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e8e5df;
+      }
+      .login-footer p {
+        color: #8a8580;
+        font-size: 0.9rem;
+      }
+      .login-footer a {
+        color: #c9a84c;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .login-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="login-header">
+        <a href="/" class="brand"
+          >Hospitality<span class="gold">Recruit</span></a
+        >
+        <h1>Employer Login</h1>
+        <p>Sign in to post jobs and manage your listings</p>
+      </div>
+      <div class="form-error" id="formError">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorMessage">Invalid email or password.</span>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="you@company.com"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-options">
+          <label><input type="checkbox" id="rememberMe" /> Remember me</label>
+          <a href="#" id="forgotPassword">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn" id="loginBtn">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+      </form>
+      <div class="divider">or</div>
+      <div class="login-footer">
+        <p>
+          Don't have an account?
+          <a href="/employers/register/">Create one now</a>
+        </p>
+      </div>
+    </div>
 
-      if (form) {
-        form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          formError.style.display = 'none';
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
 
-          const email = emailInput.value.trim();
-          const password = passwordInput.value.trim();
+    // ============================================================
+    // 1. FIREBASE CONFIG
+    // ============================================================
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+      authDomain: "jobpitality-1cfb2.firebaseapp.com",
+      projectId: "jobpitality-1cfb2",
+      storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+      messagingSenderId: "185191165097",
+      appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
+    };
 
-          if (!email || !password) {
-            errorMessage.textContent = 'Please enter both email and password.';
-            formError.style.display = 'block';
-            return;
+    let auth = null;
+
+    try {
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      auth = firebase.auth();
+    } catch (e) {
+      console.warn('Firebase init error:', e);
+    }
+
+    // ============================================================
+    // 2. DOM REFS
+    // ============================================================
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const rememberMe = document.getElementById('rememberMe');
+    const loginBtn = document.getElementById('loginBtn');
+    const formError = document.getElementById('formError');
+    const errorMessage = document.getElementById('errorMessage');
+    const formSuccess = document.getElementById('formSuccess');
+    const successMessage = document.getElementById('successMessage');
+
+    // ============================================================
+    // 3. CHECK IF ALREADY LOGGED IN (WITH LOOP PREVENTION)
+    // ============================================================
+    if (auth) {
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          // Check if we're on the login page
+          const isLoginPage = window.location.pathname.includes('/login/');
+          
+          if (isLoginPage) {
+            // Check if we're already being redirected (prevents loops)
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirect = urlParams.get('redirect');
+            
+            if (redirect) {
+              window.location.href = redirect;
+            } else {
+              // Use setTimeout to prevent multiple redirects
+              setTimeout(function() {
+                window.location.href = '/employers/dashboard/';
+              }, 100);
+            }
+          } else {
+            // If user is logged in and not on login page, redirect to dashboard
+            const currentPath = window.location.pathname;
+            if (!currentPath.includes('/dashboard/') && !currentPath.includes('/admin/')) {
+              window.location.href = '/employers/dashboard/';
+            }
           }
+        }
+      });
+    }
 
-          loginBtn.disabled = true;
-          loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+    // ============================================================
+    // 4. LOGIN FORM SUBMIT
+    // ============================================================
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-          try {
-            if (!auth) throw new Error('Firebase not available');
-            await auth.signInWithEmailAndPassword(email, password);
+        formError.style.display = 'none';
+        formSuccess.style.display = 'none';
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!email || !password) {
+          showError('Please enter both email and password.');
+          return;
+        }
+
+        loginBtn.disabled = true;
+        loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+
+        try {
+          if (!auth) {
+            await simulateLogin(email, password);
+          } else {
+            const userCredential = await auth.signInWithEmailAndPassword(email, password);
+            const user = userCredential.user;
+
+            if (rememberMe.checked) {
+              localStorage.setItem('hr_employer_email', email);
+            } else {
+              localStorage.removeItem('hr_employer_email');
+            }
+
+            showSuccess('Login successful! Redirecting to dashboard...');
+
+            setTimeout(function() {
+              window.location.href = '/employers/dashboard/';
+            }, 1500);
+          }
+        } catch (error) {
+          let msg = 'Invalid email or password. Please try again.';
+          if (error.code === 'auth/user-not-found') {
+            msg = 'No account found with this email. Please create an account first.';
+          } else if (error.code === 'auth/wrong-password') {
+            msg = 'Incorrect password. Please try again.';
+          } else if (error.code === 'auth/too-many-requests') {
+            msg = 'Too many failed attempts. Please try again later.';
+          }
+          showError(msg);
+        }
+
+        loginBtn.disabled = false;
+        loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+      });
+    }
+
+    // ============================================================
+    // 5. DEMO LOGIN
+    // ============================================================
+    async function simulateLogin(email, password) {
+      return new Promise(function(resolve, reject) {
+        if (email === 'demo@hospitalityrecruit.com' && password === 'demo123') {
+          showSuccess('Demo login successful! Redirecting...');
+          localStorage.setItem('hr_demo_user', 'true');
+          setTimeout(function() {
             window.location.href = '/employers/dashboard/';
-          } catch (error) {
-            let msg = 'Invalid email or password.';
-            if (error.code === 'auth/user-not-found') msg = 'No account found. Please create an account first.';
-            else if (error.code === 'auth/wrong-password') msg = 'Incorrect password. Please try again.';
-            else if (error.code === 'auth/too-many-requests') msg = 'Too many failed attempts. Please try again later.';
-            errorMessage.textContent = msg;
-            formError.style.display = 'block';
-          }
+          }, 1500);
+          resolve();
+        } else {
+          reject({ code: 'auth/wrong-password', message: 'Invalid credentials' });
+        }
+      });
+    }
 
-          loginBtn.disabled = false;
-          loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
-        });
-      }
-    });
-  </script>
-</body>
+    // ============================================================
+    // 6. HELPERS
+    // ============================================================
+    function showError(msg) {
+      errorMessage.textContent = msg;
+      formError.style.display = 'block';
+      setTimeout(function() {
+        formError.style.display = 'none';
+      }, 5000);
+    }
+
+    function showSuccess(msg) {
+      successMessage.textContent = msg;
+      formSuccess.style.display = 'block';
+    }
+
+    // ============================================================
+    // 7. SAVED EMAIL (Remember Me)
+    // ============================================================
+    const savedEmail = localStorage.getItem('hr_employer_email');
+    if (savedEmail) {
+      emailInput.value = savedEmail;
+      rememberMe.checked = true;
+    }
+
+  });
+</script>
+  </body>
 </html>
