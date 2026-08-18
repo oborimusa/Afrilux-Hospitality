@@ -63,98 +63,351 @@
     .btn-gold:hover { background:var(--color-gold-light); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
 
     /* ===== HEADER ===== */
-    .site-header {
-      background:var(--color-white); box-shadow:var(--shadow-md);
-      position:sticky; top:0; z-index:1000; padding:0.75rem 0;
-      border-bottom:2px solid var(--color-gold);
-    }
-    .header-container { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .logo a { text-decoration:none; line-height:1.2; display:inline-block; }
-    .logo .brand-name { font-family:var(--font-serif); font-size:1.6rem; font-weight:800; color:var(--color-primary); letter-spacing:-0.5px; }
-    .logo .brand-name .gold { color:var(--color-gold); }
-    .logo-tagline { display:none; font-size:0.65rem; color:var(--color-gray-600); text-transform:uppercase; letter-spacing:2px; font-weight:600; margin-top:-2px; }
-    @media (min-width:768px) { .logo .brand-name { font-size:2rem; } .logo-tagline { display:block; } }
+     .site-header {
+        background: var(--color-white);
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 0.75rem 0;
+        border-bottom: 2px solid var(--color-gold);
+      }
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .logo a {
+        text-decoration: none;
+        line-height: 1.4;
+        display: inline-block;
+      }
+      .logo .brand-name {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        letter-spacing: -0.5px;
+      }
+      .logo .brand-name .gold {
+        color: var(--color-gold);
+      }
+      .logo-tagline {
+        display: none;
+        font-size: 0.65rem;
+        color: var(--color-gray-600);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-top: -2px;
+      }
+      @media (min-width: 768px) {
+        .logo .brand-name {
+          font-size: 2rem;
+        }
+        .logo-tagline {
+          display: block;
+        }
+      }
 
-    .mobile-menu-toggle {
-      display:block; background:var(--color-gold); border:none; width:44px; height:44px; border-radius:8px;
-      display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:1001;
-    }
-    .mobile-menu-toggle i { font-size:1.5rem; color:var(--color-primary); }
-    .mobile-menu-toggle.active { background:var(--color-primary); }
-    .mobile-menu-toggle.active i { color:var(--color-gold); }
-    @media (min-width:1024px) { .mobile-menu-toggle { display:none; } }
+      .mobile-menu-toggle {
+        display: block;
+        background: var(--color-gold);
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-toggle i {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+      }
+      .mobile-menu-toggle.active {
+        background: var(--color-primary);
+      }
+      .mobile-menu-toggle.active i {
+        color: var(--color-gold);
+      }
+      @media (min-width: 1024px) {
+        .mobile-menu-toggle {
+          display: none;
+        }
+      }
 
-    .mobile-close-btn {
-      display:none; background:var(--color-primary); color:var(--color-gold);
-      border:2px solid var(--color-gold); padding:12px 20px; border-radius:8px;
-      font-size:1rem; font-weight:600; cursor:pointer; width:100%; margin-bottom:20px; text-align:center;
-    }
-    @media (max-width:1023px) { .mobile-close-btn { display:block; } }
-    .main-nav {
-      display:flex; align-items:center;
-    }
-    @media (max-width:1023px) {
+      .mobile-close-btn {
+        display: none;
+        background: var(--color-primary);
+        color: var(--color-gold);
+        border: 2px solid var(--color-gold);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      @media (max-width: 1023px) {
+        .mobile-close-btn {
+          display: block;
+        }
+      }
+      .mobile-close-btn:hover {
+        background: var(--color-gold);
+        color: var(--color-primary);
+      }
+
       .main-nav {
-        position:fixed; top:0; right:-100%; width:85%; max-width:400px; height:100vh;
-        background:var(--color-white); flex-direction:column; align-items:flex-start; justify-content:flex-start;
-        padding:80px 20px 30px; transition:right 0.3s ease; z-index:1001; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
-        overflow-y:auto; gap:1rem;
+        display: flex;
+        align-items: center;
       }
-      .main-nav.active { right:0; }
-    }
-    .nav-menu { display:flex; list-style:none; gap:0; margin:0; padding:0; }
-    @media (max-width:1023px) { .nav-menu { flex-direction:column; width:100%; gap:0.5rem; } }
-    .nav-item { position:relative; }
-    @media (max-width:1023px) { .nav-item { width:100%; } }
-    .nav-link {
-      text-decoration:none; color:var(--color-gray-700); font-weight:600; font-size:0.9rem;
-      padding:0.5rem 0.75rem; display:flex; align-items:center; gap:0.5rem;
-      transition:color var(--transition-normal); border-radius:var(--radius-md);
-    }
-    @media (max-width:1023px) {
-      .nav-link { padding:0.75rem; border-bottom:1px solid var(--color-gray-200); width:100%; font-size:1rem; }
-    }
-    .nav-link:hover { color:var(--color-gold); }
-    .nav-link.active { color:var(--color-gold); font-weight:700; }
+      @media (max-width: 1023px) {
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 85%;
+          max-width: 400px;
+          height: 100vh;
+          background: var(--color-white);
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: 80px 20px 30px;
+          transition: right 0.3s ease;
+          z-index: 1001;
+          box-shadow: var(--shadow-xl);
+          overflow-y: auto;
+          gap: 1rem;
+        }
+        .main-nav.active {
+          right: 0;
+        }
+      }
 
-    /* Dropdown */
-    .dropdown-menu {
-      display:none; position:absolute; background:var(--color-white); min-width:200px;
-      border-radius:var(--radius-md); box-shadow:0 10px 25px rgba(0,0,0,0.1);
-      padding:0.5rem 0; z-index:1000; border:1px solid var(--color-gray-200);
-    }
-    .dropdown:hover .dropdown-menu { display:block; }
-    @media (max-width:1023px) {
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+      }
+      @media (max-width: 1023px) {
+        .nav-menu {
+          flex-direction: column;
+          width: 100%;
+          gap: 0.5rem;
+        }
+      }
+
+      .nav-item {
+        position: relative;
+      }
+      @media (max-width: 1023px) {
+        .nav-item {
+          width: 100%;
+        }
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--color-gray-700);
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all var(--transition-fast);
+        border-radius: var(--radius-md);
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .nav-link {
+          padding: 0.75rem;
+          border-bottom: 1px solid var(--color-gray-200);
+          width: 100%;
+          font-size: 1rem;
+          white-space: normal;
+        }
+      }
+      .nav-link:hover {
+        color: var(--color-gold);
+      }
+      .nav-link.active {
+        color: var(--color-gold);
+        font-weight: 700;
+      }
+
+      .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+      .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform var(--transition-fast);
+      }
+      .dropdown.active .dropdown-toggle i {
+        transform: rotate(180deg);
+      }
+
       .dropdown-menu {
-        position:static; box-shadow:none; border:none; border-left:2px solid var(--color-gold);
-        margin-left:1rem; padding:0.5rem 0 0.5rem 1rem; display:none;
-        background:var(--color-gray-soft); width:calc(100% - 1rem);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--color-white);
+        min-width: 240px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-2xl);
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all var(--transition-normal);
+        z-index: 1000;
+        border: 1px solid var(--color-gray-200);
       }
-      .dropdown.active .dropdown-menu { display:block; }
-    }
-    .dropdown-item {
-      display:flex; align-items:center; gap:0.75rem; padding:0.75rem 1.25rem;
-      text-decoration:none; color:var(--color-gray-700); font-size:0.9rem; font-weight:500;
-      transition:all var(--transition-normal);
-    }
-    .dropdown-item:hover { background:var(--color-gray-soft); color:var(--color-gold); }
-    .nav-cta-group { display:flex; align-items:center; gap:0.75rem; }
-    @media (max-width:1023px) { .nav-cta-group { flex-direction:column; width:100%; margin-top:1rem; gap:0.75rem; } }
-    .nav-cta {
-      background:var(--color-gold); color:var(--color-primary) !important;
-      padding:0.6rem 1.2rem !important; border-radius:50px; font-weight:700 !important;
-      text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;
-      font-size:0.85rem; border:none; cursor:pointer; font-family:var(--font-sans);
-    }
-    .nav-cta:hover { background:var(--color-gold-light); transform:translateY(-2px); }
-    .nav-cta-outline { background:transparent; color:var(--color-gold) !important; border:2px solid var(--color-gold); }
-    .nav-cta-outline:hover { background:var(--color-gold); color:var(--color-primary) !important; }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+      }
 
-    .mobile-overlay {
-      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-      background:rgba(10,22,40,0.8); z-index:999; backdrop-filter:blur(4px);
-    }
-    .mobile-overlay.active { display:block; }
+      @media (max-width: 1023px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          border-left: 2px solid var(--color-gold);
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+          padding: 0.5rem 0 0.5rem 1rem;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          display: none;
+          background: var(--color-gray-soft);
+          width: calc(100% - 1rem);
+        }
+        .dropdown.active .dropdown-menu {
+          display: block;
+        }
+        .dropdown-toggle i {
+          transition: transform 0.3s ease;
+        }
+        .dropdown.active .dropdown-toggle i {
+          transform: rotate(180deg);
+        }
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
+        text-decoration: none;
+        color: var(--color-gray-700);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+      }
+      @media (max-width: 1023px) {
+        .dropdown-item {
+          padding: 0.75rem;
+          white-space: normal;
+          border-bottom: 1px solid var(--color-gray-200);
+        }
+      }
+      .dropdown-item:hover {
+        background: var(--color-gray-soft);
+        color: var(--color-gold);
+        padding-left: 1.75rem;
+      }
+      .dropdown-divider {
+        height: 1px;
+        background: var(--color-gray-200);
+        margin: 0.5rem 0;
+      }
+
+      .nav-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      @media (max-width: 1023px) {
+        .nav-cta-group {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+          gap: 0.75rem;
+        }
+      }
+
+      .nav-cta {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
+        padding: 0.6rem 1.2rem !important;
+        border-radius: 50px;
+        font-weight: 700 !important;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        font-family: var(--font-sans);
+      }
+      @media (max-width: 1023px) {
+        .nav-cta {
+          width: 100%;
+          padding: 0.75rem !important;
+          font-size: 1rem;
+        }
+      }
+      .nav-cta:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .nav-cta-outline {
+        background: transparent;
+        color: var(--color-gold) !important;
+        border: 2px solid var(--color-gold);
+      }
+      .nav-cta-outline:hover {
+        background: var(--color-gold);
+        color: var(--color-primary) !important;
+      }
+
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 22, 40, 0.8);
+        z-index: 999;
+        backdrop-filter: blur(4px);
+      }
+      .mobile-overlay.active {
+        display: block;
+      }
+
 
     /* ===== JOB BOARD HERO ===== */
     .jobboard-hero {
@@ -268,55 +521,81 @@
 
   <!-- ===== HEADER ===== -->
   <header class="site-header">
-    <div class="container">
-      <div class="header-container">
-        <div class="logo">
-          <a href="/" aria-label="AfriLux Hospitality Home">
-            <span class="brand-name">Afri<span class="gold">Lux</span></span>
-            <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
-          </a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu" aria-expanded="false">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-          <button class="mobile-close-btn" id="mobileCloseBtn"><i class="fas fa-times"></i> Close</button>
-          <ul class="nav-menu">
-            <li class="nav-item"><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-            <li class="nav-item"><a href="/services/" class="nav-link"><i class="fas fa-crosshairs"></i> Services</a></li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-building"></i> Employers <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-menu">
-                <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
-                <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
-                <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
-                <div class="dropdown-divider"></div>
-                <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle active"><i class="fas fa-user-tie"></i> Candidates <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-menu">
-                <a href="/candidates/job-board/" class="dropdown-item" style="color:var(--color-gold);font-weight:700;"><i class="fas fa-briefcase"></i> Job Board</a>
-                <a href="/candidates/submit-profile/" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
-                <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
-                <div class="dropdown-divider"></div>
-                <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
-              </div>
-            </li>
-            <li class="nav-item"><a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
-            <li class="nav-item"><a href="/case-studies/" class="nav-link"><i class="fas fa-chart-line"></i> Case Studies</a></li>
-            <li class="nav-item"><a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-          </ul>
-          <div class="nav-cta-group">
-            <a href="tel:+2348039661354" class="nav-cta"><i class="fas fa-phone"></i> +234 803 966 1354</a>
-            <a href="/contact/" class="nav-cta nav-cta-outline"><i class="fas fa-handshake"></i> Partner With Us</a>
+      <div class="container">
+        <div class="header-container">
+          <div class="logo">
+            <a href="/" aria-label="HospitalityRecruit Home">
+              <span class="brand-name">Hospitality<span class="gold">Recruit</span></span>
+              <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
+            </a>
           </div>
-        </nav>
-        <div class="mobile-overlay" id="mobileOverlay"></div>
+          <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Menu"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+              <i class="fas fa-times"></i> Close
+            </button>
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/services/index.html" class="nav-link"><i class="fas fa-info-circle"></i> Services</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                  <i class="fas fa-building"></i> Employers
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
+                  <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
+                  <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                  <i class="fas fa-user-tie"></i> Candidates
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/candidates/job-board/" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
+                  <a href="/candidates/submit-profile/" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
+                  <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+              </li>
+            </ul>
+            <div class="nav-cta-group">
+              <a href="tel:+2348039661354" class="nav-cta">
+                <i class="fas fa-phone"></i> +234 803 966 1354
+              </a>
+              <a href="/contact/" class="nav-cta nav-cta-outline">
+                <i class="fas fa-handshake"></i> Partner With Us
+              </a>
+            </div>
+          </nav>
+          <div class="mobile-overlay" id="mobileOverlay"></div>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <!-- ===== HERO ===== -->
   <section class="jobboard-hero">
