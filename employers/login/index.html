@@ -1,532 +1,181 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Employer Login | HospitalityRecruit</title>
-  <meta name="description" content="Login to your HospitalityRecruit employer dashboard to post jobs and manage your listings." />
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
-
-  <!-- Firebase SDK -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
   <style>
-    /* ===== RESET & VARIABLES ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --color-primary: #0A1628;
-      --color-primary-dark: #050A14;
-      --color-gold: #C9A84C;
-      --color-gold-light: #E8C84A;
-      --color-gold-dark: #A8873A;
-      --color-white: #FFFFFF;
-      --color-charcoal: #2D2D2D;
-      --color-gray-soft: #F4F2EE;
-      --color-gray-200: #E8E5DF;
-      --color-gray-300: #D5D0C8;
-      --color-gray-600: #8A8580;
-      --color-gray-700: #5A5550;
-      --color-success: #2A9D8F;
-      --color-emergency: #E63946;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.15);
-      --radius-lg: 12px;
-      --radius-md: 8px;
-      --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
-      --transition-normal: 250ms cubic-bezier(0.4,0,0.2,1);
-    }
     body {
-      font-family:var(--font-sans);
-      font-weight:400;
-      line-height:1.6;
-      color:var(--color-charcoal);
-      background:linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(135deg, #0A1628 0%, #0F2844 100%);
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:1.5rem;
     }
-    .container {
-      width:100%;
-      max-width:460px;
-      margin:0 auto;
-    }
-
-    /* ===== LOGIN CARD ===== */
     .login-card {
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
+      background:#fff;
+      border-radius:16px;
       padding:2.5rem 2rem;
-      box-shadow:var(--shadow-xl);
-      border-top:4px solid var(--color-gold);
+      max-width:440px;
+      width:100%;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
+      border-top:4px solid #C9A84C;
     }
-    @media (min-width:480px) { .login-card { padding:3rem 2.5rem; } }
-
-    .login-header {
-      text-align:center;
-      margin-bottom:2rem;
-    }
-    .login-header .logo {
-      display:inline-block;
-      margin-bottom:0.5rem;
-    }
-    .login-header .logo .brand-name {
-      font-family:var(--font-serif);
-      font-size:1.8rem;
-      font-weight:800;
-      color:var(--color-primary);
-      letter-spacing:-0.5px;
-      text-decoration:none;
-    }
-    .login-header .logo .brand-name .gold { color:var(--color-gold); }
-    .login-header h1 {
-      font-size:1.5rem;
-      color:var(--color-primary);
-      margin-bottom:0.25rem;
-    }
-    .login-header p {
-      color:var(--color-gray-600);
-      font-size:0.95rem;
-    }
-
-    /* ===== FORM ===== */
-    .form-group {
-      margin-bottom:1.25rem;
-    }
-    .form-group label {
-      display:block;
-      font-weight:600;
-      font-size:0.9rem;
-      margin-bottom:0.4rem;
-      color:var(--color-primary);
-    }
-    .form-group label .required { color:var(--color-emergency); }
+    .login-header { text-align:center; margin-bottom:2rem; }
+    .login-header .brand { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:800; color:#0A1628; text-decoration:none; }
+    .login-header .brand .gold { color:#C9A84C; }
+    .login-header h1 { font-size:1.5rem; color:#0A1628; margin-top:0.5rem; }
+    .login-header p { color:#8A8580; font-size:0.95rem; }
+    .form-group { margin-bottom:1.25rem; }
+    .form-group label { display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:#0A1628; }
     .form-group input {
-      width:100%;
-      padding:0.85rem 1rem;
-      border:2px solid var(--color-gray-200);
-      border-radius:var(--radius-md);
-      font-family:var(--font-sans);
-      font-size:1rem;
-      background:var(--color-white);
-      transition:border-color var(--transition-fast);
-      color:var(--color-charcoal);
+      width:100%; padding:0.85rem 1rem;
+      border:2px solid #E8E5DF; border-radius:8px;
+      font-size:1rem; transition:border-color 0.2s;
     }
-    .form-group input:focus {
-      outline:none;
-      border-color:var(--color-gold);
-      box-shadow:0 0 0 3px rgba(201,168,76,0.1);
-    }
-    .form-group .input-icon {
-      position:relative;
-    }
-    .form-group .input-icon i {
-      position:absolute;
-      left:1rem;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--color-gray-600);
-    }
-    .form-group .input-icon input {
-      padding-left:2.75rem;
-    }
-
-    .form-options {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin:1rem 0 1.5rem;
-      flex-wrap:wrap;
-      gap:0.5rem;
-    }
-    .form-options label {
-      font-size:0.85rem;
-      color:var(--color-gray-700);
-      display:flex;
-      align-items:center;
-      gap:0.4rem;
-      cursor:pointer;
-    }
-    .form-options label input[type="checkbox"] {
-      width:auto;
-      margin-right:0.25rem;
-    }
-    .form-options a {
-      color:var(--color-gold);
-      text-decoration:none;
-      font-size:0.85rem;
-      font-weight:600;
-      transition:color var(--transition-fast);
-    }
-    .form-options a:hover { color:var(--color-gold-dark); text-decoration:underline; }
-
-    /* ===== BUTTONS ===== */
+    .form-group input:focus { outline:none; border-color:#C9A84C; box-shadow:0 0 0 3px rgba(201,168,76,0.1); }
+    .form-group .input-icon { position:relative; }
+    .form-group .input-icon i { position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:#8A8580; }
+    .form-group .input-icon input { padding-left:2.75rem; }
     .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:0.5rem;
-      padding:0.85rem 1.5rem;
-      font-weight:700;
-      font-size:1rem;
-      border-radius:50px;
-      transition:all var(--transition-normal);
-      cursor:pointer;
-      border:none;
-      font-family:var(--font-sans);
-      min-height:48px;
-      width:100%;
-      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+      width:100%; padding:0.85rem 1.5rem;
+      background:#C9A84C; color:#0A1628;
+      border:none; border-radius:50px;
+      font-weight:700; font-size:1rem;
+      cursor:pointer; transition:all 0.2s;
     }
-    .btn-gold {
-      background:var(--color-gold);
-      color:var(--color-primary);
-    }
-    .btn-gold:hover {
-      background:var(--color-gold-light);
-      transform:translateY(-2px);
-      box-shadow:var(--shadow-lg);
-    }
-    .btn-gold:disabled {
-      opacity:0.6;
-      cursor:not-allowed;
-      transform:none;
-    }
-    .btn-outline-gold {
-      background:transparent;
-      color:var(--color-gold);
-      border:2px solid var(--color-gold);
-    }
-    .btn-outline-gold:hover {
-      background:var(--color-gold);
-      color:var(--color-primary);
-      transform:translateY(-2px);
-    }
-
-    /* ===== ERROR / SUCCESS ===== */
+    .btn:hover { background:#E8C84A; transform:translateY(-2px); box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); }
+    .btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
     .form-error {
-      display:none;
-      text-align:center;
-      padding:0.75rem 1rem;
-      background:rgba(230,57,70,0.08);
-      border-radius:var(--radius-md);
-      border:1px solid var(--color-emergency);
-      color:var(--color-emergency);
-      margin-bottom:1rem;
-      font-size:0.9rem;
+      display:none; text-align:center; padding:0.75rem 1rem;
+      background:rgba(230,57,70,0.08); border-radius:8px;
+      border:1px solid #E63946; color:#E63946;
+      margin-bottom:1rem; font-size:0.9rem;
     }
-    .form-error i { margin-right:0.5rem; }
-
-    .form-success {
-      display:none;
-      text-align:center;
-      padding:1rem;
-      background:rgba(42,157,143,0.08);
-      border-radius:var(--radius-md);
-      border:1px solid var(--color-success);
-      color:var(--color-success);
-      margin-bottom:1rem;
-      font-size:0.9rem;
+    .form-options {
+      display:flex; align-items:center; justify-content:space-between;
+      margin:1rem 0 1.5rem; flex-wrap:wrap; gap:0.5rem;
     }
-    .form-success i { margin-right:0.5rem; }
-
-    /* ===== DIVIDER ===== */
-    .divider {
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      margin:1.5rem 0;
-      color:var(--color-gray-600);
-      font-size:0.85rem;
-    }
-    .divider::before,
-    .divider::after {
-      content:'';
-      flex:1;
-      height:1px;
-      background:var(--color-gray-200);
-    }
-
-    /* ===== FOOTER LINKS ===== */
-    .login-footer {
-      text-align:center;
-      margin-top:1.5rem;
-      padding-top:1.5rem;
-      border-top:1px solid var(--color-gray-200);
-    }
-    .login-footer p {
-      color:var(--color-gray-600);
-      font-size:0.9rem;
-    }
-    .login-footer a {
-      color:var(--color-gold);
-      text-decoration:none;
-      font-weight:600;
-      transition:color var(--transition-fast);
-    }
-    .login-footer a:hover { color:var(--color-gold-dark); text-decoration:underline; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:480px) {
-      .login-card { padding:1.75rem 1.25rem; }
-      .login-header .logo .brand-name { font-size:1.5rem; }
-      .login-header h1 { font-size:1.25rem; }
-      .form-options { flex-direction:column; align-items:flex-start; }
-    }
+    .form-options a { color:#C9A84C; text-decoration:none; font-size:0.85rem; font-weight:600; }
+    .form-options a:hover { text-decoration:underline; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:1.5rem 0; color:#8A8580; font-size:0.85rem; }
+    .divider::before, .divider::after { content:''; flex:1; height:1px; background:#E8E5DF; }
+    .login-footer { text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #E8E5DF; }
+    .login-footer p { color:#8A8580; font-size:0.9rem; }
+    .login-footer a { color:#C9A84C; text-decoration:none; font-weight:600; }
+    .login-footer a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    <div class="login-card">
-
-      <!-- ===== HEADER ===== -->
-      <div class="login-header">
-        <a href="/" class="logo" aria-label="HospitalityRecruit Home">
-          <span class="brand-name">Hospitality<span class="gold">Recruit</span></span>
-        </a>
-        <h1>Employer Login</h1>
-        <p>Sign in to post jobs and manage your listings</p>
+  <div class="login-card">
+    <div class="login-header">
+      <a href="/" class="brand">Hospitality<span class="gold">Recruit</span></a>
+      <h1>Employer Login</h1>
+      <p>Sign in to post jobs and manage your listings</p>
+    </div>
+    <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Invalid email or password.</span></div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div class="input-icon">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="you@company.com" required />
+        </div>
       </div>
-
-      <!-- ===== ERROR / SUCCESS MESSAGES ===== -->
-      <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Invalid email or password.</span></div>
-      <div class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> <span id="successMessage">Login successful! Redirecting...</span></div>
-
-      <!-- ===== LOGIN FORM ===== -->
-      <form id="loginForm" novalidate>
-        <div class="form-group">
-          <label for="email">Email Address <span class="required">*</span></label>
-          <div class="input-icon">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="email" placeholder="you@company.com" required autofocus />
-          </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-icon">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Enter your password" required />
         </div>
-
-        <div class="form-group">
-          <label for="password">Password <span class="required">*</span></label>
-          <div class="input-icon">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="password" placeholder="Enter your password" required />
-          </div>
-        </div>
-
-        <div class="form-options">
-          <label>
-            <input type="checkbox" id="rememberMe" /> Remember me
-          </label>
-          <a href="/employers/forgot-password/">Forgot password?</a>
-        </div>
-
-        <button type="submit" class="btn btn-gold" id="loginBtn">
-          <i class="fas fa-sign-in-alt"></i> Sign In
-        </button>
-      </form>
-
-      <!-- ===== DIVIDER ===== -->
-      <div class="divider">or</div>
-
-      <!-- ===== REGISTER LINK ===== -->
-      <div class="login-footer">
-        <p>Don't have an account? <a href="/employers/register/">Create one now</a></p>
-        <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--color-gray-600);">
-          <i class="fas fa-shield-alt" style="color:var(--color-gold);"></i> Your information is secure and confidential.
-        </p>
       </div>
-
+      <div class="form-options">
+        <label><input type="checkbox" id="rememberMe" /> Remember me</label>
+        <a href="#" id="forgotPassword">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="divider">or</div>
+    <div class="login-footer">
+      <p>Don't have an account? <a href="/employers/register/">Create one now</a></p>
     </div>
   </div>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-      // ============================================================
-      // 1. FIREBASE CONFIG (REPLACE WITH YOUR OWN)
-      // ============================================================
       const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT.firebaseapp.com",
-        projectId: "YOUR_PROJECT",
-        storageBucket: "YOUR_PROJECT.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
+        apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+        authDomain: "jobpitality-1cfb2.firebaseapp.com",
+        projectId: "jobpitality-1cfb2",
+        storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+        messagingSenderId: "185191165097",
+        appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
       };
 
-      // Initialize Firebase only if configured
       let auth = null;
       try {
-        if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-          firebase.initializeApp(firebaseConfig);
-          auth = firebase.auth();
-        } else {
-          console.warn("Firebase not configured – using demo mode.");
-        }
-      } catch (e) {
-        console.warn("Firebase init error:", e);
-      }
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        auth = firebase.auth();
+        console.log('✅ Firebase initialized');
+      } catch (e) { console.warn('⚠️ Firebase init error:', e); }
 
-      // ============================================================
-      // 2. DOM REFS
-      // ============================================================
       const form = document.getElementById('loginForm');
       const emailInput = document.getElementById('email');
       const passwordInput = document.getElementById('password');
-      const rememberMe = document.getElementById('rememberMe');
       const loginBtn = document.getElementById('loginBtn');
       const formError = document.getElementById('formError');
       const errorMessage = document.getElementById('errorMessage');
-      const formSuccess = document.getElementById('formSuccess');
-      const successMessage = document.getElementById('successMessage');
 
-      // ============================================================
-      // 3. CHECK IF ALREADY LOGGED IN
-      // ============================================================
       if (auth) {
         auth.onAuthStateChanged(function(user) {
-          if (user) {
-            // Already logged in – redirect to dashboard
-            window.location.href = '/employers/dashboard/';
-          }
+          if (user) window.location.href = '/employers/dashboard/';
         });
-
-        // Check for saved email (if "Remember me" was checked previously)
-        const savedEmail = localStorage.getItem('hr_employer_email');
-        if (savedEmail) {
-          emailInput.value = savedEmail;
-          rememberMe.checked = true;
-        }
       }
 
-      // ============================================================
-      // 4. LOGIN FORM SUBMIT
-      // ============================================================
       if (form) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
-
-          // Hide previous messages
           formError.style.display = 'none';
-          formSuccess.style.display = 'none';
 
           const email = emailInput.value.trim();
           const password = passwordInput.value.trim();
 
-          // Validate
           if (!email || !password) {
-            showError('Please enter both email and password.');
+            errorMessage.textContent = 'Please enter both email and password.';
+            formError.style.display = 'block';
             return;
           }
 
-          // Show loading state
           loginBtn.disabled = true;
           loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
 
           try {
-            if (!auth) {
-              // Demo mode – simulate login
-              await simulateLogin(email, password);
-            } else {
-              // Firebase login
-              const userCredential = await auth.signInWithEmailAndPassword(email, password);
-              const user = userCredential.user;
-
-              // Save email if "Remember me" is checked
-              if (rememberMe.checked) {
-                localStorage.setItem('hr_employer_email', email);
-              } else {
-                localStorage.removeItem('hr_employer_email');
-              }
-
-              // Show success
-              showSuccess('Login successful! Redirecting to dashboard...');
-
-              // Redirect to dashboard
-              setTimeout(function() {
-                window.location.href = '/employers/dashboard/';
-              }, 1500);
-            }
+            if (!auth) throw new Error('Firebase not available');
+            await auth.signInWithEmailAndPassword(email, password);
+            window.location.href = '/employers/dashboard/';
           } catch (error) {
-            let msg = 'Invalid email or password. Please try again.';
-            if (error.code === 'auth/user-not-found') {
-              msg = 'No account found with this email. Please create an account first.';
-            } else if (error.code === 'auth/wrong-password') {
-              msg = 'Incorrect password. Please try again.';
-            } else if (error.code === 'auth/too-many-requests') {
-              msg = 'Too many failed attempts. Please try again later.';
-            } else if (error.code === 'auth/invalid-email') {
-              msg = 'Please enter a valid email address.';
-            }
-            showError(msg);
+            let msg = 'Invalid email or password.';
+            if (error.code === 'auth/user-not-found') msg = 'No account found. Please create an account first.';
+            else if (error.code === 'auth/wrong-password') msg = 'Incorrect password. Please try again.';
+            else if (error.code === 'auth/too-many-requests') msg = 'Too many failed attempts. Please try again later.';
+            errorMessage.textContent = msg;
+            formError.style.display = 'block';
           }
 
-          // Reset button
           loginBtn.disabled = false;
           loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
         });
       }
-
-      // ============================================================
-      // 5. DEMO LOGIN (Fallback when Firebase is not configured)
-      // ============================================================
-      async function simulateLogin(email, password) {
-        return new Promise(function(resolve, reject) {
-          // Simple validation
-          if (email === 'demo@hospitalityrecruit.com' && password === 'demo123') {
-            showSuccess('Demo login successful! Redirecting...');
-            localStorage.setItem('hr_demo_user', 'true');
-            setTimeout(function() {
-              window.location.href = '/employers/dashboard/';
-            }, 1500);
-            resolve();
-          } else {
-            reject({ code: 'auth/wrong-password', message: 'Invalid credentials' });
-          }
-        });
-      }
-
-      // ============================================================
-      // 6. HELPER FUNCTIONS
-      // ============================================================
-      function showError(msg) {
-        errorMessage.textContent = msg;
-        formError.style.display = 'block';
-        // Auto-hide after 5 seconds
-        setTimeout(function() {
-          formError.style.display = 'none';
-        }, 5000);
-      }
-
-      function showSuccess(msg) {
-        successMessage.textContent = msg;
-        formSuccess.style.display = 'block';
-      }
-
-      // ============================================================
-      // 7. ENTER KEY SUPPORT
-      // ============================================================
-      // Password field already triggers form submit on Enter key
-
-      // ============================================================
-      // 8. REDIRECT IF ALREADY LOGGED IN (handled by onAuthStateChanged)
-      // ============================================================
-
     });
   </script>
-
 </body>
 </html>

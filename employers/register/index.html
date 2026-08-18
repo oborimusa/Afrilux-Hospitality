@@ -1,637 +1,200 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Employer Registration | HospitalityRecruit</title>
-  <meta name="description" content="Create your HospitalityRecruit employer account to post jobs and find top talent." />
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
-
-  <!-- Firebase SDK -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
   <style>
-    /* ===== RESET & VARIABLES ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --color-primary: #0A1628;
-      --color-primary-dark: #050A14;
-      --color-gold: #C9A84C;
-      --color-gold-light: #E8C84A;
-      --color-gold-dark: #A8873A;
-      --color-white: #FFFFFF;
-      --color-charcoal: #2D2D2D;
-      --color-gray-soft: #F4F2EE;
-      --color-gray-200: #E8E5DF;
-      --color-gray-300: #D5D0C8;
-      --color-gray-600: #8A8580;
-      --color-gray-700: #5A5550;
-      --color-success: #2A9D8F;
-      --color-emergency: #E63946;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.15);
-      --radius-lg: 12px;
-      --radius-md: 8px;
-      --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
-      --transition-normal: 250ms cubic-bezier(0.4,0,0.2,1);
-    }
     body {
-      font-family:var(--font-sans);
-      font-weight:400;
-      line-height:1.6;
-      color:var(--color-charcoal);
-      background:linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(135deg, #0A1628 0%, #0F2844 100%);
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:1.5rem;
     }
-    .container {
-      width:100%;
-      max-width:560px;
-      margin:0 auto;
-    }
-
-    /* ===== REGISTER CARD ===== */
     .register-card {
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
+      background:#fff;
+      border-radius:16px;
       padding:2.5rem 2rem;
-      box-shadow:var(--shadow-xl);
-      border-top:4px solid var(--color-gold);
-    }
-    @media (min-width:480px) { .register-card { padding:3rem 2.5rem; } }
-
-    .register-header {
-      text-align:center;
-      margin-bottom:2rem;
-    }
-    .register-header .logo {
-      display:inline-block;
-      margin-bottom:0.5rem;
-    }
-    .register-header .logo .brand-name {
-      font-family:var(--font-serif);
-      font-size:1.8rem;
-      font-weight:800;
-      color:var(--color-primary);
-      letter-spacing:-0.5px;
-      text-decoration:none;
-    }
-    .register-header .logo .brand-name .gold { color:var(--color-gold); }
-    .register-header h1 {
-      font-size:1.5rem;
-      color:var(--color-primary);
-      margin-bottom:0.25rem;
-    }
-    .register-header p {
-      color:var(--color-gray-600);
-      font-size:0.95rem;
-    }
-
-    /* ===== FORM ===== */
-    .form-group {
-      margin-bottom:1.25rem;
-    }
-    .form-group label {
-      display:block;
-      font-weight:600;
-      font-size:0.9rem;
-      margin-bottom:0.4rem;
-      color:var(--color-primary);
-    }
-    .form-group label .required { color:var(--color-emergency); }
-    .form-group input,
-    .form-group select {
+      max-width:500px;
       width:100%;
-      padding:0.85rem 1rem;
-      border:2px solid var(--color-gray-200);
-      border-radius:var(--radius-md);
-      font-family:var(--font-sans);
-      font-size:1rem;
-      background:var(--color-white);
-      transition:border-color var(--transition-fast);
-      color:var(--color-charcoal);
+      box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
+      border-top:4px solid #C9A84C;
     }
-    .form-group input:focus,
-    .form-group select:focus {
-      outline:none;
-      border-color:var(--color-gold);
-      box-shadow:0 0 0 3px rgba(201,168,76,0.1);
+    .register-header { text-align:center; margin-bottom:2rem; }
+    .register-header .brand { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:800; color:#0A1628; text-decoration:none; }
+    .register-header .brand .gold { color:#C9A84C; }
+    .register-header h1 { font-size:1.5rem; color:#0A1628; margin-top:0.5rem; }
+    .register-header p { color:#8A8580; font-size:0.95rem; }
+    .form-group { margin-bottom:1.25rem; }
+    .form-group label { display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:#0A1628; }
+    .form-group input, .form-group select {
+      width:100%; padding:0.85rem 1rem;
+      border:2px solid #E8E5DF; border-radius:8px;
+      font-size:1rem; transition:border-color 0.2s;
     }
-    .form-group .input-icon {
-      position:relative;
-    }
-    .form-group .input-icon i {
-      position:absolute;
-      left:1rem;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--color-gray-600);
-    }
-    .form-group .input-icon input {
-      padding-left:2.75rem;
-    }
-    .form-row {
-      display:grid;
-      grid-template-columns:1fr;
-      gap:0;
-    }
-    @media (min-width:480px) {
-      .form-row { grid-template-columns:1fr 1fr; gap:1rem; }
-      .form-row .form-group { margin-bottom:0; }
-    }
-
-    /* ===== TERMS ===== */
-    .form-group.terms {
-      display:flex;
-      align-items:flex-start;
-      gap:0.75rem;
-      margin-top:0.5rem;
-    }
-    .form-group.terms input[type="checkbox"] {
-      width:auto;
-      margin-top:0.3rem;
-      min-width:18px;
-      height:18px;
-      cursor:pointer;
-    }
-    .form-group.terms label {
-      font-weight:400;
-      font-size:0.85rem;
-      color:var(--color-gray-700);
-      cursor:pointer;
-    }
-    .form-group.terms label a {
-      color:var(--color-gold);
-      text-decoration:none;
-      font-weight:600;
-    }
-    .form-group.terms label a:hover { text-decoration:underline; }
-
-    /* ===== BUTTONS ===== */
+    .form-group input:focus, .form-group select:focus { outline:none; border-color:#C9A84C; }
+    .form-row { display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media (min-width:480px) { .form-row { grid-template-columns:1fr 1fr; } }
     .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:0.5rem;
-      padding:0.85rem 1.5rem;
-      font-weight:700;
-      font-size:1rem;
-      border-radius:50px;
-      transition:all var(--transition-normal);
-      cursor:pointer;
-      border:none;
-      font-family:var(--font-sans);
-      min-height:48px;
-      width:100%;
-      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+      width:100%; padding:0.85rem 1.5rem;
+      background:#C9A84C; color:#0A1628;
+      border:none; border-radius:50px;
+      font-weight:700; font-size:1rem;
+      cursor:pointer; transition:all 0.2s;
     }
-    .btn-gold {
-      background:var(--color-gold);
-      color:var(--color-primary);
-    }
-    .btn-gold:hover {
-      background:var(--color-gold-light);
-      transform:translateY(-2px);
-      box-shadow:var(--shadow-lg);
-    }
-    .btn-gold:disabled {
-      opacity:0.6;
-      cursor:not-allowed;
-      transform:none;
-    }
-
-    /* ===== ERROR / SUCCESS ===== */
+    .btn:hover { background:#E8C84A; transform:translateY(-2px); }
+    .btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
     .form-error {
-      display:none;
-      text-align:center;
-      padding:0.75rem 1rem;
-      background:rgba(230,57,70,0.08);
-      border-radius:var(--radius-md);
-      border:1px solid var(--color-emergency);
-      color:var(--color-emergency);
-      margin-bottom:1rem;
-      font-size:0.9rem;
+      display:none; text-align:center; padding:0.75rem 1rem;
+      background:rgba(230,57,70,0.08); border-radius:8px;
+      border:1px solid #E63946; color:#E63946;
+      margin-bottom:1rem; font-size:0.9rem;
     }
-    .form-error i { margin-right:0.5rem; }
-
     .form-success {
-      display:none;
-      text-align:center;
-      padding:1.5rem;
-      background:rgba(42,157,143,0.08);
-      border-radius:var(--radius-md);
-      border:1px solid var(--color-success);
-      color:var(--color-success);
+      display:none; text-align:center; padding:1.5rem;
+      background:rgba(42,157,143,0.08); border-radius:8px;
+      border:1px solid #2A9D8F; color:#2A9D8F;
       margin-bottom:1rem;
     }
-    .form-success .success-icon { font-size:3rem; color:var(--color-success); margin-bottom:0.5rem; }
-    .form-success h3 { font-family:var(--font-serif); color:var(--color-success); font-size:1.2rem; margin-bottom:0.25rem; }
-    .form-success p { color:var(--color-gray-600); font-size:0.95rem; }
-
-    /* ===== DIVIDER ===== */
-    .divider {
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      margin:1.5rem 0;
-      color:var(--color-gray-600);
-      font-size:0.85rem;
-    }
-    .divider::before,
-    .divider::after {
-      content:'';
-      flex:1;
-      height:1px;
-      background:var(--color-gray-200);
-    }
-
-    /* ===== FOOTER ===== */
-    .register-footer {
-      text-align:center;
-      margin-top:1.5rem;
-      padding-top:1.5rem;
-      border-top:1px solid var(--color-gray-200);
-    }
-    .register-footer p {
-      color:var(--color-gray-600);
-      font-size:0.9rem;
-    }
-    .register-footer a {
-      color:var(--color-gold);
-      text-decoration:none;
-      font-weight:600;
-      transition:color var(--transition-fast);
-    }
-    .register-footer a:hover { color:var(--color-gold-dark); text-decoration:underline; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:480px) {
-      .register-card { padding:1.75rem 1.25rem; }
-      .register-header .logo .brand-name { font-size:1.5rem; }
-      .register-header h1 { font-size:1.25rem; }
-    }
+    .form-success .icon { font-size:3rem; color:#2A9D8F; margin-bottom:0.5rem; }
+    .form-success h3 { font-family:'Playfair Display',serif; color:#2A9D8F; font-size:1.2rem; margin-bottom:0.25rem; }
+    .form-success p { color:#8A8580; font-size:0.95rem; }
+    .divider { display:flex; align-items:center; gap:1rem; margin:1.5rem 0; color:#8A8580; font-size:0.85rem; }
+    .divider::before, .divider::after { content:''; flex:1; height:1px; background:#E8E5DF; }
+    .register-footer { text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #E8E5DF; }
+    .register-footer p { color:#8A8580; font-size:0.9rem; }
+    .register-footer a { color:#C9A84C; text-decoration:none; font-weight:600; }
+    .register-footer a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    <div class="register-card">
-
-      <!-- ===== HEADER ===== -->
-      <div class="register-header">
-        <a href="/" class="logo" aria-label="HospitalityRecruit Home">
-          <span class="brand-name">Hospitality<span class="gold">Recruit</span></span>
-        </a>
-        <h1>Create Employer Account</h1>
-        <p>Join HospitalityRecruit and start posting jobs today</p>
-      </div>
-
-      <!-- ===== ERROR ===== -->
-      <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Please correct the errors below.</span></div>
-
-      <!-- ===== SUCCESS ===== -->
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-        <h3>Account Created!</h3>
-        <p>Your employer account has been created successfully. Redirecting to dashboard...</p>
-      </div>
-
-      <!-- ===== REGISTER FORM ===== -->
-      <form id="registerForm" novalidate>
-
-        <!-- Company Details -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="companyName">Company Name <span class="required">*</span></label>
-            <input type="text" id="companyName" placeholder="e.g. 4T Luxury Hotel" required />
-          </div>
-          <div class="form-group">
-            <label for="industry">Industry <span class="required">*</span></label>
-            <select id="industry" required>
-              <option value="">Select</option>
-              <option value="hotel">Hotel &amp; Resort</option>
-              <option value="restaurant">Restaurant</option>
-              <option value="catering">Events &amp; Catering</option>
-              <option value="travel">Travel &amp; Tourism</option>
-              <option value="culinary">Culinary</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Contact Details -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contactName">Contact Person <span class="required">*</span></label>
-            <input type="text" id="contactName" placeholder="e.g. John Doe" required />
-          </div>
-          <div class="form-group">
-            <label for="contactPhone">Phone Number <span class="required">*</span></label>
-            <input type="tel" id="contactPhone" placeholder="+234 800 000 0000" required />
-          </div>
-        </div>
-
-        <!-- Login Credentials -->
-        <div class="form-group">
-          <label for="email">Email Address <span class="required">*</span></label>
-          <div class="input-icon">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="email" placeholder="you@company.com" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password <span class="required">*</span></label>
-          <div class="input-icon">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="password" placeholder="Min 6 characters" minlength="6" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
-          <div class="input-icon">
-            <i class="fas fa-check-circle"></i>
-            <input type="password" id="confirmPassword" placeholder="Re-enter your password" required />
-          </div>
-        </div>
-
-        <!-- Terms -->
-        <div class="form-group terms">
-          <input type="checkbox" id="terms" required />
-          <label for="terms">
-            I agree to the <a href="/terms.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a>.
-            <span class="required">*</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-gold" id="registerBtn">
-          <i class="fas fa-user-plus"></i> Create Account
-        </button>
-      </form>
-
-      <!-- ===== DIVIDER ===== -->
-      <div class="divider">or</div>
-
-      <!-- ===== LOGIN LINK ===== -->
-      <div class="register-footer">
-        <p>Already have an account? <a href="/employers/login/">Sign in here</a></p>
-        <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--color-gray-600);">
-          <i class="fas fa-shield-alt" style="color:var(--color-gold);"></i> Your information is secure and confidential.
-        </p>
-      </div>
-
+  <div class="register-card">
+    <div class="register-header">
+      <a href="/" class="brand">Hospitality<span class="gold">Recruit</span></a>
+      <h1>Create Employer Account</h1>
+      <p>Join HospitalityRecruit and start posting jobs today</p>
     </div>
+    <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Please correct the errors below.</span></div>
+    <div class="form-success" id="formSuccess"><div class="icon"><i class="fas fa-check-circle"></i></div><h3>Account Created!</h3><p>Your employer account has been created successfully. Redirecting...</p></div>
+    <form id="registerForm">
+      <div class="form-row">
+        <div class="form-group"><label>Company Name <span style="color:#E63946;">*</span></label><input type="text" id="companyName" placeholder="e.g. 4T Luxury Hotel" required /></div>
+        <div class="form-group"><label>Industry <span style="color:#E63946;">*</span></label>
+          <select id="industry" required><option value="">Select</option><option value="hotel">Hotel &amp; Resort</option><option value="restaurant">Restaurant</option><option value="catering">Events &amp; Catering</option><option value="travel">Travel &amp; Tourism</option><option value="culinary">Culinary</option><option value="other">Other</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Contact Person <span style="color:#E63946;">*</span></label><input type="text" id="contactName" placeholder="e.g. John Doe" required /></div>
+        <div class="form-group"><label>Phone Number <span style="color:#E63946;">*</span></label><input type="tel" id="contactPhone" placeholder="+234 800 000 0000" required /></div>
+      </div>
+      <div class="form-group"><label>Email Address <span style="color:#E63946;">*</span></label><input type="email" id="email" placeholder="you@company.com" required /></div>
+      <div class="form-group"><label>Password <span style="color:#E63946;">*</span></label><input type="password" id="password" placeholder="Min 6 characters" minlength="6" required /></div>
+      <div class="form-group"><label>Confirm Password <span style="color:#E63946;">*</span></label><input type="password" id="confirmPassword" placeholder="Re-enter your password" required /></div>
+      <button type="submit" class="btn" id="registerBtn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="divider">or</div>
+    <div class="register-footer"><p>Already have an account? <a href="/employers/login/">Sign in here</a></p></div>
   </div>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-      // ============================================================
-      // 1. FIREBASE CONFIG (REPLACE WITH YOUR OWN)
-      // ============================================================
       const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT.firebaseapp.com",
-        projectId: "YOUR_PROJECT",
-        storageBucket: "YOUR_PROJECT.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
+        apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+        authDomain: "jobpitality-1cfb2.firebaseapp.com",
+        projectId: "jobpitality-1cfb2",
+        storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+        messagingSenderId: "185191165097",
+        appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
       };
 
-      let auth = null;
-      let db = null;
+      let auth = null, db = null;
       try {
-        if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-          firebase.initializeApp(firebaseConfig);
-          auth = firebase.auth();
-          db = firebase.firestore();
-        } else {
-          console.warn("Firebase not configured – using demo mode.");
-        }
-      } catch (e) {
-        console.warn("Firebase init error:", e);
-      }
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        auth = firebase.auth();
+        db = firebase.firestore();
+      } catch (e) { console.warn('Firebase init error:', e); }
 
-      // ============================================================
-      // 2. DOM REFS
-      // ============================================================
       const form = document.getElementById('registerForm');
-      const companyName = document.getElementById('companyName');
-      const industry = document.getElementById('industry');
-      const contactName = document.getElementById('contactName');
-      const contactPhone = document.getElementById('contactPhone');
-      const email = document.getElementById('email');
-      const password = document.getElementById('password');
-      const confirmPassword = document.getElementById('confirmPassword');
-      const terms = document.getElementById('terms');
       const registerBtn = document.getElementById('registerBtn');
       const formError = document.getElementById('formError');
       const errorMessage = document.getElementById('errorMessage');
       const formSuccess = document.getElementById('formSuccess');
 
-      // ============================================================
-      // 3. REDIRECT IF ALREADY LOGGED IN
-      // ============================================================
       if (auth) {
         auth.onAuthStateChanged(function(user) {
-          if (user) {
-            // Already logged in – redirect to dashboard
-            window.location.href = '/employers/dashboard/';
-          }
+          if (user) window.location.href = '/employers/dashboard/';
         });
       }
 
-      // ============================================================
-      // 4. REGISTER FORM SUBMIT
-      // ============================================================
       if (form) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
-
-          // Hide previous messages
           formError.style.display = 'none';
           formSuccess.style.display = 'none';
 
-          // Collect data
           const data = {
-            companyName: companyName.value.trim(),
-            industry: industry.value,
-            contactName: contactName.value.trim(),
-            contactPhone: contactPhone.value.trim(),
-            email: email.value.trim(),
-            password: password.value,
-            confirmPassword: confirmPassword.value,
-            terms: terms.checked
+            companyName: document.getElementById('companyName').value.trim(),
+            industry: document.getElementById('industry').value,
+            contactName: document.getElementById('contactName').value.trim(),
+            contactPhone: document.getElementById('contactPhone').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            password: document.getElementById('password').value,
+            confirmPassword: document.getElementById('confirmPassword').value
           };
 
-          // --- VALIDATION ---
-          // 1. Required fields
-          for (const key of ['companyName', 'industry', 'contactName', 'contactPhone', 'email', 'password', 'confirmPassword']) {
-            if (!data[key]) {
-              showError('Please fill in all required fields.');
-              return;
-            }
-          }
-
-          // 2. Email format
-          if (!data.email.includes('@') || !data.email.includes('.')) {
-            showError('Please enter a valid email address.');
+          if (!data.companyName || !data.industry || !data.contactName || !data.contactPhone || !data.email || !data.password || !data.confirmPassword) {
+            showError('Please fill in all required fields.');
             return;
           }
+          if (data.password.length < 6) { showError('Password must be at least 6 characters.'); return; }
+          if (data.password !== data.confirmPassword) { showError('Passwords do not match.'); return; }
 
-          // 3. Password length
-          if (data.password.length < 6) {
-            showError('Password must be at least 6 characters long.');
-            return;
-          }
-
-          // 4. Password match
-          if (data.password !== data.confirmPassword) {
-            showError('Passwords do not match.');
-            return;
-          }
-
-          // 5. Terms
-          if (!data.terms) {
-            showError('You must agree to the Terms of Service and Privacy Policy.');
-            return;
-          }
-
-          // --- SUBMIT ---
           registerBtn.disabled = true;
           registerBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
 
           try {
-            if (!auth || !db) {
-              // Demo mode – simulate registration
-              await simulateRegistration(data);
-            } else {
-              // Firebase registration
-              const userCredential = await auth.createUserWithEmailAndPassword(data.email, data.password);
-              const user = userCredential.user;
-
-              // Update user profile with company name as display name
-              await user.updateProfile({
-                displayName: data.companyName
-              });
-
-              // Save employer details to Firestore
-              await db.collection('employers').doc(user.uid).set({
-                companyName: data.companyName,
-                industry: data.industry,
-                contactName: data.contactName,
-                contactPhone: data.contactPhone,
-                contactEmail: data.email,
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                uid: user.uid
-              });
-
-              // Show success
-              showSuccess('Account created successfully! Redirecting to dashboard...');
-
-              // Redirect after delay
-              setTimeout(function() {
-                window.location.href = '/employers/dashboard/';
-              }, 2000);
-            }
+            if (!auth || !db) throw new Error('Firebase not available');
+            const userCredential = await auth.createUserWithEmailAndPassword(data.email, data.password);
+            await userCredential.user.updateProfile({ displayName: data.companyName });
+            await db.collection('employers').doc(userCredential.user.uid).set({
+              companyName: data.companyName,
+              industry: data.industry,
+              contactName: data.contactName,
+              contactPhone: data.contactPhone,
+              contactEmail: data.email,
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+              uid: userCredential.user.uid
+            });
+            formSuccess.style.display = 'block';
+            form.style.display = 'none';
+            setTimeout(function() { window.location.href = '/employers/dashboard/'; }, 2000);
           } catch (error) {
-            let msg = 'Registration failed. Please try again.';
-            if (error.code === 'auth/email-already-in-use') {
-              msg = 'This email is already registered. Please sign in instead.';
-            } else if (error.code === 'auth/weak-password') {
-              msg = 'Password is too weak. Please use at least 6 characters.';
-            } else if (error.code === 'auth/invalid-email') {
-              msg = 'Please enter a valid email address.';
-            }
+            let msg = 'Registration failed.';
+            if (error.code === 'auth/email-already-in-use') msg = 'This email is already registered. Please sign in.';
+            else if (error.code === 'auth/weak-password') msg = 'Password is too weak.';
             showError(msg);
           }
-
-          // Reset button
           registerBtn.disabled = false;
           registerBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create Account';
         });
       }
 
-      // ============================================================
-      // 5. DEMO REGISTRATION (Fallback)
-      // ============================================================
-      async function simulateRegistration(data) {
-        return new Promise(function(resolve, reject) {
-          // Simulate network delay
-          setTimeout(function() {
-            // Check if email already exists (simple demo check)
-            const existingUsers = JSON.parse(localStorage.getItem('hr_demo_users') || '[]');
-            if (existingUsers.find(u => u.email === data.email)) {
-              reject({ code: 'auth/email-already-in-use', message: 'Email already registered' });
-              return;
-            }
-
-            // Save user
-            const newUser = {
-              uid: 'demo_' + Date.now(),
-              email: data.email,
-              companyName: data.companyName,
-              industry: data.industry,
-              contactName: data.contactName,
-              contactPhone: data.contactPhone,
-              createdAt: new Date().toISOString()
-            };
-            existingUsers.push(newUser);
-            localStorage.setItem('hr_demo_users', JSON.stringify(existingUsers));
-            localStorage.setItem('hr_demo_current_user', JSON.stringify(newUser));
-
-            showSuccess('Account created successfully! Redirecting to dashboard...');
-            setTimeout(function() {
-              window.location.href = '/employers/dashboard/';
-            }, 2000);
-            resolve();
-          }, 1500);
-        });
-      }
-
-      // ============================================================
-      // 6. HELPERS
-      // ============================================================
       function showError(msg) {
         errorMessage.textContent = msg;
         formError.style.display = 'block';
-        setTimeout(function() {
-          formError.style.display = 'none';
-        }, 5000);
+        setTimeout(function() { formError.style.display = 'none'; }, 5000);
       }
-
-      function showSuccess(msg) {
-        const successMsg = formSuccess.querySelector('p');
-        if (successMsg) successMsg.textContent = msg;
-        formSuccess.style.display = 'block';
-        form.style.display = 'none';
-      }
-
-      // ============================================================
-      // 7. PASSWORD STRENGTH INDICATOR (Optional enhancement)
-      // ============================================================
-      // You can add a password strength meter here if desired
-
     });
   </script>
-
 </body>
 </html>
