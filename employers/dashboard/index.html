@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Employer Dashboard | HospitalityRecruit – Post a Job</title>
-  <meta name="description" content="Post your luxury hospitality job openings and manage your listings." />
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
-
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
@@ -23,20 +19,12 @@
     /* ===== RESET & VARIABLES ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --color-primary: #0A1628;
-      --color-primary-dark: #050A14;
-      --color-gold: #C9A84C;
-      --color-gold-light: #E8C84A;
-      --color-gold-dark: #A8873A;
-      --color-white: #FFFFFF;
-      --color-charcoal: #2D2D2D;
-      --color-gray-soft: #F4F2EE;
-      --color-gray-200: #E8E5DF;
-      --color-gray-300: #D5D0C8;
-      --color-gray-600: #8A8580;
-      --color-gray-700: #5A5550;
-      --color-success: #2A9D8F;
-      --color-emergency: #E63946;
+      --color-primary: #0A1628; --color-primary-dark: #050A14;
+      --color-gold: #C9A84C; --color-gold-light: #E8C84A; --color-gold-dark: #A8873A;
+      --color-white: #FFFFFF; --color-charcoal: #2D2D2D;
+      --color-gray-soft: #F4F2EE; --color-gray-200: #E8E5DF; --color-gray-300: #D5D0C8;
+      --color-gray-600: #8A8580; --color-gray-700: #5A5550;
+      --color-success: #2A9D8F; --color-emergency: #E63946;
       --font-serif: 'Playfair Display', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
       --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.08);
@@ -46,8 +34,7 @@
       --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
       --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
       --transition-normal: 250ms cubic-bezier(0.4,0,0.2,1);
-      --radius-lg: 12px;
-      --radius-md: 8px;
+      --radius-lg: 12px; --radius-md: 8px;
     }
     body { font-family:var(--font-sans); font-weight:400; line-height:1.6; color:var(--color-charcoal); background:var(--color-gray-soft); }
     .container { max-width:1280px; margin:0 auto; padding:0 16px; }
@@ -56,7 +43,6 @@
     h2 { font-size:2rem; margin-bottom:0.5rem; }
     .text-gold { color:var(--color-gold); }
 
-    /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
       padding: 0.75rem 1.5rem; font-weight: 700; font-size: 0.95rem;
@@ -69,12 +55,9 @@
     .btn-gold:hover { background:var(--color-gold-light); transform:translateY(-2px); box-shadow:var(--shadow-lg); }
     .btn-outline-gold { background:transparent; color:var(--color-gold); border:2px solid var(--color-gold); }
     .btn-outline-gold:hover { background:var(--color-gold); color:var(--color-primary); transform:translateY(-2px); }
-    .btn-outline-white { background:transparent; color:var(--color-white); border:2px solid var(--color-white); }
-    .btn-outline-white:hover { background:var(--color-white); color:var(--color-primary); transform:translateY(-2px); }
     .btn-block { width:100%; }
     .btn-sm { padding:0.5rem 1.25rem; font-size:0.85rem; min-height:40px; }
 
-    /* ===== HEADER ===== */
     .site-header {
       background:var(--color-white); box-shadow:var(--shadow-md);
       position:sticky; top:0; z-index:1000; padding:0.75rem 0;
@@ -91,7 +74,6 @@
     .header-actions .user-badge { display:flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; background:var(--color-gray-soft); border-radius:50px; font-weight:600; font-size:0.85rem; }
     .header-actions .user-badge i { color:var(--color-gold); }
 
-    /* ===== DASHBOARD LAYOUT ===== */
     .dashboard-hero {
       padding:2rem 0 3rem;
       background:linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
@@ -118,7 +100,6 @@
       .dashboard-grid { grid-template-columns:1fr 1fr; }
     }
 
-    /* ===== FORM CARD ===== */
     .form-card {
       background:var(--color-white);
       border-radius:var(--radius-lg);
@@ -146,7 +127,6 @@
     @media (min-width:640px) { .form-row { grid-template-columns:1fr 1fr; } }
     .form-group .helper-text { font-size:0.8rem; color:var(--color-gray-600); margin-top:0.3rem; }
 
-    /* ===== SUCCESS / ERROR STATES ===== */
     .form-success {
       display:none; text-align:center; padding:2rem 1rem;
       background:rgba(42,157,143,0.05); border-radius:var(--radius-md);
@@ -163,7 +143,6 @@
     }
     .form-error i { margin-right:0.5rem; }
 
-    /* ===== JOB LIST ===== */
     .job-list-card {
       background:var(--color-white);
       border-radius:var(--radius-lg);
@@ -195,7 +174,6 @@
     .empty-state i { font-size:3rem; color:var(--color-gray-300); margin-bottom:1rem; }
     .empty-state p { color:var(--color-gray-600); }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width:768px) {
       .dashboard-hero h1 { font-size:1.8rem; }
       .dashboard-grid { grid-template-columns:1fr; }
@@ -249,7 +227,6 @@
           <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Please correct the errors below.</span></div>
 
           <form id="postJobForm">
-            <!-- Employer Details -->
             <div class="form-row">
               <div class="form-group">
                 <label for="companyName">Company Name <span class="required">*</span></label>
@@ -272,7 +249,6 @@
               </div>
             </div>
 
-            <!-- Job Details -->
             <div class="form-row">
               <div class="form-group">
                 <label for="jobTitle">Job Title <span class="required">*</span></label>
@@ -387,7 +363,7 @@
     document.addEventListener('DOMContentLoaded', function() {
 
       // ============================================================
-      // 1. FIREBASE CONFIG (REPLACE WITH YOUR ACTUAL CONFIG)
+      // 1. FIREBASE CONFIG
       // ============================================================
       const firebaseConfig = {
         apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
@@ -400,18 +376,15 @@
       };
 
       // ============================================================
-      // 2. INITIALIZE FIREBASE (ONCE)
+      // 2. INITIALIZE FIREBASE
       // ============================================================
       let auth = null;
       let db = null;
 
       try {
-        // Check if Firebase is already initialized
         if (!firebase.apps.length) {
           firebase.initializeApp(firebaseConfig);
-          console.log('✅ Firebase initialized successfully!');
-        } else {
-          console.log('ℹ️ Firebase already initialized.');
+          console.log('✅ Firebase initialized');
         }
         auth = firebase.auth();
         db = firebase.firestore();
@@ -457,7 +430,6 @@
             // Load the user's jobs
             loadMyJobs(user.uid);
           } else {
-            // Redirect to login page
             window.location.href = '/employers/login/';
           }
         });
@@ -479,7 +451,6 @@
       // ============================================================
       async function loadMyJobs(uid) {
         if (!db) {
-          // Demo mode fallback
           emptyState.style.display = 'block';
           jobList.style.display = 'none';
           return;
@@ -502,7 +473,6 @@
 
           snapshot.forEach(doc => {
             const job = doc.data();
-            const jobId = doc.id;
             const status = job.status || 'pending';
             const statusClass = status === 'approved' ? 'approved' : status === 'rejected' ? 'rejected' : 'pending';
             const statusLabel = status.charAt(0).toUpperCase() + status.slice(1);
@@ -531,13 +501,13 @@
       }
 
       // ============================================================
-      // 7. POST JOB FORM
+      // 7. POST JOB FORM – FIXED
       // ============================================================
       if (form) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
 
-          // Hide previous error/success
+          // Hide previous messages
           formError.style.display = 'none';
           successDiv.style.display = 'none';
 
@@ -567,11 +537,17 @@
             jobTags: document.getElementById('jobTags').value.split(',').map(t => t.trim()).filter(t => t),
             jobDescription: document.getElementById('jobDescription').value.trim(),
             jobRequirements: document.getElementById('jobRequirements').value.trim(),
+            // CRITICAL: Add status field
+            status: 'pending',
+            employerId: currentUser.uid,
+            postedDate: firebase.firestore.FieldValue.serverTimestamp(),
+            approvedDate: null,
+            adminNotes: null
           };
 
           // Validate
           for (const key in jobData) {
-            if (key === 'jobTags' || key === 'jobRequirements') continue;
+            if (key === 'jobTags' || key === 'jobRequirements' || key === 'status' || key === 'employerId' || key === 'postedDate' || key === 'approvedDate' || key === 'adminNotes') continue;
             if (!jobData[key]) {
               showError('Please fill in all required fields.');
               return;
@@ -585,14 +561,7 @@
           submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
           try {
-            await db.collection('jobs').add({
-              ...jobData,
-              employerId: currentUser.uid,
-              status: 'pending',
-              postedDate: firebase.firestore.FieldValue.serverTimestamp(),
-              approvedDate: null,
-              adminNotes: null
-            });
+            await db.collection('jobs').add(jobData);
 
             // Success
             form.style.display = 'none';
@@ -623,7 +592,6 @@
         form.style.display = 'block';
         successDiv.style.display = 'none';
         form.reset();
-        // Clear auto-filled employer fields if needed
         if (currentUser && db) {
           db.collection('employers').doc(currentUser.uid).get().then(doc => {
             if (doc.exists) {
