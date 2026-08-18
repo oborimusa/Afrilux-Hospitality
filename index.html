@@ -35,23 +35,25 @@
       }
 
       :root {
-        --color-primary: #0A1628;
-        --color-primary-dark: #050A14;
-        --color-gold: #C9A84C;
-        --color-gold-light: #E8C84A;
-        --color-gold-dark: #A8873A;
-        --color-white: #FFFFFF;
-        --color-charcoal: #2D2D2D;
-        --color-gray-soft: #F4F2EE;
-        --color-gray-200: #E8E5DF;
-        --color-gray-300: #D5D0C8;
-        --color-gray-600: #8A8580;
-        --color-gray-700: #5A5550;
-        --color-success: #2A9D8F;
-        --color-emergency: #E63946;
+        --color-primary: #0a1628;
+        --color-primary-dark: #050a14;
+        --color-gold: #c9a84c;
+        --color-gold-light: #e8c84a;
+        --color-gold-dark: #a8873a;
+        --color-white: #ffffff;
+        --color-charcoal: #2d2d2d;
+        --color-gray-soft: #f4f2ee;
+        --color-gray-200: #e8e5df;
+        --color-gray-300: #d5d0c8;
+        --color-gray-600: #8a8580;
+        --color-gray-700: #5a5550;
+        --color-success: #2a9d8f;
+        --color-emergency: #e63946;
 
-        --font-serif: 'Playfair Display', Georgia, serif;
-        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, sans-serif;
 
         --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -593,13 +595,17 @@
       /* ===== HERO ===== */
       .hero {
         padding: 3rem 0 4rem;
-        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          #0f2844 100%
+        );
         color: var(--color-white);
         position: relative;
         overflow: hidden;
       }
       .hero::after {
-        content: '✦';
+        content: "✦";
         position: absolute;
         bottom: -50px;
         right: -50px;
@@ -700,7 +706,7 @@
       }
       .clients-slider::before,
       .clients-slider::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         width: 100px;
@@ -710,11 +716,19 @@
       }
       .clients-slider::before {
         left: 0;
-        background: linear-gradient(to right, var(--color-gray-soft), transparent);
+        background: linear-gradient(
+          to right,
+          var(--color-gray-soft),
+          transparent
+        );
       }
       .clients-slider::after {
         right: 0;
-        background: linear-gradient(to left, var(--color-gray-soft), transparent);
+        background: linear-gradient(
+          to left,
+          var(--color-gray-soft),
+          transparent
+        );
       }
 
       .clients-track {
@@ -909,7 +923,11 @@
       /* ===== CTA BANNER ===== */
       .cta-banner {
         padding: 4rem 0;
-        background: linear-gradient(135deg, var(--color-primary) 0%, #0F2844 100%);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          #0f2844 100%
+        );
         color: var(--color-white);
         text-align: center;
         border-top: 3px solid var(--color-gold);
@@ -1048,15 +1066,18 @@
     </style>
   </head>
   <body>
-
     <!-- ===== HEADER ===== -->
     <header class="site-header">
       <div class="container">
         <div class="header-container">
           <div class="logo">
             <a href="/" aria-label="HospitalityRecruit Home">
-              <span class="brand-name">Hospitality<span class="gold">Recruit</span></span>
-              <div class="logo-tagline">Precision Talent for Luxury Hospitality</div>
+              <span class="brand-name"
+                >Hospitality<span class="gold">Recruit</span></span
+              >
+              <div class="logo-tagline">
+                Precision Talent for Luxury Hospitality
+              </div>
             </a>
           </div>
           <button
@@ -1073,11 +1094,24 @@
             </button>
             <ul class="nav-menu">
               <li class="nav-item">
-                <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="/" class="nav-link active"
+                  ><i class="fas fa-home"></i> Home</a
+                >
               </li>
+              <!-- <li class="nav-item">
+                <a
+                  href="/admin/dashboard/"
+                  class="nav-link"
+                  style="color: var(--color-emergency)"
+                >
+                  <i class="fas fa-user-shield"></i> Admin Panel
+                </a>
+              </li> -->
 
               <li class="nav-item">
-                <a href="/services/index.html" class="nav-link"><i class="fas fa-info-circle"></i> Services</a>
+                <a href="/services/index.html" class="nav-link"
+                  ><i class="fas fa-info-circle"></i> Services</a
+                >
               </li>
 
               <li class="nav-item dropdown">
@@ -1086,20 +1120,36 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <a href="/employers/post-job/" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
-                  <a href="/employers/search-talent/" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
-                  <a href="/employers/pricing/" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
+                  <a href="/employers/post-job/" class="dropdown-item"
+                    ><i class="fas fa-plus-circle"></i> Post a Job</a
+                  >
+                  <a href="/employers/search-talent/" class="dropdown-item"
+                    ><i class="fas fa-search"></i> Search Talent</a
+                  >
+                  <a href="/employers/pricing/" class="dropdown-item"
+                    ><i class="fas fa-tag"></i> Pricing</a
+                  >
                   <div class="dropdown-divider"></div>
                   <!-- NEW: Employer Dashboard -->
-                  <a href="/employers/dashboard/" class="dropdown-item" style="color: var(--color-gold); font-weight: 700;">
+                  <a
+                    href="/employers/dashboard/"
+                    class="dropdown-item"
+                    style="color: var(--color-gold); font-weight: 700"
+                  >
                     <i class="fas fa-tachometer-alt"></i> Employer Dashboard
                   </a>
                   <!-- NEW: Admin Panel -->
-                  <a href="/admin/dashboard/" class="dropdown-item" style="color: var(--color-emergency); font-weight: 600;">
+                  <a
+                    href="/admin/dashboard/"
+                    class="dropdown-item"
+                    style="color: var(--color-emergency); font-weight: 600"
+                  >
                     <i class="fas fa-user-shield"></i> Admin Panel
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="/employers/start-search/" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
+                  <a href="/employers/start-search/" class="dropdown-item"
+                    ><i class="fas fa-rocket"></i> Start a Search</a
+                  >
                 </div>
               </li>
 
@@ -1109,25 +1159,40 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <a href="/candidates/job-board/" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
-                  <a href="/candidates/submit-profile/" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
-                  <a href="/candidates/career-strategy/" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
+                  <a href="/candidates/job-board/" class="dropdown-item"
+                    ><i class="fas fa-briefcase"></i> Job Board</a
+                  >
+                  <a href="/candidates/submit-profile/" class="dropdown-item"
+                    ><i class="fas fa-file-upload"></i> Submit Profile</a
+                  >
+                  <a href="/candidates/career-strategy/" class="dropdown-item"
+                    ><i class="fas fa-graduation-cap"></i> Career Strategy</a
+                  >
                   <div class="dropdown-divider"></div>
-                  <a href="/candidates/confidentiality/" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
+                  <a href="/candidates/confidentiality/" class="dropdown-item"
+                    ><i class="fas fa-user-secret"></i> Confidential Process</a
+                  >
                 </div>
               </li>
 
               <li class="nav-item">
-                <a href="/about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="/about/" class="nav-link"
+                  ><i class="fas fa-info-circle"></i> About</a
+                >
               </li>
               <li class="nav-item">
-                <a href="/contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/contact/" class="nav-link"
+                  ><i class="fas fa-envelope"></i> Contact</a
+                >
               </li>
             </ul>
             <div class="nav-cta-group">
-              <a href="tel:+2348039661354" class="nav-cta">
-                <i class="fas fa-phone"></i> +234 803 966 1354
+              <a href="/employers/login/" class="nav-cta">
+                <i class="fas fa-sign-in-alt"></i> Sign In
               </a>
+              <!-- <a href="tel:+2348039661354" class="nav-cta nav-cta-outline">
+                <i class="fas fa-phone"></i> +234 803 966 1354
+              </a> -->
               <a href="/contact/" class="nav-cta nav-cta-outline">
                 <i class="fas fa-handshake"></i> Partner With Us
               </a>
@@ -1143,20 +1208,27 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge">
-            <i class="fas fa-crown"></i> Nigeria's Premier Hospitality Talent Partner
+            <i class="fas fa-crown"></i> Nigeria's Premier Hospitality Talent
+            Partner
           </div>
-          <h1>We Find the Right People for <span class="gold">Africa's Best Hotels</span> &amp; Resorts</h1>
+          <h1>
+            We Find the Right People for
+            <span class="gold">Africa's Best Hotels</span> &amp; Resorts
+          </h1>
           <p class="hero-subtitle">
-            HospitalityRecruit connects top professionals with luxury hotels, resorts,
-            and hospitality companies across Africa. Whether you need a top
-            executive, HR advice, or someone to run your operations,
-            we do it carefully and accurately.
+            HospitalityRecruit connects top professionals with luxury hotels,
+            resorts, and hospitality companies across Africa. Whether you need a
+            top executive, HR advice, or someone to run your operations, we do
+            it carefully and accurately.
           </p>
           <div class="hero-actions">
             <a href="/contact/" class="btn btn-gold btn-large">
               <i class="fas fa-handshake"></i> Partner With Us
             </a>
-            <a href="/candidates/job-board/" class="btn btn-outline-white btn-large">
+            <a
+              href="/candidates/job-board/"
+              class="btn btn-outline-white btn-large"
+            >
               <i class="fas fa-briefcase"></i> Browse Opportunities
             </a>
           </div>
@@ -1185,65 +1257,129 @@
     <!-- ===== CLIENTS SLIDER ===== -->
     <section class="clients-slider">
       <div class="clients-track" id="clientsTrack">
-        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-utensils"></i> Pronto <span class="gold">Restaurant</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-umbrella-beach"></i> Golden <span class="gold">Sands</span> <span class="dot">•</span></span>
-        <span class="client-item"><i class="fas fa-crown"></i> 4T <span class="gold">Luxury Hotel</span> <span class="dot">•</span></span>
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-utensils"></i> Pronto
+          <span class="gold">Restaurant</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-umbrella-beach"></i> Golden
+          <span class="gold">Sands</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-crown"></i> 4T
+          <span class="gold">Luxury Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-utensils"></i> Pronto
+          <span class="gold">Restaurant</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-umbrella-beach"></i> Golden
+          <span class="gold">Sands</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-crown"></i> 4T
+          <span class="gold">Luxury Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Calmcity <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-hotel"></i> Princess <span class="gold">Hotel</span>
+          <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-utensils"></i> Pronto
+          <span class="gold">Restaurant</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-umbrella-beach"></i> Golden
+          <span class="gold">Sands</span> <span class="dot">•</span></span
+        >
+        <span class="client-item"
+          ><i class="fas fa-crown"></i> 4T
+          <span class="gold">Luxury Hotel</span>
+          <span class="dot">•</span></span
+        >
       </div>
     </section>
 
     <!-- ===== SERVICES ===== -->
     <section class="services-section">
       <div class="container">
-        <h2 style="text-align: center;">Our <span class="text-gold">Services</span></h2>
-        <p style="text-align: center; color: var(--color-gray-600); max-width: 700px; margin: 0 auto 1rem;">
+        <h2 style="text-align: center">
+          Our <span class="text-gold">Services</span>
+        </h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+          "
+        >
           Precision talent solutions for every hospitality need.
         </p>
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-search"></i></div>
             <h3>Executive Search</h3>
-            <p>We quietly and carefully find top leaders — like General Managers, Directors,
-              and other senior executives — for luxury hotels and resorts. We don't make
-              a big show of it, and we only bring you people who are truly
-              qualified to lead.</p>
+            <p>
+              We quietly and carefully find top leaders — like General Managers,
+              Directors, and other senior executives — for luxury hotels and
+              resorts. We don't make a big show of it, and we only bring you
+              people who are truly qualified to lead.
+            </p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-hotel"></i></div>
             <h3>Hotel Leadership</h3>
-            <p>We find the right people for key department roles — like Heads of Departments,
-              Food & Beverage Directors, Revenue Managers, and Operations leaders.
-              Every role is different, so we take the time to understand
-              exactly what each one needs and find someone who fits
-              perfectly.
+            <p>
+              We find the right people for key department roles — like Heads of
+              Departments, Food & Beverage Directors, Revenue Managers, and
+              Operations leaders. Every role is different, so we take the time
+              to understand exactly what each one needs and find someone who
+              fits perfectly.
             </p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-building"></i></div>
             <h3>Operational Management</h3>
-            <p>We take full control of running your hotel or property.
-              We handle everything — managing your staff, overseeing daily
-              operations, and finding ways to increase your profits — so you
-              don't have to worry about the details.</p>
+            <p>
+              We take full control of running your hotel or property. We handle
+              everything — managing your staff, overseeing daily operations, and
+              finding ways to increase your profits — so you don't have to worry
+              about the details.
+            </p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-user-tie"></i></div>
             <h3>HR Consulting</h3>
-            <p>We help hospitality companies with their people problems.
-              We give advice on how to handle HR issues, design better ways to
-              hire people, and build a steady flow of good candidates so you're
-              never scrambling to fill a position.</p>
+            <p>
+              We help hospitality companies with their people problems. We give
+              advice on how to handle HR issues, design better ways to hire
+              people, and build a steady flow of good candidates so you're never
+              scrambling to fill a position.
+            </p>
           </div>
         </div>
       </div>
@@ -1252,34 +1388,64 @@
     <!-- ===== CASE STUDIES PREVIEW ===== -->
     <section class="case-preview">
       <div class="container">
-        <h2 style="text-align: center;">Featured <span class="text-gold">Client Stories</span></h2>
-        <p style="text-align: center; color: var(--color-gray-600); max-width: 700px; margin: 0 auto 1rem;">
+        <h2 style="text-align: center">
+          Featured <span class="text-gold">Client Stories</span>
+        </h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+          "
+        >
           Real results from real partnerships.
         </p>
         <div class="case-preview-grid">
           <div class="case-card">
             <span class="case-tag">Executive Management</span>
             <h3>4T Luxury Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Osogbo, Osun State</div>
-            <p>Full operational management, SOP implementation, and revenue optimization resulting in 35% growth.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 35% revenue growth</span>
+            <div class="case-location">
+              <i class="fas fa-map-marker-alt"></i> Osogbo, Osun State
+            </div>
+            <p>
+              Full operational management, SOP implementation, and revenue
+              optimization resulting in 35% growth.
+            </p>
+            <span class="case-result"
+              ><i class="fas fa-check-circle"></i> 35% revenue growth</span
+            >
           </div>
           <div class="case-card">
             <span class="case-tag">Talent Placement</span>
             <h3>Calmcity Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</div>
-            <p>Sourced and placed key operational staff, stabilizing front-office and housekeeping teams during peak season.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 100% retention</span>
+            <div class="case-location">
+              <i class="fas fa-map-marker-alt"></i> Ilorin, Kwara
+            </div>
+            <p>
+              Sourced and placed key operational staff, stabilizing front-office
+              and housekeeping teams during peak season.
+            </p>
+            <span class="case-result"
+              ><i class="fas fa-check-circle"></i> 100% retention</span
+            >
           </div>
           <div class="case-card">
             <span class="case-tag">HR Consulting</span>
             <h3>Princess Hotel</h3>
-            <div class="case-location"><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</div>
-            <p>Redesigned recruitment workflows, implemented performance systems, and built a sustainable talent pipeline.</p>
-            <span class="case-result"><i class="fas fa-check-circle"></i> 40% faster hiring</span>
+            <div class="case-location">
+              <i class="fas fa-map-marker-alt"></i> Ilorin, Kwara
+            </div>
+            <p>
+              Redesigned recruitment workflows, implemented performance systems,
+              and built a sustainable talent pipeline.
+            </p>
+            <span class="case-result"
+              ><i class="fas fa-check-circle"></i> 40% faster hiring</span
+            >
           </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
+        <div style="text-align: center; margin-top: 2rem">
           <a href="/case-studies/" class="btn btn-gold">
             <i class="fas fa-chart-line"></i> View All Case Studies
           </a>
@@ -1292,8 +1458,9 @@
       <div class="container">
         <h2>Ready to build your <span class="text-gold">elite team</span>?</h2>
         <p class="lead">
-          Whether you need a single critical hire or full operational management,
-          HospitalityRecruit delivers precision talent for luxury hospitality.
+          Whether you need a single critical hire or full operational
+          management, HospitalityRecruit delivers precision talent for luxury
+          hospitality.
         </p>
         <div class="btn-group">
           <a href="/contact/" class="btn btn-gold btn-large">
@@ -1311,47 +1478,112 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-column">
-            <h3>Hospitality<span style="color: var(--color-gold);">Recruit</span></h3>
-            <p>Precision talent for luxury hospitality. Executive search, operational management, and HR consulting across Africa.</p>
-            <div class="footer-contact" style="margin-top: 1rem;">
+            <h3>
+              Hospitality<span style="color: var(--color-gold)">Recruit</span>
+            </h3>
+            <p>
+              Precision talent for luxury hospitality. Executive search,
+              operational management, and HR consulting across Africa.
+            </p>
+            <div class="footer-contact" style="margin-top: 1rem">
               <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
-              <p><i class="fas fa-envelope"></i> acquire@hospitalityrecruit.com</p>
-              <p><i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja • Lagos</p>
+              <p>
+                <i class="fas fa-envelope"></i> acquire@hospitalityrecruit.com
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Ilorin • Osogbo • Abuja •
+                Lagos
+              </p>
             </div>
           </div>
           <div class="footer-column">
             <h3>For Candidates</h3>
             <ul class="footer-links">
-              <li><a href="/candidates/job-board/"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
-              <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
-              <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+              <li>
+                <a href="/candidates/job-board/"
+                  ><i class="fas fa-chevron-right"></i> Browse Jobs</a
+                >
+              </li>
+              <li>
+                <a href="/candidates/submit-profile/"
+                  ><i class="fas fa-chevron-right"></i> Submit Profile</a
+                >
+              </li>
+              <li>
+                <a href="/candidates/career-strategy/"
+                  ><i class="fas fa-chevron-right"></i> Career Strategy</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-column">
             <h3>For Employers</h3>
             <ul class="footer-links">
-              <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
-              <li><a href="/employers/search-talent/"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
-              <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
-              <li><a href="/employers/start-search/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+              <li>
+                <a href="/employers/post-job/"
+                  ><i class="fas fa-chevron-right"></i> Post a Job</a
+                >
+              </li>
+              <li>
+                <a href="/employers/search-talent/"
+                  ><i class="fas fa-chevron-right"></i> Search Talent</a
+                >
+              </li>
+              <li>
+                <a href="/employers/pricing/"
+                  ><i class="fas fa-chevron-right"></i> Pricing</a
+                >
+              </li>
+              <li>
+                <a href="/employers/start-search/"
+                  ><i class="fas fa-chevron-right"></i> Start a Search</a
+                >
+              </li>
               <!-- NEW: Employer Dashboard -->
-              <li><a href="/employers/dashboard/"><i class="fas fa-chevron-right"></i> Employer Dashboard</a></li>
+              <li>
+                <a href="/employers/dashboard/"
+                  ><i class="fas fa-chevron-right"></i> Employer Dashboard</a
+                >
+              </li>
               <!-- NEW: Admin Panel -->
-              <li><a href="/admin/dashboard/"><i class="fas fa-chevron-right"></i> Admin Panel</a></li>
+              <li>
+                <a href="/admin/dashboard/"
+                  ><i class="fas fa-chevron-right"></i> Admin Panel</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-column">
             <h3>Company</h3>
             <ul class="footer-links">
-              <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
-              <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
-              <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-              <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+              <li>
+                <a href="/about/"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="/case-studies/"
+                  ><i class="fas fa-chevron-right"></i> Case Studies</a
+                >
+              </li>
+              <li>
+                <a href="/contact/"
+                  ><i class="fas fa-chevron-right"></i> Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="/blog/"
+                  ><i class="fas fa-chevron-right"></i> Insights Blog</a
+                >
+              </li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; <span id="currentYear"></span> HospitalityRecruit. All rights reserved.</p>
+          <p>
+            &copy; <span id="currentYear"></span> HospitalityRecruit. All rights
+            reserved.
+          </p>
           <div class="footer-bottom-links">
             <a href="/privacy.html">Privacy Policy</a>
             <a href="/terms.html">Terms of Service</a>
@@ -1362,7 +1594,7 @@
           target="_blank"
           class="whatsapp-desktop"
           rel="noopener noreferrer"
-          style="margin-top: 1.5rem;"
+          style="margin-top: 1.5rem"
         >
           <i class="fab fa-whatsapp"></i>
           <span>Chat with us on WhatsApp</span>
@@ -1381,52 +1613,69 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
 
         // --- Mobile Menu ---
-        const mobileToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        const overlay = document.getElementById('mobileOverlay');
-        const closeBtn = document.getElementById('mobileCloseBtn');
+        const mobileToggle = document.getElementById("mobileMenuToggle");
+        const mainNav = document.getElementById("mainNav");
+        const overlay = document.getElementById("mobileOverlay");
+        const closeBtn = document.getElementById("mobileCloseBtn");
 
         function toggleMenu(force) {
-          const active = (typeof force === 'boolean') ? force : !mainNav.classList.contains('active');
-          mainNav.classList.toggle('active', active);
-          overlay.classList.toggle('active', active);
-          document.body.style.overflow = active ? 'hidden' : 'auto';
-          mobileToggle.classList.toggle('active', active);
-          mobileToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
-          const icon = mobileToggle.querySelector('i');
-          if (icon) icon.className = active ? 'fas fa-times' : 'fas fa-bars';
+          const active =
+            typeof force === "boolean"
+              ? force
+              : !mainNav.classList.contains("active");
+          mainNav.classList.toggle("active", active);
+          overlay.classList.toggle("active", active);
+          document.body.style.overflow = active ? "hidden" : "auto";
+          mobileToggle.classList.toggle("active", active);
+          mobileToggle.setAttribute("aria-expanded", active ? "true" : "false");
+          const icon = mobileToggle.querySelector("i");
+          if (icon) icon.className = active ? "fas fa-times" : "fas fa-bars";
         }
 
-        mobileToggle?.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
-        overlay?.addEventListener('click', () => toggleMenu(false));
-        closeBtn?.addEventListener('click', () => toggleMenu(false));
-
-        document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
-          link.addEventListener('click', function() {
-            if (window.innerWidth <= 1024 && mainNav.classList.contains('active')) toggleMenu(false);
-          });
+        mobileToggle?.addEventListener("click", (e) => {
+          e.preventDefault();
+          toggleMenu();
         });
+        overlay?.addEventListener("click", () => toggleMenu(false));
+        closeBtn?.addEventListener("click", () => toggleMenu(false));
+
+        document
+          .querySelectorAll(".nav-link:not(.dropdown-toggle), .dropdown-item")
+          .forEach((link) => {
+            link.addEventListener("click", function () {
+              if (
+                window.innerWidth <= 1024 &&
+                mainNav.classList.contains("active")
+              )
+                toggleMenu(false);
+            });
+          });
 
         // --- Dropdowns (mobile) ---
-        document.querySelectorAll('.dropdown-toggle').forEach(t => {
-          t.addEventListener('click', function(e) {
+        document.querySelectorAll(".dropdown-toggle").forEach((t) => {
+          t.addEventListener("click", function (e) {
             if (window.innerWidth <= 1024) {
               e.preventDefault();
-              const d = this.closest('.dropdown');
-              const active = d.classList.contains('active');
-              document.querySelectorAll('.dropdown').forEach(el => el.classList.remove('active'));
-              if (!active) d.classList.add('active');
+              const d = this.closest(".dropdown");
+              const active = d.classList.contains("active");
+              document
+                .querySelectorAll(".dropdown")
+                .forEach((el) => el.classList.remove("active"));
+              if (!active) d.classList.add("active");
             }
           });
         });
-        document.addEventListener('click', function(e) {
-          if (window.innerWidth <= 1024 && !e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        document.addEventListener("click", function (e) {
+          if (window.innerWidth <= 1024 && !e.target.closest(".dropdown")) {
+            document
+              .querySelectorAll(".dropdown")
+              .forEach((d) => d.classList.remove("active"));
           }
         });
       });
