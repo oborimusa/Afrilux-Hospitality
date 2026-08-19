@@ -21,7 +21,6 @@
     .brand { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:800; color:white; text-decoration:none; }
     .brand .gold { color:#C9A84C; }
     .user-badge { background:rgba(255,255,255,0.1); padding:8px 16px; border-radius:50px; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:8px; }
-    .user-badge i { color:#C9A84C; }
     .btn { padding:8px 20px; border-radius:50px; border:2px solid #C9A84C; background:transparent; color:#C9A84C; font-weight:600; cursor:pointer; transition:0.2s; font-size:0.85rem; }
     .btn:hover { background:#C9A84C; color:#0A1628; }
     .btn-success { background:#2A9D8F; border-color:#2A9D8F; color:white; }
@@ -45,13 +44,13 @@
     .filter-btn.active { background:#C9A84C; border-color:#C9A84C; color:#0A1628; }
 
     .card-list { display:grid; gap:15px; margin-top:15px; }
-    .card { background:white; padding:18px; border-radius:12px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:0.2s; cursor:pointer; }
-    .card:hover { border-color:#C9A84C; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .card { background:white; padding:18px; border-radius:12px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
     .card .header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; }
     .card .title { font-size:1.1rem; font-weight:800; color:#0A1628; font-family:'Playfair Display',serif; }
     .card .sub { color:#5A5550; font-weight:600; }
     .card .meta { display:flex; gap:15px 25px; flex-wrap:wrap; margin:6px 0; font-size:0.85rem; color:#8A8580; }
     .card .meta i { color:#C9A84C; width:16px; }
+    .card-actions { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
     .status-badge { padding:3px 14px; border-radius:50px; font-size:0.7rem; font-weight:700; text-transform:uppercase; }
     .status-badge.pending { background:rgba(230,57,70,0.1); color:#E63946; border:1px solid rgba(230,57,70,0.2); }
     .status-badge.approved { background:rgba(42,157,143,0.1); color:#2A9D8F; border:1px solid rgba(42,157,143,0.2); }
@@ -110,8 +109,8 @@
     <div id="contentContainer">
       <div class="empty" id="emptyState">
         <i class="fas fa-inbox"></i>
-        <h3>Nothing to review</h3>
-        <p>All items have been processed.</p>
+        <h3>Loading data...</h3>
+        <p>Please wait while we fetch your data.</p>
       </div>
       <div class="card-list" id="cardList" style="display:none;"></div>
     </div>
@@ -123,7 +122,7 @@
     document.addEventListener('DOMContentLoaded', function() {
 
       // ============================================================
-      // 1. FIREBASE CONFIG
+      // 1. FIREBASE CONFIG (HARDCODED FOR RELIABILITY)
       // ============================================================
       const firebaseConfig = {
         apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
@@ -134,19 +133,23 @@
         appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
       };
 
-      let auth = null;
-      let db = null;
-
+      // Initialize Firebase
       try {
         if (!firebase.apps.length) {
           firebase.initializeApp(firebaseConfig);
           console.log('✅ Firebase initialized');
         }
-        auth = firebase.auth();
-        db = firebase.firestore();
       } catch (e) {
-        console.warn('⚠️ Firebase init error:', e);
+        console.error('❌ Firebase init error:', e);
+        document.getElementById('emptyState').innerHTML = `
+          <i class="fas fa-exclamation-triangle" style="color:#E63946;"></i>
+          <h3>Firebase Error</h3>
+          <p>Could not initialize Firebase. Please check your internet connection.</p>
+        `;
       }
+
+      const auth = firebase.auth();
+      const db = firebase.firestore();
 
       // ============================================================
       // 2. DOM REFS
@@ -171,120 +174,108 @@
       let currentTab = 'jobs';
       let currentFilter = 'all';
       let toastTimeout = null;
-      let firebaseReady = false;
 
       // ============================================================
-      // 3. CHECK FIREBASE CONNECTION
+      // 3. AUTH STATE
       // ============================================================
-      if (auth && db) {
-        firebaseReady = true;
-        console.log('✅ Firebase ready');
-      } else {
-        console.warn('⚠️ Firebase not ready');
-        showToast('Firebase connection failed. Using demo data.', 'error');
-        loadDemoData();
-      }
+      auth.onAuthStateChanged(async function(user) {
+        if (user) {
+          document.getElementById('adminName').textContent = user.displayName || user.email || 'Admin';
+          console.log('✅ User signed in:', user.email);
 
-      // ============================================================
-      // 4. AUTH STATE
-      // ============================================================
-      if (auth) {
-        auth.onAuthStateChanged(async function(user) {
-          if (user) {
-            document.getElementById('adminName').textContent = user.displayName || user.email || 'Admin';
-            try {
-              if (db) {
-                const doc = await db.collection('admins').doc(user.uid).get();
-                const isAdmin = doc.exists && doc.data().role === 'admin';
+          try {
+            // Check if user is admin
+            const adminDoc = await db.collection('admins').doc(user.uid).get();
+            const isAdmin = adminDoc.exists && adminDoc.data().role === 'admin';
 
-                if (!isAdmin) {
-                  const emailQuery = await db.collection('admins').where('email', '==', user.email).get();
-                  if (emailQuery.empty) {
-                    showToast('Access denied. Admin privileges required.', 'error');
-                    setTimeout(() => window.location.href = '/', 2000);
-                    return;
-                  }
-                }
-                // Admin confirmed – load real data
-                console.log('✅ Admin confirmed, loading data...');
-                loadAllData();
-              } else {
-                loadDemoData();
+            if (!isAdmin) {
+              const emailQuery = await db.collection('admins').where('email', '==', user.email).get();
+              if (emailQuery.empty) {
+                showToast('Access denied. Admin privileges required.', 'error');
+                setTimeout(() => window.location.href = '/', 2000);
+                return;
               }
-            } catch (e) {
-              console.error('Error checking admin:', e);
-              loadDemoData();
             }
-          } else {
-            window.location.href = '/employers/login/';
+
+            // Load data
+            console.log('✅ Admin confirmed, loading data...');
+            await loadEmployers();
+            await loadJobs();
+            renderView(currentTab);
+            updateStats();
+            updateBadges();
+
+          } catch (e) {
+            console.error('❌ Error:', e);
+            showToast('Error loading data. Check console.', 'error');
+            // Try demo data as fallback
+            loadDemoData();
           }
-        });
-      }
-
-      // ============================================================
-      // 5. LOGOUT
-      // ============================================================
-      if (logoutBtn && auth) {
-        logoutBtn.addEventListener('click', function() {
-          auth.signOut().then(function() {
-            window.location.href = '/employers/login/';
-          });
-        });
-      }
-
-      // ============================================================
-      // 6. LOAD ALL DATA FROM FIRESTORE
-      // ============================================================
-      async function loadAllData() {
-        if (!db || !firebaseReady) {
-          console.warn('⚠️ Firestore not available – loading demo data');
-          loadDemoData();
-          return;
+        } else {
+          window.location.href = '/employers/login/';
         }
+      });
 
+      // ============================================================
+      // 4. LOGOUT
+      // ============================================================
+      logoutBtn.addEventListener('click', function() {
+        auth.signOut().then(function() {
+          window.location.href = '/employers/login/';
+        });
+      });
+
+      // ============================================================
+      // 5. LOAD EMPLOYERS
+      // ============================================================
+      async function loadEmployers() {
         try {
-          console.log('📡 Fetching data from Firestore...');
+          console.log('📡 Fetching employers...');
+          const snapshot = await db.collection('employers').get();
 
-          // Load Jobs
-          const jobSnap = await db.collection('jobs').orderBy('postedDate', 'desc').get();
-          allJobs = [];
-          jobSnap.forEach(function(doc) {
-            var data = doc.data();
-            if (!data.status) data.status = 'pending';
-            allJobs.push({ id: doc.id, ...data });
-          });
-          console.log('📋 Jobs loaded:', allJobs.length);
-
-          // Load Employers
-          const empSnap = await db.collection('employers').orderBy('createdAt', 'desc').get();
           allEmployers = [];
-          empSnap.forEach(function(doc) {
-            var data = doc.data();
+          snapshot.forEach(function(doc) {
+            const data = doc.data();
+            data.id = doc.id;
             if (!data.status) data.status = 'pending';
-            allEmployers.push({ id: doc.id, ...data });
+            allEmployers.push(data);
           });
+
           console.log('👥 Employers loaded:', allEmployers.length);
-
-          // Log the employer names to verify
           allEmployers.forEach(function(e) {
-            console.log('  - Employer:', e.companyName, 'Status:', e.status);
+            console.log('  -', e.companyName, '(status:', e.status, ')');
           });
 
-          // Render everything
-          renderView(currentTab);
-          updateStats();
-          updateBadges();
-
-          if (allEmployers.length === 0 && allJobs.length === 0) {
-            showToast('No data found in Firestore. Try posting a job or registering an employer.', 'info');
-          } else {
-            showToast('✅ Data loaded from Firestore!', 'success');
-          }
-
+          return allEmployers;
         } catch (e) {
-          console.error('❌ Error loading data:', e);
-          showToast('Error loading data: ' + e.message, 'error');
-          loadDemoData();
+          console.error('❌ Error loading employers:', e);
+          showToast('Error loading employers.', 'error');
+          return [];
+        }
+      }
+
+      // ============================================================
+      // 6. LOAD JOBS
+      // ============================================================
+      async function loadJobs() {
+        try {
+          console.log('📡 Fetching jobs...');
+          const snapshot = await db.collection('jobs').get();
+
+          allJobs = [];
+          snapshot.forEach(function(doc) {
+            const data = doc.data();
+            data.id = doc.id;
+            if (!data.status) data.status = 'pending';
+            allJobs.push(data);
+          });
+
+          console.log('📋 Jobs loaded:', allJobs.length);
+          return allJobs;
+        } catch (e) {
+          console.error('❌ Error loading jobs:', e);
+          showToast('Error loading jobs.', 'error');
+          return [];
         }
       }
 
@@ -293,21 +284,17 @@
       // ============================================================
       function loadDemoData() {
         console.warn('📦 Loading demo data...');
-        allJobs = [
-          { id: 'demo1', jobTitle: 'Executive Chef', companyName: '4T Luxury Hotel', jobLocation: 'Osogbo', jobType: 'Full-time', jobSalary: '₦8-12M/year', jobTags: ['Fine Dining'], jobDescription: 'Seeking a visionary Executive Chef.', status: 'pending', postedDate: new Date(), contactName: 'John Doe', companyEmail: 'hr@4tluxury.com' },
-          { id: 'demo2', jobTitle: 'Hotel Manager', companyName: 'Calmcity Hotel', jobLocation: 'Ilorin', jobType: 'Full-time', jobSalary: '₦10-15M/year', jobTags: ['Management'], jobDescription: 'Looking for an experienced Hotel Manager.', status: 'approved', postedDate: new Date(Date.now() - 86400000), contactName: 'Jane Smith', companyEmail: 'hr@calmcity.com' }
-        ];
         allEmployers = [
           { id: 'emp1', companyName: '4T Luxury Hotel', contactName: 'John Doe', contactEmail: 'john@4tluxury.com', plan: 'executive', status: 'approved', createdAt: new Date() },
-          { id: 'emp2', companyName: 'Calmcity Hotel', contactName: 'Jane Smith', contactEmail: 'jane@calmcity.com', plan: 'standard', status: 'pending', createdAt: new Date() }
+          { id: 'emp2', companyName: 'T Data Connect', contactName: 'Tina', contactEmail: 'newemployer@gmail.com', plan: 'standard', status: 'pending', createdAt: new Date() }
+        ];
+        allJobs = [
+          { id: 'job1', jobTitle: 'Executive Chef', companyName: '4T Luxury Hotel', jobLocation: 'Osogbo', jobType: 'Full-time', jobSalary: '₦8-12M/year', jobTags: ['Fine Dining'], jobDescription: 'Seeking a visionary Executive Chef.', status: 'pending', postedDate: new Date(), contactName: 'John Doe', companyEmail: 'hr@4tluxury.com' }
         ];
         renderView(currentTab);
         updateStats();
         updateBadges();
-        // Don't show toast for demo data unless it's the only option
-        if (!firebaseReady) {
-          showToast('⚠️ Demo mode – sample data loaded.', 'info');
-        }
+        showToast('⚠️ Demo mode – using sample data.', 'info');
       }
 
       // ============================================================
@@ -325,7 +312,7 @@
       // 9. RENDER JOBS
       // ============================================================
       function renderJobs(filter) {
-        var filtered = filter === 'all' ? allJobs : allJobs.filter(function(j) { return j.status === filter; });
+        const filtered = filter === 'all' ? allJobs : allJobs.filter(function(j) { return j.status === filter; });
         if (filtered.length === 0) {
           emptyState.style.display = 'block';
           cardList.style.display = 'none';
@@ -336,11 +323,11 @@
         emptyState.style.display = 'none';
         cardList.style.display = 'grid';
 
-        var html = '';
+        let html = '';
         filtered.forEach(function(job) {
-          var statusClass = job.status || 'pending';
-          var statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
-          var postedDate = 'Recently';
+          const statusClass = job.status || 'pending';
+          const statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+          let postedDate = 'Recently';
           if (job.postedDate) {
             if (job.postedDate.toDate) {
               postedDate = job.postedDate.toDate().toLocaleDateString();
@@ -348,19 +335,18 @@
               postedDate = new Date(job.postedDate).toLocaleDateString();
             }
           }
-          var tags = (job.jobTags || []).map(function(t) {
-            return '<span class="status-badge" style="background:#f4f2ee;padding:2px 10px;border-radius:50px;font-size:0.7rem;border:1px solid #ddd;">' + t + '</span>';
+          const tags = (job.jobTags || []).map(function(t) {
+            return '<span style="background:#f4f2ee;padding:2px 10px;border-radius:50px;font-size:0.7rem;border:1px solid #ddd;">' + t + '</span>';
           }).join('');
 
-          var actions = '';
+          let actions = '';
           if (job.status === 'pending') {
             actions = `
               <button class="btn btn-success btn-sm approve-btn" data-id="${job.id}"><i class="fas fa-check"></i> Approve</button>
               <button class="btn btn-danger btn-sm reject-btn" data-id="${job.id}"><i class="fas fa-times"></i> Reject</button>
             `;
           } else {
-            actions =
-              '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (job.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
+            actions = '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (job.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
           }
 
           html += `
@@ -401,7 +387,7 @@
       // 10. RENDER EMPLOYERS
       // ============================================================
       function renderEmployers(filter) {
-        var filtered = filter === 'all' ? allEmployers : allEmployers.filter(function(e) { return e.status === filter; });
+        const filtered = filter === 'all' ? allEmployers : allEmployers.filter(function(e) { return e.status === filter; });
         if (filtered.length === 0) {
           emptyState.style.display = 'block';
           cardList.style.display = 'none';
@@ -414,12 +400,12 @@
         emptyState.style.display = 'none';
         cardList.style.display = 'grid';
 
-        var html = '';
+        let html = '';
         filtered.forEach(function(emp) {
-          var statusClass = emp.status || 'pending';
-          var statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
-          var planLabel = emp.plan ? emp.plan.charAt(0).toUpperCase() + emp.plan.slice(1) : 'None';
-          var createdAt = 'Recently';
+          const statusClass = emp.status || 'pending';
+          const statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+          const planLabel = emp.plan ? emp.plan.charAt(0).toUpperCase() + emp.plan.slice(1) : 'None';
+          let createdAt = 'Recently';
           if (emp.createdAt) {
             if (emp.createdAt.toDate) {
               createdAt = emp.createdAt.toDate().toLocaleDateString();
@@ -428,20 +414,18 @@
             }
           }
 
-          // Calculate job count for this employer
-          var jobCount = allJobs.filter(function(j) {
+          const jobCount = allJobs.filter(function(j) {
             return j.companyName === emp.companyName || j.employerId === emp.id;
           }).length;
 
-          var actions = '';
+          let actions = '';
           if (emp.status === 'pending') {
             actions = `
               <button class="btn btn-success btn-sm approve-emp-btn" data-id="${emp.id}"><i class="fas fa-check"></i> Approve</button>
               <button class="btn btn-danger btn-sm reject-emp-btn" data-id="${emp.id}"><i class="fas fa-times"></i> Reject</button>
             `;
           } else {
-            actions =
-              '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (emp.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
+            actions = '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (emp.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
           }
 
           html += `
@@ -481,23 +465,12 @@
       // 11. UPDATE FUNCTIONS
       // ============================================================
       async function updateJobStatus(jobId, newStatus) {
-        if (!db) {
-          var job = allJobs.find(function(j) { return j.id === jobId; });
-          if (job) {
-            job.status = newStatus;
-            renderView(currentTab);
-            updateStats();
-            updateBadges();
-            showToast('Job ' + newStatus + '!', 'success');
-          }
-          return;
-        }
         try {
           await db.collection('jobs').doc(jobId).update({
             status: newStatus,
             approvedDate: firebase.firestore.FieldValue.serverTimestamp()
           });
-          var job = allJobs.find(function(j) { return j.id === jobId; });
+          const job = allJobs.find(function(j) { return j.id === jobId; });
           if (job) job.status = newStatus;
           renderView(currentTab);
           updateStats();
@@ -510,22 +483,12 @@
       }
 
       async function updateEmployerStatus(empId, newStatus) {
-        if (!db) {
-          var emp = allEmployers.find(function(e) { return e.id === empId; });
-          if (emp) {
-            emp.status = newStatus;
-            renderView(currentTab);
-            updateBadges();
-            showToast('Employer ' + newStatus + '!', 'success');
-          }
-          return;
-        }
         try {
           await db.collection('employers').doc(empId).update({
             status: newStatus,
             approvedDate: firebase.firestore.FieldValue.serverTimestamp()
           });
-          var emp = allEmployers.find(function(e) { return e.id === empId; });
+          const emp = allEmployers.find(function(e) { return e.id === empId; });
           if (emp) emp.status = newStatus;
           renderView(currentTab);
           updateBadges();
@@ -540,10 +503,10 @@
       // 12. STATS & BADGES
       // ============================================================
       function updateStats() {
-        var total = allJobs.length;
-        var pending = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
-        var approved = allJobs.filter(function(j) { return j.status === 'approved'; }).length;
-        var rejected = allJobs.filter(function(j) { return j.status === 'rejected'; }).length;
+        const total = allJobs.length;
+        const pending = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
+        const approved = allJobs.filter(function(j) { return j.status === 'approved'; }).length;
+        const rejected = allJobs.filter(function(j) { return j.status === 'rejected'; }).length;
         statTotal.textContent = total;
         statPending.textContent = pending;
         statApproved.textContent = approved;
@@ -552,8 +515,8 @@
       }
 
       function updateBadges() {
-        var pendingJobs = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
-        var pendingEmps = allEmployers.filter(function(e) { return e.status === 'pending'; }).length;
+        const pendingJobs = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
+        const pendingEmps = allEmployers.filter(function(e) { return e.status === 'pending'; }).length;
         pendingJobBadge.textContent = pendingJobs;
         pendingEmployerBadge.textContent = pendingEmps;
       }
