@@ -4,348 +4,495 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Admin Dashboard | HospitalityRecruit</title>
-  <meta name="description" content="Super Admin panel to review and approve job postings." />
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
-
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <style>
-    /* ===== RESET & VARIABLES ===== */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --color-primary: #0A1628;
-      --color-gold: #C9A84C;
-      --color-gold-light: #E8C84A;
-      --color-gold-dark: #A8873A;
-      --color-white: #FFFFFF;
-      --color-charcoal: #2D2D2D;
-      --color-gray-soft: #F4F2EE;
-      --color-gray-200: #E8E5DF;
-      --color-gray-600: #8A8580;
-      --color-gray-700: #5A5550;
-      --color-success: #2A9D8F;
-      --color-success-dark: #21867a;
-      --color-emergency: #E63946;
-      --color-emergency-dark: #c1121f;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.15);
-      --radius-lg: 12px;
-      --radius-md: 8px;
-      --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
-      --transition-normal: 250ms cubic-bezier(0.4,0,0.2,1);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
-      font-family:var(--font-sans);
-      font-weight:400;
-      line-height:1.6;
-      color:var(--color-charcoal);
-      background:var(--color-gray-soft);
-      min-height:100vh;
+      font-family: 'Inter', sans-serif;
+      background: #f4f2ee;
     }
-    .container { max-width:1280px; margin:0 auto; padding:0 16px; }
-    @media (min-width:640px) { .container { padding:0 24px; } }
-    h1, h2, h3 { font-family:var(--font-serif); font-weight:800; line-height:1.2; color:var(--color-primary); letter-spacing:-0.02em; }
-    h1 { font-size:2.2rem; }
-    h2 { font-size:1.8rem; margin-bottom:0.5rem; }
-    .text-gold { color:var(--color-gold); }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    /* ===== BUTTONS ===== */
+    /* Header */
+    header {
+      background: #0A1628;
+      color: white;
+      padding: 15px 0;
+      border-bottom: 3px solid #C9A84C;
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+    }
+    .brand .gold {
+      color: #C9A84C;
+    }
+    .user-badge {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .user-badge i {
+      color: #C9A84C;
+    }
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      padding: 0.6rem 1.25rem; font-weight: 700; font-size: 0.85rem;
-      border-radius: 50px; transition: all var(--transition-normal);
-      cursor: pointer; border: none; font-family: var(--font-sans);
-      min-height: 40px; text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 2px solid #C9A84C;
+      background: transparent;
+      color: #C9A84C;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
     }
-    .btn-gold { background:var(--color-gold); color:var(--color-primary); }
-    .btn-gold:hover { background:var(--color-gold-light); transform:translateY(-2px); box-shadow:var(--shadow-md); }
-    .btn-success { background:var(--color-success); color:var(--color-white); }
-    .btn-success:hover { background:var(--color-success-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
-    .btn-danger { background:var(--color-emergency); color:var(--color-white); }
-    .btn-danger:hover { background:var(--color-emergency-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
-    .btn-outline-gold { background:transparent; color:var(--color-gold); border:2px solid var(--color-gold); }
-    .btn-outline-gold:hover { background:var(--color-gold); color:var(--color-primary); transform:translateY(-2px); }
-    .btn-sm { padding:0.4rem 1rem; font-size:0.8rem; min-height:34px; }
-    .btn-block { width:100%; }
+    .btn:hover {
+      background: #C9A84C;
+      color: #0A1628;
+    }
+    .btn-success {
+      background: #2A9D8F;
+      border-color: #2A9D8F;
+      color: white;
+    }
+    .btn-success:hover {
+      background: #21867a;
+      border-color: #21867a;
+    }
+    .btn-danger {
+      background: #E63946;
+      border-color: #E63946;
+      color: white;
+    }
+    .btn-danger:hover {
+      background: #c1121f;
+      border-color: #c1121f;
+    }
+    .btn-sm {
+      padding: 4px 14px;
+      font-size: 0.75rem;
+    }
 
-    /* ===== HEADER ===== */
-    .site-header {
-      background:var(--color-primary);
-      box-shadow:var(--shadow-md);
-      position:sticky; top:0; z-index:1000; padding:0.75rem 0;
-      border-bottom:3px solid var(--color-gold);
-    }
-    .header-container { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-    .logo .brand-name { font-family:var(--font-serif); font-size:1.6rem; font-weight:800; color:var(--color-white); letter-spacing:-0.5px; text-decoration:none; }
-    .logo .brand-name .gold { color:var(--color-gold); }
-    .logo-tagline { font-size:0.65rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:2px; font-weight:600; margin-top:-2px; }
-    .header-actions { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
-    .header-actions .user-badge { display:flex; align-items:center; gap:0.5rem; padding:0.4rem 1rem; background:rgba(255,255,255,0.1); border-radius:50px; color:var(--color-white); font-weight:600; font-size:0.85rem; }
-    .header-actions .user-badge i { color:var(--color-gold); }
-
-    /* ===== STATS ===== */
-    .stats-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-      margin:2rem 0;
-    }
-    @media (min-width:640px) { .stats-grid { grid-template-columns:repeat(4,1fr); } }
-    .stat-card {
-      background:var(--color-white);
-      border-radius:var(--radius-md);
-      padding:1.25rem 1rem;
-      text-align:center;
-      border:1px solid var(--color-gray-200);
-      box-shadow:var(--shadow-sm);
-      transition:transform var(--transition-fast);
-    }
-    .stat-card:hover { transform:translateY(-2px); }
-    .stat-card .stat-number { font-size:2rem; font-weight:900; color:var(--color-primary); display:block; line-height:1; }
-    .stat-card .stat-label { font-size:0.8rem; color:var(--color-gray-600); font-weight:600; text-transform:uppercase; letter-spacing:0.5px; margin-top:0.25rem; }
-
-    /* ===== TAB FILTERS ===== */
-    .tab-filters {
-      display:flex;
-      gap:0.5rem;
-      margin:1.5rem 0;
-      flex-wrap:wrap;
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 5px;
+      margin: 20px 0;
+      border-bottom: 2px solid #ddd;
     }
     .tab-btn {
-      padding:0.5rem 1.25rem;
-      border:2px solid var(--color-gray-200);
-      border-radius:50px;
-      background:var(--color-white);
-      font-weight:600;
-      font-size:0.85rem;
-      color:var(--color-gray-700);
-      cursor:pointer;
-      transition:all var(--transition-fast);
+      padding: 10px 25px;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #8A8580;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: 0.2s;
     }
-    .tab-btn:hover { border-color:var(--color-gold); color:var(--color-gold); }
-    .tab-btn.active { background:var(--color-gold); border-color:var(--color-gold); color:var(--color-primary); }
+    .tab-btn.active {
+      color: #0A1628;
+      border-bottom-color: #C9A84C;
+    }
     .tab-btn .badge {
-      background:var(--color-emergency);
-      color:white;
-      padding:0.05rem 0.5rem;
-      border-radius:50px;
-      font-size:0.7rem;
-      margin-left:0.3rem;
+      background: #E63946;
+      color: white;
+      padding: 0 8px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      margin-left: 5px;
     }
 
-    /* ===== JOB LIST ===== */
-    .job-list {
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1.5rem;
-      margin-top:1.5rem;
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 20px 0;
     }
-    .job-card {
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
-      padding:1.5rem;
-      border:1px solid var(--color-gray-200);
-      box-shadow:var(--shadow-sm);
-      transition:all var(--transition-normal);
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    .job-card:hover { box-shadow:var(--shadow-md); border-color:var(--color-gold); }
-    .job-card .job-header {
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:0.5rem;
-      margin-bottom:0.75rem;
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0A1628;
     }
-    .job-card .job-title { font-family:var(--font-serif); font-size:1.15rem; font-weight:800; color:var(--color-primary); }
-    .job-card .job-company { font-weight:600; color:var(--color-gray-700); font-size:0.95rem; }
-    .job-card .job-company i { color:var(--color-gold); width:18px; }
-    .job-card .job-meta {
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.75rem 1.5rem;
-      margin:0.5rem 0;
-      font-size:0.85rem;
-      color:var(--color-gray-600);
-    }
-    .job-card .job-meta i { color:var(--color-gold); width:16px; }
-    .job-card .job-description {
-      color:var(--color-gray-700);
-      font-size:0.9rem;
-      line-height:1.7;
-      margin:0.75rem 0;
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
-    .job-card .job-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.5rem 0; }
-    .job-card .job-tag {
-      padding:0.15rem 0.7rem;
-      background:var(--color-gray-soft);
-      border-radius:50px;
-      font-size:0.7rem;
-      color:var(--color-gray-700);
-      border:1px solid var(--color-gray-200);
-    }
-    .job-card .job-actions {
-      display:flex;
-      gap:0.75rem;
-      margin-top:1rem;
-      flex-wrap:wrap;
-    }
-    .job-card .job-actions .btn { flex:1; min-width:100px; }
-    .job-card .job-status-badge {
-      padding:0.2rem 0.75rem;
-      border-radius:50px;
-      font-size:0.7rem;
-      font-weight:700;
-      text-transform:uppercase;
-    }
-    .job-status-badge.pending { background:rgba(230,57,70,0.1); color:var(--color-emergency); border:1px solid rgba(230,57,70,0.2); }
-    .job-status-badge.approved { background:rgba(42,157,143,0.1); color:var(--color-success); border:1px solid rgba(42,157,143,0.2); }
-    .job-status-badge.rejected { background:rgba(230,57,70,0.05); color:var(--color-gray-600); border:1px solid var(--color-gray-200); }
-
-    .job-card .job-posted {
-      font-size:0.75rem;
-      color:var(--color-gray-600);
-      margin-top:0.5rem;
-      border-top:1px solid var(--color-gray-200);
-      padding-top:0.5rem;
+    .stat-label {
+      font-size: 0.8rem;
+      color: #8A8580;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* ===== EMPTY STATE ===== */
-    .empty-state {
-      text-align:center;
-      padding:4rem 2rem;
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
-      border:1px solid var(--color-gray-200);
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      flex-wrap: wrap;
     }
-    .empty-state i { font-size:4rem; color:var(--color-gray-300); margin-bottom:1rem; }
-    .empty-state h3 { font-family:var(--font-serif); color:var(--color-primary); margin-bottom:0.5rem; }
-    .empty-state p { color:var(--color-gray-600); max-width:400px; margin:0 auto; }
+    .filter-btn {
+      padding: 6px 16px;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      background: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    .filter-btn.active {
+      background: #C9A84C;
+      border-color: #C9A84C;
+      color: #0A1628;
+    }
 
-    /* ===== TOAST ===== */
+    /* Cards */
+    .card-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: 0.2s;
+    }
+    .card:hover {
+      border-color: #C9A84C;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .card .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .card .title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0A1628;
+      font-family: 'Playfair Display', serif;
+    }
+    .card .sub {
+      color: #5A5550;
+      font-weight: 600;
+    }
+    .card .meta {
+      display: flex;
+      gap: 15px 25px;
+      flex-wrap: wrap;
+      margin: 6px 0;
+      font-size: 0.85rem;
+      color: #8A8580;
+    }
+    .card .meta i {
+      color: #C9A84C;
+      width: 16px;
+    }
+    .card .desc {
+      color: #5A5550;
+      font-size: 0.9rem;
+      margin: 8px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-tag {
+      background: #f4f2ee;
+      padding: 2px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      border: 1px solid #ddd;
+    }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .status-badge {
+      padding: 3px 14px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .status-badge.pending {
+      background: rgba(230, 57, 70, 0.1);
+      color: #E63946;
+      border: 1px solid rgba(230, 57, 70, 0.2);
+    }
+    .status-badge.approved {
+      background: rgba(42, 157, 143, 0.1);
+      color: #2A9D8F;
+      border: 1px solid rgba(42, 157, 143, 0.2);
+    }
+    .status-badge.rejected {
+      background: rgba(230, 57, 70, 0.05);
+      color: #8A8580;
+      border: 1px solid #ddd;
+    }
+    .plan-badge {
+      background: rgba(201, 168, 76, 0.15);
+      color: #A8873A;
+      padding: 2px 10px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+    .clickable:hover {
+      background: #f9f9f9;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #8A8580;
+    }
+    .modal-close:hover {
+      color: #0A1628;
+    }
+    .modal-content .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .modal-content .profile-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+    }
+    .modal-content .detail-row {
+      display: flex;
+      gap: 10px 30px;
+      flex-wrap: wrap;
+      padding: 8px 0;
+      border-bottom: 1px solid #f4f2ee;
+    }
+    .modal-content .detail-row .label {
+      font-weight: 600;
+      color: #0A1628;
+      min-width: 120px;
+    }
+    .modal-content .detail-row .value {
+      color: #5A5550;
+    }
+    .modal-content .job-list {
+      margin-top: 15px;
+    }
+    .modal-content .job-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #f4f2ee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .modal-content .job-item .job-title {
+      font-weight: 600;
+    }
+    .modal-content .job-item .job-status {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 50px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+    .empty i {
+      font-size: 3rem;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
     .toast {
-      position:fixed;
-      bottom:2rem;
-      right:2rem;
-      padding:1rem 1.5rem;
-      border-radius:var(--radius-md);
-      color:var(--color-white);
-      font-weight:600;
-      font-size:0.9rem;
-      box-shadow:var(--shadow-lg);
-      z-index:9999;
-      transform:translateY(100px);
-      opacity:0;
-      transition:all 0.4s ease;
-      max-width:400px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      z-index: 99999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s;
+      max-width: 400px;
+      font-size: 0.9rem;
     }
-    .toast.show { transform:translateY(0); opacity:1; }
-    .toast.success { background:var(--color-success); }
-    .toast.error { background:var(--color-emergency); }
-    .toast.info { background:var(--color-primary); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:768px) {
-      .job-card .job-header { flex-direction:column; }
-      .job-card .job-actions .btn { flex:1 1 100%; }
-      .stats-grid { grid-template-columns:1fr 1fr; }
-      h1 { font-size:1.8rem; }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
     }
-    @media (max-width:480px) {
-      .stats-grid { grid-template-columns:1fr; }
-      .header-container { flex-direction:column; align-items:flex-start; }
-      .header-actions { width:100%; justify-content:space-between; }
+    .toast.success {
+      background: #2A9D8F;
+    }
+    .toast.error {
+      background: #E63946;
+    }
+    .toast.info {
+      background: #0A1628;
     }
 
-    /* ===== SIGN-IN OVERLAY ===== */
-    .signin-overlay {
-      text-align:center;
-      padding:3rem 2rem;
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
-      border:1px solid var(--color-gray-200);
-      max-width:500px;
-      margin:2rem auto;
+    @media (max-width: 768px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    .signin-overlay .lock-icon { font-size:3rem; color:var(--color-gold); margin-bottom:1rem; }
-    .signin-overlay h3 { margin-bottom:0.5rem; }
-    .signin-overlay p { color:var(--color-gray-600); margin-bottom:1.5rem; }
-    .signin-overlay .btn { margin:0 auto; }
   </style>
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
-  <header class="site-header">
+  <header>
     <div class="container">
-      <div class="header-container">
-        <div class="logo">
-          <a href="/" style="text-decoration:none;">
-            <span class="brand-name">Hospitality<span class="gold">Recruit</span></span>
-            <div class="logo-tagline">Admin Dashboard</div>
-          </a>
-        </div>
-        <div class="header-actions">
-          <div class="user-badge"><i class="fas fa-user-shield"></i> <span id="adminName">Admin</span></div>
-          <button class="btn btn-outline-gold btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+      <div class="header-flex">
+        <a href="/" class="brand">Hospitality<span class="gold">Recruit</span></a>
+        <div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap;">
+          <span class="user-badge"><i class="fas fa-user-shield"></i> <span id="adminName">Admin</span></span>
+          <button class="btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ===== DASHBOARD ===== -->
-  <section style="padding:2rem 0 4rem;">
-    <div class="container">
+  <!-- ===== MAIN ===== -->
+  <main class="container" style="padding:20px 0;">
+    <h1>Admin Dashboard</h1>
+    <p style="color:#8A8580;margin-bottom:10px;">Manage job postings and employer registrations.</p>
 
-      <h1>Job Approvals</h1>
-      <p style="color:var(--color-gray-600);margin-bottom:1.5rem;">Review and approve job postings submitted by employers.</p>
-
-      <!-- ===== STATS ===== -->
-      <div class="stats-grid" id="statsGrid">
-        <div class="stat-card"><span class="stat-number" id="statTotal">0</span><span class="stat-label">Total Jobs</span></div>
-        <div class="stat-card"><span class="stat-number" id="statPending" style="color:var(--color-emergency);">0</span><span class="stat-label">Pending Review</span></div>
-        <div class="stat-card"><span class="stat-number" id="statApproved" style="color:var(--color-success);">0</span><span class="stat-label">Approved</span></div>
-        <div class="stat-card"><span class="stat-number" id="statRejected" style="color:var(--color-gray-600);">0</span><span class="stat-label">Rejected</span></div>
-      </div>
-
-      <!-- ===== TAB FILTERS ===== -->
-      <div class="tab-filters">
-        <button class="tab-btn active" data-filter="all">All</button>
-        <button class="tab-btn" data-filter="pending">Pending <span class="badge" id="pendingCount">0</span></button>
-        <button class="tab-btn" data-filter="approved">Approved</button>
-        <button class="tab-btn" data-filter="rejected">Rejected</button>
-      </div>
-
-      <!-- ===== JOB LIST ===== -->
-      <div id="jobListContainer">
-        <!-- Will be populated by JavaScript -->
-      </div>
-
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="jobs">Jobs <span class="badge" id="pendingJobBadge">0</span></button>
+      <button class="tab-btn" data-tab="employers">Employers <span class="badge" id="pendingEmployerBadge">0</span></button>
     </div>
-  </section>
 
-  <!-- ===== TOAST ===== -->
+    <!-- Stats -->
+    <div class="stats" id="statsGrid">
+      <div class="stat-card"><span class="stat-number" id="statTotal">0</span><span class="stat-label">Total Jobs</span></div>
+      <div class="stat-card"><span class="stat-number" id="statPending" style="color:#E63946;">0</span><span class="stat-label">Pending Jobs</span></div>
+      <div class="stat-card"><span class="stat-number" id="statApproved" style="color:#2A9D8F;">0</span><span class="stat-label">Approved</span></div>
+      <div class="stat-card"><span class="stat-number" id="statRejected">0</span><span class="stat-label">Rejected</span></div>
+    </div>
+
+    <!-- Filters (Jobs only) -->
+    <div class="filters" id="filterContainer">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending <span id="pendingBadge" style="background:#E63946;color:white;padding:0 8px;border-radius:50px;font-size:0.7rem;margin-left:5px;">0</span></button>
+      <button class="filter-btn" data-filter="approved">Approved</button>
+      <button class="filter-btn" data-filter="rejected">Rejected</button>
+    </div>
+
+    <!-- Content -->
+    <div id="contentContainer">
+      <div class="empty" id="emptyState">
+        <i class="fas fa-inbox"></i>
+        <h3>Nothing to review</h3>
+        <p>All items have been processed.</p>
+      </div>
+      <div class="card-list" id="cardList" style="display:none;"></div>
+    </div>
+  </main>
+
+  <!-- ===== EMPLOYER PROFILE MODAL ===== -->
+  <div class="modal-overlay" id="employerModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -365,15 +512,12 @@
       let db = null;
 
       try {
-        // Check if Firebase is already initialized
         if (!firebase.apps.length) {
           firebase.initializeApp(firebaseConfig);
-          console.log('✅ Firebase initialized');
-        } else {
-          console.log('ℹ️ Firebase already initialized');
         }
         auth = firebase.auth();
         db = firebase.firestore();
+        console.log('✅ Firebase initialized');
       } catch (e) {
         console.warn('⚠️ Firebase init error:', e);
       }
@@ -381,21 +525,29 @@
       // ============================================================
       // 2. DOM REFS
       // ============================================================
-      const container = document.getElementById('jobListContainer');
+      const container = document.getElementById('contentContainer');
+      const cardList = document.getElementById('cardList');
+      const emptyState = document.getElementById('emptyState');
       const statTotal = document.getElementById('statTotal');
       const statPending = document.getElementById('statPending');
       const statApproved = document.getElementById('statApproved');
       const statRejected = document.getElementById('statRejected');
-      const pendingCount = document.getElementById('pendingCount');
-      const adminNameSpan = document.getElementById('adminName');
+      const pendingBadge = document.getElementById('pendingBadge');
+      const pendingJobBadge = document.getElementById('pendingJobBadge');
+      const pendingEmployerBadge = document.getElementById('pendingEmployerBadge');
       const logoutBtn = document.getElementById('logoutBtn');
+      const filterBtns = document.querySelectorAll('.filter-btn');
       const tabBtns = document.querySelectorAll('.tab-btn');
       const toast = document.getElementById('toast');
+      const modal = document.getElementById('employerModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalContent = document.getElementById('modalContent');
 
-      let currentFilter = 'all';
       let allJobs = [];
+      let allEmployers = [];
+      let currentTab = 'jobs';
+      let currentFilter = 'all';
       let toastTimeout = null;
-      let currentUser = null;
 
       // ============================================================
       // 3. AUTH STATE
@@ -403,350 +555,479 @@
       if (auth) {
         auth.onAuthStateChanged(async function(user) {
           if (user) {
-            currentUser = user;
-            adminNameSpan.textContent = user.displayName || user.email || 'Admin';
-            // Check if user is admin in Firestore
+            // Display the admin name (not employer name)
+            document.getElementById('adminName').textContent = user.displayName || 'Admin';
             try {
+              // Check if user is admin in Firestore
               if (db) {
-                const adminDoc = await db.collection('admins').doc(user.uid).get();
-                const isAdmin = adminDoc.exists && adminDoc.data().role === 'admin';
+                const doc = await db.collection('admins').doc(user.uid).get();
+                const isAdmin = doc.exists && doc.data().role === 'admin';
 
                 if (!isAdmin) {
-                  const emailQuery = await db.collection('admins')
-                    .where('email', '==', user.email)
-                    .get();
-                  if (!emailQuery.empty) {
-                    loadAllJobs();
+                  const emailQuery = await db.collection('admins').where('email', '==', user.email).get();
+                  if (emailQuery.empty) {
+                    showToast('Access denied. Admin privileges required.', 'error');
+                    setTimeout(() => window.location.href = '/', 2000);
                     return;
                   }
                 }
-
-                if (isAdmin) {
-                  loadAllJobs();
-                } else {
-                  showToast('Access denied. Admin privileges required.', 'error');
-                  setTimeout(() => { window.location.href = '/'; }, 2000);
-                }
+                // Load data if admin
+                loadAllData();
               } else {
-                loadAllJobs();
+                // No Firestore, load demo data
+                loadDemoData();
               }
             } catch (e) {
-              console.error('Error checking admin status:', e);
-              loadAllJobs();
+              console.error('Error checking admin:', e);
+              loadDemoData();
             }
           } else {
-            // Show sign-in prompt
-            showSignInPrompt();
+            // Not logged in
+            window.location.href = '/employers/login/';
           }
         });
       }
 
       // ============================================================
-      // 4. SIGN-IN PROMPT
+      // 4. LOGOUT
       // ============================================================
-      function showSignInPrompt() {
-        container.innerHTML = `
-          <div class="signin-overlay">
-            <div class="lock-icon"><i class="fas fa-lock"></i></div>
-            <h3>Sign In Required</h3>
-            <p>Please sign in to access the admin dashboard.</p>
-            <button class="btn btn-gold" onclick="signInWithPopup()">
-              <i class="fas fa-sign-in-alt"></i> Sign In
-            </button>
-            <p style="margin-top:1rem;font-size:0.85rem;color:var(--color-gray-600);">
-              Default admin: jobpitality@gmail.com
-            </p>
-          </div>
-        `;
-      }
-
-      // ============================================================
-      // 5. SIGN-IN FUNCTION (Exposed globally)
-      // ============================================================
-      window.signInWithPopup = function() {
-        if (!auth) {
-          alert('Firebase is not configured. Please check your configuration.');
-          return;
-        }
-        const email = prompt('Enter your email:');
-        if (!email) return;
-        const password = prompt('Enter your password:');
-        if (!password) return;
-
-        auth.signInWithEmailAndPassword(email, password)
-          .then(() => {
-            showToast('Signed in successfully!', 'success');
-            location.reload();
-          })
-          .catch(error => {
-            showToast('Error signing in: ' + error.message, 'error');
-          });
-      };
-
-      // ============================================================
-      // 6. LOGOUT (FIXED)
-      // ============================================================
-      if (logoutBtn) {
+      if (logoutBtn && auth) {
         logoutBtn.addEventListener('click', function() {
-          if (!auth) {
-            alert('Firebase is not configured.');
-            return;
-          }
-          auth.signOut()
-            .then(() => {
-              showToast('Signed out successfully!', 'success');
-              // Reload to show sign-in prompt
-              setTimeout(() => {
-                location.reload();
-              }, 1000);
-            })
-            .catch(error => {
-              showToast('Error signing out: ' + error.message, 'error');
-            });
+          auth.signOut().then(function() {
+            window.location.href = '/employers/login/';
+          });
         });
       }
 
       // ============================================================
-      // 7. LOAD ALL JOBS
+      // 5. LOAD ALL DATA
       // ============================================================
-      async function loadAllJobs() {
+      async function loadAllData() {
         if (!db) {
-          loadDemoJobs();
+          loadDemoData();
           return;
         }
-
         try {
-          const snapshot = await db.collection('jobs').get();
-
-          if (snapshot.empty) {
-            showEmptyState();
-            updateStats(0, 0, 0, 0);
-            return;
-          }
-
+          // Load Jobs
+          const jobSnap = await db.collection('jobs').orderBy('postedDate', 'desc').get();
           allJobs = [];
-          snapshot.forEach(function(doc) {
-            const data = doc.data();
-            if (!data.status) {
-              data.status = 'pending';
-            }
+          jobSnap.forEach(function(doc) {
+            var data = doc.data();
+            if (!data.status) data.status = 'pending';
             allJobs.push({ id: doc.id, ...data });
           });
+          console.log('📋 Jobs loaded:', allJobs.length);
 
-          renderJobs(currentFilter);
+          // Load Employers
+          const empSnap = await db.collection('employers').orderBy('createdAt', 'desc').get();
+          allEmployers = [];
+          empSnap.forEach(function(doc) {
+            var data = doc.data();
+            if (!data.status) data.status = 'pending';
+            allEmployers.push({ id: doc.id, ...data });
+          });
+          console.log('👥 Employers loaded:', allEmployers.length);
+
+          // Render everything
+          renderView(currentTab);
           updateStats();
+          updateBadges();
 
-        } catch (error) {
-          console.error('Error loading jobs:', error);
-          showToast('Error loading jobs. Please refresh.', 'error');
-          loadDemoJobs();
+        } catch (e) {
+          console.error('❌ Error loading data:', e);
+          showToast('Error loading data.', 'error');
+          loadDemoData();
         }
       }
 
       // ============================================================
-      // 8. DEMO JOBS (Fallback)
+      // 6. DEMO DATA
       // ============================================================
-      function loadDemoJobs() {
-        const demoData = [
-          { id: 'demo1', jobTitle: 'Executive Chef', companyName: '4T Luxury Hotel', jobLocation: 'Osogbo, Osun', jobType: 'Full-time', jobCategory: 'culinary', jobSalary: '₦8-12M/year', jobTags: ['Fine Dining', 'Leadership'], jobDescription: 'We are seeking a visionary Executive Chef to lead our culinary team.', status: 'pending', postedDate: new Date(), contactName: 'John Doe', companyEmail: 'hr@4tluxury.com' },
-          { id: 'demo2', jobTitle: 'Hotel Manager', companyName: 'Calmcity Hotel', jobLocation: 'Ilorin, Kwara', jobType: 'Full-time', jobCategory: 'hotel', jobSalary: '₦10-15M/year', jobTags: ['Management', 'Operations'], jobDescription: 'Looking for an experienced Hotel Manager.', status: 'approved', postedDate: new Date(Date.now() - 86400000), contactName: 'Jane Smith', companyEmail: 'hr@calmcity.com' }
+      function loadDemoData() {
+        allJobs = [
+          { id: 'demo1', jobTitle: 'Executive Chef', companyName: '4T Luxury Hotel', jobLocation: 'Osogbo', jobType: 'Full-time', jobSalary: '₦8-12M/year', jobTags: ['Fine Dining'], jobDescription: 'Seeking a visionary Executive Chef.', status: 'pending', postedDate: new Date(), contactName: 'John Doe', companyEmail: 'hr@4tluxury.com' },
+          { id: 'demo2', jobTitle: 'Hotel Manager', companyName: 'Calmcity Hotel', jobLocation: 'Ilorin', jobType: 'Full-time', jobSalary: '₦10-15M/year', jobTags: ['Management'], jobDescription: 'Looking for an experienced Hotel Manager.', status: 'approved', postedDate: new Date(Date.now() - 86400000), contactName: 'Jane Smith', companyEmail: 'hr@calmcity.com' }
         ];
-
-        allJobs = demoData;
-        renderJobs(currentFilter);
+        allEmployers = [
+          { id: 'emp1', companyName: '4T Luxury Hotel', contactName: 'John Doe', contactEmail: 'john@4tluxury.com', plan: 'executive', status: 'approved', createdAt: new Date() },
+          { id: 'emp2', companyName: 'Calmcity Hotel', contactName: 'Jane Smith', contactEmail: 'jane@calmcity.com', plan: 'standard', status: 'pending', createdAt: new Date() }
+        ];
+        renderView(currentTab);
         updateStats();
-        showToast('Using demo data. Connect Firebase for live data.', 'info');
+        updateBadges();
+        showToast('Demo mode – sample data loaded.', 'info');
       }
 
       // ============================================================
-      // 9. RENDER JOBS
+      // 7. RENDER VIEW
+      // ============================================================
+      function renderView(tab) {
+        if (tab === 'jobs') {
+          renderJobs(currentFilter);
+        } else {
+          renderEmployers(currentFilter);
+        }
+      }
+
+      // ============================================================
+      // 8. RENDER JOBS
       // ============================================================
       function renderJobs(filter) {
-        const filtered = filter === 'all' ? allJobs : allJobs.filter(function(j) { return j.status === filter; });
-
+        var filtered = filter === 'all' ? allJobs : allJobs.filter(function(j) { return j.status === filter; });
         if (filtered.length === 0) {
-          showEmptyState();
+          showEmpty('No jobs found.');
           return;
         }
 
-        let html = '<div class="job-list">';
-        filtered.forEach(function(job) {
-          const statusClass = job.status || 'pending';
-          const statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+        emptyState.style.display = 'none';
+        cardList.style.display = 'grid';
 
-          let postedDate = 'Recently';
+        var html = '';
+        filtered.forEach(function(job) {
+          var statusClass = job.status || 'pending';
+          var statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+          var postedDate = 'Recently';
           if (job.postedDate) {
             if (job.postedDate.toDate) {
-              postedDate = job.postedDate.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+              postedDate = job.postedDate.toDate().toLocaleDateString();
             } else {
-              postedDate = new Date(job.postedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+              postedDate = new Date(job.postedDate).toLocaleDateString();
             }
           }
-
-          const tags = (job.jobTags || []).map(function(tag) {
-            return '<span class="job-tag">' + tag + '</span>';
+          var tags = (job.jobTags || []).map(function(t) {
+            return '<span class="card-tag">' + t + '</span>';
           }).join('');
 
-          let actions = '';
+          var actions = '';
           if (job.status === 'pending') {
             actions = `
               <button class="btn btn-success btn-sm approve-btn" data-id="${job.id}"><i class="fas fa-check"></i> Approve</button>
               <button class="btn btn-danger btn-sm reject-btn" data-id="${job.id}"><i class="fas fa-times"></i> Reject</button>
             `;
           } else {
-            actions = `
-              <span style="font-size:0.85rem;color:var(--color-gray-600);padding:0.3rem 1rem;background:var(--color-gray-soft);border-radius:50px;">
-                <i class="fas ${job.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle'}"></i>
-                ${statusLabel}
-              </span>
-            `;
+            actions =
+              '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (job.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
           }
 
           html += `
-            <div class="job-card" data-id="${job.id}">
-              <div class="job-header">
-                <div>
-                  <div class="job-title">${job.jobTitle || 'Untitled'}</div>
-                  <div class="job-company"><i class="fas fa-building"></i> ${job.companyName || 'N/A'}</div>
-                </div>
-                <span class="job-status-badge ${statusClass}">${statusLabel}</span>
+            <div class="card" data-id="${job.id}">
+              <div class="header">
+                <div><div class="title">${job.jobTitle || 'Untitled'}</div><div class="sub"><i class="fas fa-building"></i> ${job.companyName || 'N/A'}</div></div>
+                <span class="status-badge ${statusClass}">${statusLabel}</span>
               </div>
-
-              <div class="job-meta">
+              <div class="meta">
                 <span><i class="fas fa-map-marker-alt"></i> ${job.jobLocation || 'N/A'}</span>
                 <span><i class="fas fa-briefcase"></i> ${job.jobType || 'N/A'}</span>
                 <span><i class="fas fa-credit-card"></i> ${job.jobSalary || 'N/A'}</span>
-                <span><i class="fas fa-clock"></i> Posted: ${postedDate}</span>
+                <span><i class="fas fa-clock"></i> ${postedDate}</span>
               </div>
-
-              ${job.jobDescription ? `<div class="job-description">${job.jobDescription}</div>` : ''}
-
-              ${tags ? `<div class="job-tags">${tags}</div>` : ''}
-
-              <div class="job-actions">
-                ${actions}
-              </div>
-              <div class="job-posted">
-                <i class="fas fa-user"></i> Employer: ${job.contactName || 'N/A'} (${job.companyEmail || 'N/A'})
-              </div>
+              ${job.jobDescription ? `<div class="desc">${job.jobDescription}</div>` : ''}
+              ${tags ? `<div style="margin:6px 0;">${tags}</div>` : ''}
+              <div class="card-actions">${actions}</div>
+              <div style="font-size:0.75rem;color:#8A8580;margin-top:6px;"><i class="fas fa-user"></i> ${job.contactName || 'N/A'} (${job.companyEmail || 'N/A'})</div>
             </div>
           `;
         });
-        html += '</div>';
-        container.innerHTML = html;
 
-        // Attach event listeners
+        cardList.innerHTML = html;
+
+        // Attach approve/reject event listeners
         document.querySelectorAll('.approve-btn').forEach(function(btn) {
           btn.addEventListener('click', function() {
-            const jobId = this.dataset.id;
-            updateJobStatus(jobId, 'approved');
+            updateJobStatus(this.dataset.id, 'approved');
           });
         });
-
         document.querySelectorAll('.reject-btn').forEach(function(btn) {
           btn.addEventListener('click', function() {
-            const jobId = this.dataset.id;
-            updateJobStatus(jobId, 'rejected');
+            updateJobStatus(this.dataset.id, 'rejected');
           });
         });
-
-        // Update stats after rendering
-        updateStats();
       }
 
       // ============================================================
-      // 10. UPDATE JOB STATUS
+      // 9. RENDER EMPLOYERS
       // ============================================================
-      async function updateJobStatus(jobId, newStatus) {
-        const btns = document.querySelectorAll(`[data-id="${jobId}"] .btn`);
-        btns.forEach(function(b) { b.disabled = true; });
-
-        if (!db) {
-          const job = allJobs.find(function(j) { return j.id === jobId; });
-          if (job) {
-            job.status = newStatus;
-            renderJobs(currentFilter);
-            updateStats();
-            showToast('Job ' + newStatus + ' successfully!', 'success');
-            btns.forEach(function(b) { b.disabled = false; });
-          }
+      function renderEmployers(filter) {
+        var filtered = filter === 'all' ? allEmployers : allEmployers.filter(function(e) { return e.status === filter; });
+        if (filtered.length === 0) {
+          showEmpty('No employers found.');
           return;
         }
 
-        try {
-          await db.collection('jobs').doc(jobId).update({
-            status: newStatus,
-            approvedDate: firebase.firestore.FieldValue.serverTimestamp(),
-            adminNotes: newStatus === 'approved' ? 'Approved by admin' : 'Rejected by admin'
+        emptyState.style.display = 'none';
+        cardList.style.display = 'grid';
+
+        var html = '';
+        filtered.forEach(function(emp) {
+          var statusClass = emp.status || 'pending';
+          var statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+          var planLabel = emp.plan ? emp.plan.charAt(0).toUpperCase() + emp.plan.slice(1) : 'None';
+          var createdAt = 'Recently';
+          if (emp.createdAt) {
+            if (emp.createdAt.toDate) {
+              createdAt = emp.createdAt.toDate().toLocaleDateString();
+            } else {
+              createdAt = new Date(emp.createdAt).toLocaleDateString();
+            }
+          }
+
+          var actions = '';
+          if (emp.status === 'pending') {
+            actions = `
+              <button class="btn btn-success btn-sm approve-emp-btn" data-id="${emp.id}"><i class="fas fa-check"></i> Approve</button>
+              <button class="btn btn-danger btn-sm reject-emp-btn" data-id="${emp.id}"><i class="fas fa-times"></i> Reject</button>
+            `;
+          } else {
+            actions =
+              '<span style="font-size:0.85rem;color:#8A8580;padding:5px 15px;background:#f4f2ee;border-radius:50px;"><i class="fas ' + (emp.status === 'approved' ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' + statusLabel + '</span>';
+          }
+
+          html += `
+            <div class="card clickable" data-id="${emp.id}" onclick="openEmployerProfile('${emp.id}')">
+              <div class="header">
+                <div><div class="title">${emp.companyName || 'Unnamed Company'}</div><div class="sub"><i class="fas fa-user"></i> ${emp.contactName || 'N/A'}</div></div>
+                <span class="status-badge ${statusClass}">${statusLabel}</span>
+              </div>
+              <div class="meta">
+                <span><i class="fas fa-envelope"></i> ${emp.contactEmail || 'N/A'}</span>
+                <span><i class="fas fa-credit-card"></i> <span class="plan-badge">${planLabel}</span></span>
+                <span><i class="fas fa-clock"></i> Registered: ${createdAt}</span>
+                <span><i class="fas fa-briefcase"></i> Jobs: ${getJobCountForEmployer(emp.id)}</span>
+              </div>
+              <div class="card-actions">${actions}</div>
+            </div>
+          `;
+        });
+
+        cardList.innerHTML = html;
+
+        // Attach employer approve/reject event listeners
+        document.querySelectorAll('.approve-emp-btn').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            updateEmployerStatus(this.dataset.id, 'approved');
           });
-
-          const job = allJobs.find(function(j) { return j.id === jobId; });
-          if (job) job.status = newStatus;
-
-          renderJobs(currentFilter);
-          updateStats();
-          showToast('Job ' + newStatus + ' successfully!', 'success');
-
-        } catch (error) {
-          console.error('Error updating job:', error);
-          showToast('Error updating job status. Please try again.', 'error');
-        }
-
-        btns.forEach(function(b) { b.disabled = false; });
+        });
+        document.querySelectorAll('.reject-emp-btn').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            updateEmployerStatus(this.dataset.id, 'rejected');
+          });
+        });
       }
 
       // ============================================================
-      // 11. UPDATE STATS
+      // 10. EMPLOYER PROFILE MODAL
+      // ============================================================
+      window.openEmployerProfile = function(empId) {
+        var emp = allEmployers.find(function(e) { return e.id === empId; });
+        if (!emp) {
+          showToast('Employer not found.', 'error');
+          return;
+        }
+
+        var jobs = allJobs.filter(function(j) { return j.companyName === emp.companyName || j.employerId === emp.id; });
+
+        var html = `
+          <div class="profile-header">
+            <h2>${emp.companyName}</h2>
+            <span class="status-badge ${emp.status || 'pending'}">${(emp.status || 'pending').toUpperCase()}</span>
+          </div>
+
+          <div class="detail-row"><span class="label">Contact Person</span><span class="value">${emp.contactName || 'N/A'}</span></div>
+          <div class="detail-row"><span class="label">Email</span><span class="value">${emp.contactEmail || 'N/A'}</span></div>
+          <div class="detail-row"><span class="label">Phone</span><span class="value">${emp.contactPhone || 'N/A'}</span></div>
+          <div class="detail-row"><span class="label">Plan</span><span class="value"><span class="plan-badge">${emp.plan ? emp.plan.toUpperCase() : 'None'}</span></span></div>
+          <div class="detail-row"><span class="label">Industry</span><span class="value">${emp.industry || 'N/A'}</span></div>
+          <div class="detail-row"><span class="label">Registered</span><span class="value">${emp.createdAt ? (emp.createdAt.toDate ? emp.createdAt.toDate().toLocaleDateString() : new Date(emp.createdAt).toLocaleDateString()) : 'Recently'}</span></div>
+        `;
+
+        if (jobs.length > 0) {
+          html += `
+            <h3 style="margin-top:20px;margin-bottom:10px;font-family:'Playfair Display',serif;">Jobs Posted (${jobs.length})</h3>
+            <div class="job-list">
+          `;
+          jobs.forEach(function(j) {
+            html += `
+              <div class="job-item">
+                <span class="job-title">${j.jobTitle || 'Untitled'}</span>
+                <span class="job-status status-badge ${j.status || 'pending'}">${(j.status || 'pending').toUpperCase()}</span>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        } else {
+          html += `<p style="color:#8A8580;margin-top:15px;">No jobs posted yet.</p>`;
+        }
+
+        if (emp.status === 'pending') {
+          html += `
+            <div style="margin-top:20px;padding-top:15px;border-top:1px solid #f4f2ee;display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn btn-success" onclick="updateEmployerStatus('${emp.id}', 'approved'); closeModal();"><i class="fas fa-check"></i> Approve Employer</button>
+              <button class="btn btn-danger" onclick="updateEmployerStatus('${emp.id}', 'rejected'); closeModal();"><i class="fas fa-times"></i> Reject Employer</button>
+            </div>
+          `;
+        } else {
+          html += `
+            <div style="margin-top:20px;padding-top:15px;border-top:1px solid #f4f2ee;display:flex;gap:10px;flex-wrap:wrap;">
+              <span style="color:#8A8580;">Status: ${(emp.status || 'pending').toUpperCase()}</span>
+            </div>
+          `;
+        }
+
+        modalContent.innerHTML = html;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeModal = function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      };
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // ============================================================
+      // 11. HELPER FUNCTIONS
+      // ============================================================
+      function getJobCountForEmployer(empId) {
+        var emp = allEmployers.find(function(e) { return e.id === empId; });
+        if (!emp) return 0;
+        return allJobs.filter(function(j) { return j.companyName === emp.companyName || j.employerId === emp.id; }).length;
+      }
+
+      // ============================================================
+      // 12. UPDATE FUNCTIONS
+      // ============================================================
+      async function updateJobStatus(jobId, newStatus) {
+        if (!db) {
+          var job = allJobs.find(function(j) { return j.id === jobId; });
+          if (job) {
+            job.status = newStatus;
+            renderView(currentTab);
+            updateStats();
+            updateBadges();
+            showToast('Job ' + newStatus + '!', 'success');
+          }
+          return;
+        }
+        try {
+          await db.collection('jobs').doc(jobId).update({
+            status: newStatus,
+            approvedDate: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          var job = allJobs.find(function(j) { return j.id === jobId; });
+          if (job) job.status = newStatus;
+          renderView(currentTab);
+          updateStats();
+          updateBadges();
+          showToast('Job ' + newStatus + '!', 'success');
+        } catch (e) {
+          showToast('Error updating job.', 'error');
+        }
+      }
+
+      async function updateEmployerStatus(empId, newStatus) {
+        if (!db) {
+          var emp = allEmployers.find(function(e) { return e.id === empId; });
+          if (emp) {
+            emp.status = newStatus;
+            renderView(currentTab);
+            updateBadges();
+            showToast('Employer ' + newStatus + '!', 'success');
+            closeModal();
+          }
+          return;
+        }
+        try {
+          await db.collection('employers').doc(empId).update({
+            status: newStatus,
+            approvedDate: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          var emp = allEmployers.find(function(e) { return e.id === empId; });
+          if (emp) emp.status = newStatus;
+          renderView(currentTab);
+          updateBadges();
+          showToast('Employer ' + newStatus + '!', 'success');
+          closeModal();
+        } catch (e) {
+          showToast('Error updating employer.', 'error');
+        }
+      }
+
+      // ============================================================
+      // 13. STATS & BADGES
       // ============================================================
       function updateStats() {
-        const total = allJobs.length;
-        const pending = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
-        const approved = allJobs.filter(function(j) { return j.status === 'approved'; }).length;
-        const rejected = allJobs.filter(function(j) { return j.status === 'rejected'; }).length;
-
+        var total = allJobs.length;
+        var pending = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
+        var approved = allJobs.filter(function(j) { return j.status === 'approved'; }).length;
+        var rejected = allJobs.filter(function(j) { return j.status === 'rejected'; }).length;
         statTotal.textContent = total;
         statPending.textContent = pending;
         statApproved.textContent = approved;
         statRejected.textContent = rejected;
-        pendingCount.textContent = pending;
+        pendingBadge.textContent = pending;
+      }
+
+      function updateBadges() {
+        var pendingJobs = allJobs.filter(function(j) { return j.status === 'pending'; }).length;
+        var pendingEmps = allEmployers.filter(function(e) { return e.status === 'pending'; }).length;
+        pendingJobBadge.textContent = pendingJobs;
+        pendingEmployerBadge.textContent = pendingEmps;
       }
 
       // ============================================================
-      // 12. EMPTY STATE
+      // 14. EMPTY STATE
       // ============================================================
-      function showEmptyState() {
-        container.innerHTML = `
-          <div class="empty-state">
-            <i class="fas fa-inbox"></i>
-            <h3>No jobs to review</h3>
-            <p>All job postings have been reviewed. Check back later for new submissions.</p>
-          </div>
-        `;
+      function showEmpty(msg) {
+        emptyState.style.display = 'block';
+        cardList.style.display = 'none';
+        emptyState.querySelector('p').textContent = msg;
       }
 
       // ============================================================
-      // 13. TOAST
+      // 15. TOAST
       // ============================================================
-      function showToast(message, type) {
-        toast.textContent = message;
+      function showToast(msg, type) {
+        toast.textContent = msg;
         toast.className = 'toast ' + type;
+        // Force reflow
         void toast.offsetWidth;
         toast.classList.add('show');
         if (toastTimeout) clearTimeout(toastTimeout);
         toastTimeout = setTimeout(function() {
           toast.classList.remove('show');
-        }, 4000);
+        }, 3000);
       }
 
       // ============================================================
-      // 14. TAB FILTERS
+      // 16. FILTERS & TABS
       // ============================================================
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          currentFilter = this.dataset.filter;
+          renderView(currentTab);
+        });
+      });
+
       tabBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           tabBtns.forEach(function(b) { b.classList.remove('active'); });
           this.classList.add('active');
-          currentFilter = this.dataset.filter;
-          renderJobs(currentFilter);
+          currentTab = this.dataset.tab;
+          // Show/hide filters based on tab
+          document.getElementById('filterContainer').style.display = currentTab === 'jobs' ? 'flex' : 'none';
+          renderView(currentTab);
         });
       });
 

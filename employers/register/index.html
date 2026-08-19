@@ -125,7 +125,7 @@
     <div class="form-error" id="formError"><i class="fas fa-exclamation-circle"></i> <span id="errorMessage">Please correct the errors below.</span></div>
     <div class="form-success" id="formSuccess"><div class="icon"><i class="fas fa-check-circle"></i></div><h3>Account Created!</h3><p>Your employer account has been created. You will receive a confirmation email once approved.</p></div>
 
-    <form id="registerForm">
+    <form id="registerForm" novalidate>
       <div class="form-row">
         <div class="form-group"><label>Company Name <span class="required">*</span></label><input type="text" id="companyName" placeholder="e.g. 4T Luxury Hotel" required /></div>
         <div class="form-group"><label>Industry <span class="required">*</span></label>
@@ -180,6 +180,10 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+      // ============================================================
+      // FIREBASE CONFIG
+      // ============================================================
       const firebaseConfig = {
         apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
         authDomain: "jobpitality-1cfb2.firebaseapp.com",
@@ -189,13 +193,26 @@
         appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8"
       };
 
-      let auth = null, db = null;
+      let auth = null;
+      let db = null;
+      let firebaseReady = false;
+
       try {
-        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+          console.log('✅ Firebase initialized');
+        }
         auth = firebase.auth();
         db = firebase.firestore();
-      } catch (e) { console.warn('Firebase init error:', e); }
+        firebaseReady = true;
+      } catch (e) {
+        console.warn('⚠️ Firebase init error:', e);
+        firebaseReady = false;
+      }
 
+      // ============================================================
+      // DOM REFS
+      // ============================================================
       const form = document.getElementById('registerForm');
       const registerBtn = document.getElementById('registerBtn');
       const formError = document.getElementById('formError');
@@ -216,17 +233,19 @@
       });
 
       // ============================================================
-      // AUTH CHECK
+      // AUTH CHECK – Redirect if already logged in
       // ============================================================
       if (auth) {
         auth.onAuthStateChanged(function(user) {
           if (user) {
             // Check if user is approved
-            db.collection('employers').doc(user.uid).get().then(doc => {
-              if (doc.exists && doc.data().status === 'approved') {
-                window.location.href = '/employers/dashboard/';
-              }
-            }).catch(() => {});
+            if (db) {
+              db.collection('employers').doc(user.uid).get().then(doc => {
+                if (doc.exists && doc.data().status === 'approved') {
+                  window.location.href = '/employers/dashboard/';
+                }
+              }).catch(() => {});
+            }
           }
         });
       }
@@ -237,9 +256,14 @@
       if (form) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
+
+          // Hide previous messages
           formError.style.display = 'none';
           formSuccess.style.display = 'none';
 
+          // ============================================================
+          // VALIDATE
+          // ============================================================
           const data = {
             companyName: document.getElementById('companyName').value.trim(),
             industry: document.getElementById('industry').value,
@@ -252,28 +276,51 @@
             terms: document.getElementById('terms').checked
           };
 
-          // --- VALIDATION ---
           if (!data.companyName || !data.industry || !data.contactName || !data.contactPhone || !data.email || !data.password || !data.confirmPassword) {
             showError('Please fill in all required fields.');
             return;
           }
-          if (data.password.length < 6) { showError('Password must be at least 6 characters.'); return; }
-          if (data.password !== data.confirmPassword) { showError('Passwords do not match.'); return; }
-          if (!data.plan) { showError('Please select a payment plan.'); return; }
-          if (!data.terms) { showError('You must agree to the Terms of Service and Privacy Policy.'); return; }
+          if (data.password.length < 6) {
+            showError('Password must be at least 6 characters.');
+            return;
+          }
+          if (data.password !== data.confirmPassword) {
+            showError('Passwords do not match.');
+            return;
+          }
+          if (!data.plan) {
+            showError('Please select a payment plan.');
+            return;
+          }
+          if (!data.terms) {
+            showError('You must agree to the Terms of Service and Privacy Policy.');
+            return;
+          }
 
+          // ============================================================
+          // CHECK FIREBASE
+          // ============================================================
+          if (!firebaseReady || !auth || !db) {
+            showError('Firebase is not available. Please check your internet connection.');
+            return;
+          }
+
+          // ============================================================
+          // SUBMIT
+          // ============================================================
           registerBtn.disabled = true;
           registerBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
 
           try {
-            if (!auth || !db) throw new Error('Firebase not available');
-
-            // Create user
+            // Create user with email and password
             const userCredential = await auth.createUserWithEmailAndPassword(data.email, data.password);
-            await userCredential.user.updateProfile({ displayName: data.companyName });
+            const user = userCredential.user;
 
-            // Save to Firestore with plan and status: pending
-            await db.collection('employers').doc(userCredential.user.uid).set({
+            // Update profile with company name
+            await user.updateProfile({ displayName: data.companyName });
+
+            // Save employer data to Firestore
+            await db.collection('employers').doc(user.uid).set({
               companyName: data.companyName,
               industry: data.industry,
               contactName: data.contactName,
@@ -282,38 +329,53 @@
               plan: data.plan,
               status: 'pending',
               createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-              uid: userCredential.user.uid
+              uid: user.uid
             });
 
             // Show success
             formSuccess.style.display = 'block';
             form.style.display = 'none';
 
-            // Send notification to admin (optional - via email or function)
-            // You can add a Firebase Cloud Function here to notify admin
-
+            // Redirect to login page after 3 seconds
             setTimeout(function() {
               window.location.href = '/employers/login/';
             }, 3000);
 
           } catch (error) {
-            let msg = 'Registration failed.';
-            if (error.code === 'auth/email-already-in-use') msg = 'This email is already registered. Please sign in.';
-            else if (error.code === 'auth/weak-password') msg = 'Password is too weak.';
-            else msg += ' ' + error.message;
+            console.error('Registration error:', error);
+
+            let msg = 'Registration failed. ';
+            if (error.code === 'auth/email-already-in-use') {
+              msg = 'This email is already registered. Please sign in.';
+            } else if (error.code === 'auth/weak-password') {
+              msg = 'Password is too weak. Use at least 6 characters.';
+            } else if (error.code === 'auth/invalid-email') {
+              msg = 'Please enter a valid email address.';
+            } else if (error.code === 'auth/network-request-failed') {
+              msg = 'Network error. Please check your internet connection.';
+            } else {
+              msg += error.message;
+            }
             showError(msg);
           }
 
+          // Reset button
           registerBtn.disabled = false;
           registerBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create Account';
         });
       }
 
+      // ============================================================
+      // HELPERS
+      // ============================================================
       function showError(msg) {
         errorMessage.textContent = msg;
         formError.style.display = 'block';
-        setTimeout(function() { formError.style.display = 'none'; }, 5000);
+        setTimeout(function() {
+          formError.style.display = 'none';
+        }, 5000);
       }
+
     });
   </script>
 </body>
