@@ -695,6 +695,63 @@
         font-weight: 500;
       }
 
+      /* ===== POST A JOB CTA BANNER ===== */
+      .post-job-cta {
+        padding: 3rem 0;
+        background: linear-gradient(135deg, #0f2844 0%, #1a3a5c 100%);
+        color: var(--color-white);
+        text-align: center;
+        border-top: 3px solid var(--color-gold);
+        border-bottom: 3px solid var(--color-gold);
+      }
+      .post-job-cta h2 {
+        color: var(--color-white);
+        margin-bottom: 0.5rem;
+      }
+      .post-job-cta .lead {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.05rem;
+      }
+      .post-job-cta .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (min-width: 640px) {
+        .post-job-cta .btn-group {
+          flex-direction: row;
+          gap: 1.5rem;
+        }
+      }
+      .post-job-cta .btn-group .btn-gold {
+        background: var(--color-gold);
+        color: var(--color-primary);
+        font-weight: 800;
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+      }
+      .post-job-cta .btn-group .btn-gold:hover {
+        background: var(--color-gold-light);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+      }
+      .post-job-cta .btn-group .btn-outline-white {
+        background: transparent;
+        color: var(--color-white);
+        border: 2px solid var(--color-white);
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+      }
+      .post-job-cta .btn-group .btn-outline-white:hover {
+        background: var(--color-white);
+        color: var(--color-primary);
+        transform: translateY(-3px);
+      }
+
       /* ===== CLIENTS SLIDER ===== */
       .clients-slider {
         padding: 2.5rem 0;
@@ -1098,16 +1155,15 @@
                   ><i class="fas fa-home"></i> Home</a
                 >
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a
                   href="/admin/dashboard/"
                   class="nav-link"
-                  style="color: var(--color-emergency)"
+                  style="color: var(--color-emergency); font-weight: 700"
                 >
-                  <i class="fas fa-user-shield"></i> Admin Panel
+                  <i class="fas fa-user-shield"></i> Admin
                 </a>
-              </li> -->
-
+              </li>
               <li class="nav-item">
                 <a href="/services/index.html" class="nav-link"
                   ><i class="fas fa-info-circle"></i> Services</a
@@ -1120,17 +1176,6 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                  <a href="/employers/post-job/" class="dropdown-item"
-                    ><i class="fas fa-plus-circle"></i> Post a Job</a
-                  >
-                  <a href="/employers/search-talent/" class="dropdown-item"
-                    ><i class="fas fa-search"></i> Search Talent</a
-                  >
-                  <a href="/employers/pricing/" class="dropdown-item"
-                    ><i class="fas fa-tag"></i> Pricing</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <!-- NEW: Employer Dashboard -->
                   <a
                     href="/employers/dashboard/"
                     class="dropdown-item"
@@ -1138,18 +1183,23 @@
                   >
                     <i class="fas fa-tachometer-alt"></i> Employer Dashboard
                   </a>
-                  <!-- NEW: Admin Panel -->
-                  <a
-                    href="/admin/dashboard/"
-                    class="dropdown-item"
-                    style="color: var(--color-emergency); font-weight: 600"
-                  >
-                    <i class="fas fa-user-shield"></i> Admin Panel
+                  <div class="dropdown-divider"></div>
+                  <a href="/employers/register/" class="dropdown-item">
+                    <i class="fas fa-user-plus"></i> Register as Employer
+                  </a>
+                  <a href="/employers/login/" class="dropdown-item">
+                    <i class="fas fa-sign-in-alt"></i> Login
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="/employers/start-search/" class="dropdown-item"
-                    ><i class="fas fa-rocket"></i> Start a Search</a
-                  >
+                  <a href="/employers/search-talent/" class="dropdown-item">
+                    <i class="fas fa-search"></i> Search Talent
+                  </a>
+                  <a href="/employers/pricing/" class="dropdown-item">
+                    <i class="fas fa-tag"></i> Pricing
+                  </a>
+                  <a href="/employers/start-search/" class="dropdown-item">
+                    <i class="fas fa-rocket"></i> Start a Search
+                  </a>
                 </div>
               </li>
 
@@ -1190,9 +1240,6 @@
               <a href="/employers/login/" class="nav-cta">
                 <i class="fas fa-sign-in-alt"></i> Sign In
               </a>
-              <!-- <a href="tel:+2348039661354" class="nav-cta nav-cta-outline">
-                <i class="fas fa-phone"></i> +234 803 966 1354
-              </a> -->
               <a href="/contact/" class="nav-cta nav-cta-outline">
                 <i class="fas fa-handshake"></i> Partner With Us
               </a>
@@ -1251,6 +1298,39 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== POST A JOB CTA BANNER (NEW) ===== -->
+    <section class="post-job-cta">
+      <div class="container">
+        <h2>
+          Post a Job &amp; Find
+          <span style="color: var(--color-gold)">Elite Talent</span>
+        </h2>
+        <p class="lead">
+          Are you looking to hire top hospitality professionals? Create an
+          employer account, choose a plan, and post your job openings to reach
+          Nigeria's best talent.
+        </p>
+        <div class="btn-group">
+          <a href="/employers/register/" class="btn btn-gold">
+            <i class="fas fa-plus-circle"></i> Post a Job Now
+          </a>
+          <a href="/employers/login/" class="btn btn-outline-white">
+            <i class="fas fa-sign-in-alt"></i> Employer Login
+          </a>
+        </div>
+        <p
+          style="
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1rem;
+          "
+        >
+          <i class="fas fa-lock"></i> Registration is free. Choose a plan when
+          you're ready to post.
+        </p>
       </div>
     </section>
 
